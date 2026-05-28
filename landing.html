@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Time Buyers Bible | E-Magazine</title>
+  <meta
+    name="description"
+    content="First Time Buyers Bible is the essential e-magazine for first-time home buyers, packed with practical advice, expert guidance, and confidence-building tips."
+  />
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #1d4ed8;
+      --primary-dark: #1e40af;
+      --accent: #f59e0b;
+      --border: #e5e7eb;
+      --success: #065f46;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 2rem, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.95rem 1.4rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(29, 78, 216, 0.08);
+    }
+
+    header {
+      background: linear-gradient(135deg, #fff 0%, #eef4ff 100%);
+      padding: 1rem 0 5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0 2rem;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 4rem);
+      line-height: 1.08;
+      margin: 0 0 1rem;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+      max-width: 60ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      color: var(--success);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .cover {
+      background: linear-gradient(160deg, #1d4ed8, #3b82f6 60%, #93c5fd);
+      min-height: 420px;
+      border-radius: 22px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .cover small {
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.9;
+    }
+
+    .cover h2 {
+      font-size: 2rem;
+      line-height: 1.15;
+      margin: 1rem 0;
+    }
+
+    .cover p {
+      margin: 0;
+      color: rgba(255,255,255,0.9);
+    }
+
+    section {
+      padding: 4.5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .topics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+
+    .topic {
+      background: #fff;
+      border-left: 5px solid var(--accent);
+      border-radius: 14px;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+    }
+
+    .topic h3 {
+      margin: 0 0 0.5rem;
+    }
+
+    .topic p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .cta {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white;
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      margin-top: 0;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+    }
+
+    .cta p {
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      color: rgba(255,255,255,0.9);
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-3,
+      .topics {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+
+      header {
+        padding-bottom: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div class="logo">First Time Buyers Bible</div>
+        <a class="btn btn-secondary" href="#download">Get the E-Magazine</a>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <h1>Your trusted guide to buying your first home with confidence.</h1>
+          <p>
+            First Time Buyers Bible is a practical e-magazine designed to help
+            first-time buyers understand the property journey, avoid costly
+            mistakes, and make informed decisions from start to finish.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#download">Download Now</a>
+            <a class="btn btn-secondary" href="#inside">See What’s Inside</a>
+          </div>
+
+          <div class="hero-points">
+            <span>✔ Mortgage basics explained</span>
+            <span>✔ Budgeting tips</span>
+            <span>✔ Viewing and inspection guidance</span>
+            <span>✔ Offer and closing advice</span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="cover">
+            <div>
+              <small>E-Magazine</small>
+              <h2>First Time Buyers Bible</h2>
+              <p>
+                Clear, practical, and confidence-building advice for every step
+                of your first home purchase.
+              </p>
+            </div>
+            <p><strong>Includes:</strong> affordability, mortgages, offers, inspections, and closing tips.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="inside">
+      <div class="container">
+        <div class="section-title">
+          <h2>Everything you need to know before you buy</h2>
+          <p>
+            From your first budget worksheet to getting the keys, this
+            e-magazine gives you practical insights for every stage of the
+            journey.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Understand your budget</h3>
+            <p>
+              Learn what you can realistically afford, how to prepare for a
+              deposit, and what hidden costs to expect.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Navigate mortgages with clarity</h3>
+            <p>
+              Break down confusing mortgage terms, compare options, and feel
+              more confident when speaking with lenders.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Avoid common first-time buyer mistakes</h3>
+            <p>
+              Get guidance on viewings, inspections, offers, paperwork, and
+              timelines so you can move forward with confidence.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Featured topics inside the guide</h2>
+          <p>
+            A practical breakdown of the questions first-time buyers ask most.
+          </p>
+        </div>
+
+        <div class="topics">
+          <div class="topic">
+            <h3>How much can you afford?</h3>
+            <p>
+              Understand income, monthly payments, deposit planning, and ongoing
+              ownership costs.
+            </p>
+          </div>
+          <div class="topic">
+            <h3>Mortgages made simple</h3>
+            <p>
+              Explore rates, repayment types, approvals, and what lenders
+              usually look for.
+            </p>
+          </div>
+          <div class="topic">
+            <h3>Home viewings and inspections</h3>
+            <p>
+              Know what to look for during property visits and how inspections
+              can protect your investment.
+            </p>
+          </div>
+          <div class="topic">
+            <h3>Making an offer and closing</h3>
+            <p>
+              Learn how negotiations work, what paperwork to expect, and how to
+              prepare for completion day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Who is this for?</h2>
+          <p>
+            If you’re entering the property market for the first time, this
+            guide was made for you.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>First-time buyers</h3>
+            <p>
+              Perfect for anyone preparing to buy their first property and
+              looking for a trusted roadmap.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Renters ready to own</h3>
+            <p>
+              A helpful transition guide for renters who want to understand the
+              home-buying process step by step.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Young couples and families</h3>
+            <p>
+              Practical advice for planning, budgeting, and making informed
+              property decisions together.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container">
+        <div class="cta">
+          <h2>Start your home-buying journey with confidence</h2>
+          <p>
+            Download the First Time Buyers Bible e-magazine and get the tools,
+            insights, and clarity you need to make smarter property decisions.
+          </p>
+          <a class="btn btn-primary" href="mailto:hello@example.com?subject=First%20Time%20Buyers%20Bible%20Download">
+            Request Your Copy
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 First Time Buyers Bible. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
