@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>First Time Buyer's Bible Ireland | Coming Soon</title>
+  <meta name="description" content="Ireland's upcoming platform for first-time buyers — property insights, mortgage guidance, sustainability, interiors, and real-world buyer advice." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ftbb.ie/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="First Time Buyer's Bible Ireland" />
+  <meta property="og:title" content="First Time Buyer's Bible Ireland | Coming Soon" />
+  <meta property="og:description" content="Ireland's upcoming platform for first-time buyers — property insights, mortgage guidance, sustainability, interiors, and real-world buyer advice." />
+  <meta property="og:image" content="./ftbblogo.jpg" />
+  <meta property="og:image:alt" content="First Time Buyer's Bible Ireland logo" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="First Time Buyer's Bible Ireland | Coming Soon" />
+  <meta name="twitter:description" content="Ireland's upcoming platform for first-time buyers — property insights, mortgage guidance, sustainability, interiors, and real-world buyer advice." />
+  <meta name="twitter:image" content="./ftbblogo.jpg" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23111'/><text x='16' y='21' font-family='Georgia,serif' font-size='10' font-weight='700' fill='white' text-anchor='middle'>FTBB</text></svg>" />
+  <link rel="apple-touch-icon" href="./ftbblogo.jpg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* ── BASE ── */
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fafafa;
+      color: #111;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ── BACKGROUND ── */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 55% at 50% -5%, rgba(160,155,145,0.14) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 45% at 90% 105%, rgba(180,175,165,0.09) 0%, transparent 60%),
+        #fafafa;
+    }
+
+    /* Subtle texture */
+    .page-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(0,0,0,0.018) 79px, rgba(0,0,0,0.018) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(0,0,0,0.018) 79px, rgba(0,0,0,0.018) 80px);
+    }
+
+    /* ── PAGE WRAP ── */
+    .page-wrap {
+      position: relative;
+      z-index: 1;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100dvh - 72px);
+      padding: 5rem 1.5rem 3rem;
+      text-align: center;
+    }
+
+    /* ── LOGO ── */
+    .logo-wrap {
+      margin-bottom: 3rem;
+      animation: fadeUp 1s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .logo-img {
+      width: auto;
+      height: auto;
+      max-width: min(260px, 55vw);
+      margin: 0 auto;
+      /* Logo has white bg — blend it seamlessly */
+      mix-blend-mode: multiply;
+    }
+
+    /* ── COMING SOON LABEL ── */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1.6rem;
+      animation: fadeUp 1s 0.1s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: #ccc;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 660px;
+      width: 100%;
+    }
+
+    .headline {
+      font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.25rem, 5.8vw, 3.75rem);
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      color: #111;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 1s 0.18s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .subtext {
+      font-size: clamp(0.9rem, 1.9vw, 1.03rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: #777;
+      max-width: 520px;
+      margin: 0 auto 2.75rem;
+      animation: fadeUp 1s 0.26s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    /* ── CTA ── */
+    .cta-wrap {
+      margin-bottom: 3.25rem;
+      animation: fadeUp 1s 0.34s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .btn-instagram {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 1rem 2.1rem;
+      background: #111;
+      color: #fff;
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: none;
+      transition:
+        background 0.24s ease,
+        transform 0.24s cubic-bezier(0.22,1,0.36,1),
+        box-shadow 0.24s ease;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.13);
+      min-width: 220px;
+    }
+
+    .btn-instagram:hover {
+      background: #1a1a1a;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .btn-instagram:active {
+      transform: translateY(-1px);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.13);
+    }
+
+    .btn-instagram:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 4px;
+    }
+
+    .ig-icon {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    /* ── TAGLINE RULE ── */
+    .tagline-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      animation: fadeUp 1s 0.42s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .tagline-bar::before,
+    .tagline-bar::after {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: #ddd;
+    }
+
+    .tagline-text {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #bbb;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 1.5rem 2rem;
+      border-top: 1px solid rgba(0,0,0,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: #666;
+    }
+
+    .footer-ig {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      transition: color 0.2s ease;
+    }
+
+    .footer-ig:hover {
+      color: #111;
+    }
+
+    .footer-ig:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .footer-ig svg {
+      width: 14px;
+      height: 14px;
+      flex-shrink: 0;
+    }
+
+    .footer-copy {
+      font-size: 0.68rem;
+      color: #ccc;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 500px) {
+      .page-wrap {
+        padding: 4rem 1.25rem 2.5rem;
+        min-height: calc(100dvh - 90px);
+      }
+
+      .logo-img {
+        max-width: min(200px, 60vw);
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+        padding: 1.5rem 1.25rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .headline {
+        font-size: 2rem;
+      }
+
+      .btn-instagram {
+        width: 100%;
+        min-width: unset;
+      }
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      .logo-wrap,
+      .eyebrow,
+      .headline,
+      .subtext,
+      .cta-wrap,
+      .tagline-bar {
+        animation: none;
+      }
+
+      .btn-instagram:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-bg" aria-hidden="true"></div>
+
+  <main class="page-wrap">
+
+    <!-- Logo -->
+    <div class="logo-wrap">
+      <img
+        src="./ftbblogo.jpg"
+        alt="First Time Buyer's Bible Ireland"
+        class="logo-img"
+        width="260"
+        height="130"
+        loading="eager"
+        decoding="async"
+      />
+    </div>
+
+    <section class="hero" aria-labelledby="hero-heading">
+
+      <!-- Coming Soon label -->
+      <p class="eyebrow" aria-label="Status: Coming Soon">Coming Soon</p>
+
+      <!-- Headline -->
+      <h1 id="hero-heading" class="headline">
+        Ireland's New Platform<br>For First&#8209;Time Buyers
+      </h1>
+
+      <!-- Supporting text -->
+      <p class="subtext">
+        Property insights, mortgage guidance, buyer tips, sustainability, interiors, and real-world advice for people navigating the Irish housing market.
+      </p>
+
+      <!-- Instagram CTA -->
+      <div class="cta-wrap">
+        <a
+          href="https://www.instagram.com/first_timebuyerire/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-instagram"
+          aria-label="Follow First Time Buyer's Bible Ireland on Instagram (opens in new tab)"
+        >
+          <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+          Follow On Instagram
+        </a>
+      </div>
+
+      <!-- Tagline / social proof strip -->
+      <p class="tagline-bar" aria-label="Launch announcement">
+        <span class="tagline-text">Launching soon &nbsp;·&nbsp; Follow for updates, editions &amp; buyer insights</span>
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="footer-brand">First Time Buyer's Bible Ireland</span>
+    <a
+      href="https://www.instagram.com/first_timebuyerire/"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer-ig"
+      aria-label="Instagram: @first_timebuyerire (opens in new tab)"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+      </svg>
+      @first_timebuyerire
+    </a>
+    <span class="footer-copy">&copy; 2026 FTBB Ireland</span>
+  </footer>
+
+</body>
+</html>
