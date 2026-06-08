@@ -181,9 +181,10 @@
     .cta-buttons {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       gap: 0.75rem;
-      width: 100%;
+      width: fit-content;
+      max-width: 100%;
     }
 
     .btn-instagram {
@@ -207,7 +208,6 @@
         transform 0.24s cubic-bezier(0.22,1,0.36,1),
         box-shadow 0.24s ease;
       box-shadow: 0 2px 20px rgba(0,0,0,0.13);
-      min-width: 220px;
     }
 
     .btn-instagram:hover {
@@ -254,7 +254,6 @@
         border-color 0.24s ease,
         transform 0.24s cubic-bezier(0.22,1,0.36,1),
         box-shadow 0.24s ease;
-      min-width: 220px;
     }
 
     .btn-touch:hover {
@@ -493,8 +492,7 @@
         align-items: center;
       }
 
-      .btn-touch {
-        min-width: unset;
+      .cta-buttons {
         width: 100%;
       }
 
@@ -512,10 +510,8 @@
         font-size: 2rem;
       }
 
-      .btn-instagram,
-      .btn-touch {
+      .cta-buttons {
         width: 100%;
-        min-width: unset;
       }
     }
 
