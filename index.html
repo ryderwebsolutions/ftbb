@@ -81,7 +81,6 @@
         #fafafa;
     }
 
-    /* Subtle texture */
     .page-bg::after {
       content: '';
       position: absolute;
@@ -172,6 +171,19 @@
     .cta-wrap {
       margin-bottom: 3.25rem;
       animation: fadeUp 1s 0.34s cubic-bezier(0.22,1,0.36,1) both;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      width: 100%;
     }
 
     .btn-instagram {
@@ -220,6 +232,139 @@
       flex-shrink: 0;
     }
 
+    /* ── GET IN TOUCH ── */
+    .btn-touch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      padding: 1rem 2.1rem;
+      background: transparent;
+      color: #111;
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid rgba(0,0,0,0.25);
+      transition:
+        background 0.24s ease,
+        border-color 0.24s ease,
+        transform 0.24s cubic-bezier(0.22,1,0.36,1),
+        box-shadow 0.24s ease;
+      min-width: 220px;
+    }
+
+    .btn-touch:hover {
+      background: rgba(0,0,0,0.04);
+      border-color: rgba(0,0,0,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+
+    .btn-touch:active {
+      transform: translateY(0);
+    }
+
+    .btn-touch:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 4px;
+    }
+
+    .touch-icon {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    /* ── CONTACT FORM ── */
+    .contact-form {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      margin-top: 0;
+      width: 100%;
+      transition:
+        max-height 0.4s cubic-bezier(0.22,1,0.36,1),
+        opacity 0.35s ease,
+        margin-top 0.4s ease;
+    }
+
+    .contact-form.open {
+      max-height: 200px;
+      opacity: 1;
+      margin-top: 1rem;
+    }
+
+    .contact-form-inner {
+      display: flex;
+      gap: 0.5rem;
+      align-items: stretch;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .contact-input {
+      flex: 1 1 220px;
+      max-width: 320px;
+      padding: 0.85rem 1rem;
+      border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: #111;
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .contact-input:focus {
+      border-color: rgba(0,0,0,0.6);
+      box-shadow: 0 0 0 2px rgba(0,0,0,0.06);
+    }
+
+    .contact-input::placeholder {
+      color: #bbb;
+      font-weight: 300;
+    }
+
+    .contact-input.invalid {
+      border-color: #c0392b;
+    }
+
+    .btn-send {
+      padding: 0.85rem 1.6rem;
+      background: #111;
+      color: #fff;
+      border: none;
+      border-radius: 2px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-send:hover {
+      background: #1a1a1a;
+      transform: translateY(-1px);
+    }
+
+    .btn-send:active {
+      transform: none;
+    }
+
+    .btn-send:focus-visible {
+      outline: 2px solid #111;
+      outline-offset: 4px;
+    }
+
     /* ── TAGLINE RULE ── */
     .tagline-bar {
       display: inline-flex;
@@ -266,7 +411,15 @@
       color: #666;
     }
 
-    .footer-ig {
+    .footer-links {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-ig,
+    .footer-email {
       display: inline-flex;
       align-items: center;
       gap: 0.45rem;
@@ -278,17 +431,20 @@
       transition: color 0.2s ease;
     }
 
-    .footer-ig:hover {
+    .footer-ig:hover,
+    .footer-email:hover {
       color: #111;
     }
 
-    .footer-ig:focus-visible {
+    .footer-ig:focus-visible,
+    .footer-email:focus-visible {
       outline: 2px solid #111;
       outline-offset: 3px;
       border-radius: 2px;
     }
 
-    .footer-ig svg {
+    .footer-ig svg,
+    .footer-email svg {
       width: 14px;
       height: 14px;
       flex-shrink: 0;
@@ -330,6 +486,25 @@
         gap: 0.5rem;
         padding: 1.5rem 1.25rem;
       }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+      }
+
+      .btn-touch {
+        min-width: unset;
+        width: 100%;
+      }
+
+      .contact-input {
+        max-width: 100%;
+      }
+
+      .btn-send {
+        width: 100%;
+      }
     }
 
     @media (max-width: 360px) {
@@ -337,7 +512,8 @@
         font-size: 2rem;
       }
 
-      .btn-instagram {
+      .btn-instagram,
+      .btn-touch {
         width: 100%;
         min-width: unset;
       }
@@ -354,8 +530,14 @@
         animation: none;
       }
 
-      .btn-instagram:hover {
+      .btn-instagram:hover,
+      .btn-touch:hover,
+      .btn-send:hover {
         transform: none;
+      }
+
+      .contact-form {
+        transition: opacity 0.2s ease;
       }
     }
   </style>
@@ -394,22 +576,49 @@
         Property insights, mortgage guidance, buyer tips, sustainability, interiors, and real-world advice for people navigating the Irish housing market.
       </p>
 
-      <!-- Instagram CTA -->
+      <!-- CTA -->
       <div class="cta-wrap">
-        <a
-          href="https://www.instagram.com/first_timebuyerire/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-instagram"
-          aria-label="Follow First Time Buyer's Bible Ireland on Instagram (opens in new tab)"
-        >
-          <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-          Follow On Instagram
-        </a>
+        <div class="cta-buttons">
+          <a
+            href="https://www.instagram.com/first_timebuyerire/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-instagram"
+            aria-label="Follow First Time Buyer's Bible Ireland on Instagram (opens in new tab)"
+          >
+            <svg class="ig-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+            Follow On Instagram
+          </a>
+          <button
+            id="btn-touch"
+            class="btn-touch"
+            aria-expanded="false"
+            aria-controls="contact-form"
+          >
+            <svg class="touch-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M22 4L12 13 2 4"/>
+            </svg>
+            Get In Touch
+          </button>
+        </div>
+        <div id="contact-form" class="contact-form" role="region" aria-label="Contact form">
+          <div class="contact-form-inner">
+            <input
+              type="email"
+              id="contact-email"
+              class="contact-input"
+              placeholder="Enter your email address"
+              autocomplete="email"
+              aria-label="Your email address"
+            />
+            <button id="btn-send" class="btn-send">Send</button>
+          </div>
+        </div>
       </div>
 
       <!-- Tagline / social proof strip -->
@@ -423,22 +632,80 @@
 
   <footer>
     <span class="footer-brand">First Time Buyer's Bible Ireland</span>
-    <a
-      href="https://www.instagram.com/first_timebuyerire/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="footer-ig"
-      aria-label="Instagram: @first_timebuyerire (opens in new tab)"
-    >
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-      </svg>
-      @first_timebuyerire
-    </a>
+    <div class="footer-links">
+      <a
+        href="https://www.instagram.com/first_timebuyerire/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="footer-ig"
+        aria-label="Instagram: @first_timebuyerire (opens in new tab)"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+        @first_timebuyerire
+      </a>
+      <a
+        href="mailto:info@ftbb.ie"
+        class="footer-email"
+        aria-label="Email us at info@ftbb.ie"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="M22 4L12 13 2 4"/>
+        </svg>
+        info@ftbb.ie
+      </a>
+    </div>
     <span class="footer-copy">&copy; 2026 FTBB Ireland</span>
   </footer>
+
+  <script>
+    (function () {
+      var touchBtn = document.getElementById('btn-touch');
+      var contactForm = document.getElementById('contact-form');
+      var emailInput = document.getElementById('contact-email');
+      var sendBtn = document.getElementById('btn-send');
+
+      touchBtn.addEventListener('click', function () {
+        var isOpen = contactForm.classList.toggle('open');
+        touchBtn.setAttribute('aria-expanded', String(isOpen));
+        if (isOpen) {
+          setTimeout(function () { emailInput.focus(); }, 350);
+        }
+      });
+
+      emailInput.addEventListener('input', function () {
+        emailInput.classList.remove('invalid');
+        emailInput.removeAttribute('aria-invalid');
+      });
+
+      emailInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') { sendBtn.click(); }
+      });
+
+      sendBtn.addEventListener('click', function () {
+        var email = emailInput.value.trim();
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(email)) {
+          emailInput.classList.add('invalid');
+          emailInput.setAttribute('aria-invalid', 'true');
+          emailInput.focus();
+          return;
+        }
+
+        emailInput.classList.remove('invalid');
+        emailInput.removeAttribute('aria-invalid');
+
+        var subject = encodeURIComponent('FTBB Website Enquiry');
+        var body = encodeURIComponent('My email address: ' + email);
+        window.location.href = 'mailto:info@ftbb.ie?subject=' + subject + '&body=' + body;
+      });
+    })();
+  </script>
 
 </body>
 </html>
