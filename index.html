@@ -11,12 +11,49 @@
   <meta property="og:site_name" content="First Time Buyer's Bible Ireland" />
   <meta property="og:title" content="FTBB – Ireland's First-Time Buyer Resource Hub" />
   <meta property="og:description" content="Ireland's trusted resource for first-time buyers. Expert guides on mortgages, government grants, legal process, and property purchase." />
-  <meta property="og:image" content="./ftbblogo-removebg-preview.png" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&q=80&auto=format&fit=crop" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&q=80&auto=format&fit=crop" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d1f3c'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- GA4 Analytics — replace GA_MEASUREMENT_ID with your actual ID before going live -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'GA_MEASUREMENT_ID');
+  </script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://ftbb.ie/#organization",
+        "name": "First Time Buyer's Bible",
+        "url": "https://ftbb.ie",
+        "logo": { "@type": "ImageObject", "url": "https://ftbb.ie/ftbblogo-removebg-preview.png" },
+        "sameAs": ["https://www.instagram.com/first_timebuyerire/"],
+        "contactPoint": { "@type": "ContactPoint", "email": "info@ftbb.ie", "contactType": "customer support" }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://ftbb.ie/#website",
+        "url": "https://ftbb.ie",
+        "name": "FTBB – First Time Buyer's Bible Ireland",
+        "publisher": { "@id": "https://ftbb.ie/#organization" }
+      }
+    ]
+  }
+  </script>
 
   <style>
     /* ── DESIGN SYSTEM ── */
@@ -299,11 +336,12 @@
       margin-right: 0.25rem;
     }
     .nav__brand img {
-      height: 30px;
+      height: 38px;
       width: auto;
-      filter: brightness(0) invert(1) opacity(0.9);
+      filter: brightness(0) invert(1) opacity(0.92);
     }
     .nav__brand-text {
+      display: none;
       font-family: var(--font-serif);
       font-size: 0.92rem;
       font-weight: 700;
@@ -1009,11 +1047,11 @@
     .about__list li::before {
       content: '';
       display: block;
-      width: 13px; height: 13px;
-      min-width: 13px;
-      border: 1.5px solid var(--gold);
+      width: 8px; height: 8px;
+      min-width: 8px;
+      background: var(--gold);
       border-radius: 50%;
-      margin-top: 3px;
+      margin-top: 5px;
       flex-shrink: 0;
     }
     .about__cta-row {
@@ -1382,6 +1420,151 @@
       .mag-feat__img img,
       .mag-article__img img { transition: none; }
     }
+
+    /* ── COOKIE CONSENT BAR ── */
+    .cookie-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      z-index: 990;
+      padding: 1.1rem 1.5rem;
+      border-top: 2px solid var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      font-size: 0.78rem;
+      line-height: 1.55;
+      transition: transform 0.35s ease;
+    }
+    .cookie-bar.hidden { transform: translateY(110%); pointer-events: none; }
+    .cookie-bar p { margin: 0; flex: 1; min-width: 200px; }
+    .cookie-bar p a { color: var(--gold); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 0.65rem; flex-shrink: 0; }
+    .cookie-bar__accept {
+      padding: 0.55rem 1.25rem;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: opacity 0.18s;
+    }
+    .cookie-bar__accept:hover { opacity: 0.85; }
+    .cookie-bar__settings {
+      padding: 0.55rem 1.25rem;
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 2px;
+      cursor: pointer;
+      transition: color 0.18s, border-color 0.18s;
+    }
+    .cookie-bar__settings:hover { color: var(--white); border-color: rgba(255,255,255,0.55); }
+
+    /* ── GUIDES MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(13,31,60,0.78);
+      z-index: 1100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(3px);
+    }
+    .modal-overlay[hidden] { display: none; }
+    .modal {
+      background: var(--white);
+      padding: 2.5rem;
+      max-width: 460px;
+      width: 100%;
+      border-radius: 3px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(13,31,60,0.35);
+    }
+    .modal__close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 34px; height: 34px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.4rem;
+      color: var(--text-2);
+      line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 2px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .modal__close:hover { background: var(--off-white); color: var(--text); }
+    .modal__eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+    .modal__title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .modal__desc {
+      font-size: 0.85rem;
+      color: var(--text-2);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .modal__form { display: flex; flex-direction: column; gap: 0.7rem; }
+    .modal__input {
+      padding: 0.78rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 2px;
+      font-size: 0.87rem;
+      font-family: var(--font-sans);
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.18s;
+      outline: none;
+    }
+    .modal__input:focus { border-color: var(--navy); }
+    .modal__submit {
+      padding: 0.82rem 1.5rem;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+    .modal__submit:hover { background: var(--navy-mid); }
+    .modal__note {
+      font-size: 0.72rem;
+      color: var(--text-2);
+      margin-top: 0.65rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -1531,6 +1714,7 @@
             alt="House keys — buying your first home in Ireland"
             width="950" height="594"
             loading="eager"
+            fetchpriority="high"
           />
         </div>
         <div class="hero-main__body">
@@ -1684,7 +1868,7 @@
 
       <a href="#" class="mag-article" aria-label="Help to Buy Step-by-Step Application Guide">
         <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?w=620&q=80&auto=format&fit=crop" alt="Help to Buy tax refund Ireland — Revenue scheme" width="620" height="349" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=620&q=80&auto=format&fit=crop" alt="Help to Buy tax refund Ireland — Revenue scheme" width="620" height="349" loading="lazy" />
         </div>
         <span class="cat-badge">Help to Buy</span>
         <h3 class="mag-article__title">Help To Buy Step-by-Step: How to Apply for Revenue's €30,000 Tax Refund</h3>
@@ -1699,7 +1883,7 @@
 
       <a href="#" class="mag-article" aria-label="The First Home Scheme: State Shared Equity Explained">
         <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=620&q=80&auto=format&fit=crop" alt="First Home Scheme shared equity for Irish buyers" width="620" height="349" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=620&q=80&auto=format&fit=crop" alt="First Home Scheme shared equity for Irish buyers" width="620" height="349" loading="lazy" />
         </div>
         <span class="cat-badge">First Home Scheme</span>
         <h3 class="mag-article__title">The First Home Scheme: State Shared Equity Explained Simply for Irish Buyers</h3>
@@ -1840,7 +2024,7 @@
   <div class="wrap">
     <div class="sec-label sec-label--alt fade-up">
       <h2 id="journey-h2">Your Six-Step Buyer Roadmap</h2>
-      <a href="#" class="view-all">Download Free Checklist <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      <a href="#newsletter" class="view-all">Get Free Checklist <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
     </div>
     <div class="journey__steps fade-up" role="list" aria-label="Buyer journey steps">
       <div class="journey__line" aria-hidden="true"></div>
@@ -2139,11 +2323,19 @@
           <p class="newsletter__benefit">Irish mortgage rate changes and lender news</p>
           <p class="newsletter__benefit">Real buyer success stories and practical tips</p>
         </div>
-        <form class="newsletter__form" id="nl-form" novalidate aria-label="Newsletter signup">
+        <!-- action/u/id values: replace with your Mailchimp list URL when ready -->
+        <form class="newsletter__form" id="nl-form" method="post"
+              action="https://YOURSITE.us1.list-manage.com/subscribe/post?u=REPLACE&amp;id=REPLACE"
+              novalidate aria-label="Newsletter signup">
+          <!-- Mailchimp anti-bot honeypot — do not remove -->
+          <div style="position:absolute;left:-5000px;" aria-hidden="true">
+            <input type="text" name="b_REPLACE_REPLACE" tabindex="-1" value="">
+          </div>
           <label for="nl-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Your email address</label>
           <input
             type="email"
             id="nl-email"
+            name="EMAIL"
             class="newsletter__input"
             placeholder="Your email address"
             autocomplete="email"
@@ -2234,16 +2426,40 @@
 
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2025 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved.</p>
+      <p class="footer__copy">&copy; 2025 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company Registration: Pending.</p>
       <div class="footer__legal">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Cookie Policy</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/cookies.html">Cookie Policy</a>
       </div>
     </div>
   </div>
 </footer>
 
+
+<!-- GUIDES COMING SOON MODAL -->
+<div class="modal-overlay" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal">
+    <button class="modal__close" id="modal-close" type="button" aria-label="Close">&#215;</button>
+    <span class="modal__eyebrow">Coming Soon</span>
+    <h3 class="modal__title" id="modal-title">Full Guides Launching Shortly</h3>
+    <p class="modal__desc">We're publishing our complete library of Irish first-time buyer guides. Subscribe to get early access — free.</p>
+    <form class="modal__form" id="modal-form" novalidate>
+      <input type="email" class="modal__input" id="modal-email" placeholder="Your email address" autocomplete="email" required />
+      <button type="submit" class="modal__submit" id="modal-submit">Notify Me When Live</button>
+    </form>
+    <p class="modal__note">No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
+
+<!-- COOKIE CONSENT BANNER -->
+<div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience on FTBB. By continuing to browse, you agree to our <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="cookie-bar__actions">
+    <button class="cookie-bar__settings" id="cookie-settings" type="button">Cookie Settings</button>
+    <button class="cookie-bar__accept" id="cookie-accept" type="button">Accept All</button>
+  </div>
+</div>
 
 <script>
   // Nav scroll shadow
@@ -2297,13 +2513,58 @@
     });
   });
 
-  // Newsletter form
+  // Newsletter form — JS intercepts while Mailchimp not yet configured
   const nlForm = document.getElementById('nl-form');
   if (nlForm) {
     nlForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = nlForm.querySelector('.newsletter__submit');
       btn.textContent = 'Subscribed ✓';
+      btn.style.background = '#1B5E37';
+      btn.disabled = true;
+    });
+  }
+
+  // Cookie consent
+  (function() {
+    const bar = document.getElementById('cookie-bar');
+    if (!bar) return;
+    if (localStorage.getItem('ftbb_cookies_ok') === '1') {
+      bar.classList.add('hidden');
+      return;
+    }
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('ftbb_cookies_ok', '1');
+      bar.classList.add('hidden');
+    });
+    document.getElementById('cookie-settings').addEventListener('click', () => {
+      window.location.href = '/cookies.html';
+    });
+  })();
+
+  // Article/guide card links → "Coming Soon" modal
+  const guideModal = document.getElementById('guide-modal');
+  function openGuideModal() {
+    guideModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => document.getElementById('modal-email').focus(), 50);
+  }
+  function closeGuideModal() {
+    guideModal.hidden = true;
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.hero-main[href="#"], .hero-side-card[href="#"], .mag-feat[href="#"], .mag-article[href="#"], .spotlight__item[href="#"], .spotlight__btn[href="#"], .latest-strip__item[href="#"], .view-all[href="#"]').forEach(link => {
+    link.addEventListener('click', e => { e.preventDefault(); openGuideModal(); });
+  });
+  document.getElementById('modal-close').addEventListener('click', closeGuideModal);
+  guideModal.addEventListener('click', e => { if (e.target === guideModal) closeGuideModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !guideModal.hidden) closeGuideModal(); });
+  const modalForm = document.getElementById('modal-form');
+  if (modalForm) {
+    modalForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('modal-submit');
+      btn.textContent = "You're on the list ✓";
       btn.style.background = '#1B5E37';
       btn.disabled = true;
     });

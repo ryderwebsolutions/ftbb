@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cookie Policy — FTBB Ireland</title>
+  <meta name="description" content="FTBB's Cookie Policy — what cookies we use on ftbb.ie, why we use them and how to manage your preferences." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://ftbb.ie/cookies.html" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d1f3c'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0d1f3c; --gold: #c5892a; --white: #ffffff;
+      --off-white: #F7F4EF; --text: #1a1a1a; --text-2: #4a4a4a; --border: #DDD8CF;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'Inter', -apple-system, sans-serif;
+    }
+    body { font-family: var(--font-sans); background: var(--white); color: var(--text); line-height: 1.7; }
+    a { color: var(--navy); }
+    a:hover { color: var(--gold); }
+    .site-header {
+      background: var(--navy);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-header__brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+    .site-header__brand img { height: 36px; width: auto; filter: brightness(0) invert(1) opacity(0.92); }
+    .site-header__back {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .site-header__back:hover { color: var(--white); }
+    .legal-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 5rem;
+    }
+    .legal-eyebrow {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .legal-title {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 0.6rem;
+    }
+    .legal-date {
+      font-size: 0.78rem;
+      color: var(--text-2);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-wrap h2 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+    .legal-wrap p { font-size: 0.9rem; color: var(--text-2); margin-bottom: 1rem; }
+    .legal-wrap ul { padding-left: 1.4rem; margin-bottom: 1rem; }
+    .legal-wrap ul li { font-size: 0.9rem; color: var(--text-2); margin-bottom: 0.35rem; }
+    .legal-wrap a { color: var(--navy); text-decoration: underline; }
+    .cookie-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1.5rem;
+      font-size: 0.83rem;
+    }
+    .cookie-table th {
+      background: var(--off-white);
+      text-align: left;
+      padding: 0.65rem 0.85rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 2px solid var(--border);
+    }
+    .cookie-table td {
+      padding: 0.65rem 0.85rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-2);
+      vertical-align: top;
+    }
+    .cookie-table tr:last-child td { border-bottom: none; }
+    .manage-btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background: var(--navy);
+      color: var(--white);
+      font-size: 0.73rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.18s;
+      text-decoration: none;
+    }
+    .manage-btn:hover { background: #163256; color: var(--white); }
+    .site-footer {
+      background: var(--navy);
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.3);
+    }
+    .site-footer a { color: rgba(255,255,255,0.45); margin: 0 0.5rem; }
+    .site-footer a:hover { color: rgba(255,255,255,0.75); }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <a href="/" class="site-header__brand" aria-label="FTBB — Home">
+    <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" />
+  </a>
+  <a href="/" class="site-header__back">← Back to FTBB</a>
+</header>
+
+<main class="legal-wrap">
+  <p class="legal-eyebrow">Legal</p>
+  <h1 class="legal-title">Cookie Policy</h1>
+  <p class="legal-date">Last updated: 1 June 2025</p>
+
+  <p>This Cookie Policy explains what cookies are, what cookies we use on <strong>ftbb.ie</strong>, why we use them, and how you can manage or disable them.</p>
+  <p>By continuing to use ftbb.ie after being shown our cookie banner, you consent to our use of non-essential cookies as described in this policy. You can withdraw or change your consent at any time.</p>
+
+  <h2>1. What Are Cookies?</h2>
+  <p>Cookies are small text files placed on your device (computer, tablet or smartphone) when you visit a website. They are widely used to make websites work efficiently, to remember your preferences and to provide information to the website owner about how their site is used.</p>
+  <p>Cookies cannot run programmes or deliver viruses to your device. They are uniquely assigned to your browser and can only be read by the web server that issued them.</p>
+
+  <h2>2. What Cookies Do We Use?</h2>
+
+  <h2 style="font-size:1rem; margin-top:1.5rem;">Strictly Necessary Cookies</h2>
+  <p>These cookies are essential for the website to function. They cannot be switched off. They do not track you or collect personal data beyond what is required for the session.</p>
+  <table class="cookie-table" aria-label="Strictly necessary cookies">
+    <thead>
+      <tr><th>Cookie Name</th><th>Purpose</th><th>Duration</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>ftbb_cookies_ok</code></td>
+        <td>Stores your cookie consent preference so the banner is not shown again.</td>
+        <td>1 year (localStorage)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 style="font-size:1rem; margin-top:1.5rem;">Analytics Cookies</h2>
+  <p>We use Google Analytics to understand how visitors interact with our website — which pages are most popular, how long visitors stay, and what content is most useful. This helps us improve our guides and resources.</p>
+  <p>Google Analytics data is aggregated and anonymised where possible. Your IP address is anonymised before it is stored. Google may transfer this data to servers in the United States, subject to Standard Contractual Clauses.</p>
+  <table class="cookie-table" aria-label="Analytics cookies">
+    <thead>
+      <tr><th>Cookie Name</th><th>Purpose</th><th>Duration</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>_ga</code></td>
+        <td>Distinguishes unique users. Used to throttle request rate.</td>
+        <td>2 years</td>
+      </tr>
+      <tr>
+        <td><code>_ga_XXXXXXXX</code></td>
+        <td>Stores and counts pageviews for GA4 sessions.</td>
+        <td>2 years</td>
+      </tr>
+      <tr>
+        <td><code>_gid</code></td>
+        <td>Distinguishes users (24-hour rolling window).</td>
+        <td>24 hours</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>You can opt out of Google Analytics tracking using the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Browser Add-on</a>.</p>
+
+  <h2 style="font-size:1rem; margin-top:1.5rem;">Third-Party Cookies</h2>
+  <p>Some content on our site loads from third-party services (such as Google Fonts or Unsplash image CDN). These providers may set their own cookies. We do not control these cookies and recommend reviewing the relevant provider's own cookie policies.</p>
+
+  <h2>3. How to Manage Cookies</h2>
+  <p>You can manage or disable cookies in several ways:</p>
+  <ul>
+    <li><strong>Browser settings:</strong> All major browsers allow you to refuse, delete or be notified about cookies. Consult your browser's help documentation for instructions.</li>
+    <li><strong>Opt-out tools:</strong> Use the <a href="http://www.youronlinechoices.com" target="_blank" rel="noopener noreferrer">Your Online Choices</a> tool to opt out of interest-based advertising cookies from participating companies.</li>
+    <li><strong>Google Analytics:</strong> Install the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">Google Analytics Opt-out Add-on</a> in your browser.</li>
+    <li><strong>On this site:</strong> Click the button below to reset your consent and see the cookie banner again.</li>
+  </ul>
+
+  <button class="manage-btn" id="reset-consent" type="button">Manage My Cookie Preferences</button>
+
+  <p style="margin-top:1.25rem;">Please note: disabling certain cookies may affect the functionality and performance of the website.</p>
+
+  <h2>4. Changes to This Policy</h2>
+  <p>We may update this Cookie Policy from time to time to reflect changes in the cookies we use or for operational, legal or regulatory reasons. Please revisit this page periodically to stay informed.</p>
+
+  <h2>5. More Information</h2>
+  <p>For more information about how we use your personal data, see our <a href="/privacy-policy.html">Privacy Policy</a>. For questions about our use of cookies, contact us at <a href="mailto:info@ftbb.ie">info@ftbb.ie</a>.</p>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2025 FTBB — First Time Buyer's Bible Ireland.
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <a href="/terms.html">Terms of Use</a>
+    <a href="/cookies.html">Cookie Policy</a>
+  </p>
+</footer>
+
+<script>
+  document.getElementById('reset-consent').addEventListener('click', () => {
+    localStorage.removeItem('ftbb_cookies_ok');
+    alert('Cookie preferences reset. Return to the homepage to set your preferences.');
+  });
+</script>
+
+</body>
+</html>
