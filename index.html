@@ -826,17 +826,18 @@
     }
 
     /* ════════════════════════════════════════
-       PARTNER LOGOS
+       PARTNER LOGOS — MARQUEE CAROUSEL
     ════════════════════════════════════════ */
     .partners {
       background: var(--off-white);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
-      padding: 2.75rem 0;
+      padding: 2rem 0;
+      overflow: hidden;
     }
     .partners__label {
       text-align: center;
-      margin-bottom: 1.85rem;
+      margin-bottom: 1.5rem;
     }
     .partners__label-text {
       font-size: 0.66rem;
@@ -845,42 +846,78 @@
       text-transform: uppercase;
       color: var(--text-muted);
     }
-    .partners__row {
+    .partners-marquee {
+      position: relative;
+      overflow: hidden;
+    }
+    .partners-marquee::before,
+    .partners-marquee::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 140px;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .partners-marquee::before { left: 0; background: linear-gradient(to right, var(--off-white) 20%, transparent); }
+    .partners-marquee::after  { right: 0; background: linear-gradient(to left,  var(--off-white) 20%, transparent); }
+    .partners-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: partners-scroll 34s linear infinite;
+    }
+    .partners-track:hover { animation-play-state: paused; }
+    @keyframes partners-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .partner-item {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
+      padding: 0 2.75rem;
+      border-right: 1px solid var(--border-lt);
+      height: 76px;
+      min-width: 160px;
+      flex-shrink: 0;
     }
-    .partner-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.9rem 2.25rem;
-      border-right: 1px solid var(--border);
+    .partner-item img {
+      height: 36px;
+      width: auto;
+      max-width: 130px;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(0.48);
+      transition: filter 0.3s;
+      display: block;
     }
-    .partner-logo:last-child { border-right: none; }
-    .partner-name {
+    .partner-item:hover img { filter: grayscale(0%) opacity(1); }
+    .partner-wordmark {
       font-family: var(--font-serif);
-      font-size: 1.1rem;
+      font-size: 1.12rem;
       font-weight: 700;
       color: var(--text-muted);
-      transition: color 0.18s;
       white-space: nowrap;
+      letter-spacing: -0.01em;
+      transition: color 0.22s;
     }
-    .partner-name--sans {
+    .partner-wordmark--sans {
       font-family: var(--font-sans);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
     }
-    .partner-name--sm {
+    .partner-wordmark--sm {
       font-family: var(--font-sans);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
-    .partner-logo:hover .partner-name { color: var(--navy); }
+    .partner-item:hover .partner-wordmark { color: var(--navy); }
+    @media (prefers-reduced-motion: reduce) {
+      .partners-track { animation: none; }
+    }
 
     /* ════════════════════════════════════════
        ABOUT / WHY FTBB
@@ -1850,32 +1887,117 @@
   <div class="partners__label">
     <p class="partners__label-text">Working With Ireland's Trusted Mortgage &amp; Finance Partners</p>
   </div>
-  <div class="wrap">
-    <div class="partners__row" role="list" aria-label="Partner organisations">
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name partner-name--sans">PTSB</span>
+  <div class="partners-marquee" aria-hidden="true">
+    <div class="partners-track">
+
+      <!-- ── Set 1 ── -->
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/permanenttsb.ie"
+          alt="Permanent TSB"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sans" style="display:none">PTSB</span>
       </div>
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name">EBS</span>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/ebs.ie"
+          alt="EBS"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark" style="display:none">EBS</span>
       </div>
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name partner-name--sans">AIB</span>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/aib.ie"
+          alt="AIB"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sans" style="display:none">AIB</span>
       </div>
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name partner-name--sm">Beat The Bank</span>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Beat The Bank</span>
       </div>
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name partner-name--sm">Irish Mortgage Corporation</span>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Irish Mortgage Corporation</span>
       </div>
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name partner-name--sans" style="font-size:0.78rem">Avant Money</span>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/avantmoney.ie"
+          alt="Avant Money"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Avant Money</span>
       </div>
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name partner-name--sans">SEAI</span>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/seai.ie"
+          alt="SEAI"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sans" style="display:none">SEAI</span>
       </div>
-      <div class="partner-logo" role="listitem">
-        <span class="partner-name partner-name--sm">Halpin Mortgages</span>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Halpin Mortgages</span>
       </div>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">GMC Mortgages</span>
+      </div>
+
+      <!-- ── Set 2 (duplicate for seamless loop) ── -->
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/permanenttsb.ie"
+          alt="Permanent TSB"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sans" style="display:none">PTSB</span>
+      </div>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/ebs.ie"
+          alt="EBS"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark" style="display:none">EBS</span>
+      </div>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/aib.ie"
+          alt="AIB"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sans" style="display:none">AIB</span>
+      </div>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Beat The Bank</span>
+      </div>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Irish Mortgage Corporation</span>
+      </div>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/avantmoney.ie"
+          alt="Avant Money"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Avant Money</span>
+      </div>
+      <div class="partner-item">
+        <img
+          src="https://logo.clearbit.com/seai.ie"
+          alt="SEAI"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
+        />
+        <span class="partner-wordmark partner-wordmark--sans" style="display:none">SEAI</span>
+      </div>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Halpin Mortgages</span>
+      </div>
+      <div class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">GMC Mortgages</span>
+      </div>
+
     </div>
   </div>
 </section>
