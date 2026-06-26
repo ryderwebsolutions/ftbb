@@ -928,6 +928,15 @@
       display: block;
     }
     .partner-item:hover img { opacity: 0.85; }
+    .partner-item--labeled { flex-direction: column; gap: 0.35rem; }
+    .partner-label {
+      font-family: var(--font-sans);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
     .partner-wordmark {
       font-family: var(--font-serif);
       font-size: 1.12rem;
@@ -1790,13 +1799,13 @@
         <img src="./logos/gmc.jpg" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">GMC Mortgages</span>
       </div>
-      <div class="partner-item">
-        <img src="./logos/bellewlaw.png" alt="Bellew Law" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Bellew Law</span>
+      <div class="partner-item partner-item--labeled">
+        <img src="./logos/bellewlaw.png" alt="Bellew Law" onerror="this.style.display='none'" />
+        <span class="partner-label">Bellew Law</span>
       </div>
-      <div class="partner-item">
-        <img src="./logos/cggilmartin.png" alt="CG Gilmartin Solicitors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-        <span class="partner-wordmark partner-wordmark--sm" style="display:none">CG Gilmartin Solicitors</span>
+      <div class="partner-item partner-item--labeled">
+        <img src="./logos/cggilmartin.png" alt="CG Gilmartin Solicitors" onerror="this.style.display='none'" />
+        <span class="partner-label">CG Gilmartin Solicitors</span>
       </div>
 
       <!-- ── Set 2 (duplicate for seamless loop) ── -->
@@ -1834,13 +1843,13 @@
         <img src="./logos/gmc.jpg" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">GMC Mortgages</span>
       </div>
-      <div class="partner-item">
-        <img src="./logos/bellewlaw.png" alt="Bellew Law" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Bellew Law</span>
+      <div class="partner-item partner-item--labeled">
+        <img src="./logos/bellewlaw.png" alt="Bellew Law" onerror="this.style.display='none'" />
+        <span class="partner-label">Bellew Law</span>
       </div>
-      <div class="partner-item">
-        <img src="./logos/cggilmartin.png" alt="CG Gilmartin Solicitors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
-        <span class="partner-wordmark partner-wordmark--sm" style="display:none">CG Gilmartin Solicitors</span>
+      <div class="partner-item partner-item--labeled">
+        <img src="./logos/cggilmartin.png" alt="CG Gilmartin Solicitors" onerror="this.style.display='none'" />
+        <span class="partner-label">CG Gilmartin Solicitors</span>
       </div>
 
     </div>
