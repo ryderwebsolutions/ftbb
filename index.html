@@ -10,1756 +10,1242 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="First Time Buyer's Bible Ireland" />
   <meta property="og:title" content="FTBB – Ireland's First-Time Buyer Resource Hub" />
-  <meta property="og:description" content="Ireland's trusted resource for first-time buyers. Expert guides on mortgages, government grants, legal process, and property purchase." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&q=80&auto=format&fit=crop" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <meta property="og:description" content="Ireland's trusted resource for first-time buyers. Expert guides on mortgages, government grants, legal process and property purchase." />
+  <meta property="og:image" content="https://ftbb.ie/logos/ftbbcover.jpeg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&q=80&auto=format&fit=crop" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d1f3c'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
+  <meta name="twitter:image" content="https://ftbb.ie/logos/ftbbcover.jpeg" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- GA4 Analytics — replace GA_MEASUREMENT_ID with your actual ID before going live -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
 
-  <!-- Structured Data -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://ftbb.ie/#organization",
-        "name": "First Time Buyer's Bible",
-        "url": "https://ftbb.ie",
-        "logo": { "@type": "ImageObject", "url": "https://ftbb.ie/ftbblogo-removebg-preview.png" },
-        "sameAs": ["https://www.instagram.com/first_timebuyerire/"],
-        "contactPoint": { "@type": "ContactPoint", "email": "info@ftbb.ie", "contactType": "customer support" }
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://ftbb.ie/#website",
-        "url": "https://ftbb.ie",
-        "name": "FTBB – First Time Buyer's Bible Ireland",
-        "publisher": { "@id": "https://ftbb.ie/#organization" }
-      }
-    ]
-  }
+  {"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://ftbb.ie/#organization","name":"First Time Buyer's Bible","url":"https://ftbb.ie","logo":{"@type":"ImageObject","url":"https://ftbb.ie/ftbblogo-removebg-preview.png"},"sameAs":["https://www.instagram.com/first_timebuyerire/"],"contactPoint":{"@type":"ContactPoint","email":"info@ftbb.ie","contactType":"customer support"}},{"@type":"WebSite","@id":"https://ftbb.ie/#website","url":"https://ftbb.ie","name":"FTBB – First Time Buyer's Bible Ireland","publisher":{"@id":"https://ftbb.ie/#organization"}}]}
   </script>
 
   <style>
-    /* ── DESIGN SYSTEM ── */
+    /* ── TOKENS ── */
     :root {
-      --navy:        #0d1f3c;
-      --navy-mid:    #163256;
-      --gold:        #c5892a;
-      --gold-light:  #dea84f;
-      --white:       #ffffff;
-      --off-white:   #F7F4EF;
-      --light:       #EDE9E2;
-      --text:        #1a1a1a;
-      --text-2:      #555555;
-      --text-muted:  #888888;
-      --border:      #DDD8CF;
-      --border-lt:   #EAE6DF;
-      --green:       #1B5E37;
-      --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
-      --font-sans:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --ease:        cubic-bezier(0.22,1,0.36,1);
-      --cw:          1200px;
+      --black:      #0a0a0a;
+      --black-mid:  #111111;
+      --black-soft: #1a1a1a;
+      --grey-dark:  #333333;
+      --grey:       #666666;
+      --grey-mid:   #999999;
+      --grey-light: #cccccc;
+      --grey-border:#e0e0e0;
+      --grey-bg:    #f4f4f4;
+      --white:      #ffffff;
+      --gold:       #c5892a;
+      --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:       cubic-bezier(0.22,1,0.36,1);
+      --cw:         1200px;
     }
 
+    /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body {
-      font-family: var(--font-sans);
-      background: var(--white);
-      color: var(--text);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
     button { cursor: pointer; font-family: inherit; border: none; background: none; }
     input { font-family: inherit; }
     ul { list-style: none; }
-
     .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
 
-    /* ── FADE ANIMATION ── */
-    .fade-up {
+    /* ── REVEAL ── */
+    .reveal {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+      transform: translateY(28px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
     }
-    .fade-up.in { opacity: 1; transform: translateY(0); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
 
-    /* ── SHARED ── */
-    .cat-badge {
-      display: inline-block;
-      font-size: 0.63rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.55rem;
-    }
-    .art-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-size: 0.68rem;
-      color: var(--text-muted);
-      margin-top: 0.6rem;
-    }
-    .art-meta__dot {
-      width: 3px; height: 3px;
-      background: var(--border);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .read-more {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.32rem;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--navy);
-      margin-top: 0.8rem;
-      transition: gap 0.18s;
-    }
-    .read-more:hover { gap: 0.5rem; }
-    .read-more svg { width: 10px; height: 10px; }
-
-    .sec-label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px solid var(--text);
-      margin-bottom: 1.75rem;
-    }
-    .sec-label h2 {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -0.02em;
-    }
-    .sec-label--alt { border-bottom-color: var(--border); }
-    .sec-label--alt h2 { color: var(--text); }
-    .sec-label--white { border-bottom-color: rgba(255,255,255,0.18); }
-    .sec-label--white h2 { color: var(--white); }
-
-    .view-all {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      flex-shrink: 0;
-      transition: color 0.18s;
-    }
-    .view-all:hover { color: var(--navy); }
-    .view-all svg { width: 10px; height: 10px; }
-    .view-all--light { color: rgba(255,255,255,0.45); }
-    .view-all--light:hover { color: var(--white); }
-
-    /* ════════════════════════════════════════
-       UTILITY BAR
-    ════════════════════════════════════════ */
-    .util-bar {
-      background: var(--navy);
-      padding: 0.55rem 0;
-    }
-    .util-bar__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .util-bar__left {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-    .util-bar__soc {
-      display: flex;
-      align-items: center;
-      gap: 0.38rem;
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
-      transition: color 0.18s;
-    }
-    .util-bar__soc:hover { color: var(--white); }
-    .util-bar__soc svg { width: 12px; height: 12px; }
-    .util-bar__center {
-      font-family: var(--font-serif);
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.38);
-      letter-spacing: 0.1em;
-      font-style: italic;
-    }
-    .util-bar__right {
-      display: flex;
-      align-items: center;
-      gap: 1.25rem;
-    }
-    .util-bar__link {
-      font-size: 0.7rem;
-      color: rgba(255,255,255,0.5);
-      transition: color 0.18s;
-    }
-    .util-bar__link:hover { color: var(--white); }
-    .util-pill {
-      display: inline-block;
-      padding: 0.28rem 0.8rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.18s;
-    }
-    .util-pill:hover { background: var(--gold-light); }
-
-    /* ════════════════════════════════════════
-       MASTHEAD
-    ════════════════════════════════════════ */
-    .masthead {
-      background: var(--white);
-      padding: 2.75rem 0 2rem;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-    }
-    .masthead__logo-row {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 1.4rem;
-      margin-bottom: 0.85rem;
-    }
-    .masthead__img { height: 60px; width: auto; }
-    .masthead__rule {
-      width: 1px;
-      height: 58px;
-      background: var(--border);
-      flex-shrink: 0;
-    }
-    .masthead__name {
-      font-family: var(--font-serif);
-      font-size: clamp(1.9rem, 3.8vw, 3.1rem);
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -0.028em;
-      line-height: 1.08;
-    }
-    .masthead__tagline {
-      font-size: 0.72rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.35rem;
-    }
-    .masthead__pills {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-top: 1.35rem;
-    }
-    .masthead__pill {
-      display: inline-block;
-      padding: 0.3rem 0.9rem;
-      border: 1px solid var(--border);
-      border-radius: 50px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--text-2);
-      transition: border-color 0.18s, color 0.18s, background 0.18s;
-    }
-    .masthead__pill:hover {
-      border-color: var(--navy);
-      color: var(--navy);
-      background: var(--off-white);
-    }
-    .masthead__sep {
-      width: 4px; height: 4px;
-      background: var(--border);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* ════════════════════════════════════════
-       NAVIGATION
-    ════════════════════════════════════════ */
+    /* ── NAV ── */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 200;
-      background: var(--navy);
-      border-bottom: 3px solid var(--gold);
-      transition: box-shadow 0.3s;
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 0;
+      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease;
     }
-    .nav.scrolled { box-shadow: 0 3px 20px rgba(0,0,0,0.22); }
-    .nav__inner {
-      display: flex;
-      align-items: center;
-      height: 54px;
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav__logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+    .nav__logo img {
+      height: 34px; width: auto;
+      filter: brightness(0) invert(1);
+      transition: filter 0.4s ease;
     }
-    .nav__brand {
-      display: flex;
-      align-items: center;
-      gap: 0.7rem;
-      flex-shrink: 0;
-      padding-right: 1.75rem;
-      border-right: 1px solid rgba(255,255,255,0.12);
-      margin-right: 0.25rem;
+    .nav__logo-text {
+      font-family: var(--serif); font-size: 1rem; font-weight: 700;
+      color: var(--white); letter-spacing: -0.01em;
+      transition: color 0.4s ease;
     }
-    .nav__brand img {
-      height: 38px;
-      width: auto;
-      filter: brightness(0) invert(1) opacity(0.92);
-    }
-    .nav__brand-text {
-      display: none;
-      font-family: var(--font-serif);
-      font-size: 0.92rem;
-      font-weight: 700;
-      color: var(--white);
-      white-space: nowrap;
-    }
-    .nav__links {
-      display: flex;
-      align-items: center;
-      flex: 1;
-    }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
     .nav__links a {
-      display: block;
-      padding: 0 0.95rem;
-      height: 54px;
-      line-height: 54px;
-      font-size: 0.73rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      transition: color 0.18s, background 0.18s;
-      white-space: nowrap;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.75);
+      transition: color 0.22s ease;
+      position: relative;
     }
-    .nav__links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav__links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px; background: currentColor;
+      transition: width 0.22s ease;
+    }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links a:hover { color: var(--white); }
     .nav__cta {
-      margin-left: auto;
-      flex-shrink: 0;
+      display: inline-block; padding: 0.6rem 1.4rem;
+      border: 1px solid rgba(255,255,255,0.5);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--white);
+      transition: all 0.22s ease; white-space: nowrap;
     }
-    .nav__cta-btn {
-      display: inline-block;
-      padding: 0.55rem 1.2rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.18s;
-      white-space: nowrap;
-    }
-    .nav__cta-btn:hover { background: var(--gold-light); }
+    .nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
     .nav__ham {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 8px;
-      margin-left: 1rem;
+      display: none; flex-direction: column; gap: 5px;
+      width: 26px; cursor: pointer; padding: 2px;
     }
     .nav__ham span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: all 0.25s;
+      display: block; width: 100%; height: 1.5px;
+      background: var(--white); transition: all 0.3s ease;
     }
-    .nav__ham.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-    .nav__ham.open span:nth-child(2) { opacity: 0; }
-    .nav__ham.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* scrolled state */
+    .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
+    .nav.scrolled .nav__logo img { filter: none; }
+    .nav.scrolled .nav__logo-text { color: var(--black); }
+    .nav.scrolled .nav__links a { color: var(--grey); }
+    .nav.scrolled .nav__links a:hover { color: var(--black); }
+    .nav.scrolled .nav__cta { border-color: var(--black); color: var(--black); }
+    .nav.scrolled .nav__cta:hover { background: var(--black); color: var(--white); }
+    .nav.scrolled .nav__ham span { background: var(--black); }
+
+    /* mobile overlay */
     .nav__mobile {
-      display: none;
-      position: fixed;
-      top: 54px; left: 0; right: 0; bottom: 0;
-      background: var(--navy);
-      z-index: 199;
-      padding: 2rem 1.5rem;
-      overflow-y: auto;
+      display: none; position: fixed; inset: 0;
+      background: var(--black); z-index: 99;
+      padding: 6rem 2.5rem 3rem;
+      flex-direction: column; gap: 0;
     }
-    .nav__mobile.open { display: block; }
-    .nav__mobile li a {
-      display: block;
-      padding: 0.95rem 0;
-      font-size: 1rem;
-      font-weight: 600;
-      color: rgba(255,255,255,0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      letter-spacing: 0.04em;
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a {
+      font-family: var(--serif); font-size: 2rem; font-weight: 700;
+      color: var(--white); display: block; padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: color 0.2s ease;
     }
-    .nav__mobile li a:hover { color: var(--white); }
-    .nav__mobile-cta {
-      display: block;
-      margin-top: 1.5rem;
-      padding: 0.9rem;
-      background: var(--gold);
-      color: var(--white);
-      text-align: center;
-      font-weight: 700;
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-    }
+    .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
 
-    /* ════════════════════════════════════════
-       CATEGORY STRIP
-    ════════════════════════════════════════ */
-    .cat-strip {
-      background: var(--off-white);
-      border-bottom: 1px solid var(--border);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh; background: var(--black);
+      display: flex; align-items: center;
+      padding: 9rem 0 6rem;
+      position: relative; overflow: hidden;
     }
-    .cat-strip::-webkit-scrollbar { display: none; }
-    .cat-strip__inner {
-      display: flex;
-      align-items: center;
-      padding: 0 2rem;
-      white-space: nowrap;
-    }
-    .cat-strip__item {
-      display: block;
-      padding: 0.72rem 1rem;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border-bottom: 2px solid transparent;
-      transition: color 0.18s, border-color 0.18s;
-    }
-    .cat-strip__item:hover { color: var(--navy); }
-    .cat-strip__item.active { color: var(--navy); border-bottom-color: var(--navy); }
-
-    /* ════════════════════════════════════════
-       LATEST STRIP
-    ════════════════════════════════════════ */
-    .latest-strip {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .latest-strip::-webkit-scrollbar { display: none; }
-    .latest-strip__inner {
-      display: flex;
-      align-items: stretch;
-      white-space: nowrap;
-    }
-    .latest-strip__label {
-      display: inline-flex;
-      align-items: center;
-      padding: 0 1.25rem;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-    .latest-strip__item {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      padding: 0.75rem 1.25rem;
-      font-size: 0.75rem;
-      color: var(--text-2);
-      border-right: 1px solid var(--border);
-      cursor: pointer;
-      transition: background 0.18s, color 0.18s;
-    }
-    .latest-strip__item:hover { background: var(--off-white); color: var(--navy); }
-    .ls-cat {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      flex-shrink: 0;
-    }
-
-    /* ════════════════════════════════════════
-       HERO FEATURE
-    ════════════════════════════════════════ */
-    .hero-feature {
-      background: var(--white);
-      padding: 2.25rem 0 2.5rem;
-    }
-    .hero-feature__grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
-      gap: 2px;
-      background: var(--border);
-    }
-    .hero-main {
-      background: var(--white);
-      cursor: pointer;
-      display: block;
-      transition: opacity 0.2s;
-    }
-    .hero-main:hover { opacity: 0.96; }
-    .hero-main__img {
-      aspect-ratio: 16/10;
-      overflow: hidden;
-    }
-    .hero-main__img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.55s var(--ease);
-    }
-    .hero-main:hover .hero-main__img img { transform: scale(1.04); }
-    .hero-main__body { padding: 1.75rem 1.75rem 2rem; }
-    .hero-main__title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.4rem, 2.4vw, 2.05rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.22;
-      letter-spacing: -0.022em;
-      margin-bottom: 0.75rem;
-    }
-    .hero-main__excerpt {
-      font-size: 0.9rem;
-      line-height: 1.78;
-      color: var(--text-2);
-    }
-
-    .hero-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      background: var(--border);
-    }
-    .hero-side-card {
-      background: var(--white);
-      cursor: pointer;
-      display: block;
-      flex: 1;
-      transition: opacity 0.2s;
-    }
-    .hero-side-card:hover { opacity: 0.93; }
-    .hero-side-card__img {
-      aspect-ratio: 16/9;
-      overflow: hidden;
-    }
-    .hero-side-card__img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.55s var(--ease);
-    }
-    .hero-side-card:hover .hero-side-card__img img { transform: scale(1.05); }
-    .hero-side-card__body { padding: 1rem 1.15rem 1.3rem; }
-    .hero-side-card__title {
-      font-family: var(--font-serif);
-      font-size: 1.02rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.35;
-      letter-spacing: -0.012em;
-    }
-
-    /* ════════════════════════════════════════
-       CONTENT SECTIONS — 3-COL MAGAZINE GRID
-    ════════════════════════════════════════ */
-    .content-section {
-      padding: 2.75rem 0 3.25rem;
-      border-top: 1px solid var(--border);
-    }
-    .content-section--tinted { background: var(--off-white); }
-    .content-section--white { background: var(--white); }
-
-    .mag-grid {
-      display: grid;
-      grid-template-columns: 1.35fr 1fr 1fr;
-      gap: 2rem;
-    }
-
-    /* Featured article (left column) */
-    .mag-feat {
-      border-right: 1px solid var(--border);
-      padding-right: 2rem;
-      cursor: pointer;
-      display: block;
-    }
-    .mag-feat__img {
-      aspect-ratio: 3/2;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-    .mag-feat__img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.55s var(--ease);
-    }
-    .mag-feat:hover .mag-feat__img img { transform: scale(1.04); }
-    .mag-feat__title {
-      font-family: var(--font-serif);
-      font-size: 1.28rem;
-      font-weight: 700;
-      line-height: 1.28;
-      letter-spacing: -0.018em;
-      color: var(--text);
-      margin-bottom: 0.6rem;
-      transition: color 0.18s;
-    }
-    .mag-feat:hover .mag-feat__title { color: var(--navy); }
-    .mag-feat__excerpt {
-      font-size: 0.84rem;
-      line-height: 1.75;
-      color: var(--text-2);
-    }
-
-    /* Standard article card (right columns) */
-    .mag-article {
-      cursor: pointer;
-      display: block;
-    }
-    .mag-article__img {
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      margin-bottom: 0.85rem;
-    }
-    .mag-article__img img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 0.55s var(--ease);
-    }
-    .mag-article:hover .mag-article__img img { transform: scale(1.05); }
-    .mag-article__title {
-      font-family: var(--font-serif);
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.38;
-      letter-spacing: -0.012em;
-      color: var(--text);
-      margin-bottom: 0.45rem;
-      transition: color 0.18s;
-    }
-    .mag-article:hover .mag-article__title { color: var(--navy); }
-    .mag-article__excerpt {
-      font-size: 0.8rem;
-      line-height: 1.7;
-      color: var(--text-2);
-    }
-
-    /* ════════════════════════════════════════
-       SPOTLIGHT / DARK FEATURE
-    ════════════════════════════════════════ */
-    .spotlight {
-      background: var(--navy);
-      padding: 4.5rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    .spotlight__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=65&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.1;
+    .hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 36px 36px;
       pointer-events: none;
     }
-    .spotlight__inner {
-      position: relative;
-      z-index: 1;
+    .hero::after {
+      content: ''; position: absolute;
+      top: 0; right: 0; width: 55%; height: 100%;
+      background: radial-gradient(ellipse at 75% 40%, rgba(197,137,42,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero__inner {
       display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 4.5rem;
-      align-items: center;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center; gap: 5rem;
+      position: relative; z-index: 1;
     }
-    .spotlight__eyebrow {
-      font-size: 0.63rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
+    .hero__eyebrow {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.75rem;
+      display: flex; align-items: center; gap: 0.75rem;
     }
-    .spotlight__title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.75rem, 2.8vw, 2.55rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.18;
-      letter-spacing: -0.024em;
+    .hero__eyebrow::before {
+      content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold);
+    }
+    .hero__headline {
+      font-family: var(--serif);
+      font-size: clamp(3.2rem, 5.5vw, 5.8rem);
+      font-weight: 700; line-height: 1.06;
+      color: var(--white); letter-spacing: -0.035em;
+      margin-bottom: 1.75rem;
+    }
+    .hero__headline em { font-style: italic; color: rgba(255,255,255,0.6); }
+    .hero__sub {
+      font-size: 1.05rem; font-weight: 300; line-height: 1.7;
+      color: rgba(255,255,255,0.55); max-width: 460px;
+      margin-bottom: 2.75rem;
+    }
+    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-white {
+      display: inline-block; padding: 0.9rem 2.25rem;
+      background: var(--white); color: var(--black);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.22s ease;
+    }
+    .btn-white:hover { background: var(--grey-bg); transform: translateY(-1px); }
+    .btn-ghost {
+      display: inline-block; padding: 0.9rem 2.25rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.22s ease;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
+    .hero__visual { display: flex; justify-content: center; align-items: center; }
+    .tilt-wrap { perspective: 1000px; cursor: default; }
+    .tilt-cover {
+      width: 100%; max-width: 360px;
+      box-shadow: 20px 30px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07);
+      transition: transform 0.6s var(--ease), box-shadow 0.6s ease;
+    }
+    .tilt-cover img { width: 100%; height: auto; display: block; }
+    .hero__scroll {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0.5rem;
+      color: rgba(255,255,255,0.28);
+      font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+    }
+    .hero__scroll-line {
+      width: 1px; height: 36px;
+      background: rgba(255,255,255,0.15);
+      animation: scroll-pulse 2s ease-in-out infinite;
+    }
+    @keyframes scroll-pulse {
+      0%,100% { opacity: 0.25; transform: scaleY(1); }
+      50% { opacity: 0.7; transform: scaleY(0.6) translateY(8px); }
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--black-mid);
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      padding: 0.7rem 0; overflow: hidden;
+      position: relative;
+    }
+    .ticker::after {
+      content: ''; position: absolute;
+      right: 0; top: 0; bottom: 0; width: 80px;
+      background: linear-gradient(to left, var(--black-mid), transparent);
+      pointer-events: none; z-index: 1;
+    }
+    .ticker__track {
+      display: flex; align-items: center;
+      white-space: nowrap;
+      animation: ticker-scroll 38s linear infinite;
+      width: max-content;
+    }
+    .ticker__item {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.76rem; padding: 0 1.75rem;
+    }
+    .ticker__item strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+    .ticker__dot {
+      display: inline-block; width: 4px; height: 4px;
+      background: var(--gold); border-radius: 50%; flex-shrink: 0;
+    }
+    @keyframes ticker-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION SHARED ── */
+    .sec-eyebrow {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--grey-mid); margin-bottom: 0.75rem;
+    }
+    .sec-header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--grey-border);
+      margin-bottom: 3rem;
+    }
+    .sec-title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.75rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.028em;
+    }
+    .sec-title--white { color: var(--white); }
+    .sec-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--grey-mid);
+      white-space: nowrap; flex-shrink: 0;
+      transition: color 0.2s ease, gap 0.2s ease;
+    }
+    .sec-link svg { width: 11px; height: 11px; }
+    .sec-link:hover { color: var(--black); gap: 0.65rem; }
+
+    /* ── ARTICLES ── */
+    .articles { padding: 5.5rem 0; background: var(--white); }
+    .articles__grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--grey-border);
+    }
+    .art-featured {
+      padding: 2.5rem;
+      border-right: 1px solid var(--grey-border);
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: background 0.22s ease;
+      position: relative; overflow: hidden;
+    }
+    .art-featured:hover { background: var(--grey-bg); }
+    .art-num {
+      font-family: var(--serif);
+      font-size: 5.5rem; font-weight: 700;
+      color: #ebebeb; line-height: 1;
+      letter-spacing: -0.05em;
+      margin-bottom: -0.75rem;
+    }
+    .art-tags { display: flex; align-items: center; gap: 0.75rem; }
+    .art-cat {
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey-mid);
+    }
+    .art-badge {
+      font-size: 0.58rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1px solid var(--grey-border); color: var(--grey-mid);
+      padding: 0.18rem 0.55rem; display: inline-block;
+    }
+    .art-headline {
+      font-family: var(--serif);
+      font-size: 1.65rem; font-weight: 700;
+      line-height: 1.2; letter-spacing: -0.02em;
+      color: var(--black);
+    }
+    .art-excerpt {
+      font-size: 0.88rem; line-height: 1.65;
+      color: var(--grey); flex: 1;
+    }
+    .art-meta-row {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.65rem; color: var(--grey-mid);
+    }
+    .art-meta-sep { width: 3px; height: 3px; background: var(--grey-border); border-radius: 50%; }
+    .art-read {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.63rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--black);
+      transition: gap 0.2s ease; margin-top: 0.25rem;
+    }
+    .art-read svg { width: 11px; height: 11px; }
+    .art-read:hover { gap: 0.7rem; }
+    .articles__list { display: flex; flex-direction: column; }
+    .art-item {
+      padding: 1.6rem 2rem;
+      border-bottom: 1px solid var(--grey-border);
+      display: flex; flex-direction: column; gap: 0.55rem;
+      transition: background 0.18s ease;
+    }
+    .art-item:last-child { border-bottom: none; }
+    .art-item:hover { background: var(--grey-bg); }
+    .art-item__top {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+    }
+    .art-item__num {
+      font-family: var(--serif);
+      font-size: 0.72rem; color: var(--grey-light);
+    }
+    .art-item__headline {
+      font-family: var(--serif);
+      font-size: 1.1rem; font-weight: 700;
+      line-height: 1.25; letter-spacing: -0.015em;
+      color: var(--black);
+    }
+    .art-item__meta {
+      font-size: 0.62rem; color: var(--grey-mid);
+    }
+
+    /* ── INSIGHTS ── */
+    .insights { background: var(--black); padding: 5.5rem 0; }
+    .insights__header {
+      display: flex; align-items: flex-end;
+      justify-content: space-between; gap: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 0;
+    }
+    .insights__sub {
+      font-size: 0.68rem; color: rgba(255,255,255,0.28);
+      text-align: right; line-height: 1.5;
+    }
+    .insights__grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+    }
+    .insight-stat {
+      padding: 3rem 2.5rem;
+      border-left: 1px solid rgba(255,255,255,0.07);
+    }
+    .insight-stat:first-child { border-left: none; }
+    .insight-num {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 4vw, 4.2rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1; letter-spacing: -0.04em;
+      margin-bottom: 0.85rem; display: block;
+    }
+    .insight-label {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-bottom: 0.3rem;
+    }
+    .insight-source { font-size: 0.58rem; color: rgba(255,255,255,0.2); }
+
+    /* ── MAGAZINE FEATURE ── */
+    .mag-feature { padding: 5.5rem 0; background: var(--grey-bg); }
+    .mag-feature__inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 6rem;
+    }
+    .mag-feature__cover {
+      display: flex; justify-content: center;
+    }
+    .mag-feature__cover img {
+      max-width: 370px; width: 100%;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.18);
+    }
+    .mag-feature__eyebrow {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .mag-feature__eyebrow::before {
+      content: ''; display: inline-block;
+      width: 24px; height: 1px; background: var(--gold);
+    }
+    .mag-feature__title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -0.03em; color: var(--black);
       margin-bottom: 1.25rem;
     }
-    .spotlight__desc {
-      font-size: 0.93rem;
-      line-height: 1.8;
-      color: rgba(255,255,255,0.62);
-      margin-bottom: 2rem;
+    .mag-feature__desc {
+      font-size: 0.98rem; font-weight: 300;
+      line-height: 1.75; color: var(--grey);
+      margin-bottom: 2.25rem;
     }
-    .spotlight__btn {
-      display: inline-block;
-      padding: 0.85rem 1.75rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.73rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.18s, transform 0.18s;
+    .mag-feature__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-dark {
+      display: inline-block; padding: 0.9rem 2.25rem;
+      background: var(--black); color: var(--white);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.22s ease;
     }
-    .spotlight__btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+    .btn-dark:hover { background: var(--black-soft); transform: translateY(-1px); }
+    .btn-outline-dark {
+      display: inline-block; padding: 0.9rem 2.25rem;
+      border: 1px solid var(--black); color: var(--black);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.22s ease;
+    }
+    .btn-outline-dark:hover { background: var(--black); color: var(--white); transform: translateY(-1px); }
 
-    .spotlight__list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.1);
+    /* ── BUYER GUIDE ACCORDION ── */
+    .guide { padding: 5.5rem 0; background: var(--white); }
+    .guide__grid {
+      display: grid; grid-template-columns: 1fr 2fr;
+      gap: 6rem; align-items: start;
     }
-    .spotlight__item {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.15rem 1.25rem;
-      background: rgba(13,31,60,0.6);
-      cursor: pointer;
-      transition: background 0.18s;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+    .guide__sticky { position: sticky; top: 6rem; }
+    .guide__title {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      font-weight: 700; line-height: 1.12;
+      letter-spacing: -0.025em; color: var(--black);
+      margin: 1rem 0;
     }
-    .spotlight__item:last-child { border-bottom: none; }
-    .spotlight__item:hover { background: rgba(255,255,255,0.06); }
-    .spotlight__item-num {
-      font-family: var(--font-serif);
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: rgba(197,137,42,0.3);
-      line-height: 1;
-      flex-shrink: 0;
-      min-width: 28px;
+    .guide__desc {
+      font-size: 0.88rem; line-height: 1.75;
+      color: var(--grey); margin-bottom: 2rem;
     }
-    .spotlight__item-body {}
-    .spotlight__item-cat {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 0.3rem;
+    .guide__cta {
+      display: inline-block; padding: 0.8rem 1.75rem;
+      background: var(--black); color: var(--white);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; transition: all 0.22s ease;
     }
-    .spotlight__item-title {
-      font-family: var(--font-serif);
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.4;
+    .guide__cta:hover { background: var(--black-soft); transform: translateY(-1px); }
+    .acc-list { border-top: 1px solid var(--grey-border); }
+    .acc-item { border-bottom: 1px solid var(--grey-border); }
+    .acc-header {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1.5rem;
+      padding: 1.4rem 0; cursor: pointer; user-select: none;
     }
-    .spotlight__item-meta {
-      font-size: 0.63rem;
-      color: rgba(255,255,255,0.35);
-      margin-top: 0.28rem;
+    .acc-header__left { display: flex; align-items: center; gap: 1.25rem; }
+    .acc-num {
+      font-family: var(--serif); font-size: 0.7rem;
+      color: var(--grey-light); width: 20px; flex-shrink: 0;
     }
-
-    /* ════════════════════════════════════════
-       BUYER JOURNEY
-    ════════════════════════════════════════ */
-    .journey {
-      background: var(--white);
-      padding: 3.25rem 0 4rem;
-      border-top: 1px solid var(--border);
+    .acc-title {
+      font-family: var(--serif); font-size: 1.05rem;
+      font-weight: 600; color: var(--black);
+      transition: color 0.2s ease; line-height: 1.3;
     }
-    .journey__steps {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 1rem;
-      margin-top: 2.25rem;
-      position: relative;
+    .acc-header:hover .acc-title { color: var(--grey-dark); }
+    .acc-icon {
+      width: 18px; height: 18px; flex-shrink: 0;
+      color: var(--grey-light);
+      transition: transform 0.35s var(--ease), color 0.2s ease;
     }
-    .journey__line {
-      position: absolute;
-      top: 19px;
-      left: calc(100%/12 + 8px);
-      right: calc(100%/12 + 8px);
-      height: 1px;
-      background: var(--border);
-      pointer-events: none;
+    .acc-item.open .acc-icon { transform: rotate(45deg); color: var(--black); }
+    .acc-body {
+      display: grid; grid-template-rows: 0fr;
+      transition: grid-template-rows 0.38s var(--ease);
     }
-    .journey__step {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      cursor: pointer;
-    }
-    .journey__step:hover .journey__num {
-      background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
-    }
-    .journey__step:hover .journey__step-title { color: var(--navy); }
-    .journey__num {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      border: 1.5px solid var(--border);
-      background: var(--white);
-      color: var(--text-muted);
-      font-family: var(--font-serif);
-      font-size: 0.85rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 0.95rem;
-      transition: all 0.22s;
-    }
-    .journey__step-title {
-      font-family: var(--font-serif);
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.42;
-      margin-bottom: 0.38rem;
-      transition: color 0.18s;
-    }
-    .journey__step-desc {
-      font-size: 0.67rem;
-      color: var(--text-muted);
-      line-height: 1.55;
+    .acc-item.open .acc-body { grid-template-rows: 1fr; }
+    .acc-body-inner { overflow: hidden; }
+    .acc-body-content {
+      padding: 0 0 1.75rem 2.7rem;
+      font-size: 0.88rem; line-height: 1.8;
+      color: var(--grey); max-width: 540px;
     }
 
-    /* ════════════════════════════════════════
-       PARTNER LOGOS — MARQUEE CAROUSEL
-    ════════════════════════════════════════ */
+    /* ── PARTNERS CAROUSEL ── */
     .partners {
-      background: var(--off-white);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 2rem 0;
-      overflow: hidden;
+      padding: 3rem 0;
+      background: var(--grey-bg);
+      border-top: 1px solid var(--grey-border);
+      border-bottom: 1px solid var(--grey-border);
     }
     .partners__label {
-      text-align: center;
-      margin-bottom: 1.5rem;
+      text-align: center; margin-bottom: 2rem;
     }
     .partners__label-text {
-      font-size: 0.66rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--text-muted);
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--grey-mid);
     }
-    .partners-marquee {
-      position: relative;
-      overflow: hidden;
+    .partners-marquee { overflow: hidden; position: relative; }
+    .partners-marquee::before, .partners-marquee::after {
+      content: ''; position: absolute; top: 0; bottom: 0;
+      width: 100px; z-index: 2; pointer-events: none;
     }
-    .partners-marquee::before,
-    .partners-marquee::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 140px;
-      z-index: 2;
-      pointer-events: none;
-    }
-    .partners-marquee::before { left: 0; background: linear-gradient(to right, var(--off-white) 20%, transparent); }
-    .partners-marquee::after  { right: 0; background: linear-gradient(to left,  var(--off-white) 20%, transparent); }
+    .partners-marquee::before { left: 0; background: linear-gradient(to right, var(--grey-bg), transparent); }
+    .partners-marquee::after  { right: 0; background: linear-gradient(to left, var(--grey-bg), transparent); }
     .partners-track {
-      display: flex;
-      align-items: center;
+      display: flex; align-items: center;
+      animation: partners-scroll 60s linear infinite;
       width: max-content;
-      animation: partners-scroll 65s linear infinite;
     }
-    .partners-track { pointer-events: none; }
     @keyframes partners-scroll {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .partner-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 2.75rem;
-      border-right: 1px solid var(--border-lt);
-      height: 90px;
-      min-width: 160px;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: row; padding: 0 2.25rem; height: 58px;
+      border-right: 1px solid var(--grey-border); flex-shrink: 0;
     }
     .partner-item img {
-      height: 60px;
-      width: auto;
-      max-width: 180px;
-      object-fit: contain;
-      display: block;
+      max-height: 34px; max-width: 115px; width: auto;
+      filter: grayscale(100%) opacity(0.45);
+      transition: filter 0.3s ease; object-fit: contain;
     }
-    .partner-item:hover img { opacity: 0.85; }
+    .partner-item:hover img { filter: grayscale(0%) opacity(0.85); }
     a.partner-item { text-decoration: none; }
-    .partner-item--labeled { flex-direction: column; gap: 0.35rem; }
+    .partner-item--labeled { flex-direction: column; gap: 0.25rem; height: auto; padding: 0.6rem 2.25rem; }
     .partner-label {
-      font-family: var(--font-sans);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--text-muted);
-      white-space: nowrap;
+      font-size: 0.55rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-mid);
     }
     .partner-wordmark {
-      font-family: var(--font-serif);
-      font-size: 1.12rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      white-space: nowrap;
-      letter-spacing: -0.01em;
-      transition: color 0.22s;
+      font-family: var(--serif); font-size: 0.9rem; font-weight: 700;
+      color: var(--grey-light); white-space: nowrap; transition: color 0.3s ease;
     }
-    .partner-wordmark--sans {
-      font-family: var(--font-sans);
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-    .partner-wordmark--sm {
-      font-family: var(--font-sans);
-      font-size: 0.76rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-    }
-    .partner-item:hover .partner-wordmark { color: var(--navy); }
-    @media (prefers-reduced-motion: reduce) {
-      .partners-track { animation: none; }
-    }
+    .partner-item:hover .partner-wordmark { color: var(--black); }
+    .partner-wordmark--sans { font-family: var(--sans); font-weight: 700; letter-spacing: 0.05em; }
+    .partner-wordmark--sm { font-size: 0.78rem; }
+    @media (prefers-reduced-motion: reduce) { .partners-track, .ticker__track { animation: none; } }
 
-    /* ════════════════════════════════════════
-       ABOUT / WHY FTBB
-    ════════════════════════════════════════ */
-    .about {
-      background: var(--white);
-      padding: 3.25rem 0 4rem;
-      border-top: 1px solid var(--border);
+    /* ── ADVERTISER CTA ── */
+    .advert-cta { padding: 6.5rem 0; background: var(--black); }
+    .advert-cta__inner { text-align: center; max-width: 680px; margin: 0 auto; }
+    .advert-cta__eyebrow {
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.75rem;
+      display: flex; align-items: center; justify-content: center; gap: 1rem;
     }
-    .about__grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 5rem;
-      align-items: start;
-      margin-top: 2.25rem;
+    .advert-cta__eyebrow::before, .advert-cta__eyebrow::after {
+      content: ''; display: inline-block; width: 30px; height: 1px; background: var(--gold);
     }
-    .about__pullquote {
-      font-family: var(--font-serif);
-      font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-      font-style: italic;
-      font-weight: 400;
-      color: var(--navy);
-      line-height: 1.5;
-      border-left: 3px solid var(--gold);
-      padding-left: 1.75rem;
-      margin-bottom: 1.35rem;
-    }
-    .about__attr {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      padding-left: 1.75rem;
-    }
-    .about__stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--border);
-    }
-    .about__stat strong {
-      display: block;
-      font-family: var(--font-serif);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1;
-      margin-bottom: 0.28rem;
-    }
-    .about__stat span {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-    .about__heading {
-      font-family: var(--font-serif);
-      font-size: clamp(1.35rem, 2vw, 1.85rem);
-      font-weight: 700;
-      line-height: 1.28;
-      letter-spacing: -0.02em;
-      color: var(--text);
+    .advert-cta__title {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 4.5vw, 4rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.08; letter-spacing: -0.035em;
       margin-bottom: 1.25rem;
     }
-    .about__body {
-      font-size: 0.9rem;
-      line-height: 1.85;
-      color: var(--text-2);
-      margin-bottom: 0.9rem;
+    .advert-cta__desc {
+      font-size: 1rem; font-weight: 300; line-height: 1.72;
+      color: rgba(255,255,255,0.5); margin-bottom: 2.75rem;
     }
-    .about__list {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
+    .advert-cta__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white-solid {
+      display: inline-block; padding: 0.9rem 2.25rem;
+      background: var(--white); color: var(--black);
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.22s ease;
     }
-    .about__list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.87rem;
-      color: var(--text-2);
-      line-height: 1.55;
+    .btn-white-solid:hover { background: var(--grey-bg); transform: translateY(-1px); }
+    .btn-ghost-light {
+      display: inline-block; padding: 0.9rem 2.25rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.8);
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.22s ease;
     }
-    .about__list li::before {
-      content: '';
-      display: block;
-      width: 8px; height: 8px;
-      min-width: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-      margin-top: 5px;
-      flex-shrink: 0;
-    }
-    .about__cta-row {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-block;
-      padding: 0.82rem 1.6rem;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.73rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: background 0.18s, transform 0.18s;
-    }
-    .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
-    .btn-outline {
-      display: inline-block;
-      padding: 0.82rem 1.6rem;
-      border: 1.5px solid var(--border);
-      color: var(--text);
-      font-size: 0.73rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      transition: border-color 0.18s, color 0.18s;
-    }
-    .btn-outline:hover { border-color: var(--navy); color: var(--navy); }
+    .btn-ghost-light:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
 
-    /* ════════════════════════════════════════
-       TESTIMONIALS
-    ════════════════════════════════════════ */
-    .testimonials {
-      background: var(--off-white);
-      padding: 3.25rem 0 4rem;
-      border-top: 1px solid var(--border);
-    }
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.25rem;
-    }
-    .testi-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 1.75rem;
-      border-radius: 3px;
-    }
-    .testi-card__stars {
-      color: var(--gold);
-      font-size: 0.82rem;
-      letter-spacing: 0.12em;
-      margin-bottom: 1rem;
-    }
-    .testi-card__quote {
-      font-family: var(--font-serif);
-      font-size: 0.93rem;
-      line-height: 1.68;
-      color: var(--text);
-      font-style: italic;
-      margin-bottom: 1.35rem;
-    }
-    .testi-card__person {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-    .testi-card__avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-    .testi-card__avatar img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-    }
-    .testi-card__name {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .testi-card__detail {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 0.12rem;
-    }
-
-    /* ════════════════════════════════════════
-       NEWSLETTER
-    ════════════════════════════════════════ */
+    /* ── NEWSLETTER ── */
     .newsletter {
-      background: var(--navy);
-      padding: 4.5rem 0;
-      position: relative;
-      overflow: hidden;
+      padding: 5rem 0; background: var(--grey-bg);
+      border-top: 1px solid var(--grey-border);
     }
-    .newsletter::before {
-      content: '';
-      position: absolute;
-      top: -120px; right: -120px;
-      width: 450px; height: 450px;
-      background: radial-gradient(circle, rgba(197,137,42,0.1) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .newsletter::after {
-      content: '';
-      position: absolute;
-      bottom: -80px; left: -80px;
-      width: 320px; height: 320px;
-      background: radial-gradient(circle, rgba(30,64,128,0.5) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .newsletter__inner {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
+    .newsletter__inner { max-width: 640px; margin: 0 auto; text-align: center; }
     .newsletter__eyebrow {
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--grey-mid); margin-bottom: 1rem;
     }
     .newsletter__title {
-      font-family: var(--font-serif);
-      font-size: clamp(1.65rem, 2.4vw, 2.2rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.22;
-      letter-spacing: -0.022em;
-      margin-bottom: 1rem;
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700; letter-spacing: -0.025em;
+      color: var(--black); line-height: 1.12; margin-bottom: 1rem;
     }
     .newsletter__desc {
-      font-size: 0.9rem;
-      line-height: 1.78;
-      color: rgba(255,255,255,0.55);
-    }
-    .newsletter__benefits {
-      display: flex;
-      flex-direction: column;
-      gap: 0.72rem;
-      margin-bottom: 1.85rem;
-    }
-    .newsletter__benefit {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.68);
-      line-height: 1.5;
-    }
-    .newsletter__benefit::before {
-      content: '✓';
-      color: var(--gold);
-      font-weight: 700;
-      flex-shrink: 0;
+      font-size: 0.9rem; color: var(--grey); line-height: 1.7; margin-bottom: 2rem;
     }
     .newsletter__form {
-      display: flex;
-      gap: 0.6rem;
+      display: flex; gap: 0; max-width: 460px; margin: 0 auto 0.85rem;
     }
     .newsletter__input {
-      flex: 1;
-      padding: 0.85rem 1.15rem;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.16);
-      border-radius: 2px;
-      color: var(--white);
-      font-size: 0.88rem;
-      outline: none;
-      transition: border-color 0.2s;
+      flex: 1; padding: 0.9rem 1.25rem;
+      border: 1px solid var(--grey-border); border-right: none;
+      font-size: 0.88rem; outline: none;
+      background: var(--white); color: var(--black);
+      transition: border-color 0.2s ease;
     }
-    .newsletter__input::placeholder { color: rgba(255,255,255,0.32); }
-    .newsletter__input:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
+    .newsletter__input:focus { border-color: var(--black); }
     .newsletter__submit {
-      padding: 0.85rem 1.5rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      padding: 0.9rem 1.5rem;
+      background: var(--black); color: var(--white);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
       text-transform: uppercase;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.18s;
-      white-space: nowrap;
+      border: 1px solid var(--black); cursor: pointer;
+      transition: background 0.2s ease; white-space: nowrap;
     }
-    .newsletter__submit:hover { background: var(--gold-light); }
-    .newsletter__note {
-      font-size: 0.67rem;
-      color: rgba(255,255,255,0.28);
-      margin-top: 0.75rem;
-    }
+    .newsletter__submit:hover { background: var(--black-soft); }
+    .newsletter__note { font-size: 0.68rem; color: var(--grey-mid); }
 
-    /* ════════════════════════════════════════
-       FOOTER
-    ════════════════════════════════════════ */
-    .footer {
-      background: #070d1c;
-      padding: 4.5rem 0 2rem;
-      border-top: 3px solid var(--gold);
-    }
+    /* ── FOOTER ── */
+    .footer { background: var(--black); padding: 4.5rem 0 0; }
     .footer__top {
-      display: grid;
-      grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr;
-      gap: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem; padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
-    .footer__logo {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
-      margin-bottom: 1.1rem;
-    }
+    .footer__logo { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
     .footer__logo img {
-      height: 38px; width: auto;
-      filter: brightness(0) invert(1) opacity(0.88);
+      height: 34px; width: auto;
+      filter: brightness(0) invert(1); opacity: 0.7;
     }
-    .footer__logo-text {
-      font-family: var(--font-serif);
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.2;
-    }
-    .footer__logo-sub {
-      font-size: 0.56rem;
-      color: rgba(255,255,255,0.35);
-      text-transform: uppercase;
-      letter-spacing: 0.13em;
-      margin-top: 2px;
-    }
+    .footer__logo-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .footer__logo-sub { font-size: 0.6rem; color: rgba(255,255,255,0.3); margin-top: 0.1rem; }
     .footer__tagline {
-      font-size: 0.8rem;
-      line-height: 1.75;
-      color: rgba(255,255,255,0.38);
-      max-width: 28ch;
-      margin-bottom: 1.5rem;
+      font-size: 0.8rem; line-height: 1.65;
+      color: rgba(255,255,255,0.38); margin-bottom: 1.5rem;
     }
+    .footer__contact {
+      font-style: normal; font-size: 0.78rem;
+      line-height: 1.8; color: rgba(255,255,255,0.38);
+      margin-bottom: 1.25rem;
+    }
+    .footer__contact strong { color: rgba(255,255,255,0.72); display: block; margin-bottom: 0.1rem; }
+    .footer__contact a { transition: color 0.2s ease; }
+    .footer__contact a:hover { color: var(--white); }
     .footer__socials { display: flex; gap: 0.5rem; }
     .footer__soc {
       width: 34px; height: 34px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.42);
-      transition: all 0.18s;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.38);
+      transition: all 0.2s ease;
     }
-    .footer__soc:hover {
-      border-color: rgba(255,255,255,0.28);
-      color: var(--white);
-      background: rgba(255,255,255,0.05);
-    }
-    .footer__soc svg { width: 14px; height: 14px; }
+    .footer__soc:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .footer__soc svg { width: 13px; height: 13px; }
     .footer__col h4 {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.26);
-      margin-bottom: 1.1rem;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); margin-bottom: 1.25rem;
     }
-    .footer__col li + li { margin-top: 0.52rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: 0.6rem; }
     .footer__col a {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.45);
-      transition: color 0.18s;
+      font-size: 0.8rem; color: rgba(255,255,255,0.4);
+      transition: color 0.2s ease;
     }
     .footer__col a:hover { color: var(--white); }
     .footer__bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1.75rem;
-      gap: 1rem;
-      flex-wrap: wrap;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
     }
-    .footer__copy {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.2);
-    }
+    .footer__copy { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
     .footer__legal { display: flex; gap: 1.5rem; }
-    .footer__legal a {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.2);
-      transition: color 0.18s;
-    }
-    .footer__legal a:hover { color: rgba(255,255,255,0.55); }
+    .footer__legal a { font-size: 0.68rem; color: rgba(255,255,255,0.22); transition: color 0.2s ease; }
+    .footer__legal a:hover { color: rgba(255,255,255,0.5); }
 
-    /* ════════════════════════════════════════
-       RESPONSIVE
-    ════════════════════════════════════════ */
-    @media (max-width: 1024px) {
-      .hero-feature__grid { grid-template-columns: 1.2fr 1fr; }
-      .mag-grid { grid-template-columns: 1fr 1fr; }
-      .mag-grid .mag-feat {
-        grid-column: span 2;
-        border-right: none;
-        padding-right: 0;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 2rem;
-        margin-bottom: 0.5rem;
-      }
-      .mag-grid .mag-feat__img { aspect-ratio: 16/7; }
-      .spotlight__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .newsletter__inner { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about__grid { grid-template-columns: 1fr; gap: 3rem; }
-      .journey__steps { grid-template-columns: repeat(3, 1fr); }
-      .journey__line { display: none; }
-      .footer__top { grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
-      .footer__brand { grid-column: span 3; }
-    }
-    @media (max-width: 768px) {
-      .wrap { padding: 0 1.25rem; }
-      .util-bar__center { display: none; }
-      .masthead { padding: 2rem 0 1.5rem; }
-      .masthead__img { height: 44px; }
-      .masthead__name { font-size: 1.8rem; }
-      .hero-feature__grid { grid-template-columns: 1fr; }
-      .hero-sidebar { display: none; }
-      .mag-grid { grid-template-columns: 1fr; }
-      .mag-grid .mag-feat { grid-column: span 1; }
-      .journey__steps { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-      .testimonials__grid { grid-template-columns: 1fr; }
-      .newsletter__form { flex-direction: column; }
-      .footer__top { grid-template-columns: 1fr 1fr; }
-      .footer__brand { grid-column: span 2; }
-      .nav__links { display: none; }
-      .nav__cta { display: none; }
-      .nav__ham { display: flex; }
-      .partners__row { gap: 0; }
-      .partner-logo { padding: 0.75rem 1.25rem; }
-      .about__cta-row { flex-direction: column; align-items: flex-start; }
-      .spotlight__inner { gap: 2rem; }
-    }
-    @media (max-width: 480px) {
-      .journey__steps { grid-template-columns: 1fr 1fr; }
-      .footer__top { grid-template-columns: 1fr; }
-      .footer__brand { grid-column: span 1; }
-      .footer__bottom { flex-direction: column; text-align: center; }
-      .masthead__rule { display: none; }
-      .masthead__logo-row { flex-direction: column; gap: 0.75rem; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .fade-up { opacity: 1; transform: none; transition: none; }
-      .hero-main__img img,
-      .hero-side-card__img img,
-      .mag-feat__img img,
-      .mag-article__img img { transition: none; }
-    }
-
-    /* ── COOKIE CONSENT BAR ── */
-    .cookie-bar {
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: var(--navy);
-      color: rgba(255,255,255,0.85);
-      z-index: 990;
-      padding: 1.1rem 1.5rem;
-      border-top: 2px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      font-size: 0.78rem;
-      line-height: 1.55;
-      transition: transform 0.35s ease;
-    }
-    .cookie-bar.hidden { transform: translateY(110%); pointer-events: none; }
-    .cookie-bar p { margin: 0; flex: 1; min-width: 200px; }
-    .cookie-bar p a { color: var(--gold); text-decoration: underline; }
-    .cookie-bar__actions { display: flex; gap: 0.65rem; flex-shrink: 0; }
-    .cookie-bar__accept {
-      padding: 0.55rem 1.25rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: opacity 0.18s;
-    }
-    .cookie-bar__accept:hover { opacity: 0.85; }
-    .cookie-bar__settings {
-      padding: 0.55rem 1.25rem;
-      background: transparent;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 2px;
-      cursor: pointer;
-      transition: color 0.18s, border-color 0.18s;
-    }
-    .cookie-bar__settings:hover { color: var(--white); border-color: rgba(255,255,255,0.55); }
-
-    /* ── GUIDES MODAL ── */
+    /* ── MODAL ── */
     .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(13,31,60,0.78);
-      z-index: 1100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      backdrop-filter: blur(3px);
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.72); z-index: 200;
+      display: flex; align-items: center; justify-content: center; padding: 1.5rem;
     }
     .modal-overlay[hidden] { display: none; }
     .modal {
-      background: var(--white);
-      padding: 2.5rem;
-      max-width: 460px;
-      width: 100%;
-      border-radius: 3px;
-      position: relative;
-      box-shadow: 0 20px 60px rgba(13,31,60,0.35);
+      background: var(--white); max-width: 440px; width: 100%;
+      padding: 2.5rem; position: relative;
     }
     .modal__close {
-      position: absolute;
-      top: 1rem; right: 1rem;
-      width: 34px; height: 34px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 1.4rem;
-      color: var(--text-2);
-      line-height: 1;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 2px;
-      transition: background 0.15s, color 0.15s;
+      position: absolute; top: 1rem; right: 1rem;
+      width: 30px; height: 30px; display: flex;
+      align-items: center; justify-content: center;
+      font-size: 1.2rem; color: var(--grey);
+      transition: color 0.2s ease;
     }
-    .modal__close:hover { background: var(--off-white); color: var(--text); }
+    .modal__close:hover { color: var(--black); }
     .modal__eyebrow {
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 0.75rem;
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); display: block; margin-bottom: 0.75rem;
     }
     .modal__title {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 0.75rem;
-      line-height: 1.3;
+      font-family: var(--serif); font-size: 1.55rem;
+      font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.75rem;
     }
-    .modal__desc {
-      font-size: 0.85rem;
-      color: var(--text-2);
-      line-height: 1.65;
-      margin-bottom: 1.5rem;
-    }
-    .modal__form { display: flex; flex-direction: column; gap: 0.7rem; }
+    .modal__desc { font-size: 0.86rem; line-height: 1.65; color: var(--grey); margin-bottom: 1.5rem; }
+    .modal__form { display: flex; flex-direction: column; gap: 0.75rem; }
     .modal__input {
-      padding: 0.78rem 1rem;
-      border: 1.5px solid var(--border);
-      border-radius: 2px;
-      font-size: 0.87rem;
-      font-family: var(--font-sans);
-      color: var(--text);
-      background: var(--white);
-      transition: border-color 0.18s;
-      outline: none;
+      padding: 0.85rem 1rem; border: 1px solid var(--grey-border);
+      font-size: 0.86rem; outline: none; width: 100%;
+      transition: border-color 0.2s ease;
     }
-    .modal__input:focus { border-color: var(--navy); }
+    .modal__input:focus { border-color: var(--black); }
     .modal__submit {
-      padding: 0.82rem 1.5rem;
-      background: var(--navy);
-      color: var(--white);
-      font-size: 0.73rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      transition: background 0.18s;
+      padding: 0.9rem; background: var(--black); color: var(--white);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; border: none; cursor: pointer;
+      transition: background 0.2s ease;
     }
-    .modal__submit:hover { background: var(--navy-mid); }
-    .modal__note {
-      font-size: 0.72rem;
-      color: var(--text-2);
-      margin-top: 0.65rem;
-      text-align: center;
+    .modal__submit:hover { background: var(--black-soft); }
+    .modal__note { font-size: 0.68rem; color: var(--grey-mid); margin-top: 0.5rem; }
+
+    /* ── COOKIE ── */
+    .cookie-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 1rem 2rem;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 1.5rem;
+      z-index: 150; font-size: 0.76rem;
+      color: rgba(255,255,255,0.55);
+    }
+    .cookie-bar.hidden { display: none; }
+    .cookie-bar a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-bar__accept {
+      padding: 0.55rem 1.25rem; background: var(--white); color: var(--black);
+      font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer; border: none;
+    }
+    .cookie-bar__settings {
+      padding: 0.55rem 1.25rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.55); background: none;
+      font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .cookie-bar__settings:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      .insights__grid { grid-template-columns: repeat(2,1fr); }
+      .insight-stat { border-left: none; border-top: 1px solid rgba(255,255,255,0.07); }
+      .insight-stat:nth-child(even) { border-left: 1px solid rgba(255,255,255,0.07); }
+      .insight-stat:nth-child(1), .insight-stat:nth-child(2) { border-top: none; }
+      .footer__top { grid-template-columns: 1fr 1fr; }
+      .footer__brand { grid-column: span 2; }
+    }
+    @media (max-width: 900px) {
+      .hero__inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero__eyebrow { justify-content: center; }
+      .hero__sub { max-width: 100%; }
+      .hero__actions { justify-content: center; }
+      .hero__visual { order: -1; }
+      .tilt-cover { max-width: 240px; margin: 0 auto; }
+      .articles__grid { grid-template-columns: 1fr; }
+      .art-featured { border-right: none; border-bottom: 1px solid var(--grey-border); }
+      .mag-feature__inner { grid-template-columns: 1fr; gap: 3rem; }
+      .mag-feature__cover img { max-width: 280px; margin: 0 auto; }
+      .guide__grid { grid-template-columns: 1fr; gap: 3rem; }
+      .guide__sticky { position: static; }
+      .nav__links, .nav__cta { display: none; }
+      .nav__ham { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 1.25rem; }
+      .hero { min-height: auto; padding-top: 7rem; }
+      .hero__actions { flex-direction: column; align-items: center; }
+      .hero__actions a { width: 100%; text-align: center; }
+      .insights__grid { grid-template-columns: 1fr 1fr; }
+      .insight-stat { padding: 2rem 1.25rem; }
+      .newsletter__form { flex-direction: column; }
+      .newsletter__input { border-right: 1px solid var(--grey-border); }
+      .advert-cta__actions { flex-direction: column; align-items: center; }
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__brand { grid-column: span 1; }
+      .footer__bottom { flex-direction: column; text-align: center; }
+      .cookie-bar { flex-direction: column; align-items: flex-start; }
+      .sec-header { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
 <body>
 
-
-<!-- ════════════════════════════════════════
-     UTILITY BAR
-════════════════════════════════════════ -->
-<div class="util-bar" role="banner">
-  <div class="wrap">
-    <div class="util-bar__inner">
-      <div class="util-bar__left">
-        <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="util-bar__soc" aria-label="Follow FTBB on Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          @first_timebuyerire
-        </a>
-      </div>
-      <div class="util-bar__center">Ireland's First-Time Buyer Resource Hub</div>
-      <div class="util-bar__right">
-        <a href="mailto:info@ftbb.ie" class="util-bar__link">info@ftbb.ie</a>
-        <a href="#newsletter" class="util-pill">Subscribe Free</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ════════════════════════════════════════
-     MASTHEAD
-════════════════════════════════════════ -->
-<div class="masthead" role="banner">
-  <div class="wrap">
-    <div class="masthead__logo-row">
-      <img src="./ftbblogo-removebg-preview.png" alt="FTBB" class="masthead__img" width="120" height="60" loading="eager" />
-      <div class="masthead__rule" aria-hidden="true"></div>
-      <div>
-        <div class="masthead__name">First Time Buyer's Bible</div>
-        <div class="masthead__tagline">Ireland's Home Buying Resource Hub</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- ════════════════════════════════════════
-     NAVIGATION
-════════════════════════════════════════ -->
+<!-- ═══ NAV ═══ -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
   <div class="wrap">
     <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="FTBB Home">
-        <img src="./ftbblogo-removebg-preview.png" alt="FTBB" width="60" height="30" loading="eager" />
-        <span class="nav__brand-text">FTBB</span>
+      <a href="/" class="nav__logo" aria-label="FTBB — Home">
+        <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" />
+        <span class="nav__logo-text">FTBB</span>
       </a>
       <ul class="nav__links" role="list">
-        <li><a href="#mortgages">Mortgages</a></li>
-        <li><a href="#grants">Grants &amp; Schemes</a></li>
-        <li><a href="#process">Buying Process</a></li>
-        <li><a href="#resources">All Guides</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#guide">Buyer Guide</a></li>
+        <li><a href="#insights">Market Data</a></li>
         <li><a href="#partners">Partners</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="/advertise">Advertise</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="nav__cta">
-        <a href="/buy" class="nav__cta-btn">Buy the Guide</a>
-      </div>
-      <button class="nav__ham" id="nav-ham" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <a href="/buy" class="nav__cta">Get the Guide</a>
+      <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
-  <div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <ul role="list">
-      <li><a href="#mortgages">Mortgages</a></li>
-      <li><a href="#grants">Grants &amp; Schemes</a></li>
-      <li><a href="#process">Buying Process</a></li>
-      <li><a href="#resources">All Guides</a></li>
-      <li><a href="#partners">Partners</a></li>
-      <li><a href="#journey">Buyer Journey</a></li>
-      <li><a href="#about">About FTBB</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="/advertise">Advertise With Us</a></li>
-      <li><a href="/media-kit">Media Kit</a></li>
-    </ul>
-    <a href="/buy" class="nav__mobile-cta">Buy the Guide</a>
-  </div>
 </nav>
 
+<!-- MOBILE NAV -->
+<div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+  <a href="#news">News</a>
+  <a href="#guide">Buyer Guide</a>
+  <a href="#insights">Market Data</a>
+  <a href="#partners">Partners</a>
+  <a href="/buy">Get the Guide</a>
+  <a href="#contact">Contact</a>
+</div>
 
-<!-- ════════════════════════════════════════
-     LATEST STRIP
-════════════════════════════════════════ -->
-<div class="latest-strip" aria-label="Recently published">
-  <div class="latest-strip__inner">
-    <span class="latest-strip__label" aria-hidden="true">Just Published</span>
-    <a href="#" class="latest-strip__item"><span class="ls-cat">Mortgage</span> Central Bank 2025 Lending Rules Explained</a>
-    <a href="#" class="latest-strip__item"><span class="ls-cat">Grants</span> Help to Buy: A Step-by-Step Application Guide</a>
-    <a href="#" class="latest-strip__item"><span class="ls-cat">Strategy</span> How to Save a €40,000 Deposit in Dublin</a>
-    <a href="#" class="latest-strip__item"><span class="ls-cat">Legal</span> How to Choose a Conveyancing Solicitor</a>
-    <a href="#" class="latest-strip__item"><span class="ls-cat">Market</span> Where First-Time Buyers Are Buying in 2025</a>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home" aria-label="FTBB Hero">
+  <div class="wrap">
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <p class="hero__eyebrow">Ireland's Premier First-Time Buyer Resource · Est. 2024</p>
+        <h1 class="hero__headline">Buy Your<br/>First Home.<br/><em>Do It Right.</em></h1>
+        <p class="hero__sub">Ireland's most trusted guide for first-time buyers — clear, expert information on mortgages, government grants, the legal process, and every step of your property purchase.</p>
+        <div class="hero__actions">
+          <a href="/buy" class="btn-white">Get the Buyer's Guide</a>
+          <a href="#news" class="btn-ghost">Read Latest News</a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="tilt-wrap">
+          <div class="tilt-cover" id="tilt-cover">
+            <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — The Essential Guide for Ireland's First-Time Buyers" width="360" height="480" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══ TICKER ═══ -->
+<div class="ticker" aria-hidden="true" role="marquee" aria-label="Latest Irish property news">
+  <div class="ticker__track" id="ticker-track">
+    <span class="ticker__item"><strong>Record mortgage approvals in May 2026</strong> — First-time buyers drive historic surge in applications</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>Bank of Ireland forecasts 4% price growth</strong> — Market entering more sedate phase after years of double-digit rises</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>Central Bank eases rules for those trading down</strong> — New mortgage lending exemptions take effect from April 2026</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>€3 billion in drawdowns in Q1 2026</strong> — BPFI reports strongest first quarter on record</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>Is Ireland's housing market finally turning?</strong> — Irish Times analysis of supply, demand and affordability</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>CSO: Property prices up 6.8% year-on-year</strong> — February 2026 Residential Property Price Index published</span>
+    <span class="ticker__dot"></span>
+    <!-- Duplicate for seamless loop -->
+    <span class="ticker__item"><strong>Record mortgage approvals in May 2026</strong> — First-time buyers drive historic surge in applications</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>Bank of Ireland forecasts 4% price growth</strong> — Market entering more sedate phase after years of double-digit rises</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>Central Bank eases rules for those trading down</strong> — New mortgage lending exemptions take effect from April 2026</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>€3 billion in drawdowns in Q1 2026</strong> — BPFI reports strongest first quarter on record</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>Is Ireland's housing market finally turning?</strong> — Irish Times analysis of supply, demand and affordability</span>
+    <span class="ticker__dot"></span>
+    <span class="ticker__item"><strong>CSO: Property prices up 6.8% year-on-year</strong> — February 2026 Residential Property Price Index published</span>
+    <span class="ticker__dot"></span>
   </div>
 </div>
 
 
-<!-- ════════════════════════════════════════
-     HERO FEATURE
-════════════════════════════════════════ -->
-<section class="hero-feature" aria-label="Featured guides">
+<!-- ═══ NEWS / ARTICLES ═══ -->
+<section class="articles" id="news" aria-labelledby="news-h2">
   <div class="wrap">
-    <div class="hero-feature__grid fade-up">
+    <div class="sec-header reveal">
+      <div>
+        <p class="sec-eyebrow">Real 2026 Coverage</p>
+        <h2 class="sec-title" id="news-h2">Ireland's Property<br/>Market This Year</h2>
+      </div>
+      <a href="#" class="sec-link" id="all-articles-link">All Coverage <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+    </div>
 
-      <!-- Main Feature -->
-      <a href="#" class="hero-main" aria-label="Read: The Complete Irish Mortgage Guide for First-Time Buyers 2025">
-        <div class="hero-main__img">
-          <img
-            src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=950&q=82&auto=format&fit=crop"
-            alt="House keys — buying your first home in Ireland"
-            width="950" height="594"
-            loading="eager"
-            fetchpriority="high"
-          />
+    <div class="articles__grid reveal">
+      <!-- Featured -->
+      <a href="https://www.irishtimes.com/business/2026/06/26/mortgage-approvals-reach-record-in-may-driven-by-first-time-buyers/" target="_blank" rel="noopener noreferrer" class="art-featured" aria-label="Read: Mortgage approvals reach record in May">
+        <div class="art-num">01</div>
+        <div class="art-tags">
+          <span class="art-cat">Mortgage Market</span>
+          <span class="art-badge">Irish Times</span>
         </div>
-        <div class="hero-main__body">
-          <span class="cat-badge">Complete Guide — Mortgages</span>
-          <h1 class="hero-main__title">The Complete Irish Mortgage Guide for First-Time Buyers 2025</h1>
-          <p class="hero-main__excerpt">From calculating your borrowing capacity under Central Bank rules to comparing lenders, understanding rate types and securing approval in principle — everything you need to know before applying for a mortgage in Ireland.</p>
-          <div class="art-meta">
-            <span>FTBB Editorial Team</span>
-            <span class="art-meta__dot" aria-hidden="true"></span>
-            <span>June 2025</span>
-            <span class="art-meta__dot" aria-hidden="true"></span>
-            <span>12 min read</span>
-          </div>
-          <span class="read-more">Read Full Guide <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
+        <h3 class="art-headline">Mortgage approvals reach record in May, driven by first-time buyers</h3>
+        <p class="art-excerpt">A record number of mortgage approvals were logged in May 2026, with first-time buyers accounting for the majority of applications — driven by improving affordability and robust demand for new supply.</p>
+        <div class="art-meta-row">
+          <span>Irish Times</span>
+          <span class="art-meta-sep" aria-hidden="true"></span>
+          <span>26 June 2026</span>
         </div>
+        <span class="art-read">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
       </a>
 
-      <!-- Sidebar cards -->
-      <div class="hero-sidebar">
-        <a href="#" class="hero-side-card" aria-label="Read: Help To Buy — The Tax Refund That Could Fund Your Deposit">
-          <div class="hero-side-card__img">
-            <img
-              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=620&q=80&auto=format&fit=crop"
-              alt="Financial planning for Help to Buy scheme Ireland"
-              width="620" height="348"
-              loading="eager"
-            />
-          </div>
-          <div class="hero-side-card__body">
-            <span class="cat-badge">Government Grants</span>
-            <p class="hero-side-card__title">Help To Buy: The Tax Refund That Could Fund Your Entire Deposit</p>
-            <div class="art-meta">
-              <span>May 2025</span>
-              <span class="art-meta__dot" aria-hidden="true"></span>
-              <span>7 min read</span>
+      <!-- Article list -->
+      <div class="articles__list">
+        <a href="https://www.irishtimes.com/business/economy/2026/05/27/house-prices-to-increase-by-more-sedate-4-in-2026-says-bank-of-ireland/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: House prices to increase by 4% in 2026">
+          <div class="art-item__top">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <span class="art-item__num">02</span>
+              <span class="art-badge">Irish Times</span>
             </div>
+            <span class="art-item__meta">27 May 2026</span>
           </div>
+          <h3 class="art-item__headline">House prices to increase by 'more sedate' 4% in 2026, says Bank of Ireland</h3>
         </a>
-        <a href="#" class="hero-side-card" aria-label="Read: How To Save A €40,000 Deposit In Dublin">
-          <div class="hero-side-card__img">
-            <img
-              src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=620&q=80&auto=format&fit=crop"
-              alt="First-time buyer searching for property online"
-              width="620" height="348"
-              loading="eager"
-            />
-          </div>
-          <div class="hero-side-card__body">
-            <span class="cat-badge">Saving Strategy</span>
-            <p class="hero-side-card__title">How To Save A €40,000 Deposit In Dublin: A Realistic Timeline</p>
-            <div class="art-meta">
-              <span>April 2025</span>
-              <span class="art-meta__dot" aria-hidden="true"></span>
-              <span>8 min read</span>
+
+        <a href="https://www.irishtimes.com/business/economy/2026/05/14/is-irelands-housing-market-finally-turning/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Is Ireland's housing market finally turning?">
+          <div class="art-item__top">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <span class="art-item__num">03</span>
+              <span class="art-badge">Irish Times</span>
             </div>
+            <span class="art-item__meta">14 May 2026</span>
           </div>
+          <h3 class="art-item__headline">Is Ireland's housing market finally turning?</h3>
+        </a>
+
+        <a href="https://www.rte.ie/news/business/2026/0408/1567169-central-bank-changes-rules-to-help-those-trading-down/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Central Bank changes rules to help those trading down">
+          <div class="art-item__top">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <span class="art-item__num">04</span>
+              <span class="art-badge">RTÉ News</span>
+            </div>
+            <span class="art-item__meta">8 April 2026</span>
+          </div>
+          <h3 class="art-item__headline">Central Bank changes rules to help those trading down</h3>
+        </a>
+
+        <a href="https://bpfi.ie/publications/mortgage-drawdowns-q1-2026-bpfi/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Mortgage drawdowns exceeded €3 billion in Q1 2026">
+          <div class="art-item__top">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <span class="art-item__num">05</span>
+              <span class="art-badge">BPFI</span>
+            </div>
+            <span class="art-item__meta">Q1 2026</span>
+          </div>
+          <h3 class="art-item__headline">Mortgage drawdowns exceeded €3 billion in Q1 2026</h3>
+        </a>
+
+        <a href="https://www.cso.ie/en/releasesandpublications/ep/p-rppi/residentialpropertypriceindexfebruary2026/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Residential Property Price Index February 2026">
+          <div class="art-item__top">
+            <div style="display:flex;align-items:center;gap:0.6rem;">
+              <span class="art-item__num">06</span>
+              <span class="art-badge">CSO</span>
+            </div>
+            <span class="art-item__meta">February 2026</span>
+          </div>
+          <h3 class="art-item__headline">Residential Property Price Index — February 2026</h3>
         </a>
       </div>
-
     </div>
   </div>
 </section>
 
 
-<!-- ════════════════════════════════════════
-     PARTNER LENDERS
-════════════════════════════════════════ -->
+<!-- ═══ MARKET INSIGHTS ═══ -->
+<section class="insights" id="insights" aria-labelledby="insights-h2">
+  <div class="wrap">
+    <div class="insights__header reveal">
+      <div>
+        <p class="sec-eyebrow" style="color:rgba(255,255,255,0.3)">Live Market Data</p>
+        <h2 class="sec-title sec-title--white" id="insights-h2">Irish Property<br/>Market — 2026</h2>
+      </div>
+      <p class="insights__sub">Sources: CSO RPPI Feb 2026<br/>BPFI Drawdowns Q1 2026</p>
+    </div>
+    <div class="insights__grid">
+      <div class="insight-stat reveal">
+        <span class="insight-num" data-counter data-target="385" data-prefix="€" data-suffix="k">€0k</span>
+        <p class="insight-label">Median House Price</p>
+        <p class="insight-source">CSO RPPI, Feb 2026</p>
+      </div>
+      <div class="insight-stat reveal reveal-d1">
+        <span class="insight-num" data-counter data-target="6.8" data-prefix="+" data-suffix="%" data-float="true">+0%</span>
+        <p class="insight-label">Annual Price Growth</p>
+        <p class="insight-source">CSO RPPI, Feb 2026</p>
+      </div>
+      <div class="insight-stat reveal reveal-d2">
+        <span class="insight-num" data-counter data-target="3.53" data-prefix="" data-suffix="%" data-float="true">0%</span>
+        <p class="insight-label">Average Fixed Rate</p>
+        <p class="insight-source">BPFI Rate Survey, Q1 2026</p>
+      </div>
+      <div class="insight-stat reveal reveal-d3">
+        <span class="insight-num" data-counter data-target="5700" data-prefix="" data-suffix="">0</span>
+        <p class="insight-label">Monthly Approvals</p>
+        <p class="insight-source">BPFI, May 2026</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ MAGAZINE FEATURE ═══ -->
+<section class="mag-feature" aria-labelledby="feature-h2">
+  <div class="wrap">
+    <div class="mag-feature__inner">
+      <div class="mag-feature__cover reveal">
+        <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — The Essential Guide" width="370" height="490" loading="lazy" />
+      </div>
+      <div class="reveal reveal-d1">
+        <p class="mag-feature__eyebrow">The Definitive Guide</p>
+        <h2 class="mag-feature__title" id="feature-h2">Everything You Need. In One Place.</h2>
+        <p class="mag-feature__desc">The First Time Buyer's Bible is Ireland's most comprehensive property buying guide — covering mortgages, government grants, legal process, surveys, stamp duty, and every practical step from deposit to keys. Written by experts. Built for first-time buyers.</p>
+        <div class="mag-feature__actions">
+          <a href="/buy" class="btn-dark">Buy the Guide</a>
+          <a href="#guide" class="btn-outline-dark">Preview Contents</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ BUYER GUIDE ACCORDION ═══ -->
+<section class="guide" id="guide" aria-labelledby="guide-h2">
+  <div class="wrap">
+    <div class="guide__grid">
+
+      <div class="guide__sticky reveal">
+        <p class="sec-eyebrow">Step By Step</p>
+        <h2 class="guide__title" id="guide-h2">The Complete Buyer's Roadmap</h2>
+        <p class="guide__desc">Everything you need to know, in the right order — from saving your deposit to getting your keys. Click any topic to expand the key facts every Irish first-time buyer should understand.</p>
+        <a href="/buy" class="guide__cta">Get the Full Guide</a>
+      </div>
+
+      <div class="acc-list reveal reveal-d1" role="list">
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">01</span>
+              <span class="acc-title">Setting Your Budget</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                Before you begin house hunting, you need to understand what you can realistically afford. Your budget is shaped by your savings (minimum 10% deposit for most buyers), your mortgage borrowing capacity (typically 3.5× gross annual income under Central Bank rules, with a first-time buyer exception up to 4×), and the additional costs you'll pay at closing: stamp duty (1% on the first €1m), solicitor fees (€1,500–€3,000 + VAT), surveyor costs (€300–€500), and a bank valuation fee (€150–€185).
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">02</span>
+              <span class="acc-title">Understanding the Mortgage Process</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                The Irish mortgage process has three stages: Approval in Principle (AIP), full mortgage approval, and drawdown. AIP typically takes 2–4 weeks and tells you the maximum a lender will offer. Once you've found a property, you return to the lender for full approval — this triggers a formal valuation. Drawdown happens on the day of closing when the funds are released to the vendor's solicitor. Most lenders offer fixed and variable rate options; the majority of first-time buyers currently opt for 3–5 year fixed rates.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">03</span>
+              <span class="acc-title">Help to Buy &amp; First Home Scheme</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                Two key government schemes assist Irish first-time buyers. The Help to Buy (HTB) scheme provides a tax refund of up to €30,000 on new builds or self-builds, recouping income tax paid over the previous four years. The First Home Scheme (FHS) allows the State to take an equity stake of up to 30% in your home, bridging the gap between your mortgage + deposit and the purchase price — you only buy back the equity when you sell or remortgage. Both schemes can be used together to maximise your purchasing power.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">04</span>
+              <span class="acc-title">Choosing the Right Property</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                New builds and second-hand homes each have real advantages. New builds qualify for the Help to Buy scheme, come with structural guarantees (HomeBond or Premier Guarantee), and are typically more energy efficient — but may require waiting for completion. Second-hand homes are immediately available, often in established areas with schools and transport links, but require more thorough due diligence including an engineer's report. Always research comparable sales prices in the area before making an offer.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">05</span>
+              <span class="acc-title">Making an Offer</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                Offers in Ireland are made verbally through the estate agent. If your offer is accepted, you'll pay a booking deposit (typically €5,000–€10,000) to temporarily secure the property while your solicitor begins the legal process. Crucially, this deposit is fully refundable up to the point of signing contracts — the sale is not legally binding until contracts are exchanged. Before making an offer, have your Approval in Principle ready and, for second-hand properties, commission a structural survey.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">06</span>
+              <span class="acc-title">The Legal Process (Conveyancing)</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                Your solicitor reviews the title documents, raises queries with the vendor's solicitor, and prepares contracts for sale. Once both parties are satisfied with the title — a process that typically takes 4–8 weeks — contracts are signed and you pay a 10% deposit (less the booking deposit already paid). Your solicitor will also carry out searches on the title to confirm there are no planning issues, judgement mortgages, or outstanding local authority charges. Closing usually happens 4–6 weeks after contracts are signed.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">07</span>
+              <span class="acc-title">Stamp Duty &amp; Other Costs</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                Stamp duty in Ireland is 1% on the first €1 million of the purchase price (2% above €1m). Budget separately for: solicitor fees (€1,500–€3,000 + VAT), surveyor/engineer report (€300–€500), mortgage protection insurance (mandatory for most mortgages), home insurance, and a bank valuation fee (€150–€185). In total, plan for 2–3% of the purchase price in additional transaction costs on top of your deposit. Many of these costs are payable on or before the day of closing.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc-item" role="listitem">
+          <div class="acc-header" role="button" tabindex="0" aria-expanded="false">
+            <div class="acc-header__left">
+              <span class="acc-num">08</span>
+              <span class="acc-title">Moving Day &amp; Beyond</span>
+            </div>
+            <svg class="acc-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="9" y1="3" x2="9" y2="15"/><line x1="3" y1="9" x2="15" y2="9"/></svg>
+          </div>
+          <div class="acc-body">
+            <div class="acc-body-inner">
+              <div class="acc-body-content">
+                On the day of closing your solicitor will confirm receipt of funds from the lender and release the keys. Before or shortly after moving in: update your address with Revenue, your bank, and the DVLA; register utilities (electricity, gas, broadband); notify your local authority for Local Property Tax (LPT) registration; and ensure your home insurance policy is active from the date of closing. Keep all documents from your purchase — title deeds, contracts, planning permissions — you'll need them if you ever sell or remortgage.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PARTNER LOGOS — MARQUEE CAROUSEL ═══ -->
 <section class="partners" id="partners" aria-label="Trusted partner organisations">
   <div class="partners__label">
     <p class="partners__label-text">Ireland's Trusted Partners for Home Buyers</p>
@@ -1811,17 +1297,10 @@
         <img src="./logos/cggilmartin.png" alt="CG Gilmartin Solicitors" onerror="this.style.display='none'" />
         <span class="partner-label">CG Gilmartin Solicitors</span>
       </div>
-
-      <!-- JAR Financial — SKIPPED: searched official website, Facebook, Instagram, and Google Business Profile;
-           no Irish business by this exact name could be confidently verified as the intended business. -->
-
       <a href="https://www.greenwoodfurniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
         <img src="./logos/greenwood.jpg" alt="Greenwood Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Greenwood Furniture</span>
       </a>
-      <!-- MCS Floors — business confirmed as MCS Carpets & Wood Flooring, Swords, Co. Dublin (mcsflooring.ie).
-           Official website returned 403 Forbidden; mcscarpets.ie timed out; constructionireland.ie had only a
-           placeholder image. Using text wordmark until official logo can be supplied. -->
       <div class="partner-item">
         <span class="partner-wordmark partner-wordmark--sm">MCS Floors</span>
       </div>
@@ -1951,484 +1430,72 @@
 </section>
 
 
-<!-- ════════════════════════════════════════
-     MORTGAGES SECTION
-════════════════════════════════════════ -->
-<section class="content-section content-section--tinted" id="mortgages" aria-labelledby="mortgages-h2">
+<!-- ═══ ADVERTISER CTA ═══ -->
+<section class="advert-cta" id="advertise" aria-labelledby="advert-h2">
   <div class="wrap">
-    <div class="sec-label">
-      <h2 id="mortgages-h2">Mortgages</h2>
-      <a href="#" class="view-all">View All Mortgage Guides <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
-    </div>
-    <div class="mag-grid fade-up">
-
-      <a href="#" class="mag-feat" aria-label="The Central Bank's 2025 Mortgage Lending Rules Explained">
-        <div class="mag-feat__img">
-          <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=720&q=80&auto=format&fit=crop" alt="Modern Irish house — first-time buyer mortgage" width="720" height="480" loading="lazy" />
-        </div>
-        <span class="cat-badge">Mortgage Strategy</span>
-        <h3 class="mag-feat__title">The Central Bank's 2025 Mortgage Lending Rules: What Every First-Time Buyer Must Know</h3>
-        <p class="mag-feat__excerpt">Ireland's mortgage lending limits are set by the Central Bank — and they determine how much you can borrow. A complete breakdown of LTI and LTV rules, the first-time buyer exception, and how lenders apply them in practice.</p>
-        <div class="art-meta">
-          <span>June 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>8 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-      <a href="#" class="mag-article" aria-label="Do You Need a Mortgage Broker?">
-        <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=620&q=80&auto=format&fit=crop" alt="Mortgage broker meeting with first-time buyers Ireland" width="620" height="349" loading="lazy" />
-        </div>
-        <span class="cat-badge">Mortgage Brokers</span>
-        <h3 class="mag-article__title">Do You Need a Mortgage Broker? What Irish First-Time Buyers Need to Know</h3>
-        <p class="mag-article__excerpt">Independent brokers can access deals banks won't offer directly. Here's what they do, how they're paid, and whether you should use one.</p>
-        <div class="art-meta">
-          <span>May 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>6 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-      <a href="#" class="mag-article" aria-label="How to Get Mortgage Approval in Ireland">
-        <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=620&q=80&auto=format&fit=crop" alt="Getting mortgage approval in Ireland — what lenders look for" width="620" height="349" loading="lazy" />
-        </div>
-        <span class="cat-badge">Approval Tips</span>
-        <h3 class="mag-article__title">How To Get Mortgage Approval: What Irish Lenders Actually Look For</h3>
-        <p class="mag-article__excerpt">The exact financial criteria Irish banks assess — and what you can do in the 12 months before applying to strengthen your application.</p>
-        <div class="art-meta">
-          <span>May 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>7 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
+    <div class="advert-cta__inner reveal">
+      <p class="advert-cta__eyebrow">Advertise with FTBB</p>
+      <h2 class="advert-cta__title" id="advert-h2">Reach 12,000+ Irish First-Time Buyers Every Month</h2>
+      <p class="advert-cta__desc">FTBB is Ireland's fastest-growing digital resource for first-time buyers. Our audience is actively searching for mortgages, legal services, home furnishing, and everything in between — putting your brand in front of the most motivated property buyers in the country.</p>
+      <div class="advert-cta__actions">
+        <a href="/media-kit" class="btn-white-solid">View Media Kit</a>
+        <a href="/advertise" class="btn-ghost-light">Book a Consultation</a>
+      </div>
     </div>
   </div>
 </section>
 
 
-<!-- ════════════════════════════════════════
-     GRANTS & SCHEMES SECTION
-════════════════════════════════════════ -->
-<section class="content-section content-section--white" id="grants" aria-labelledby="grants-h2">
-  <div class="wrap">
-    <div class="sec-label sec-label--alt">
-      <h2 id="grants-h2">Grants &amp; Government Schemes</h2>
-      <a href="#" class="view-all">View All Grant Guides <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
-    </div>
-    <div class="mag-grid fade-up">
-
-      <a href="#" class="mag-feat" aria-label="Help to Buy vs First Home Scheme — Which Is Right For You?">
-        <div class="mag-feat__img">
-          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=720&q=80&auto=format&fit=crop" alt="Irish government grants for first-time buyers" width="720" height="480" loading="lazy" />
-        </div>
-        <span class="cat-badge">Government Grants</span>
-        <h3 class="mag-feat__title">Help To Buy vs First Home Scheme: Which Irish Government Grant Is Right For You?</h3>
-        <p class="mag-feat__excerpt">Ireland offers two major support schemes for first-time buyers — but they work very differently. Here's a complete side-by-side comparison to help you decide which one, or both, you should be applying for right now.</p>
-        <div class="art-meta">
-          <span>June 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>9 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-      <a href="#" class="mag-article" aria-label="Help to Buy Step-by-Step Application Guide">
-        <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=620&q=80&auto=format&fit=crop" alt="Help to Buy tax refund Ireland — Revenue scheme" width="620" height="349" loading="lazy" />
-        </div>
-        <span class="cat-badge">Help to Buy</span>
-        <h3 class="mag-article__title">Help To Buy Step-by-Step: How to Apply for Revenue's €30,000 Tax Refund</h3>
-        <p class="mag-article__excerpt">Revenue's HTB scheme can refund up to €30,000 in income tax toward your deposit. Here's the exact application process from start to finish.</p>
-        <div class="art-meta">
-          <span>April 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>6 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-      <a href="#" class="mag-article" aria-label="The First Home Scheme: State Shared Equity Explained">
-        <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=620&q=80&auto=format&fit=crop" alt="First Home Scheme shared equity for Irish buyers" width="620" height="349" loading="lazy" />
-        </div>
-        <span class="cat-badge">First Home Scheme</span>
-        <h3 class="mag-article__title">The First Home Scheme: State Shared Equity Explained Simply for Irish Buyers</h3>
-        <p class="mag-article__excerpt">The government takes a stake in your home in exchange for topping up your deposit. Here's exactly how it works, who qualifies, and the long-term implications.</p>
-        <div class="art-meta">
-          <span>March 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>7 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     BUYING PROCESS SECTION
-════════════════════════════════════════ -->
-<section class="content-section content-section--tinted" id="process" aria-labelledby="process-h2">
-  <div class="wrap">
-    <div class="sec-label">
-      <h2 id="process-h2">The Buying Process</h2>
-      <a href="#" class="view-all">View All Process Guides <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
-    </div>
-    <div class="mag-grid fade-up">
-
-      <a href="#" class="mag-feat" aria-label="The Complete First-Time Buyer Journey in Ireland">
-        <div class="mag-feat__img">
-          <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=720&q=80&auto=format&fit=crop" alt="First-time buyers moving into their new Irish home" width="720" height="480" loading="lazy" />
-        </div>
-        <span class="cat-badge">Step by Step</span>
-        <h3 class="mag-feat__title">The Complete First-Time Buyer Journey: From Your First Savings to Getting Your Keys in Ireland</h3>
-        <p class="mag-feat__excerpt">A full walkthrough of every stage of buying your first home — from calculating your budget and saving your deposit, through mortgage approval, the legal process, and finally moving in.</p>
-        <div class="art-meta">
-          <span>June 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>11 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-      <a href="#" class="mag-article" aria-label="How to Choose a Conveyancing Solicitor in Ireland">
-        <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=620&q=80&auto=format&fit=crop" alt="Conveyancing solicitor Ireland — legal process for first-time buyers" width="620" height="349" loading="lazy" />
-        </div>
-        <span class="cat-badge">Legal Process</span>
-        <h3 class="mag-article__title">How to Choose a Conveyancing Solicitor in Ireland: What to Ask Before You Sign</h3>
-        <p class="mag-article__excerpt">Your solicitor handles the most critical legal steps of your purchase. Here's what separates a great conveyancer from a mediocre one, and the questions to ask upfront.</p>
-        <div class="art-meta">
-          <span>April 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>5 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-      <a href="#" class="mag-article" aria-label="Do You Need a Property Survey as a First-Time Buyer?">
-        <div class="mag-article__img">
-          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=620&q=80&auto=format&fit=crop" alt="Property survey and valuation for Irish first-time buyers" width="620" height="349" loading="lazy" />
-        </div>
-        <span class="cat-badge">Surveys &amp; Valuations</span>
-        <h3 class="mag-article__title">Do I Need a Survey? Everything First-Time Buyers Should Know About Irish Property Surveys</h3>
-        <p class="mag-article__excerpt">A building survey can uncover costly structural issues before you sign contracts. Here's what types of survey exist and whether you need one on the property you're buying.</p>
-        <div class="art-meta">
-          <span>March 2025</span>
-          <span class="art-meta__dot" aria-hidden="true"></span>
-          <span>6 min read</span>
-        </div>
-        <span class="read-more">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     SPOTLIGHT — FEATURED GUIDES
-════════════════════════════════════════ -->
-<section class="spotlight" id="resources" aria-labelledby="spotlight-h2">
-  <div class="spotlight__bg" aria-hidden="true"></div>
-  <div class="wrap">
-    <div class="spotlight__inner">
-
-      <div class="fade-up">
-        <p class="spotlight__eyebrow">Essential Reading</p>
-        <h2 class="spotlight__title" id="spotlight-h2">12 Costly First-Time Buyer Mistakes — and How to Avoid Every One</h2>
-        <p class="spotlight__desc">Compiled from real mortgage broker and solicitor experience across hundreds of Irish first-time buyer transactions — this is the definitive list of the errors that cost buyers time, money and heartbreak.</p>
-        <a href="#" class="spotlight__btn">Read the Full Guide</a>
-      </div>
-
-      <div class="spotlight__list fade-up" role="list" aria-label="More essential guides">
-        <a href="#" class="spotlight__item" role="listitem">
-          <span class="spotlight__item-num" aria-hidden="true">01</span>
-          <div class="spotlight__item-body">
-            <p class="spotlight__item-cat">Deposits</p>
-            <p class="spotlight__item-title">How To Save Your Deposit Faster: An Irish First-Time Buyer's Practical Guide</p>
-            <p class="spotlight__item-meta">8 min read &middot; May 2025</p>
-          </div>
-        </a>
-        <a href="#" class="spotlight__item" role="listitem">
-          <span class="spotlight__item-num" aria-hidden="true">02</span>
-          <div class="spotlight__item-body">
-            <p class="spotlight__item-cat">Market Insight</p>
-            <p class="spotlight__item-title">Where First-Time Buyers Are Buying Across Ireland in 2025 — and at What Price</p>
-            <p class="spotlight__item-meta">9 min read &middot; April 2025</p>
-          </div>
-        </a>
-        <a href="#" class="spotlight__item" role="listitem">
-          <span class="spotlight__item-num" aria-hidden="true">03</span>
-          <div class="spotlight__item-body">
-            <p class="spotlight__item-cat">SEAI Grants</p>
-            <p class="spotlight__item-title">SEAI Home Energy Upgrade Grants: What Every New Homeowner in Ireland Can Claim</p>
-            <p class="spotlight__item-meta">7 min read &middot; March 2025</p>
-          </div>
-        </a>
-        <a href="#" class="spotlight__item" role="listitem">
-          <span class="spotlight__item-num" aria-hidden="true">04</span>
-          <div class="spotlight__item-body">
-            <p class="spotlight__item-cat">Financial Planning</p>
-            <p class="spotlight__item-title">How Much Mortgage Can I Get in Ireland? A Borrowing Capacity Guide for 2025</p>
-            <p class="spotlight__item-meta">6 min read &middot; June 2025</p>
-          </div>
-        </a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     BUYER JOURNEY
-════════════════════════════════════════ -->
-<section class="journey" id="journey" aria-labelledby="journey-h2">
-  <div class="wrap">
-    <div class="sec-label sec-label--alt fade-up">
-      <h2 id="journey-h2">Your Six-Step Buyer Roadmap</h2>
-      <a href="#newsletter" class="view-all">Get Free Checklist <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
-    </div>
-    <div class="journey__steps fade-up" role="list" aria-label="Buyer journey steps">
-      <div class="journey__line" aria-hidden="true"></div>
-
-      <a href="#" class="journey__step" role="listitem">
-        <div class="journey__num" aria-hidden="true">1</div>
-        <p class="journey__step-title">Understand<br>Your Budget</p>
-        <p class="journey__step-desc">Income, Central Bank limits &amp; deposit needed</p>
-      </a>
-      <a href="#" class="journey__step" role="listitem">
-        <div class="journey__num" aria-hidden="true">2</div>
-        <p class="journey__step-title">Apply for<br>HTB Grant</p>
-        <p class="journey__step-desc">Revenue Help to Buy &amp; First Home Scheme</p>
-      </a>
-      <a href="#" class="journey__step" role="listitem">
-        <div class="journey__num" aria-hidden="true">3</div>
-        <p class="journey__step-title">Find a<br>Mortgage</p>
-        <p class="journey__step-desc">Compare lenders &amp; speak to a broker</p>
-      </a>
-      <a href="#" class="journey__step" role="listitem">
-        <div class="journey__num" aria-hidden="true">4</div>
-        <p class="journey__step-title">Approval in<br>Principle</p>
-        <p class="journey__step-desc">AIP, mortgage protection &amp; home insurance</p>
-      </a>
-      <a href="#" class="journey__step" role="listitem">
-        <div class="journey__num" aria-hidden="true">5</div>
-        <p class="journey__step-title">Find &amp; Buy<br>Your Property</p>
-        <p class="journey__step-desc">Viewings, survey, valuation &amp; contracts</p>
-      </a>
-      <a href="#" class="journey__step" role="listitem">
-        <div class="journey__num" aria-hidden="true">6</div>
-        <p class="journey__step-title">Legal Process<br>&amp; Move In</p>
-        <p class="journey__step-desc">Solicitor, drawdown, stamp duty &amp; keys</p>
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     ABOUT FTBB
-════════════════════════════════════════ -->
-<section class="about" id="about" aria-labelledby="about-h2">
-  <div class="wrap">
-    <div class="sec-label sec-label--alt fade-up">
-      <h2 id="about-h2">What Is FTBB?</h2>
-    </div>
-    <div class="about__grid">
-
-      <div class="fade-up">
-        <blockquote class="about__pullquote">
-          "Ireland's property market is complex. We exist to make it navigable — so every first-time buyer can move forward with clarity and confidence."
-        </blockquote>
-        <p class="about__attr">— FTBB Editorial Team</p>
-        <div class="about__stats" role="list" aria-label="FTBB key figures">
-          <div class="about__stat" role="listitem">
-            <strong>12,000+</strong>
-            <span>Buyers Reached</span>
-          </div>
-          <div class="about__stat" role="listitem">
-            <strong>15+</strong>
-            <span>Vetted Partners</span>
-          </div>
-          <div class="about__stat" role="listitem">
-            <strong>200+</strong>
-            <span>Expert Guides</span>
-          </div>
-          <div class="about__stat" role="listitem">
-            <strong>6</strong>
-            <span>Steps to Ownership</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="fade-up">
-        <h3 class="about__heading">Ireland's Dedicated Resource Hub For First-Time Property Buyers</h3>
-        <p class="about__body">FTBB — First Time Buyer's Bible — is Ireland's most comprehensive resource platform for people navigating their first property purchase. We don't sell mortgages. We don't push products. We connect buyers with the right expertise at the right time.</p>
-        <p class="about__body">From understanding your borrowing capacity under Central Bank lending rules, to navigating the Help to Buy scheme, finding a trusted solicitor and completing your mortgage drawdown — FTBB guides you through every stage of the Irish property journey.</p>
-        <ul class="about__list" aria-label="What FTBB covers">
-          <li>Mortgage guides, rate comparisons &amp; broker introductions</li>
-          <li>Government grants: Help To Buy &amp; First Home Scheme</li>
-          <li>Solicitor, surveyor &amp; insurance partner network</li>
-          <li>Step-by-step buyer roadmap from budget to keys</li>
-          <li>Up-to-date Irish market insights &amp; property news</li>
-          <li>SEAI home energy grants for new homeowners</li>
-        </ul>
-        <div class="about__cta-row">
-          <a href="#resources" class="btn-primary">Explore All Guides</a>
-          <a href="#partners" class="btn-outline">Find a Mortgage Broker</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     TESTIMONIALS / BUYER STORIES
-════════════════════════════════════════ -->
-<section class="testimonials" aria-labelledby="testimonials-h2">
-  <div class="wrap">
-    <div class="sec-label fade-up">
-      <h2 id="testimonials-h2">Real Buyer Stories</h2>
-      <a href="#" class="view-all">Read More Stories <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
-    </div>
-    <div class="testimonials__grid fade-up">
-
-      <div class="testi-card">
-        <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testi-card__quote">"FTBB explained the Help to Buy scheme in a way no bank ever did. We used it to claim €28,000 in tax back. We wouldn't have known we were even eligible without this website."</p>
-        <div class="testi-card__person">
-          <div class="testi-card__avatar">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&q=80&auto=format&fit=crop&crop=faces" alt="Ciarán O'Brien" width="44" height="44" loading="lazy" />
-          </div>
-          <div>
-            <div class="testi-card__name">Ciarán O'Brien</div>
-            <div class="testi-card__detail">First-time buyer &middot; Dublin 12</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testi-card__quote">"The mortgage guide on FTBB is genuinely the best resource we found anywhere. It gave us the confidence to go into the bank and negotiate properly. We had approval within six weeks."</p>
-        <div class="testi-card__person">
-          <div class="testi-card__avatar">
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=88&q=80&auto=format&fit=crop&crop=faces" alt="Aoife Kelly" width="44" height="44" loading="lazy" />
-          </div>
-          <div>
-            <div class="testi-card__name">Aoife &amp; Mark Kelly</div>
-            <div class="testi-card__detail">First-time buyers &middot; Cork City</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testi-card">
-        <div class="testi-card__stars" aria-label="5 out of 5 stars">★★★★★</div>
-        <p class="testi-card__quote">"I was completely overwhelmed until I found FTBB. The step-by-step buyer journey made everything finally click into place. I went from totally clueless to approved in principle in three months."</p>
-        <div class="testi-card__person">
-          <div class="testi-card__avatar">
-            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=88&q=80&auto=format&fit=crop&crop=faces" alt="Sinéad Murphy" width="44" height="44" loading="lazy" />
-          </div>
-          <div>
-            <div class="testi-card__name">Sinéad Murphy</div>
-            <div class="testi-card__detail">First-time buyer &middot; Galway City</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ════════════════════════════════════════
-     NEWSLETTER
-════════════════════════════════════════ -->
+<!-- ═══ NEWSLETTER ═══ -->
 <section class="newsletter" id="newsletter" aria-labelledby="nl-h2">
   <div class="wrap">
-    <div class="newsletter__inner">
-
-      <div class="fade-up">
-        <p class="newsletter__eyebrow">FTBB Monthly Briefing</p>
-        <h2 class="newsletter__title" id="nl-h2">Stay Ahead of the Irish Property Market — Free Every Month</h2>
-        <p class="newsletter__desc">Market updates, new guides, grant scheme changes and mortgage rate moves — delivered directly to over 12,000 Irish first-time buyers every month.</p>
-      </div>
-
-      <div class="fade-up">
-        <div class="newsletter__benefits" aria-label="Newsletter benefits">
-          <p class="newsletter__benefit">New guides and expert resources as they're published</p>
-          <p class="newsletter__benefit">Help to Buy and First Home Scheme updates</p>
-          <p class="newsletter__benefit">Irish mortgage rate changes and lender news</p>
-          <p class="newsletter__benefit">Real buyer success stories and practical tips</p>
+    <div class="newsletter__inner reveal">
+      <p class="newsletter__eyebrow">FTBB Monthly Briefing</p>
+      <h2 class="newsletter__title" id="nl-h2">Stay Ahead of the Irish Property Market</h2>
+      <p class="newsletter__desc">Market updates, new guides, grant scheme changes and mortgage rate moves — delivered to over 12,000 Irish first-time buyers every month. Free.</p>
+      <form class="newsletter__form" id="nl-form" method="post"
+            action="https://YOURSITE.us1.list-manage.com/subscribe/post?u=REPLACE&amp;id=REPLACE"
+            novalidate aria-label="Newsletter signup">
+        <div style="position:absolute;left:-5000px;" aria-hidden="true">
+          <input type="text" name="b_REPLACE_REPLACE" tabindex="-1" value="">
         </div>
-        <!-- action/u/id values: replace with your Mailchimp list URL when ready -->
-        <form class="newsletter__form" id="nl-form" method="post"
-              action="https://YOURSITE.us1.list-manage.com/subscribe/post?u=REPLACE&amp;id=REPLACE"
-              novalidate aria-label="Newsletter signup">
-          <!-- Mailchimp anti-bot honeypot — do not remove -->
-          <div style="position:absolute;left:-5000px;" aria-hidden="true">
-            <input type="text" name="b_REPLACE_REPLACE" tabindex="-1" value="">
-          </div>
-          <label for="nl-email" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Your email address</label>
-          <input
-            type="email"
-            id="nl-email"
-            name="EMAIL"
-            class="newsletter__input"
-            placeholder="Your email address"
-            autocomplete="email"
-            required
-          />
-          <button type="submit" class="newsletter__submit">Subscribe</button>
-        </form>
-        <p class="newsletter__note">No spam. Unsubscribe at any time. Your data is never shared.</p>
-      </div>
-
+        <label for="nl-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)">Your email address</label>
+        <input type="email" id="nl-email" name="EMAIL" class="newsletter__input" placeholder="Your email address" autocomplete="email" required />
+        <button type="submit" class="newsletter__submit">Subscribe Free</button>
+      </form>
+      <p class="newsletter__note">No spam. Unsubscribe at any time. Your data is never shared.</p>
     </div>
   </div>
 </section>
 
 
-<!-- ════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
+<!-- ═══ FOOTER ═══ -->
 <footer class="footer" id="contact" role="contentinfo">
   <div class="wrap">
     <div class="footer__top">
 
       <div class="footer__brand">
         <a href="/" class="footer__logo" aria-label="FTBB — Home">
-          <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="76" height="38" loading="lazy" />
+          <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" loading="lazy" />
           <div>
-            <div class="footer__logo-text">First Time Buyer's Bible</div>
+            <div class="footer__logo-name">First Time Buyer's Bible</div>
             <div class="footer__logo-sub">Ireland's Buyer Resource Hub</div>
           </div>
         </a>
         <p class="footer__tagline">Helping Irish first-time buyers navigate mortgages, grants, legal process and property purchase since 2024.</p>
-        <address class="footer__contact" style="font-style:normal;margin-top:1.1rem;font-size:0.82rem;line-height:1.7;color:var(--text-muted);">
-          <strong style="color:var(--off-white);display:block;margin-bottom:0.15rem;">Christopher O'Neill</strong>
-          Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="color:inherit;text-decoration:underline;">info@ftbb.ie</a><br/>
+        <address class="footer__contact">
+          <strong>Christopher O'Neill</strong>
+          Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="text-decoration:underline;">info@ftbb.ie</a><br/>
           57 Clontarf Road, Dublin 3<br/>
-          T: <a href="tel:+35318537360" style="color:inherit;">01 8537360</a><br/>
-          <span style="margin-top:0.5rem;display:block;">Company No. 729638 &mdash; Registered in Ireland 2023</span>
+          T: <a href="tel:+35318537360">01 8537360</a><br/>
+          <span style="display:block;margin-top:0.4rem;">Company No. 729638 &mdash; Registered in Ireland 2023</span>
         </address>
         <div class="footer__socials" aria-label="Social media links">
           <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
           <a href="mailto:info@ftbb.ie" class="footer__soc" aria-label="Email FTBB">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
           </a>
         </div>
       </div>
@@ -2452,38 +1519,26 @@
           <li><a href="#">First Home Scheme</a></li>
           <li><a href="#">SEAI Energy Grants</a></li>
           <li><a href="#">Stamp Duty Guide</a></li>
-          <li><a href="#">Local Authority Loans</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <h4>Buying Process</h4>
-        <ul role="list">
-          <li><a href="#">Saving for a Deposit</a></li>
-          <li><a href="#">Solicitors &amp; Legal</a></li>
-          <li><a href="#">Surveys &amp; Valuations</a></li>
-          <li><a href="#">Home Insurance</a></li>
-          <li><a href="#">Mortgage Protection</a></li>
-          <li><a href="#">Common Buyer Mistakes</a></li>
-        </ul>
-      </div>
-
-      <div class="footer__col">
-        <h4>Resources</h4>
-        <ul role="list">
-          <li><a href="#">Mortgage Calculator</a></li>
           <li><a href="#">Stamp Duty Calculator</a></li>
           <li><a href="#">All Guides</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul role="list">
           <li><a href="/buy">Buy the Guide</a></li>
           <li><a href="/advertise">Advertise With FTBB</a></li>
           <li><a href="/media-kit">Media Kit</a></li>
           <li><a href="#contact">Contact FTBB</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
         </ul>
       </div>
 
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2025 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company No. 729638.</p>
+      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company No. 729638.</p>
       <div class="footer__legal">
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Use</a>
@@ -2494,7 +1549,7 @@
 </footer>
 
 
-<!-- GUIDES COMING SOON MODAL -->
+<!-- COMING SOON MODAL -->
 <div class="modal-overlay" id="guide-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
   <div class="modal">
     <button class="modal__close" id="modal-close" type="button" aria-label="Close">&#215;</button>
@@ -2509,7 +1564,7 @@
   </div>
 </div>
 
-<!-- COOKIE CONSENT BANNER -->
+<!-- COOKIE CONSENT -->
 <div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
   <p>We use cookies to improve your experience on FTBB. By continuing to browse, you agree to our <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
   <div class="cookie-bar__actions">
@@ -2518,14 +1573,15 @@
   </div>
 </div>
 
+
 <script>
-  // Nav scroll shadow
+  // ── NAV SCROLL ──
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 80);
+    nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
 
-  // Mobile hamburger
+  // ── MOBILE NAV ──
   const ham = document.getElementById('nav-ham');
   const mobileNav = document.getElementById('nav-mobile');
   ham.addEventListener('click', () => {
@@ -2542,54 +1598,112 @@
       document.body.style.overflow = '';
     });
   });
-  document.addEventListener('click', e => {
-    if (mobileNav.classList.contains('open') && !nav.contains(e.target)) {
-      ham.classList.remove('open');
-      mobileNav.classList.remove('open');
-      ham.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-  });
 
-  // Fade-up on scroll
-  const observer = new IntersectionObserver(entries => {
+  // ── 3D TILT ──
+  const tiltWrap = document.querySelector('.tilt-wrap');
+  const tiltEl = document.getElementById('tilt-cover');
+  if (tiltWrap && tiltEl) {
+    let isTouch = false;
+    tiltWrap.addEventListener('touchstart', () => { isTouch = true; }, { passive: true });
+    tiltWrap.addEventListener('mousemove', e => {
+      if (isTouch) return;
+      const r = tiltWrap.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
+      const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+      tiltEl.style.transition = 'transform 0.08s ease, box-shadow 0.08s ease';
+      tiltEl.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 9}deg) scale(1.04)`;
+      tiltEl.style.boxShadow = `${-x * 20}px ${y * 15}px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.09)`;
+    });
+    tiltWrap.addEventListener('mouseleave', () => {
+      tiltEl.style.transition = 'transform 0.7s cubic-bezier(0.22,1,0.36,1), box-shadow 0.7s ease';
+      tiltEl.style.transform = '';
+      tiltEl.style.boxShadow = '';
+    });
+  }
+
+  // ── SCROLL REVEAL ──
+  const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.classList.add('in');
-        observer.unobserve(e.target);
+        e.target.classList.add('visible');
+        revealObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.07 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  // Category strip active state
-  document.querySelectorAll('.cat-strip__item').forEach(item => {
-    item.addEventListener('click', () => {
-      document.querySelectorAll('.cat-strip__item').forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
+  // ── COUNTER ANIMATION ──
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const prefix = el.dataset.prefix || '';
+    const suffix = el.dataset.suffix || '';
+    const isFloat = el.dataset.float === 'true';
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const elapsed = Math.min(now - start, duration);
+      const progress = elapsed / duration;
+      const ease = 1 - Math.pow(1 - progress, 3);
+      const val = target * ease;
+      let formatted;
+      if (isFloat) {
+        formatted = val.toFixed(2);
+      } else {
+        formatted = Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
+      el.textContent = prefix + formatted + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  const insightsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.querySelectorAll('[data-counter]').forEach(animateCounter);
+        insightsObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.25 });
+  const insightsSec = document.querySelector('.insights');
+  if (insightsSec) insightsObs.observe(insightsSec);
+
+  // ── ACCORDION ──
+  document.querySelectorAll('.acc-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.closest('.acc-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.acc-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.acc-header').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        header.setAttribute('aria-expanded', 'true');
+      }
+    });
+    header.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
     });
   });
 
-  // Newsletter form — JS intercepts while Mailchimp not yet configured
+  // ── NEWSLETTER ──
   const nlForm = document.getElementById('nl-form');
   if (nlForm) {
     nlForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = nlForm.querySelector('.newsletter__submit');
       btn.textContent = 'Subscribed ✓';
-      btn.style.background = '#1B5E37';
+      btn.style.background = '#1a6b35';
       btn.disabled = true;
     });
   }
 
-  // Cookie consent
+  // ── COOKIE ──
   (function() {
     const bar = document.getElementById('cookie-bar');
     if (!bar) return;
-    if (localStorage.getItem('ftbb_cookies_ok') === '1') {
-      bar.classList.add('hidden');
-      return;
-    }
+    if (localStorage.getItem('ftbb_cookies_ok') === '1') { bar.classList.add('hidden'); return; }
     document.getElementById('cookie-accept').addEventListener('click', () => {
       localStorage.setItem('ftbb_cookies_ok', '1');
       bar.classList.add('hidden');
@@ -2599,30 +1713,27 @@
     });
   })();
 
-  // Article/guide card links → "Coming Soon" modal
+  // ── MODAL ──
   const guideModal = document.getElementById('guide-modal');
-  function openGuideModal() {
+  function openModal() {
     guideModal.hidden = false;
     document.body.style.overflow = 'hidden';
     setTimeout(() => document.getElementById('modal-email').focus(), 50);
   }
-  function closeGuideModal() {
+  function closeModal() {
     guideModal.hidden = true;
     document.body.style.overflow = '';
   }
-  document.querySelectorAll('.hero-main[href="#"], .hero-side-card[href="#"], .mag-feat[href="#"], .mag-article[href="#"], .spotlight__item[href="#"], .spotlight__btn[href="#"], .latest-strip__item[href="#"], .view-all[href="#"]').forEach(link => {
-    link.addEventListener('click', e => { e.preventDefault(); openGuideModal(); });
-  });
-  document.getElementById('modal-close').addEventListener('click', closeGuideModal);
-  guideModal.addEventListener('click', e => { if (e.target === guideModal) closeGuideModal(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !guideModal.hidden) closeGuideModal(); });
+  document.getElementById('modal-close').addEventListener('click', closeModal);
+  guideModal.addEventListener('click', e => { if (e.target === guideModal) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !guideModal.hidden) closeModal(); });
   const modalForm = document.getElementById('modal-form');
   if (modalForm) {
     modalForm.addEventListener('submit', e => {
       e.preventDefault();
       const btn = document.getElementById('modal-submit');
       btn.textContent = "You're on the list ✓";
-      btn.style.background = '#1B5E37';
+      btn.style.background = '#1a6b35';
       btn.disabled = true;
     });
   }
