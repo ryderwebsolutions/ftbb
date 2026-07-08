@@ -4,541 +4,323 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Advertise With FTBB – Reach Ireland's First-Time Buyers</title>
-  <meta name="description" content="Advertise your business to Irish first-time home buyers. Reach people actively researching mortgages, solicitors, surveys, insurance, and home products." />
+  <meta name="description" content="Advertise with FTBB and reach 12,000+ Irish first-time buyers actively researching mortgages, solicitors, surveyors, insurance and home products." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ftbb.ie/advertise" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="First Time Buyer's Bible Ireland" />
-  <meta property="og:title" content="Advertise With FTBB – Reach Ireland's First-Time Buyers" />
-  <meta property="og:description" content="Reach Irish first-time buyers at the moment they are actively making purchase decisions." />
-  <meta property="og:image" content="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1200&h=630&q=80&auto=format&fit=crop" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230d1f3c'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
-  </script>
-
   <style>
+    /* ── TOKENS ── */
     :root {
-      --navy:        #0d1f3c;
-      --navy-mid:    #163256;
-      --gold:        #c5892a;
-      --gold-light:  #dea84f;
-      --white:       #ffffff;
-      --off-white:   #F7F4EF;
-      --text:        #1a1a1a;
-      --text-2:      #555555;
-      --text-muted:  #888888;
-      --border:      #DDD8CF;
-      --border-lt:   #EAE6DF;
-      --green:       #1B5E37;
-      --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
-      --font-sans:   'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --ease:        cubic-bezier(0.22,1,0.36,1);
-      --cw:          1200px;
+      --black:      #0a0a0a;
+      --black-mid:  #111111;
+      --black-soft: #1a1a1a;
+      --grey-dark:  #333333;
+      --grey:       #666666;
+      --grey-mid:   #999999;
+      --grey-light: #cccccc;
+      --grey-border:#e0e0e0;
+      --grey-bg:    #f4f4f4;
+      --white:      #ffffff;
+      --gold:       #c5892a;
+      --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:       cubic-bezier(0.22,1,0.36,1);
+      --cw:         1200px;
     }
 
+    /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: var(--font-sans); background: var(--white); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
     button { cursor: pointer; font-family: inherit; border: none; background: none; }
-    input, select, textarea { font-family: inherit; }
     ul { list-style: none; }
-
     .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
-    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
-    .fade-up.in { opacity: 1; transform: translateY(0); }
 
-    .cat-badge { display: inline-block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.55rem; }
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
 
-    .sec-label { display: flex; align-items: center; gap: 1rem; padding-bottom: 1rem; border-bottom: 2px solid var(--border); margin-bottom: 2rem; }
-    .sec-label h2 { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700; color: var(--text); letter-spacing: -0.02em; }
-    .sec-label--white { border-bottom-color: rgba(255,255,255,0.18); }
-    .sec-label--white h2 { color: var(--white); }
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav__logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+    .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); transition: filter 0.4s ease; }
+    .nav__logo-text { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; transition: color 0.4s ease; }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.22s ease; position: relative; }
+    .nav__links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.22s ease; }
+    .nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
+    .nav__links a:hover, .nav__links a.active { color: var(--white); }
+    .nav__cta { display: inline-block; padding: 0.6rem 1.4rem; border: 1px solid rgba(255,255,255,0.5); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); transition: all 0.22s ease; white-space: nowrap; }
+    .nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .nav__ham { display: none; flex-direction: column; gap: 5px; width: 26px; cursor: pointer; padding: 2px; }
+    .nav__ham span { display: block; width: 100%; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
 
-    .btn-gold { display: inline-block; padding: 0.88rem 2rem; background: var(--gold); color: var(--white); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: background 0.18s, transform 0.18s; }
-    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); }
-    .btn-outline { display: inline-block; padding: 0.88rem 1.85rem; border: 1.5px solid rgba(255,255,255,0.35); color: var(--white); font-size: 0.73rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: border-color 0.18s, background 0.18s; }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
+    .nav.scrolled .nav__logo img { filter: none; }
+    .nav.scrolled .nav__logo-text { color: var(--black); }
+    .nav.scrolled .nav__links a { color: var(--grey); }
+    .nav.scrolled .nav__links a:hover, .nav.scrolled .nav__links a.active { color: var(--black); }
+    .nav.scrolled .nav__cta { border-color: var(--black); color: var(--black); }
+    .nav.scrolled .nav__cta:hover { background: var(--black); color: var(--white); }
+    .nav.scrolled .nav__ham span { background: var(--black); }
 
-    /* ── UTILITY BAR ── */
-    .util-bar { background: var(--navy); padding: 0.55rem 0; }
-    .util-bar__inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .util-bar__left { display: flex; align-items: center; gap: 1.25rem; }
-    .util-bar__soc { display: flex; align-items: center; gap: 0.38rem; font-size: 0.7rem; color: rgba(255,255,255,0.5); transition: color 0.18s; }
-    .util-bar__soc:hover { color: var(--white); }
-    .util-bar__soc svg { width: 12px; height: 12px; }
-    .util-bar__center { font-family: var(--font-serif); font-size: 0.7rem; color: rgba(255,255,255,0.38); letter-spacing: 0.1em; font-style: italic; }
-    .util-bar__right { display: flex; align-items: center; gap: 1.25rem; }
-    .util-bar__link { font-size: 0.7rem; color: rgba(255,255,255,0.5); transition: color 0.18s; }
-    .util-bar__link:hover { color: var(--white); }
-    .util-pill { display: inline-block; padding: 0.28rem 0.8rem; background: var(--gold); color: var(--white); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: background 0.18s; }
-    .util-pill:hover { background: var(--gold-light); }
+    .nav__mobile { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; padding: 6rem 2.5rem 3rem; flex-direction: column; gap: 0; }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--white); display: block; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s ease; }
+    .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
 
-    /* ── MASTHEAD ── */
-    .masthead { background: var(--white); padding: 2.75rem 0 2rem; text-align: center; border-bottom: 1px solid var(--border); }
-    .masthead__logo-row { display: flex; align-items: center; justify-content: center; gap: 1.4rem; margin-bottom: 0.85rem; }
-    .masthead__img { height: 60px; width: auto; }
-    .masthead__rule { width: 1px; height: 58px; background: var(--border); flex-shrink: 0; }
-    .masthead__name { font-family: var(--font-serif); font-size: clamp(1.9rem, 3.8vw, 3.1rem); font-weight: 700; color: var(--navy); letter-spacing: -0.028em; line-height: 1.08; }
-    .masthead__tagline { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.35rem; }
+    /* ── SHARED ── */
+    .sec-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.6rem; }
+    .sec-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .sec-h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1rem; }
+    .sec-intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); }
 
-    /* ── NAVIGATION ── */
-    .nav { position: sticky; top: 0; z-index: 200; background: var(--navy); border-bottom: 3px solid var(--gold); transition: box-shadow 0.3s; }
-    .nav.scrolled { box-shadow: 0 3px 20px rgba(0,0,0,0.22); }
-    .nav__inner { display: flex; align-items: center; height: 54px; }
-    .nav__brand { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; padding-right: 1.75rem; border-right: 1px solid rgba(255,255,255,0.12); margin-right: 0.25rem; }
-    .nav__brand img { height: 38px; width: auto; filter: brightness(0) invert(1) opacity(0.92); }
-    .nav__links { display: flex; align-items: center; flex: 1; }
-    .nav__links a { display: block; padding: 0 0.95rem; height: 54px; line-height: 54px; font-size: 0.73rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.7); transition: color 0.18s, background 0.18s; white-space: nowrap; }
-    .nav__links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
-    .nav__links a.active { color: var(--gold); }
-    .nav__cta { margin-left: auto; flex-shrink: 0; }
-    .nav__cta-btn { display: inline-block; padding: 0.55rem 1.2rem; background: var(--gold); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; transition: background 0.18s; white-space: nowrap; }
-    .nav__cta-btn:hover { background: var(--gold-light); }
-    .nav__ham { display: none; flex-direction: column; gap: 5px; padding: 8px; margin-left: 1rem; }
-    .nav__ham span { display: block; width: 22px; height: 1.5px; background: var(--white); border-radius: 2px; transition: all 0.25s; }
-    .nav__ham.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-    .nav__ham.open span:nth-child(2) { opacity: 0; }
-    .nav__ham.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
-    .nav__mobile { display: none; position: fixed; top: 54px; left: 0; right: 0; bottom: 0; background: var(--navy); z-index: 199; padding: 2rem 1.5rem; overflow-y: auto; }
-    .nav__mobile.open { display: block; }
-    .nav__mobile li a { display: block; padding: 0.95rem 0; font-size: 1rem; font-weight: 600; color: rgba(255,255,255,0.72); border-bottom: 1px solid rgba(255,255,255,0.07); letter-spacing: 0.04em; }
-    .nav__mobile li a:hover { color: var(--white); }
-    .nav__mobile-cta { display: block; margin-top: 1.5rem; padding: 0.9rem; background: var(--gold); color: var(--white); text-align: center; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 2px; }
+    /* ── HERO ── */
+    .hero { min-height: 100vh; background: #1e1e1e; display: flex; align-items: center; padding: 9rem 0 5rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; }
+    .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: radial-gradient(ellipse at 75% 40%, rgba(197,137,42,0.06) 0%, transparent 65%); pointer-events: none; }
+    .hero__inner { display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; gap: 5rem; position: relative; z-index: 1; }
+    .hero__eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero__eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); }
+    .hero__headline { font-family: var(--serif); font-size: clamp(2.8rem, 4.5vw, 4.6rem); font-weight: 700; line-height: 1.08; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .hero__headline em { font-style: italic; color: rgba(255,255,255,0.6); }
+    .hero__sub { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.52); max-width: 480px; margin-bottom: 2.5rem; }
+    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-white { display: inline-block; padding: 0.9rem 2.25rem; background: var(--white); color: var(--black); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-white:hover { background: var(--grey-bg); transform: translateY(-1px); }
+    .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
 
-    /* ── FOOTER ── */
-    .footer { background: #070d1c; padding: 4.5rem 0 2rem; border-top: 3px solid var(--gold); }
-    .footer__top { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .footer__logo { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.1rem; }
-    .footer__logo img { height: 38px; width: auto; filter: brightness(0) invert(1) opacity(0.88); }
-    .footer__logo-text { font-family: var(--font-serif); font-size: 0.95rem; font-weight: 700; color: var(--white); line-height: 1.2; }
-    .footer__logo-sub { font-size: 0.56rem; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.13em; margin-top: 2px; }
-    .footer__tagline { font-size: 0.8rem; line-height: 1.75; color: rgba(255,255,255,0.38); max-width: 28ch; margin-bottom: 1.5rem; }
-    .footer__socials { display: flex; gap: 0.5rem; }
-    .footer__soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.1); border-radius: 2px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.42); transition: all 0.18s; }
-    .footer__soc:hover { border-color: rgba(255,255,255,0.28); color: var(--white); background: rgba(255,255,255,0.05); }
-    .footer__soc svg { width: 14px; height: 14px; }
-    .footer__col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.26); margin-bottom: 1.1rem; }
-    .footer__col li + li { margin-top: 0.52rem; }
-    .footer__col a { font-size: 0.78rem; color: rgba(255,255,255,0.45); transition: color 0.18s; }
-    .footer__col a:hover { color: var(--white); }
-    .footer__bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 1.75rem; gap: 1rem; flex-wrap: wrap; }
-    .footer__copy { font-size: 0.68rem; color: rgba(255,255,255,0.2); }
-    .footer__legal { display: flex; gap: 1.5rem; }
-    .footer__legal a { font-size: 0.68rem; color: rgba(255,255,255,0.2); transition: color 0.18s; }
-    .footer__legal a:hover { color: rgba(255,255,255,0.55); }
+    /* Hero stats panel */
+    .hero__stats { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); padding: 2.25rem; }
+    .hero__stats-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1.75rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .hero__stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .hero__stat-num { font-family: var(--serif); font-size: 2.2rem; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 0.3rem; }
+    .hero__stat-num span { color: var(--gold); }
+    .hero__stat-lbl { font-size: 0.63rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); line-height: 1.45; }
 
-    /* ── COOKIE BAR ── */
-    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; background: var(--navy); color: rgba(255,255,255,0.85); z-index: 990; padding: 1.1rem 1.5rem; border-top: 2px solid var(--gold); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; font-size: 0.78rem; line-height: 1.55; transition: transform 0.35s ease; }
-    .cookie-bar.hidden { transform: translateY(110%); pointer-events: none; }
-    .cookie-bar p { margin: 0; flex: 1; min-width: 200px; }
-    .cookie-bar p a { color: var(--gold); text-decoration: underline; }
-    .cookie-bar__actions { display: flex; gap: 0.65rem; flex-shrink: 0; }
-    .cookie-bar__accept { padding: 0.55rem 1.25rem; background: var(--gold); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: opacity 0.18s; }
-    .cookie-bar__accept:hover { opacity: 0.85; }
-    .cookie-bar__settings { padding: 0.55rem 1.25rem; background: transparent; color: rgba(255,255,255,0.7); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.25); border-radius: 2px; cursor: pointer; transition: color 0.18s, border-color 0.18s; }
-    .cookie-bar__settings:hover { color: var(--white); border-color: rgba(255,255,255,0.55); }
+    /* ── AUDIENCE ── */
+    .audience { background: var(--white); padding: 6rem 0; border-bottom: 1px solid var(--grey-border); }
+    .audience__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+    .audience__body { font-size: 0.9rem; line-height: 1.85; color: var(--grey); margin-bottom: 1rem; }
+    .audience__list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .audience__list li { display: flex; gap: 0.8rem; font-size: 0.83rem; line-height: 1.6; color: var(--grey-dark); align-items: flex-start; }
+    .audience__list li::before { content: ''; display: block; width: 5px; height: 5px; min-width: 5px; border-radius: 50%; background: var(--gold); margin-top: 7px; }
+    .profile-table { border: 1px solid var(--grey-border); overflow: hidden; }
+    .profile-table__head { background: var(--black); padding: 1rem 1.5rem; }
+    .profile-table__head p { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .profile-row { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--grey-border); }
+    .profile-row:last-child { border-bottom: none; }
+    .profile-row__key { padding: 0.9rem 1.5rem; font-size: 0.8rem; color: var(--grey); border-right: 1px solid var(--grey-border); }
+    .profile-row__val { padding: 0.9rem 1.5rem; font-size: 0.85rem; font-weight: 600; color: var(--black); }
 
-    /* ══════════════════════════════
-       PAGE — ADVERTISE
-    ══════════════════════════════ */
+    /* ── OPTIONS ── */
+    .options { background: var(--grey-bg); padding: 6rem 0; border-top: 1px solid var(--grey-border); border-bottom: 1px solid var(--grey-border); }
+    .options__header { margin-bottom: 3.5rem; }
+    .options__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 580px; margin-top: 0.85rem; }
+    .options__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--grey-border); }
+    .option-card { background: var(--white); padding: 2.5rem 2rem; transition: background 0.22s ease; }
+    .option-card--featured { background: var(--black); }
+    .option-card:hover { background: var(--grey-bg); }
+    .option-card--featured:hover { background: var(--black-mid); }
+    .option-card__badge { display: inline-block; padding: 0.2rem 0.6rem; background: var(--gold); color: var(--white); font-size: 0.56rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; }
+    .option-card__type { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .option-card__title { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: var(--black); margin-bottom: 0.85rem; line-height: 1.25; }
+    .option-card--featured .option-card__title { color: var(--white); }
+    .option-card__desc { font-size: 0.82rem; line-height: 1.72; color: var(--grey); margin-bottom: 1.5rem; }
+    .option-card--featured .option-card__desc { color: rgba(255,255,255,0.5); }
+    .option-card__includes { display: flex; flex-direction: column; gap: 0.45rem; }
+    .option-card__includes li { display: flex; gap: 0.6rem; font-size: 0.78rem; color: var(--grey-dark); line-height: 1.5; align-items: flex-start; }
+    .option-card--featured .option-card__includes li { color: rgba(255,255,255,0.55); }
+    .option-card__includes li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.7rem; flex-shrink: 0; }
 
-    /* 1. Hero */
-    .adv-hero {
-      background: var(--navy);
-      position: relative;
-      overflow: hidden;
-      padding: 6rem 0 5.5rem;
-    }
-    .adv-hero__bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=60&auto=format&fit=crop');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.08;
-    }
-    .adv-hero__inner { position: relative; z-index: 1; max-width: 760px; }
-    .adv-hero__eyebrow {
-      display: inline-block;
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.35rem;
-      padding: 0.3rem 0.85rem;
-      border: 1px solid rgba(197,137,42,0.35);
-      border-radius: 2px;
-    }
-    .adv-hero__title {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.14;
-      letter-spacing: -0.026em;
-      margin-bottom: 1.35rem;
-    }
-    .adv-hero__sub {
-      font-size: 1.05rem;
-      line-height: 1.78;
-      color: rgba(255,255,255,0.62);
-      margin-bottom: 2.5rem;
-      max-width: 600px;
-    }
-    .adv-hero__ctas { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    /* ── FORM ── */
+    .form-section { background: var(--white); padding: 6rem 0; }
+    .form-section__inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+    .form-info__heading { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; line-height: 1.25; }
+    .form-info__body { font-size: 0.88rem; line-height: 1.8; color: var(--grey); margin-bottom: 1.75rem; }
+    .form-info__contact { font-size: 0.85rem; line-height: 1.85; color: var(--grey-dark); margin-bottom: 1.75rem; }
+    .form-info__contact a { color: var(--black); font-weight: 600; text-decoration: underline; }
+    .form-info__contact a:hover { color: var(--gold); }
+    .form-info__assurance { display: flex; flex-direction: column; gap: 0.6rem; }
+    .form-info__assurance li { display: flex; gap: 0.7rem; font-size: 0.78rem; color: var(--grey); align-items: flex-start; }
+    .form-info__assurance li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.7rem; flex-shrink: 0; padding-top: 1px; }
 
-    /* 2. Audience */
-    .adv-audience {
-      background: var(--white);
-      padding: 4.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .adv-audience__grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: start;
-      margin-top: 2.5rem;
-    }
-    .adv-audience__heading {
-      font-family: var(--font-serif);
-      font-size: clamp(1.35rem, 2vw, 1.75rem);
-      font-weight: 700;
-      color: var(--text);
-      line-height: 1.28;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.1rem;
-    }
-    .adv-audience__body { font-size: 0.92rem; line-height: 1.85; color: var(--text-2); margin-bottom: 0.85rem; }
-    .adv-audience__list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
-    .adv-audience__list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      font-size: 0.9rem;
-      color: var(--text-2);
-      line-height: 1.55;
-    }
-    .adv-audience__list li::before {
-      content: '';
-      display: block;
-      width: 8px; height: 8px;
-      min-width: 8px;
-      background: var(--gold);
-      border-radius: 50%;
-      margin-top: 6px;
-      flex-shrink: 0;
-    }
-    .adv-profile {
-      background: var(--off-white);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 2rem;
-    }
-    .adv-profile__heading {
-      font-family: var(--font-serif);
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 1.35rem;
-      padding-bottom: 1rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .adv-profile__row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      padding: 0.7rem 0;
-      border-bottom: 1px solid var(--border-lt);
-      font-size: 0.85rem;
-      gap: 1rem;
-    }
-    .adv-profile__row:last-child { border-bottom: none; }
-    .adv-profile__key { color: var(--text-muted); font-weight: 500; flex-shrink: 0; }
-    .adv-profile__val { font-weight: 700; color: var(--navy); text-align: right; }
-
-    /* 3. Advertising options */
-    .adv-options {
-      background: var(--off-white);
-      padding: 4.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .adv-options__grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-    }
-    .adv-option-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 3px;
-      padding: 2rem;
-      position: relative;
-      transition: border-color 0.2s;
-    }
-    .adv-option-card:hover { border-color: var(--gold); }
-    .adv-option-card--featured { border-color: var(--gold); background: linear-gradient(135deg, rgba(197,137,42,0.04) 0%, transparent 60%); }
-    .adv-option-card__badge {
-      position: absolute;
-      top: -1px; right: 1.5rem;
-      padding: 0.25rem 0.7rem;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-    .adv-option-card__type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.45rem; }
-    .adv-option-card__title { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700; color: var(--navy); margin-bottom: 0.65rem; line-height: 1.3; }
-    .adv-option-card__desc { font-size: 0.86rem; line-height: 1.78; color: var(--text-2); margin-bottom: 1.15rem; }
-    .adv-option-card__includes { display: flex; flex-direction: column; gap: 0.42rem; }
-    .adv-option-card__includes li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.55rem;
-      font-size: 0.8rem;
-      color: var(--text-2);
-    }
-    .adv-option-card__includes li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; font-size: 0.75rem; margin-top: 1px; }
-
-    /* 4. Enquiry form */
-    .adv-form-section {
-      background: var(--white);
-      padding: 5rem 0 5.5rem;
-    }
-    .adv-form-wrap {
-      display: grid;
-      grid-template-columns: 1fr 1.25fr;
-      gap: 5rem;
-      align-items: start;
-      margin-top: 2.5rem;
-    }
-    .adv-form-info__heading { font-family: var(--font-serif); font-size: clamp(1.2rem, 1.8vw, 1.6rem); font-weight: 700; color: var(--text); line-height: 1.28; margin-bottom: 1rem; }
-    .adv-form-info__body { font-size: 0.9rem; line-height: 1.85; color: var(--text-2); margin-bottom: 1.5rem; }
-    .adv-form-info__contact { font-size: 0.85rem; color: var(--text-2); line-height: 1.8; }
-    .adv-form-info__contact a { color: var(--navy); font-weight: 600; text-decoration: underline; }
-    .adv-form-info__contact a:hover { color: var(--gold); }
-    .adv-form-info__assurance { margin-top: 1.75rem; display: flex; flex-direction: column; gap: 0.5rem; }
-    .adv-form-info__assurance li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.8rem; color: var(--text-muted); }
-    .adv-form-info__assurance li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
-
-    .enquire-form { background: var(--off-white); border: 1px solid var(--border); border-radius: 3px; padding: 2.5rem; }
-    .form-group { margin-bottom: 1.15rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-label { display: block; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text); margin-bottom: 0.42rem; }
+    .enquire-form { display: flex; flex-direction: column; gap: 1.25rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
+    .form-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: var(--black); }
     .form-label span { color: var(--gold); }
     .form-input, .form-select, .form-textarea {
-      width: 100%; padding: 0.82rem 1rem; border: 1.5px solid var(--border); border-radius: 2px;
-      font-size: 0.88rem; font-family: var(--font-sans); color: var(--text); background: var(--white);
-      transition: border-color 0.18s; outline: none; -webkit-appearance: none; appearance: none;
+      width: 100%; padding: 0.85rem 1rem; background: var(--white);
+      border: 1px solid var(--grey-border); font-family: var(--sans); font-size: 0.85rem; color: var(--black);
+      outline: none; transition: border-color 0.22s ease, box-shadow 0.22s ease;
+      appearance: none; -webkit-appearance: none;
     }
-    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--navy); }
-    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
-    .form-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
-    .form-submit { width: 100%; padding: 1rem; background: var(--navy); color: var(--white); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: background 0.18s; margin-top: 0.5rem; }
-    .form-submit:hover { background: var(--navy-mid); }
-    .form-submit:disabled { opacity: 0.65; cursor: not-allowed; }
-    .form-note { font-size: 0.68rem; color: var(--text-muted); text-align: center; margin-top: 0.85rem; }
-    .form-success { text-align: center; padding: 3rem 2rem; }
-    .form-success__icon { width: 52px; height: 52px; background: var(--green); color: var(--white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin: 0 auto 1.25rem; }
-    .form-success__title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
-    .form-success__body { font-size: 0.9rem; color: var(--text-2); line-height: 1.7; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--black); box-shadow: 0 0 0 2px rgba(10,10,10,0.08); }
+    .form-input.error, .form-select.error, .form-textarea.error { border-color: #c0392b; }
+    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.85rem center; background-size: 14px; padding-right: 2.5rem; }
+    .form-textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+    .form-submit { padding: 1.05rem 2rem; background: var(--black); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.22s ease; }
+    .form-submit:hover { background: var(--grey-dark); transform: translateY(-1px); }
+    .form-submit:disabled { background: var(--grey-mid); cursor: default; transform: none; }
+    .form-note { font-size: 0.7rem; color: var(--grey-mid); }
+    .field-error { font-size: 0.7rem; color: #c0392b; margin-top: 0.2rem; display: none; }
+    .field-error.visible { display: block; }
+    .form-success { text-align: center; padding: 3rem 2rem; border: 1px solid var(--grey-border); }
+    .form-success__icon { width: 48px; height: 48px; border-radius: 50%; background: #1a6b35; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; color: var(--white); margin: 0 auto 1.5rem; }
+    .form-success__title { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 0.75rem; }
+    .form-success__body { font-size: 0.88rem; line-height: 1.75; color: var(--grey); }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--black); padding: 4.5rem 0 0; }
+    .footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer__logo { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+    .footer__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; }
+    .footer__logo-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .footer__logo-sub { font-size: 0.6rem; color: rgba(255,255,255,0.3); margin-top: 0.1rem; }
+    .footer__tagline { font-size: 0.8rem; line-height: 1.65; color: rgba(255,255,255,0.38); margin-bottom: 1.5rem; }
+    .footer__contact { font-style: normal; font-size: 0.78rem; line-height: 1.8; color: rgba(255,255,255,0.38); margin-bottom: 1.25rem; }
+    .footer__contact strong { color: rgba(255,255,255,0.72); display: block; margin-bottom: 0.1rem; }
+    .footer__contact a { transition: color 0.2s ease; }
+    .footer__contact a:hover { color: var(--white); }
+    .footer__socials { display: flex; gap: 0.5rem; }
+    .footer__soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: all 0.2s ease; }
+    .footer__soc:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .footer__soc svg { width: 13px; height: 13px; }
+    .footer__col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer__col a { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.2s ease; }
+    .footer__col a:hover { color: var(--white); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer__copy { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
+    .footer__legal { display: flex; gap: 1.5rem; }
+    .footer__legal a { font-size: 0.68rem; color: rgba(255,255,255,0.22); transition: color 0.2s ease; }
+    .footer__legal a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── COOKIE BAR ── */
+    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+    .cookie-bar.hidden { display: none; }
+    .cookie-bar a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-bar__accept { padding: 0.5rem 1.25rem; background: var(--white); color: var(--black); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s ease; }
+    .cookie-bar__accept:hover { background: var(--grey-bg); }
+    .cookie-bar__settings { padding: 0.5rem 1.25rem; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; background: none; transition: all 0.2s ease; }
+    .cookie-bar__settings:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .adv-options__grid { grid-template-columns: 1fr 1fr; }
-      .adv-form-wrap { grid-template-columns: 1fr; gap: 3rem; }
-      .footer__top { grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
-      .footer__brand { grid-column: span 3; }
+      .hero__inner { grid-template-columns: 1fr; }
+      .hero__stats { display: none; }
+      .audience__inner { grid-template-columns: 1fr; gap: 3rem; }
+      .form-section__inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .footer__brand { grid-column: span 2; }
     }
     @media (max-width: 768px) {
       .wrap { padding: 0 1.25rem; }
-      .util-bar__center { display: none; }
-      .masthead { padding: 2rem 0 1.5rem; }
-      .masthead__img { height: 44px; }
-      .masthead__name { font-size: 1.8rem; }
-      .masthead__rule { display: none; }
-      .adv-hero { padding: 4rem 0 3.5rem; }
-      .adv-audience__grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .adv-options__grid { grid-template-columns: 1fr; }
+      .options__grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
       .nav__links { display: none; }
       .nav__cta { display: none; }
       .nav__ham { display: flex; }
-      .footer__top { grid-template-columns: 1fr 1fr; }
-      .footer__brand { grid-column: span 2; }
-    }
-    @media (max-width: 480px) {
-      .adv-hero__ctas { flex-direction: column; align-items: flex-start; }
-      .masthead__logo-row { flex-direction: column; gap: 0.75rem; }
       .footer__top { grid-template-columns: 1fr; }
       .footer__brand { grid-column: span 1; }
+      .cookie-bar { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .hero__actions { flex-direction: column; }
       .footer__bottom { flex-direction: column; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .fade-up { opacity: 1; transform: none; transition: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
     }
   </style>
 </head>
 <body>
 
-<div class="util-bar" role="banner">
-  <div class="wrap">
-    <div class="util-bar__inner">
-      <div class="util-bar__left">
-        <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="util-bar__soc" aria-label="Follow FTBB on Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          @first_timebuyerire
-        </a>
-      </div>
-      <div class="util-bar__center">Ireland's First-Time Buyer Resource Hub</div>
-      <div class="util-bar__right">
-        <a href="mailto:info@ftbb.ie" class="util-bar__link">info@ftbb.ie</a>
-        <a href="/buy" class="util-pill">Buy the Guide</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="masthead" role="banner">
-  <div class="wrap">
-    <div class="masthead__logo-row">
-      <img src="./ftbblogo-removebg-preview.png" alt="FTBB" class="masthead__img" width="120" height="60" loading="eager" />
-      <div class="masthead__rule" aria-hidden="true"></div>
-      <div>
-        <div class="masthead__name">First Time Buyer's Bible</div>
-        <div class="masthead__tagline">Ireland's Home Buying Resource Hub</div>
-      </div>
-    </div>
-  </div>
-</div>
-
+<!-- ═══ NAV ═══ -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
   <div class="wrap">
     <div class="nav__inner">
-      <a href="/" class="nav__brand" aria-label="FTBB Home">
-        <img src="./ftbblogo-removebg-preview.png" alt="FTBB" width="60" height="30" loading="eager" />
+      <a href="/" class="nav__logo" aria-label="FTBB — Home">
+        <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" />
+        <span class="nav__logo-text">FTBB</span>
       </a>
       <ul class="nav__links" role="list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/#mortgages">Mortgages</a></li>
-        <li><a href="/#grants">Grants &amp; Schemes</a></li>
-        <li><a href="/#resources">All Guides</a></li>
-        <li><a href="/#about">About</a></li>
+        <li><a href="/#news">News</a></li>
+        <li><a href="/#guide">Buyer Guide</a></li>
+        <li><a href="/#insights">Market Data</a></li>
+        <li><a href="/#partners">Partners</a></li>
         <li><a href="/advertise" class="active">Advertise</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
       </ul>
-      <div class="nav__cta">
-        <a href="/buy" class="nav__cta-btn">Buy the Guide</a>
-      </div>
-      <button class="nav__ham" id="nav-ham" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile">
+      <a href="/buy" class="nav__cta">Get the Guide</a>
+      <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
-  <div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation" aria-modal="true">
-    <ul role="list">
-      <li><a href="/">Home</a></li>
-      <li><a href="/#mortgages">Mortgages</a></li>
-      <li><a href="/#grants">Grants &amp; Schemes</a></li>
-      <li><a href="/#resources">All Guides</a></li>
-      <li><a href="/#about">About FTBB</a></li>
-      <li><a href="/advertise">Advertise With Us</a></li>
-      <li><a href="/media-kit">Media Kit</a></li>
-    </ul>
-    <a href="/buy" class="nav__mobile-cta">Buy the Guide</a>
-  </div>
 </nav>
 
+<div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+  <a href="/">Home</a>
+  <a href="/#news">News</a>
+  <a href="/#guide">Buyer Guide</a>
+  <a href="/#insights">Market Data</a>
+  <a href="/advertise">Advertise</a>
+  <a href="/media-kit">Media Kit</a>
+  <a href="/buy">Get the Guide</a>
+</div>
 
-<!-- ════════════════
-     1. HERO
-════════════════ -->
-<section class="adv-hero" aria-labelledby="adv-hero-h1">
-  <div class="adv-hero__bg" aria-hidden="true"></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" aria-labelledby="adv-hero-h1">
   <div class="wrap">
-    <div class="adv-hero__inner fade-up">
-      <span class="adv-hero__eyebrow">Partner with FTBB</span>
-      <h1 class="adv-hero__title" id="adv-hero-h1">Reach Ireland's First-Time Buyers When They're Actively Deciding</h1>
-      <p class="adv-hero__sub">FTBB is Ireland's dedicated resource for people preparing to buy their first home — actively researching mortgages, solicitors, surveys, insurance, and a full range of home products, often all at once.</p>
-      <div class="adv-hero__ctas">
-        <a href="#enquire-form" class="btn-gold">Enquire About Advertising</a>
-        <a href="/media-kit" class="btn-outline">View Media Kit</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="hero__inner">
 
-
-<!-- ════════════════
-     2. AUDIENCE
-════════════════ -->
-<section class="adv-audience" aria-labelledby="adv-audience-h2">
-  <div class="wrap">
-    <div class="sec-label">
-      <h2 id="adv-audience-h2">The FTBB Audience</h2>
-    </div>
-    <div class="adv-audience__grid fade-up">
-
-      <div>
-        <h3 class="adv-audience__heading">A High-Intent Audience in Active Purchase Mode</h3>
-        <p class="adv-audience__body">First-time buyers are not passive readers. They come to FTBB with specific questions at each stage of their journey — and they act on the answers. At the point of reading, they are choosing service providers, comparing products, and making decisions that will shape the next decade of their financial lives.</p>
-        <p class="adv-audience__body">The businesses that reach them here, in a context of trust and expert guidance, establish relationships that last well beyond the initial purchase.</p>
-        <ul class="adv-audience__list" aria-label="What FTBB readers are actively doing">
-          <li>Comparing mortgage lenders and speaking to brokers</li>
-          <li>Selecting a solicitor for their conveyancing</li>
-          <li>Evaluating surveyors, valuers, and engineers</li>
-          <li>Comparing home insurance and mortgage protection</li>
-          <li>Planning kitchens, furniture, flooring, and home upgrades</li>
-          <li>Researching SEAI energy grants for their new property</li>
-        </ul>
+      <div class="hero__content">
+        <p class="hero__eyebrow reveal">Partner With FTBB</p>
+        <h1 class="hero__headline reveal reveal-d1" id="adv-hero-h1">
+          Reach Ireland's<br/>First-Time Buyers<br/><em>When They Decide.</em>
+        </h1>
+        <p class="hero__sub reveal reveal-d2">FTBB is Ireland's dedicated resource for people preparing to buy their first home — actively researching mortgages, solicitors, surveys, insurance, and a full range of home products, often all at once.</p>
+        <div class="hero__actions reveal reveal-d3">
+          <a href="#enquire-form" class="btn-white">Enquire About Advertising</a>
+          <a href="/media-kit" class="btn-ghost">View Media Kit</a>
+        </div>
       </div>
 
-      <div>
-        <div class="adv-profile">
-          <p class="adv-profile__heading">Audience Profile</p>
-          <div class="adv-profile__row">
-            <span class="adv-profile__key">Stage</span>
-            <span class="adv-profile__val">Active purchase research</span>
-          </div>
-          <div class="adv-profile__row">
-            <span class="adv-profile__key">Age range</span>
-            <span class="adv-profile__val">Primarily 25–40</span>
-          </div>
-          <div class="adv-profile__row">
-            <span class="adv-profile__key">Geography</span>
-            <span class="adv-profile__val">Nationwide, Republic of Ireland</span>
-          </div>
-          <div class="adv-profile__row">
-            <span class="adv-profile__key">Decision window</span>
-            <span class="adv-profile__val">Typically 6–18 months to purchase</span>
-          </div>
-          <div class="adv-profile__row">
-            <span class="adv-profile__key">Primary device</span>
-            <span class="adv-profile__val">Mobile-first</span>
-          </div>
-          <div class="adv-profile__row">
-            <span class="adv-profile__key">Receptiveness</span>
-            <span class="adv-profile__val">High — actively seeking guidance</span>
-          </div>
-          <div class="adv-profile__row">
-            <span class="adv-profile__key">Target property value</span>
-            <span class="adv-profile__val">€250,000 – €500,000+</span>
+      <div class="reveal reveal-d2">
+        <div class="hero__stats">
+          <p class="hero__stats-label">Audience Figures — 2026</p>
+          <div class="hero__stats-grid">
+            <div>
+              <p class="hero__stat-num">12<span>,000+</span></p>
+              <p class="hero__stat-lbl">Monthly<br/>Readers</p>
+            </div>
+            <div>
+              <p class="hero__stat-num">25<span>–40</span></p>
+              <p class="hero__stat-lbl">Primary<br/>Age Group</p>
+            </div>
+            <div>
+              <p class="hero__stat-num">32<span>+</span></p>
+              <p class="hero__stat-lbl">Counties<br/>Reached</p>
+            </div>
+            <div>
+              <p class="hero__stat-num">15<span>+</span></p>
+              <p class="hero__stat-lbl">Active<br/>Partners</p>
+            </div>
           </div>
         </div>
       </div>
@@ -548,22 +330,85 @@
 </section>
 
 
-<!-- ════════════════
-     3. OPTIONS
-════════════════ -->
-<section class="adv-options" aria-labelledby="adv-options-h2">
+<!-- ═══ AUDIENCE ═══ -->
+<section class="audience" aria-labelledby="audience-h2">
   <div class="wrap">
-    <div class="sec-label">
-      <h2 id="adv-options-h2">Advertising Opportunities</h2>
+    <div class="reveal">
+      <p class="sec-eyebrow">The FTBB Audience</p>
+      <h2 class="sec-h2" id="audience-h2">A High-Intent Audience in Active Purchase Mode</h2>
     </div>
-    <div class="adv-options__grid fade-up">
+    <div class="audience__inner">
 
-      <div class="adv-option-card adv-option-card--featured">
-        <span class="adv-option-card__badge">Most Popular</span>
-        <p class="adv-option-card__type">Premium</p>
-        <h3 class="adv-option-card__title">Featured Partner</h3>
-        <p class="adv-option-card__desc">Cross-platform presence across the FTBB website, newsletter, and social — with your brand presented as a recommended expert in your category. Exclusive per sector.</p>
-        <ul class="adv-option-card__includes">
+      <div class="reveal reveal-d1">
+        <p class="audience__body">First-time buyers are not passive readers. They come to FTBB with specific questions at each stage of their journey — and they act on the answers. At the point of reading, they are choosing service providers, comparing products, and making decisions that will shape the next decade of their financial lives.</p>
+        <p class="audience__body">The businesses that reach them here, in a context of trust and expert guidance, establish relationships that last well beyond the initial purchase.</p>
+        <ul class="audience__list" aria-label="What FTBB readers are actively doing">
+          <li>Comparing mortgage lenders and speaking to brokers</li>
+          <li>Selecting a solicitor for their conveyancing</li>
+          <li>Evaluating surveyors, valuers, and engineers</li>
+          <li>Comparing home insurance and mortgage protection</li>
+          <li>Planning kitchens, furniture, flooring, and home upgrades</li>
+          <li>Researching SEAI energy grants for their new property</li>
+        </ul>
+      </div>
+
+      <div class="reveal reveal-d2">
+        <div class="profile-table">
+          <div class="profile-table__head">
+            <p>Audience Profile — First Time Buyer's Bible Ireland</p>
+          </div>
+          <div class="profile-row">
+            <span class="profile-row__key">Stage</span>
+            <span class="profile-row__val">Active purchase research</span>
+          </div>
+          <div class="profile-row">
+            <span class="profile-row__key">Age range</span>
+            <span class="profile-row__val">Primarily 25–40</span>
+          </div>
+          <div class="profile-row">
+            <span class="profile-row__key">Geography</span>
+            <span class="profile-row__val">Nationwide, Republic of Ireland</span>
+          </div>
+          <div class="profile-row">
+            <span class="profile-row__key">Decision window</span>
+            <span class="profile-row__val">Typically 6–18 months to purchase</span>
+          </div>
+          <div class="profile-row">
+            <span class="profile-row__key">Primary device</span>
+            <span class="profile-row__val">Mobile-first</span>
+          </div>
+          <div class="profile-row">
+            <span class="profile-row__key">Receptiveness</span>
+            <span class="profile-row__val">High — actively seeking guidance</span>
+          </div>
+          <div class="profile-row">
+            <span class="profile-row__key">Target property value</span>
+            <span class="profile-row__val">€250,000 – €500,000+</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ADVERTISING OPTIONS ═══ -->
+<section class="options" aria-labelledby="options-h2">
+  <div class="wrap">
+    <div class="options__header reveal">
+      <p class="sec-eyebrow">What We Offer</p>
+      <h2 class="sec-h2" id="options-h2">Advertising Opportunities</h2>
+      <p class="options__intro">Four formats, from premium featured partnerships to digital display and print placements. All rates are available on request — no obligation, a conversation first.</p>
+    </div>
+    <div class="options__grid reveal reveal-d1">
+
+      <div class="option-card option-card--featured">
+        <div class="option-card__badge">Most Popular</div>
+        <p class="option-card__type">Premium</p>
+        <h3 class="option-card__title">Featured Partner</h3>
+        <p class="option-card__desc">Cross-platform presence across the FTBB website, newsletter, and social — with your brand presented as a recommended expert in your category. Exclusive per sector.</p>
+        <ul class="option-card__includes">
           <li>Logo in partner marquee on all FTBB pages</li>
           <li>Placement within relevant buyer guides</li>
           <li>Newsletter feature in the FTBB Monthly Briefing</li>
@@ -571,33 +416,33 @@
         </ul>
       </div>
 
-      <div class="adv-option-card">
-        <p class="adv-option-card__type">Digital</p>
-        <h3 class="adv-option-card__title">Website &amp; Guide Advertising</h3>
-        <p class="adv-option-card__desc">Display advertising positioned within FTBB guide content — reaching buyers as they research specific topics such as mortgages, legal process, and home improvement.</p>
-        <ul class="adv-option-card__includes">
+      <div class="option-card">
+        <p class="option-card__type">Digital</p>
+        <h3 class="option-card__title">Website &amp; Guide Advertising</h3>
+        <p class="option-card__desc">Display advertising positioned within FTBB guide content — reaching buyers as they research specific topics such as mortgages, legal process, and home improvement.</p>
+        <ul class="option-card__includes">
           <li>Category-targeted display placement</li>
           <li>Mobile-optimised formats</li>
-          <li>Monthly reporting</li>
+          <li>Monthly impression and click reporting</li>
         </ul>
       </div>
 
-      <div class="adv-option-card">
-        <p class="adv-option-card__type">Email</p>
-        <h3 class="adv-option-card__title">Newsletter Sponsorship</h3>
-        <p class="adv-option-card__desc">A dedicated placement in the FTBB Monthly Briefing, sent to subscribers actively preparing to buy. One sponsor per edition.</p>
-        <ul class="adv-option-card__includes">
+      <div class="option-card">
+        <p class="option-card__type">Email</p>
+        <h3 class="option-card__title">Newsletter Sponsorship</h3>
+        <p class="option-card__desc">A dedicated placement in the FTBB Monthly Briefing, sent to 12,000+ subscribers actively preparing to buy. One sponsor per edition.</p>
+        <ul class="option-card__includes">
           <li>Dedicated sponsor block with your message</li>
           <li>Direct link to your website or offer</li>
           <li>Open rate and click data provided</li>
         </ul>
       </div>
 
-      <div class="adv-option-card">
-        <p class="adv-option-card__type">Print</p>
-        <h3 class="adv-option-card__title">FTBB Magazine</h3>
-        <p class="adv-option-card__desc">Advertising in the print edition of the First Time Buyer's Bible, distributed to buyers, brokers, and property professionals across Ireland.</p>
-        <ul class="adv-option-card__includes">
+      <div class="option-card">
+        <p class="option-card__type">Print</p>
+        <h3 class="option-card__title">FTBB Magazine</h3>
+        <p class="option-card__desc">Advertising in the print edition of the First Time Buyer's Bible, distributed to buyers, brokers, and property professionals across Ireland.</p>
+        <ul class="option-card__includes">
           <li>Full page and half page formats</li>
           <li>Advertorial feature option</li>
           <li>Distribution through partner organisations</li>
@@ -609,34 +454,34 @@
 </section>
 
 
-<!-- ════════════════
-     4. FORM
-════════════════ -->
-<section class="adv-form-section" id="enquire-form" aria-labelledby="adv-form-h2">
+<!-- ═══ ENQUIRY FORM ═══ -->
+<section class="form-section" id="enquire-form" aria-labelledby="form-h2">
   <div class="wrap">
-    <div class="sec-label fade-up">
-      <h2 id="adv-form-h2">Enquire About Advertising</h2>
+    <div class="reveal">
+      <p class="sec-eyebrow">Get in Touch</p>
+      <h2 class="sec-h2" id="form-h2">Enquire About Advertising</h2>
     </div>
-    <div class="adv-form-wrap fade-up">
+    <div class="form-section__inner">
 
-      <div class="adv-form-info">
-        <h3 class="adv-form-info__heading">Let's Talk</h3>
-        <p class="adv-form-info__body">Fill in the form and we'll get back to you within one business day with full details and availability. No obligation — a conversation first.</p>
-        <div class="adv-form-info__contact">
-          <strong>Christopher O'Neill</strong><br>
-          Head of Marketing, FTBB<br>
-          <a href="mailto:info@ftbb.ie">info@ftbb.ie</a><br>
-          <a href="tel:+35318537360">01 853 7360</a>
+      <div class="reveal reveal-d1">
+        <h3 class="form-info__heading">Let's Talk</h3>
+        <p class="form-info__body">Fill in the form and we'll get back to you within one business day with full details and availability. No obligation — a conversation first.</p>
+        <div class="form-info__contact">
+          <strong>Christopher O'Neill</strong><br/>
+          Head of Marketing, FTBB<br/>
+          <a href="mailto:info@ftbb.ie">info@ftbb.ie</a><br/>
+          <a href="tel:+35318537360">01 853 7360</a><br/>
+          57 Clontarf Road, Dublin 3
         </div>
-        <ul class="adv-form-info__assurance">
+        <ul class="form-info__assurance">
           <li>Response within one business day</li>
           <li>Campaigns tailored to your budget</li>
           <li>Your details are never shared</li>
         </ul>
       </div>
 
-      <div>
-        <div class="enquire-form" id="form-success-wrap" hidden>
+      <div class="reveal reveal-d2">
+        <div id="form-success" style="display:none;">
           <div class="form-success">
             <div class="form-success__icon" aria-hidden="true">✓</div>
             <h3 class="form-success__title">Enquiry Received</h3>
@@ -644,24 +489,24 @@
           </div>
         </div>
 
-        <!-- TODO: Connect to a real endpoint before launch.
-             Option A — Formspree: set action to https://formspree.io/f/YOUR_FORM_ID and remove the JS intercept below.
-             Option B — EmailJS: call emailjs.sendForm() in the submit handler. -->
         <form class="enquire-form" id="adv-enquire-form" novalidate aria-label="Advertising enquiry form" action="#" method="post">
           <div class="form-row">
             <div class="form-group">
               <label for="adv-name" class="form-label">Your Name <span>*</span></label>
               <input type="text" id="adv-name" name="name" class="form-input" required autocomplete="name" placeholder="e.g. Aoife Murphy" />
+              <span class="field-error" id="err-name">Please enter your name.</span>
             </div>
             <div class="form-group">
               <label for="adv-company" class="form-label">Company <span>*</span></label>
               <input type="text" id="adv-company" name="company" class="form-input" required autocomplete="organization" placeholder="e.g. Murphy Solicitors" />
+              <span class="field-error" id="err-company">Please enter your company name.</span>
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="adv-email" class="form-label">Email <span>*</span></label>
               <input type="email" id="adv-email" name="email" class="form-input" required autocomplete="email" placeholder="you@company.ie" />
+              <span class="field-error" id="err-email">Please enter a valid email address.</span>
             </div>
             <div class="form-group">
               <label for="adv-phone" class="form-label">Phone</label>
@@ -686,6 +531,7 @@
               <option value="removals">Removals &amp; Storage</option>
               <option value="other">Other</option>
             </select>
+            <span class="field-error" id="err-type">Please select a business category.</span>
           </div>
           <div class="form-group">
             <label for="adv-message" class="form-label">Message</label>
@@ -701,70 +547,67 @@
 </section>
 
 
-<footer class="footer" id="contact" role="contentinfo">
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" role="contentinfo">
   <div class="wrap">
     <div class="footer__top">
       <div class="footer__brand">
         <a href="/" class="footer__logo" aria-label="FTBB — Home">
-          <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="76" height="38" loading="lazy" />
+          <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" loading="lazy" />
           <div>
-            <div class="footer__logo-text">First Time Buyer's Bible</div>
+            <div class="footer__logo-name">First Time Buyer's Bible</div>
             <div class="footer__logo-sub">Ireland's Buyer Resource Hub</div>
           </div>
         </a>
         <p class="footer__tagline">Helping Irish first-time buyers navigate mortgages, grants, legal process and property purchase since 2024.</p>
-        <address class="footer__contact" style="font-style:normal;margin-top:1.1rem;font-size:0.82rem;line-height:1.7;color:var(--text-muted);">
-          <strong style="color:var(--off-white);display:block;margin-bottom:0.15rem;">Christopher O'Neill</strong>
-          Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="color:inherit;text-decoration:underline;">info@ftbb.ie</a><br/>
+        <address class="footer__contact">
+          <strong>Christopher O'Neill</strong>
+          Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="text-decoration:underline;">info@ftbb.ie</a><br/>
           57 Clontarf Road, Dublin 3<br/>
-          T: <a href="tel:+35318537360" style="color:inherit;">01 8537360</a>
+          T: <a href="tel:+35318537360">01 8537360</a><br/>
+          <span style="display:block;margin-top:0.4rem;">Company No. 729638 &mdash; Registered in Ireland 2023</span>
         </address>
-        <div class="footer__socials" aria-label="Social media links" style="margin-top:1.25rem;">
+        <div class="footer__socials" aria-label="Social media links">
           <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
           <a href="mailto:info@ftbb.ie" class="footer__soc" aria-label="Email FTBB">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
           </a>
         </div>
       </div>
       <div class="footer__col">
         <h4>Mortgages</h4>
         <ul role="list">
-          <li><a href="/#mortgages">Complete Mortgage Guide</a></li>
-          <li><a href="/#mortgages">Borrowing Capacity</a></li>
-          <li><a href="/#mortgages">Mortgage Brokers</a></li>
+          <li><a href="#">Complete Mortgage Guide</a></li>
+          <li><a href="#">Borrowing Capacity</a></li>
+          <li><a href="#">Approval in Principle</a></li>
+          <li><a href="#">Mortgage Brokers</a></li>
         </ul>
       </div>
       <div class="footer__col">
         <h4>Grants &amp; Schemes</h4>
         <ul role="list">
-          <li><a href="/#grants">Help to Buy Scheme</a></li>
-          <li><a href="/#grants">First Home Scheme</a></li>
-          <li><a href="/#grants">SEAI Energy Grants</a></li>
+          <li><a href="#">Help to Buy Scheme</a></li>
+          <li><a href="#">First Home Scheme</a></li>
+          <li><a href="#">SEAI Energy Grants</a></li>
+          <li><a href="#">Stamp Duty Guide</a></li>
         </ul>
       </div>
       <div class="footer__col">
-        <h4>Buying Process</h4>
+        <h4>Quick Links</h4>
         <ul role="list">
-          <li><a href="/#process">Saving for a Deposit</a></li>
-          <li><a href="/#process">Legal Process</a></li>
-          <li><a href="/#process">Surveys &amp; Valuations</a></li>
-        </ul>
-      </div>
-      <div class="footer__col">
-        <h4>Partner With Us</h4>
-        <ul role="list">
-          <li><a href="/advertise">Advertise With FTBB</a></li>
-          <li><a href="/media-kit">Media Kit 2025</a></li>
           <li><a href="/buy">Buy the Guide</a></li>
-          <li><a href="/#resources">All Guides</a></li>
+          <li><a href="/advertise">Advertise With FTBB</a></li>
+          <li><a href="/media-kit">Media Kit</a></li>
           <li><a href="mailto:info@ftbb.ie">Contact FTBB</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2025 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company No. 729638.</p>
+      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company No. 729638.</p>
       <div class="footer__legal">
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Use</a>
@@ -774,18 +617,25 @@
   </div>
 </footer>
 
+
+<!-- COOKIE CONSENT -->
 <div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
-  <p>We use cookies to improve your experience on FTBB. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a>.</p>
+  <p>We use cookies to improve your experience on FTBB. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
   <div class="cookie-bar__actions">
     <button class="cookie-bar__settings" id="cookie-settings" type="button">Cookie Settings</button>
     <button class="cookie-bar__accept" id="cookie-accept" type="button">Accept All</button>
   </div>
 </div>
 
-<script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); }, { passive: true });
 
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── MOBILE NAV ──
   const ham = document.getElementById('nav-ham');
   const mobileNav = document.getElementById('nav-mobile');
   ham.addEventListener('click', () => {
@@ -796,50 +646,86 @@
   });
   mobileNav.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
-      ham.classList.remove('open'); mobileNav.classList.remove('open');
-      ham.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
+      ham.classList.remove('open');
+      mobileNav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
     });
   });
-  document.addEventListener('click', e => {
-    if (mobileNav.classList.contains('open') && !nav.contains(e.target)) {
-      ham.classList.remove('open'); mobileNav.classList.remove('open');
-      ham.setAttribute('aria-expanded', 'false'); document.body.style.overflow = '';
-    }
+
+  // ── SCROLL REVEAL ──
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── FORM VALIDATION ──
+  const form = document.getElementById('adv-enquire-form');
+  const successEl = document.getElementById('form-success');
+
+  function showError(inputId, errId) {
+    document.getElementById(inputId).classList.add('error');
+    document.getElementById(errId).classList.add('visible');
+  }
+  function clearError(inputId, errId) {
+    document.getElementById(inputId).classList.remove('error');
+    document.getElementById(errId).classList.remove('visible');
+  }
+
+  ['adv-name', 'adv-company', 'adv-email', 'adv-type'].forEach(id => {
+    const el = document.getElementById(id);
+    el.addEventListener('input', () => {
+      el.classList.remove('error');
+      const errId = 'err-' + id.replace('adv-', '');
+      const errEl = document.getElementById(errId);
+      if (errEl) errEl.classList.remove('visible');
+    });
   });
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
-  }, { threshold: 0.07 });
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      let valid = true;
 
+      const name = document.getElementById('adv-name');
+      const company = document.getElementById('adv-company');
+      const email = document.getElementById('adv-email');
+      const type = document.getElementById('adv-type');
+
+      if (!name.value.trim()) { showError('adv-name', 'err-name'); valid = false; } else { clearError('adv-name', 'err-name'); }
+      if (!company.value.trim()) { showError('adv-company', 'err-company'); valid = false; } else { clearError('adv-company', 'err-company'); }
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { showError('adv-email', 'err-email'); valid = false; } else { clearError('adv-email', 'err-email'); }
+      if (!type.value) { showError('adv-type', 'err-type'); valid = false; } else { clearError('adv-type', 'err-type'); }
+
+      if (!valid) return;
+
+      const btn = document.getElementById('adv-submit');
+      btn.disabled = true;
+      btn.textContent = 'Sending…';
+
+      setTimeout(() => {
+        form.style.display = 'none';
+        successEl.style.display = 'block';
+        window.scrollTo({ top: successEl.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+      }, 600);
+    });
+  }
+
+  // ── COOKIE ──
   (function() {
     const bar = document.getElementById('cookie-bar');
     if (!bar) return;
     if (localStorage.getItem('ftbb_cookies_ok') === '1') { bar.classList.add('hidden'); return; }
-    document.getElementById('cookie-accept').addEventListener('click', () => { localStorage.setItem('ftbb_cookies_ok', '1'); bar.classList.add('hidden'); });
-    document.getElementById('cookie-settings').addEventListener('click', () => { window.location.href = '/cookies.html'; });
-  })();
-
-  // TODO: Connect to a real form service before Meta ads launch.
-  const advForm = document.getElementById('adv-enquire-form');
-  const advSuccessWrap = document.getElementById('form-success-wrap');
-  if (advForm) {
-    advForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = advForm.querySelector('#adv-name').value.trim();
-      const email = advForm.querySelector('#adv-email').value.trim();
-      const type = advForm.querySelector('#adv-type').value;
-      const company = advForm.querySelector('#adv-company').value.trim();
-      if (!name || !email || !type || !company) {
-        alert('Please fill in all required fields before submitting.');
-        return;
-      }
-      const btn = document.getElementById('adv-submit');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      setTimeout(() => { advForm.hidden = true; advSuccessWrap.hidden = false; }, 800);
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('ftbb_cookies_ok', '1');
+      bar.classList.add('hidden');
     });
-  }
+    document.getElementById('cookie-settings').addEventListener('click', () => {
+      window.location.href = '/cookies.html';
+    });
+  })();
 </script>
 
 </body>
