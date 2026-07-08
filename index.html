@@ -147,7 +147,7 @@
 
     /* ── HERO ── */
     .hero {
-      min-height: 100vh; background: var(--black);
+      min-height: 100vh; background: #1e1e1e;
       display: flex; align-items: center;
       padding: 9rem 0 6rem;
       position: relative; overflow: hidden;
@@ -565,10 +565,10 @@
     }
     .partner-item img {
       max-height: 34px; max-width: 115px; width: auto;
-      filter: grayscale(100%) opacity(0.45);
-      transition: filter 0.3s ease; object-fit: contain;
+      opacity: 0.85;
+      transition: opacity 0.3s ease; object-fit: contain;
     }
-    .partner-item:hover img { filter: grayscale(0%) opacity(0.85); }
+    .partner-item:hover img { opacity: 1; }
     a.partner-item { text-decoration: none; }
     .partner-item--labeled { flex-direction: column; gap: 0.25rem; height: auto; padding: 0.6rem 2.25rem; }
     .partner-label {
