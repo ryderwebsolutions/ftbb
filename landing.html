@@ -3,462 +3,344 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>First Time Buyer's Bible Ireland — Coming Soon</title>
-  <meta name="description" content="Ireland's new platform for first-time buyers. Property insights, mortgage guidance, buyer tips, sustainability, interiors, and real-world advice for navigating the Irish housing market." />
+  <title>First Time Buyer's Bible — Ireland's First-Time Buyer Guide</title>
+  <meta name="description" content="Ireland's most comprehensive first-time buyer guide. Mortgages, grants, legal process, budgeting and property tips — all in one place." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="First Time Buyer's Bible Ireland — Coming Soon" />
-  <meta property="og:description" content="Ireland's new platform for first-time buyers. Launching soon." />
+  <meta property="og:title" content="First Time Buyer's Bible Ireland — The Complete Buyer Guide" />
+  <meta property="og:description" content="Everything you need to buy your first home in Ireland — mortgages, Help to Buy, solicitors, surveys and more." />
   <meta property="og:type" content="website" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="First Time Buyer's Bible Ireland — Coming Soon" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23111'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-size='11' font-weight='700' fill='white'>FT</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    :root{--black:#0a0a0a;--black-mid:#111111;--black-soft:#1a1a1a;--grey-dark:#333333;--grey:#666666;--grey-mid:#999999;--grey-light:#cccccc;--grey-border:#e0e0e0;--grey-bg:#f4f4f4;--white:#ffffff;--gold:#c5892a;--serif:'Playfair Display',Georgia,'Times New Roman',serif;--sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;--ease:cubic-bezier(0.22,1,0.36,1);--cw:1200px;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}body{font-family:var(--sans);background:var(--white);color:var(--black);overflow-x:hidden;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}img{max-width:100%;display:block}button{cursor:pointer;font-family:inherit;border:none;background:none}ul{list-style:none}.wrap{max-width:var(--cw);margin:0 auto;padding:0 2rem}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}.reveal.visible{opacity:1;transform:none}.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}.reveal-d5{transition-delay:.5s}
 
-    * {
-      box-sizing: border-box;
-    }
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 0;transition:background .4s ease,box-shadow .4s ease,padding .35s ease}.nav__inner{display:flex;align-items:center;justify-content:space-between;gap:2rem}.nav__logo{display:flex;align-items:center;gap:.7rem;flex-shrink:0}.nav__logo img{height:34px;width:auto;filter:brightness(0) invert(1);transition:filter .4s ease}.nav__logo-text{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--white);letter-spacing:-.01em;transition:color .4s ease}.nav__links{display:flex;align-items:center;gap:2rem}.nav__links a{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.75);transition:color .22s ease;position:relative}.nav__links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:currentColor;transition:width .22s ease}.nav__links a:hover::after{width:100%}.nav__links a:hover{color:var(--white)}.nav__cta{display:inline-block;padding:.6rem 1.4rem;border:1px solid rgba(255,255,255,.5);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);transition:all .22s ease;white-space:nowrap}.nav__cta:hover{background:var(--white);color:var(--black);border-color:var(--white)}.nav__ham{display:none;flex-direction:column;gap:5px;width:26px;cursor:pointer;padding:2px}.nav__ham span{display:block;width:100%;height:1.5px;background:var(--white);transition:all .3s ease}.nav.scrolled{background:var(--white);box-shadow:0 1px 0 var(--grey-border);padding:.9rem 0}.nav.scrolled .nav__logo img{filter:none}.nav.scrolled .nav__logo-text{color:var(--black)}.nav.scrolled .nav__links a{color:var(--grey)}.nav.scrolled .nav__links a:hover{color:var(--black)}.nav.scrolled .nav__cta{border-color:var(--black);color:var(--black)}.nav.scrolled .nav__cta:hover{background:var(--black);color:var(--white)}.nav.scrolled .nav__ham span{background:var(--black)}.nav__mobile{display:none;position:fixed;inset:0;background:var(--black);z-index:99;padding:6rem 2.5rem 3rem;flex-direction:column;gap:0}.nav__mobile.open{display:flex}.nav__mobile a{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--white);display:block;padding:1.25rem 0;border-bottom:1px solid rgba(255,255,255,.08);transition:color .2s ease}.nav__mobile a:hover{color:rgba(255,255,255,.6)}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.6;
-    }
+    /* HERO */
+    .hero{background:#1e1e1e;min-height:100vh;display:flex;align-items:center;padding:7rem 0 5rem;position:relative;overflow:hidden}.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 70% 50%,rgba(197,137,42,.06) 0%,transparent 70%);pointer-events:none}.hero__grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}.hero__eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}.hero__eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold)}.hero__title{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4rem);font-weight:700;color:var(--white);line-height:1.07;letter-spacing:-.03em;margin-bottom:1.5rem}.hero__title em{font-style:italic;color:rgba(255,255,255,.55)}.hero__sub{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.5);max-width:480px;margin-bottom:2.5rem}.hero__actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}.hero__btn{display:inline-block;padding:.85rem 2rem;background:var(--white);color:var(--black);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:all .22s ease}.hero__btn:hover{background:var(--grey-bg)}.hero__btn--ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.3)}.hero__btn--ghost:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.55)}.hero__checks{display:flex;flex-direction:column;gap:.6rem;margin-top:2.25rem}.hero__check{display:flex;align-items:center;gap:.65rem;font-size:.78rem;color:rgba(255,255,255,.45)}.hero__check::before{content:'';display:inline-block;width:14px;height:14px;min-width:14px;border:1.5px solid rgba(255,255,255,.2);border-radius:50%;position:relative}.hero__check-icon{width:14px;height:14px;min-width:14px;border:1.5px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center}.hero__check-icon svg{width:8px;height:8px}
+    .hero__cover{position:relative}.hero__cover-frame{position:relative;border-radius:2px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.06)}.hero__cover-img{width:100%;height:480px;object-fit:cover;display:block}.hero__cover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:2rem}.hero__cover-label{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}.hero__cover-title{font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--white);line-height:1.2}.hero__badge{position:absolute;top:-1rem;right:-1rem;width:80px;height:80px;background:var(--gold);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:.55rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--white);text-align:center;line-height:1.3;box-shadow:0 8px 24px rgba(197,137,42,.4)}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    /* STATS BAR */
+    .stats{background:var(--black);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}.stats__inner{display:grid;grid-template-columns:repeat(4,1fr);padding:2.5rem 0}.stats__item{padding:0 2rem;border-right:1px solid rgba(255,255,255,.06)}.stats__item:first-child{padding-left:0}.stats__item:last-child{border-right:none}.stats__num{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--white);line-height:1;margin-bottom:.35rem}.stats__label{font-size:.68rem;color:rgba(255,255,255,.35);letter-spacing:.06em}
 
-    .container {
-      width: min(100% - 2rem, var(--max-width));
-      margin: 0 auto;
-    }
+    /* CHAPTERS */
+    .chapters{padding:6rem 0;background:var(--white)}.section-eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}.section-eyebrow::before{content:'';display:inline-block;width:20px;height:1px;background:var(--gold)}.section-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:700;color:var(--black);line-height:1.15;letter-spacing:-.025em;margin-bottom:.75rem}.section-sub{font-size:.9rem;line-height:1.75;color:var(--grey);max-width:560px}.chapters__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:4rem;border-top:1px solid var(--grey-border);border-left:1px solid var(--grey-border)}.chapter{padding:2rem 1.75rem;border-right:1px solid var(--grey-border);border-bottom:1px solid var(--grey-border);position:relative;transition:background .22s ease}.chapter:hover{background:var(--grey-bg)}.chapter__num{font-family:var(--serif);font-size:2.5rem;font-weight:700;color:var(--grey-border);line-height:1;margin-bottom:1rem}.chapter__title{font-size:.85rem;font-weight:700;color:var(--black);margin-bottom:.6rem;letter-spacing:-.01em}.chapter__desc{font-size:.8rem;line-height:1.7;color:var(--grey)}
 
-    .btn {
-      display: inline-block;
-      padding: 0.95rem 1.4rem;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
+    /* FEATURES */
+    .features{padding:6rem 0;background:var(--grey-bg)}.features__header{margin-bottom:3.5rem}.features__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}.feature{background:var(--white);padding:2rem 2.25rem;border-top:2px solid transparent;transition:border-color .22s ease}.feature:hover{border-top-color:var(--gold)}.feature__icon{width:36px;height:36px;margin-bottom:1.25rem}.feature__icon svg{width:20px;height:20px;color:var(--gold)}.feature__title{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--black);margin-bottom:.6rem}.feature__desc{font-size:.85rem;line-height:1.75;color:var(--grey)}
 
-    .btn-primary {
-      background: var(--primary);
-      color: #fff;
-    }
+    /* AUDIENCE */
+    .audience{padding:6rem 0;background:var(--white)}.audience__header{margin-bottom:3.5rem}.audience__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.audience-card{padding:2rem;border:1px solid var(--grey-border);position:relative;overflow:hidden;transition:box-shadow .22s ease}.audience-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.06)}.audience-card__accent{width:24px;height:2px;background:var(--gold);margin-bottom:1.25rem}.audience-card__title{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--black);margin-bottom:.6rem}.audience-card__desc{font-size:.85rem;line-height:1.75;color:var(--grey)}
 
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
+    /* TOPICS STRIP */
+    .topics{padding:5rem 0;background:#1e1e1e}.topics__header{margin-bottom:3rem}.topics__header .section-title{color:var(--white)}.topics__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.06)}.topic{background:#1e1e1e;padding:1.75rem 2rem;transition:background .22s ease}.topic:hover{background:rgba(255,255,255,.03)}.topic__title{font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:.4rem}.topic__desc{font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.4)}
 
-    .btn-secondary {
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      background: transparent;
-    }
+    /* CTA */
+    .cta-section{padding:7rem 0;background:var(--black)}.cta-section__inner{text-align:center;max-width:640px;margin:0 auto}.cta-section__eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:.6rem}.cta-section__eyebrow::before,.cta-section__eyebrow::after{content:'';display:inline-block;width:20px;height:1px;background:var(--gold)}.cta-section__title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-.03em;margin-bottom:1.25rem}.cta-section__sub{font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.45);margin-bottom:2.5rem}.cta-section__btn{display:inline-block;padding:1rem 2.5rem;background:var(--white);color:var(--black);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:background .22s ease}.cta-section__btn:hover{background:var(--grey-bg)}.cta-section__note{font-size:.72rem;color:rgba(255,255,255,.2);margin-top:1.25rem}
 
-    .btn-secondary:hover {
-      background: rgba(29, 78, 216, 0.08);
-    }
+    /* FOOTER */
+    .footer{background:var(--black);padding:4.5rem 0 0}.footer__top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;padding-bottom:3.5rem;border-bottom:1px solid rgba(255,255,255,.07)}.footer__logo{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}.footer__logo img{height:34px;width:auto;filter:brightness(0) invert(1);opacity:.7}.footer__logo-name{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--white)}.footer__logo-sub{font-size:.6rem;color:rgba(255,255,255,.3);margin-top:.1rem}.footer__tagline{font-size:.8rem;line-height:1.65;color:rgba(255,255,255,.38);margin-bottom:1.5rem}.footer__contact{font-style:normal;font-size:.78rem;line-height:1.8;color:rgba(255,255,255,.38);margin-bottom:1.25rem}.footer__contact strong{color:rgba(255,255,255,.72);display:block;margin-bottom:.1rem}.footer__contact a{transition:color .2s ease}.footer__contact a:hover{color:var(--white)}.footer__socials{display:flex;gap:.5rem}.footer__soc{width:34px;height:34px;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.38);transition:all .2s ease}.footer__soc:hover{border-color:rgba(255,255,255,.4);color:var(--white)}.footer__soc svg{width:13px;height:13px}.footer__col h4{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.25rem}.footer__col ul{display:flex;flex-direction:column;gap:.6rem;padding:0}.footer__col ul li::before{display:none}.footer__col a{font-size:.8rem;color:rgba(255,255,255,.4);transition:color .2s ease;text-decoration:none}.footer__col a:hover{color:var(--white)}.footer__bottom{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,.05)}.footer__copy{font-size:.7rem;color:rgba(255,255,255,.22)}.footer__legal{display:flex;gap:1.5rem}.footer__legal a{font-size:.68rem;color:rgba(255,255,255,.22);transition:color .2s ease;text-decoration:none}.footer__legal a:hover{color:rgba(255,255,255,.5)}
 
-    header {
-      background: linear-gradient(135deg, #fff 0%, #eef4ff 100%);
-      padding: 1rem 0 5rem;
-      border-bottom: 1px solid var(--border);
-    }
+    /* COOKIE BAR */
+    .cookie-bar{position:fixed;bottom:0;left:0;right:0;z-index:150;background:var(--black);border-top:1px solid rgba(255,255,255,.08);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1.5rem;font-size:.78rem;color:rgba(255,255,255,.55)}.cookie-bar.hidden{display:none}.cookie-bar a{color:rgba(255,255,255,.75);text-decoration:underline}.cookie-bar__actions{display:flex;gap:.75rem;flex-shrink:0}.cookie-bar__accept{padding:.5rem 1.25rem;background:var(--white);color:var(--black);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none}.cookie-bar__settings{padding:.5rem 1.25rem;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;background:none}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 0 2rem;
-    }
-
-    .logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: 1.08;
-      margin: 0 0 1rem;
-    }
-
-    .hero p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      margin: 0 0 1.5rem;
-      max-width: 60ch;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 1.25rem;
-      color: var(--success);
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .hero-card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.5rem;
-      border: 1px solid var(--border);
-    }
-
-    .cover {
-      background: linear-gradient(160deg, #1d4ed8, #3b82f6 60%, #93c5fd);
-      min-height: 420px;
-      border-radius: 22px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2rem;
-      box-shadow: var(--shadow);
-    }
-
-    .cover small {
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      opacity: 0.9;
-    }
-
-    .cover h2 {
-      font-size: 2rem;
-      line-height: 1.15;
-      margin: 1rem 0;
-    }
-
-    .cover p {
-      margin: 0;
-      color: rgba(255,255,255,0.9);
-    }
-
-    section {
-      padding: 4.5rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .section-title h2 {
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title p {
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 0.75rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      margin-bottom: 0;
-    }
-
-    .topics {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem;
-    }
-
-    .topic {
-      background: #fff;
-      border-left: 5px solid var(--accent);
-      border-radius: 14px;
-      padding: 1.25rem;
-      border: 1px solid var(--border);
-    }
-
-    .topic h3 {
-      margin: 0 0 0.5rem;
-    }
-
-    .topic p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .cta {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      color: white;
-      border-radius: 24px;
-      padding: 3rem 2rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-    }
-
-    .cta h2 {
-      margin-top: 0;
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-    }
-
-    .cta p {
-      max-width: 700px;
-      margin: 0 auto 1.5rem;
-      color: rgba(255,255,255,0.9);
-    }
-
-    footer {
-      padding: 2rem 0 3rem;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero,
-      .grid-3,
-      .topics {
-        grid-template-columns: 1fr;
-      }
-
-      .nav {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-      }
-
-      header {
-        padding-bottom: 3rem;
-      }
-    }
+    @media(max-width:1024px){.hero__grid{grid-template-columns:1fr;gap:3rem}.hero__cover{display:none}.stats__inner{grid-template-columns:repeat(2,1fr)}.stats__item:nth-child(2){border-right:none}.chapters__grid{grid-template-columns:repeat(2,1fr)}.features__grid{grid-template-columns:1fr}.footer__top{grid-template-columns:1fr 1fr}.footer__brand{grid-column:span 2}}@media(max-width:768px){.wrap{padding:0 1.25rem}.nav__links{display:none}.nav__cta{display:none}.nav__ham{display:flex}.stats__inner{grid-template-columns:1fr 1fr}.chapters__grid{grid-template-columns:1fr}.audience__grid{grid-template-columns:1fr}.topics__grid{grid-template-columns:1fr}.footer__top{grid-template-columns:1fr}.footer__brand{grid-column:span 1}.cookie-bar{flex-direction:column;align-items:flex-start}}@media(max-width:480px){.footer__bottom{flex-direction:column;text-align:center}.hero__actions{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav class="nav">
-        <div class="logo">First Time Buyers Bible</div>
-        <a class="btn btn-secondary" href="#download">Get the E-Magazine</a>
-      </nav>
 
-      <div class="hero">
-        <div>
-          <h1>Your trusted guide to buying your first home with confidence.</h1>
-          <p>
-            First Time Buyers Bible is a practical e-magazine designed to help
-            first-time buyers understand the property journey, avoid costly
-            mistakes, and make informed decisions from start to finish.
-          </p>
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="FTBB — Home">
+        <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" />
+        <span class="nav__logo-text">FTBB</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/#news">News</a></li>
+        <li><a href="/#guide">Buyer Guide</a></li>
+        <li><a href="/#insights">Market Data</a></li>
+        <li><a href="/#partners">Partners</a></li>
+        <li><a href="/#contact">Contact</a></li>
+      </ul>
+      <a href="/buy" class="nav__cta">Get the Guide</a>
+      <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+  <a href="/">Home</a>
+  <a href="/#news">News</a>
+  <a href="/#guide">Buyer Guide</a>
+  <a href="/#insights">Market Data</a>
+  <a href="/buy">Get the Guide</a>
+  <a href="/#contact">Contact</a>
+</div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#download">Download Now</a>
-            <a class="btn btn-secondary" href="#inside">See What’s Inside</a>
+<!-- HERO -->
+<section class="hero" aria-label="Guide hero">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div>
+        <p class="hero__eyebrow reveal">Ireland's First-Time Buyer Resource</p>
+        <h1 class="hero__title reveal reveal-d1">Your complete guide to buying a home <em>in Ireland.</em></h1>
+        <p class="hero__sub reveal reveal-d2">Mortgages, Help to Buy, solicitors, surveys, bidding — every step of the Irish property journey, explained clearly by people who've been through it.</p>
+        <div class="hero__actions reveal reveal-d3">
+          <a href="/buy" class="hero__btn">Get the Full Guide</a>
+          <a href="#inside" class="hero__btn hero__btn--ghost">See What's Inside</a>
+        </div>
+        <div class="hero__checks reveal reveal-d4">
+          <div class="hero__check">
+            <svg viewBox="0 0 14 14" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
+            <span>Mortgage basics and borrowing limits explained</span>
           </div>
-
-          <div class="hero-points">
-            <span>✔ Mortgage basics explained</span>
-            <span>✔ Budgeting tips</span>
-            <span>✔ Viewing and inspection guidance</span>
-            <span>✔ Offer and closing advice</span>
+          <div class="hero__check">
+            <svg viewBox="0 0 14 14" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
+            <span>Help to Buy &amp; First Home Scheme step by step</span>
+          </div>
+          <div class="hero__check">
+            <svg viewBox="0 0 14 14" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
+            <span>Legal process, solicitors and closing costs</span>
+          </div>
+          <div class="hero__check">
+            <svg viewBox="0 0 14 14" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" aria-hidden="true"><polyline points="2,7 5.5,10.5 12,3.5"/></svg>
+            <span>Bidding, surveys and what to look for at viewings</span>
           </div>
         </div>
-
-        <div class="hero-card">
-          <div class="cover">
-            <div>
-              <small>E-Magazine</small>
-              <h2>First Time Buyers Bible</h2>
-              <p>
-                Clear, practical, and confidence-building advice for every step
-                of your first home purchase.
-              </p>
-            </div>
-            <p><strong>Includes:</strong> affordability, mortgages, offers, inspections, and closing tips.</p>
+      </div>
+      <div class="hero__cover reveal reveal-d2">
+        <div class="hero__cover-frame">
+          <img src="./ftbbcover.jpeg" alt="First Time Buyer's Bible guide cover" class="hero__cover-img" />
+          <div class="hero__cover-overlay">
+            <p class="hero__cover-label">Edition 1 — 2025</p>
+            <p class="hero__cover-title">First Time Buyer's Bible Ireland</p>
           </div>
+          <div class="hero__badge">The<br/>Complete<br/>Guide</div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <main>
-    <section id="inside">
-      <div class="container">
-        <div class="section-title">
-          <h2>Everything you need to know before you buy</h2>
-          <p>
-            From your first budget worksheet to getting the keys, this
-            e-magazine gives you practical insights for every stage of the
-            journey.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Understand your budget</h3>
-            <p>
-              Learn what you can realistically afford, how to prepare for a
-              deposit, and what hidden costs to expect.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Navigate mortgages with clarity</h3>
-            <p>
-              Break down confusing mortgage terms, compare options, and feel
-              more confident when speaking with lenders.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Avoid common first-time buyer mistakes</h3>
-            <p>
-              Get guidance on viewings, inspections, offers, paperwork, and
-              timelines so you can move forward with confidence.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <h2>Featured topics inside the guide</h2>
-          <p>
-            A practical breakdown of the questions first-time buyers ask most.
-          </p>
-        </div>
-
-        <div class="topics">
-          <div class="topic">
-            <h3>How much can you afford?</h3>
-            <p>
-              Understand income, monthly payments, deposit planning, and ongoing
-              ownership costs.
-            </p>
-          </div>
-          <div class="topic">
-            <h3>Mortgages made simple</h3>
-            <p>
-              Explore rates, repayment types, approvals, and what lenders
-              usually look for.
-            </p>
-          </div>
-          <div class="topic">
-            <h3>Home viewings and inspections</h3>
-            <p>
-              Know what to look for during property visits and how inspections
-              can protect your investment.
-            </p>
-          </div>
-          <div class="topic">
-            <h3>Making an offer and closing</h3>
-            <p>
-              Learn how negotiations work, what paperwork to expect, and how to
-              prepare for completion day.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <h2>Who is this for?</h2>
-          <p>
-            If you’re entering the property market for the first time, this
-            guide was made for you.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>First-time buyers</h3>
-            <p>
-              Perfect for anyone preparing to buy their first property and
-              looking for a trusted roadmap.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Renters ready to own</h3>
-            <p>
-              A helpful transition guide for renters who want to understand the
-              home-buying process step by step.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Young couples and families</h3>
-            <p>
-              Practical advice for planning, budgeting, and making informed
-              property decisions together.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="download">
-      <div class="container">
-        <div class="cta">
-          <h2>Start your home-buying journey with confidence</h2>
-          <p>
-            Download the First Time Buyers Bible e-magazine and get the tools,
-            insights, and clarity you need to make smarter property decisions.
-          </p>
-          <a class="btn btn-primary" href="mailto:hello@example.com?subject=First%20Time%20Buyers%20Bible%20Download">
-            Request Your Copy
-          </a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      © 2026 First Time Buyers Bible. All rights reserved.
+<!-- STATS BAR -->
+<div class="stats" aria-label="FTBB audience statistics">
+  <div class="wrap">
+    <div class="stats__inner">
+      <div class="stats__item reveal"><div class="stats__num">12,000+</div><div class="stats__label">Monthly readers</div></div>
+      <div class="stats__item reveal reveal-d1"><div class="stats__num">32+</div><div class="stats__label">Counties reached</div></div>
+      <div class="stats__item reveal reveal-d2"><div class="stats__num">8</div><div class="stats__label">Guide chapters</div></div>
+      <div class="stats__item reveal reveal-d3"><div class="stats__num">25–40</div><div class="stats__label">Core reader age</div></div>
     </div>
-  </footer>
+  </div>
+</div>
+
+<!-- CHAPTERS -->
+<section class="chapters" id="inside" aria-label="Guide chapters">
+  <div class="wrap">
+    <p class="section-eyebrow reveal">What's Inside</p>
+    <h2 class="section-title reveal reveal-d1">Everything you need to know<br/>before you buy</h2>
+    <p class="section-sub reveal reveal-d2">Eight chapters covering every stage of the Irish first-time buyer journey — from saving your deposit to getting the keys.</p>
+    <div class="chapters__grid">
+      <div class="chapter reveal">
+        <div class="chapter__num">01</div>
+        <h3 class="chapter__title">Understanding Your Budget</h3>
+        <p class="chapter__desc">What you can realistically afford, hidden costs, stamp duty, legal fees and how to stress-test your numbers before applying.</p>
+      </div>
+      <div class="chapter reveal reveal-d1">
+        <div class="chapter__num">02</div>
+        <h3 class="chapter__title">Saving Your Deposit</h3>
+        <p class="chapter__desc">Deposit targets by price band, the 10% vs 20% decision, and practical savings strategies for Irish buyers in 2025.</p>
+      </div>
+      <div class="chapter reveal reveal-d2">
+        <div class="chapter__num">03</div>
+        <h3 class="chapter__title">Mortgage Approval in Principle</h3>
+        <p class="chapter__desc">How to get AIP, what lenders check, Central Bank lending limits, broker vs direct — and why AIP comes before viewings.</p>
+      </div>
+      <div class="chapter reveal reveal-d3">
+        <div class="chapter__num">04</div>
+        <h3 class="chapter__title">Help to Buy &amp; Government Schemes</h3>
+        <p class="chapter__desc">HTB refund calculation, First Home Scheme eligibility, shared equity, and how to layer multiple schemes correctly.</p>
+      </div>
+      <div class="chapter reveal">
+        <div class="chapter__num">05</div>
+        <h3 class="chapter__title">Finding the Right Property</h3>
+        <p class="chapter__desc">What to check at viewings, how to read BER certificates, new build vs second-hand, and the questions estate agents won't volunteer.</p>
+      </div>
+      <div class="chapter reveal reveal-d1">
+        <div class="chapter__num">06</div>
+        <h3 class="chapter__title">Bidding &amp; Making an Offer</h3>
+        <p class="chapter__desc">How Irish bidding actually works, when to stop, booking deposits, what "sale agreed" means and what comes next.</p>
+      </div>
+      <div class="chapter reveal reveal-d2">
+        <div class="chapter__num">07</div>
+        <h3 class="chapter__title">Surveys, Solicitors &amp; Legal</h3>
+        <p class="chapter__desc">Structural vs snag surveys, choosing a conveyancing solicitor, what's in the contracts, and the timeline from offer to close.</p>
+      </div>
+      <div class="chapter reveal reveal-d3">
+        <div class="chapter__num">08</div>
+        <h3 class="chapter__title">Moving In &amp; After</h3>
+        <p class="chapter__desc">Closing day checklist, switching utilities, home insurance, first year ownership costs and what happens when things go wrong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" aria-label="Guide features">
+  <div class="wrap">
+    <div class="features__header">
+      <p class="section-eyebrow reveal">Why FTBB</p>
+      <h2 class="section-title reveal reveal-d1">Built for the Irish market</h2>
+      <p class="section-sub reveal reveal-d2">Not generic advice from the UK or US — this guide is written specifically for the Irish property market, Irish lenders, and Irish law.</p>
+    </div>
+    <div class="features__grid">
+      <div class="feature reveal">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <h3 class="feature__title">Ireland-specific from cover to cover</h3>
+        <p class="feature__desc">Written around Irish Central Bank lending rules, Revenue HTB relief, the NPPR and PRTB registers, and how Irish solicitors handle conveyancing. No irrelevant UK content.</p>
+      </div>
+      <div class="feature reveal reveal-d1">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <h3 class="feature__title">Up to date for 2025</h3>
+        <p class="feature__desc">HTB limits, First Home Scheme equity caps, current AIP criteria and stamp duty rates — all current as of the 2025 Budget and Finance Act.</p>
+      </div>
+      <div class="feature reveal reveal-d2">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="feature__title">Written by buyers, for buyers</h3>
+        <p class="feature__desc">FTBB was created by a team of Irish first-time buyers who went through the process. Every section is written around the questions people actually ask — not the ones advisers wish they'd ask.</p>
+      </div>
+      <div class="feature reveal reveal-d3">
+        <div class="feature__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="feature__title">No paid recommendations</h3>
+        <p class="feature__desc">Our editorial content is 100% independent. Partners who advertise on FTBB are clearly labelled. Our guides never recommend specific lenders, solicitors or brokers without disclosure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="audience" aria-label="Who this guide is for">
+  <div class="wrap">
+    <div class="audience__header">
+      <p class="section-eyebrow reveal">Who It's For</p>
+      <h2 class="section-title reveal reveal-d1">If you're buying your first home in Ireland, this is for you</h2>
+      <p class="section-sub reveal reveal-d2">Whether you're just starting to save or already approved — FTBB has the information you need.</p>
+    </div>
+    <div class="audience__grid">
+      <div class="audience-card reveal">
+        <div class="audience-card__accent"></div>
+        <h3 class="audience-card__title">First-time buyers starting out</h3>
+        <p class="audience-card__desc">You're in the research phase — trying to understand how much you can borrow, what schemes you qualify for, and what the process actually looks like from start to finish.</p>
+      </div>
+      <div class="audience-card reveal reveal-d1">
+        <div class="audience-card__accent"></div>
+        <h3 class="audience-card__title">Renters ready to make the move</h3>
+        <p class="audience-card__desc">You've been renting for years and you're done. You have some savings, you know the area you want — now you need a clear plan to get from where you are to keys in hand.</p>
+      </div>
+      <div class="audience-card reveal reveal-d2">
+        <div class="audience-card__accent"></div>
+        <h3 class="audience-card__title">Couples &amp; families buying together</h3>
+        <p class="audience-card__desc">Buying as a couple means combining finances, understanding joint mortgage rules, and aligning on property type, location and budget. FTBB walks you through all of it together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS STRIP -->
+<section class="topics" aria-label="Topics covered">
+  <div class="wrap">
+    <div class="topics__header">
+      <p class="section-eyebrow reveal" style="color:var(--gold)">Topics Covered</p>
+      <h2 class="section-title reveal reveal-d1">The questions every first-time buyer asks</h2>
+    </div>
+    <div class="topics__grid">
+      <div class="topic reveal">
+        <h3 class="topic__title">How much can I actually borrow?</h3>
+        <p class="topic__desc">Central Bank rules, income multiples, lender overlays and what stress-testing your application really means.</p>
+      </div>
+      <div class="topic reveal reveal-d1">
+        <h3 class="topic__title">Do I qualify for Help to Buy?</h3>
+        <p class="topic__desc">Eligibility rules, how to calculate your refund, and what happens if you're buying with someone who's owned property before.</p>
+      </div>
+      <div class="topic reveal reveal-d2">
+        <h3 class="topic__title">Should I use a mortgage broker?</h3>
+        <p class="topic__desc">Broker vs direct lender comparison, what brokers actually do, and the questions to ask before you engage one.</p>
+      </div>
+      <div class="topic reveal reveal-d3">
+        <h3 class="topic__title">What does a structural survey cover?</h3>
+        <p class="topic__desc">The difference between a structural survey, a snag list and a valuation — and when you need each one.</p>
+      </div>
+      <div class="topic reveal">
+        <h3 class="topic__title">How does Irish bidding work?</h3>
+        <p class="topic__desc">Sealed bids vs open bidding, when to walk away, and what happens between "sale agreed" and contracts signed.</p>
+      </div>
+      <div class="topic reveal reveal-d1">
+        <h3 class="topic__title">What are the actual closing costs?</h3>
+        <p class="topic__desc">Stamp duty, solicitor fees, valuation costs, survey fees and the registration charges — all itemised with typical 2025 figures.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="download" aria-label="Get the guide">
+  <div class="wrap">
+    <div class="cta-section__inner">
+      <p class="cta-section__eyebrow reveal">Ready to Start?</p>
+      <h2 class="cta-section__title reveal reveal-d1">Start your home-buying journey with clarity</h2>
+      <p class="cta-section__sub reveal reveal-d2">Get the complete First Time Buyer's Bible and have everything you need to navigate the Irish property market in one place.</p>
+      <a href="/buy" class="cta-section__btn reveal reveal-d3">Get the Full Guide</a>
+      <p class="cta-section__note reveal reveal-d4">Available as a digital download &bull; Updated for 2025</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="FTBB — Home"><img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" loading="lazy" /><div><div class="footer__logo-name">First Time Buyer's Bible</div><div class="footer__logo-sub">Ireland's Buyer Resource Hub</div></div></a>
+        <p class="footer__tagline">Helping Irish first-time buyers navigate mortgages, grants, legal process and property purchase since 2024.</p>
+        <address class="footer__contact"><strong>Christopher O'Neill</strong>Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="text-decoration:underline;">info@ftbb.ie</a><br/>57 Clontarf Road, Dublin 3 &mdash; T: <a href="tel:+35318537360">01 8537360</a></address>
+        <div class="footer__socials"><a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="mailto:info@ftbb.ie" class="footer__soc" aria-label="Email FTBB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></a></div>
+      </div>
+      <div class="footer__col"><h4>Mortgages</h4><ul role="list"><li><a href="#">Complete Mortgage Guide</a></li><li><a href="#">Borrowing Capacity</a></li><li><a href="#">Mortgage Brokers</a></li></ul></div>
+      <div class="footer__col"><h4>Grants &amp; Schemes</h4><ul role="list"><li><a href="#">Help to Buy Scheme</a></li><li><a href="#">First Home Scheme</a></li><li><a href="#">SEAI Energy Grants</a></li></ul></div>
+      <div class="footer__col"><h4>Quick Links</h4><ul role="list"><li><a href="/buy">Buy the Guide</a></li><li><a href="/advertise">Advertise</a></li><li><a href="/media-kit">Media Kit</a></li><li><a href="mailto:info@ftbb.ie">Contact</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company No. 729638.</p><div class="footer__legal"><a href="/privacy-policy.html">Privacy Policy</a><a href="/terms.html">Terms of Use</a><a href="/cookies.html">Cookie Policy</a></div></div>
+  </div>
+</footer>
+
+<div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience on FTBB. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a>.</p>
+  <div class="cookie-bar__actions"><button class="cookie-bar__settings" id="cookie-settings" type="button">Cookie Settings</button><button class="cookie-bar__accept" id="cookie-accept" type="button">Accept All</button></div>
+</div>
+
+<script>
+  const nav=document.getElementById('nav');
+  window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);},{passive:true});
+  const ham=document.getElementById('nav-ham'),mobileNav=document.getElementById('nav-mobile');
+  ham.addEventListener('click',()=>{const open=ham.classList.toggle('open');mobileNav.classList.toggle('open',open);ham.setAttribute('aria-expanded',String(open));document.body.style.overflow=open?'hidden':'';});
+  mobileNav.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{ham.classList.remove('open');mobileNav.classList.remove('open');ham.setAttribute('aria-expanded','false');document.body.style.overflow='';});});
+  const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  (function(){const bar=document.getElementById('cookie-bar');if(!bar)return;if(localStorage.getItem('ftbb_cookies_ok')==='1'){bar.classList.add('hidden');return;}document.getElementById('cookie-accept').addEventListener('click',()=>{localStorage.setItem('ftbb_cookies_ok','1');bar.classList.add('hidden');});document.getElementById('cookie-settings').addEventListener('click',()=>{window.location.href='/cookies.html';});})();
+</script>
 </body>
 </html>
