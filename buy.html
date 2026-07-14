@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Buy the Guide – FTBB | Ireland's First-Time Buyer Guide</title>
+  <title>The FTBB Guide – Available in All Newsagents Nationwide | Ireland's First-Time Buyer Guide</title>
   <meta name="description" content="The complete Irish first-time buyer guide — mortgages, grants, legal process, common mistakes, and every step of your property purchase." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ftbb.ie/buy" />
@@ -167,17 +167,10 @@
 
     /* ── WHO IT'S FOR ── */
     .who { background: var(--white); padding: 6rem 0; }
-    .who__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .who__inner { display: grid; grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
     .who__list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.85rem; }
     .who__list li { display: flex; gap: 0.85rem; font-size: 0.85rem; line-height: 1.6; color: var(--grey-dark); align-items: flex-start; }
     .who__list li::before { content: ''; display: block; width: 6px; height: 6px; min-width: 6px; border-radius: 50%; background: var(--gold); margin-top: 6px; }
-    .testimonial { border: 1px solid var(--grey-border); padding: 2rem; margin-bottom: 1rem; transition: border-color 0.22s ease; }
-    .testimonial:hover { border-color: var(--grey-light); }
-    .testimonial__stars { color: var(--gold); letter-spacing: 0.1em; font-size: 0.85rem; margin-bottom: 1.1rem; }
-    .testimonial__quote { font-family: var(--serif); font-size: 1rem; font-style: italic; line-height: 1.65; color: var(--grey-dark); margin-bottom: 1.25rem; }
-    .testimonial__name { font-size: 0.75rem; font-weight: 700; color: var(--black); letter-spacing: 0.04em; display: block; margin-bottom: 0.2rem; }
-    .testimonial__role { font-size: 0.72rem; color: var(--grey-mid); }
-
     /* ── BUY CTA ── */
     .buy-cta { background: #1e1e1e; padding: 7rem 0; position: relative; overflow: hidden; }
     .buy-cta::before {
@@ -259,7 +252,6 @@
       .hero__visual { display: none; }
       .contents__inner { grid-template-columns: 1fr; }
       .contents__left { position: static; }
-      .who__inner { grid-template-columns: 1fr; gap: 3rem; }
       .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .footer__brand { grid-column: span 2; }
     }
@@ -301,7 +293,7 @@
         <li><a href="/advertise">Advertise</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
       </ul>
-      <a href="#buy-section" class="nav__cta">Get the Guide</a>
+      <a href="#buy-section" class="nav__cta">Find In Store</a>
       <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -317,7 +309,7 @@
   <a href="/#partners">Partners</a>
   <a href="/advertise">Advertise</a>
   <a href="/media-kit">Media Kit</a>
-  <a href="#buy-section">Get the Guide</a>
+  <a href="#buy-section">Find In Store</a>
 </div>
 
 
@@ -333,7 +325,7 @@
         </h1>
         <p class="hero__sub reveal reveal-d2">Ireland's complete first-time buyer guide — mortgages, grants, legal process, common mistakes, and every step of your property purchase. Written specifically for the Irish market.</p>
         <div class="hero__actions reveal reveal-d3">
-          <a href="#buy-section" class="btn-white">Buy The Guide</a>
+          <a href="#buy-section" class="btn-white">Available In All Newsagents Nationwide</a>
           <a href="#contents" class="btn-ghost">What's Inside</a>
         </div>
         <p class="hero__proof reveal reveal-d4">Trusted by over <strong>12,000</strong> Irish first-time buyers</p>
@@ -495,21 +487,6 @@
         </ul>
       </div>
 
-      <div class="reveal reveal-d2">
-        <div class="testimonial">
-          <p class="testimonial__stars" aria-label="5 stars">★★★★★</p>
-          <p class="testimonial__quote">"FTBB explained the Help to Buy scheme in a way no bank ever did. We used it to claim €28,000 in tax back. We wouldn't have known we were even eligible without this."</p>
-          <span class="testimonial__name">Ciarán O'Brien</span>
-          <span class="testimonial__role">First-time buyer · Dublin 12</span>
-        </div>
-        <div class="testimonial">
-          <p class="testimonial__stars" aria-label="5 stars">★★★★★</p>
-          <p class="testimonial__quote">"The mortgage guide is genuinely the best resource we found anywhere. It gave us the confidence to go into the bank and negotiate properly. We had approval within six weeks."</p>
-          <span class="testimonial__name">Aoife &amp; Mark Kelly</span>
-          <span class="testimonial__role">First-time buyers · Cork City</span>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -519,7 +496,7 @@
 <section class="buy-cta" id="buy-section" aria-labelledby="buy-cta-h2">
   <div class="wrap">
     <div class="buy-cta__inner reveal">
-      <p class="buy-cta__eyebrow">Get the Guide</p>
+      <p class="buy-cta__eyebrow">Find In Store</p>
       <h2 class="buy-cta__h2" id="buy-cta-h2">The Complete Irish First-Time Buyer Guide</h2>
       <p class="buy-cta__sub">One guide. Every step. Written specifically for buying a home in Ireland.</p>
 
@@ -535,7 +512,7 @@
           <li>Common mistakes — and how to avoid them</li>
           <li>Lifetime access to updated editions</li>
         </ul>
-        <button class="buy-btn" id="buy-guide-btn" type="button">Buy The Guide</button>
+        <button class="buy-btn" id="buy-guide-btn" type="button">Find In Store</button>
         <div class="buy-coming-soon" id="buy-coming-soon" role="status">
           <strong>Coming soon — guide purchase launching shortly.</strong><br/>
           Enter your email on the <a href="/">FTBB homepage</a> to be notified the moment it goes live.
@@ -597,7 +574,7 @@
       <div class="footer__col">
         <h4>Quick Links</h4>
         <ul role="list">
-          <li><a href="/buy">Buy the Guide</a></li>
+          <li><a href="/buy">Find In Store</a></li>
           <li><a href="/advertise">Advertise With FTBB</a></li>
           <li><a href="/media-kit">Media Kit</a></li>
           <li><a href="mailto:info@ftbb.ie">Contact FTBB</a></li>
