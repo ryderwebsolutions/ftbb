@@ -52,6 +52,9 @@
     .nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
     .nav__ham { display: none; flex-direction: column; gap: 5px; width: 26px; cursor: pointer; padding: 2px; }
     .nav__ham span { display: block; width: 100%; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .nav__ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__ham.open span:nth-child(2) { opacity: 0; }
+    .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
     .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
     .nav.scrolled .nav__logo img { filter: none; }
     .nav.scrolled .nav__logo-text { color: var(--black); }
@@ -126,7 +129,7 @@
     .cookie-bar__settings:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
 
     @media (max-width: 1024px) { .footer__top { grid-template-columns: 1fr 1fr; } .footer__brand { grid-column: span 2; } }
-    @media (max-width: 768px) { .wrap { padding: 0 1.25rem; } .nav__links { display: none; } .nav__cta { display: none; } .nav__ham { display: flex; } .footer__top { grid-template-columns: 1fr; } .footer__brand { grid-column: span 1; } .cookie-bar { flex-direction: column; align-items: flex-start; } }
+    @media (max-width: 768px) { .wrap { padding: 0 1.25rem; } .nav__links { display: none; } .nav__cta { display: none; } .nav__ham { display: flex; box-sizing: content-box; padding: 12px; margin: -12px; } .nav__ham span { height: 2px; } .nav { padding: 1.05rem 0; } .nav__logo img { height: 38px; } .nav__logo-text { font-size: 1.08rem; letter-spacing: -0.015em; } .nav.scrolled { padding: 0.8rem 0; background: rgba(255,255,255,0.86); box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); } .footer__top { grid-template-columns: 1fr; } .footer__brand { grid-column: span 1; } .cookie-bar { flex-direction: column; align-items: flex-start; } }
     @media (max-width: 480px) { .footer__bottom { flex-direction: column; text-align: center; } }
   </style>
 </head>
@@ -147,7 +150,6 @@
         <li><a href="/advertise">Advertise</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
       </ul>
-      <a href="/buy" class="nav__cta">Find In Store</a>
       <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -160,7 +162,6 @@
   <a href="/#guide">Buyer Guide</a>
   <a href="/advertise">Advertise</a>
   <a href="/media-kit">Media Kit</a>
-  <a href="/buy">Find In Store</a>
 </div>
 
 
@@ -301,11 +302,11 @@
       </div>
       <div class="footer__col">
         <h4>Quick Links</h4>
-        <ul role="list"><li><a href="/buy">Find In Store</a></li><li><a href="/advertise">Advertise</a></li><li><a href="/media-kit">Media Kit</a></li><li><a href="mailto:info@ftbb.ie">Contact</a></li></ul>
+        <ul role="list"><li><a href="/advertise">Advertise</a></li><li><a href="/media-kit">Media Kit</a></li><li><a href="mailto:info@ftbb.ie">Contact</a></li></ul>
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company No. 729638.</p>
+      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved.</p>
       <div class="footer__legal">
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Use</a>

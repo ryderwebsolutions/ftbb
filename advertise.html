@@ -64,6 +64,9 @@
     .nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
     .nav__ham { display: none; flex-direction: column; gap: 5px; width: 26px; cursor: pointer; padding: 2px; }
     .nav__ham span { display: block; width: 100%; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .nav__ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__ham.open span:nth-child(2) { opacity: 0; }
+    .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
     .nav.scrolled .nav__logo img { filter: none; }
@@ -146,37 +149,15 @@
 
     /* ── FORM ── */
     .form-section { background: var(--white); padding: 6rem 0; }
-    .form-section__inner { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; margin-top: 3rem; }
+    .form-section__inner { max-width: 560px; margin: 3rem auto 0; text-align: center; }
     .form-info__heading { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--black); margin-bottom: 1rem; line-height: 1.25; }
     .form-info__body { font-size: 0.88rem; line-height: 1.8; color: var(--grey); margin-bottom: 1.75rem; }
     .form-info__contact { font-size: 0.85rem; line-height: 1.85; color: var(--grey-dark); margin-bottom: 1.75rem; }
     .form-info__contact a { color: var(--black); font-weight: 600; text-decoration: underline; }
     .form-info__contact a:hover { color: var(--gold); }
-    .form-info__assurance { display: flex; flex-direction: column; gap: 0.6rem; }
+    .form-info__assurance { display: inline-flex; flex-direction: column; gap: 0.6rem; text-align: left; }
     .form-info__assurance li { display: flex; gap: 0.7rem; font-size: 0.78rem; color: var(--grey); align-items: flex-start; }
     .form-info__assurance li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.7rem; flex-shrink: 0; padding-top: 1px; }
-
-    .enquire-form { display: flex; flex-direction: column; gap: 1.25rem; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.45rem; }
-    .form-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.06em; color: var(--black); }
-    .form-label span { color: var(--gold); }
-    .form-input, .form-select, .form-textarea {
-      width: 100%; padding: 0.85rem 1rem; background: var(--white);
-      border: 1px solid var(--grey-border); font-family: var(--sans); font-size: 0.85rem; color: var(--black);
-      outline: none; transition: border-color 0.22s ease, box-shadow 0.22s ease;
-      appearance: none; -webkit-appearance: none;
-    }
-    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--black); box-shadow: 0 0 0 2px rgba(10,10,10,0.08); }
-    .form-input.error, .form-select.error, .form-textarea.error { border-color: #c0392b; }
-    .form-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.85rem center; background-size: 14px; padding-right: 2.5rem; }
-    .form-textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
-    .form-submit { padding: 1.05rem 2rem; background: var(--black); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.22s ease; }
-    .form-submit:hover { background: var(--grey-dark); transform: translateY(-1px); }
-    .form-submit:disabled { background: var(--grey-mid); cursor: default; transform: none; }
-    .form-note { font-size: 0.7rem; color: var(--grey-mid); }
-    .field-error { font-size: 0.7rem; color: #c0392b; margin-top: 0.2rem; display: none; }
-    .field-error.visible { display: block; }
     .form-success { text-align: center; padding: 3rem 2rem; border: 1px solid var(--grey-border); }
     .form-success__icon { width: 48px; height: 48px; border-radius: 50%; background: #1a6b35; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; color: var(--white); margin: 0 auto 1.5rem; }
     .form-success__title { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--black); margin-bottom: 0.75rem; }
@@ -223,7 +204,6 @@
       .hero__inner { grid-template-columns: 1fr; }
       .hero__stats { display: none; }
       .audience__inner { grid-template-columns: 1fr; gap: 3rem; }
-      .form-section__inner { grid-template-columns: 1fr; gap: 3rem; }
       .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .footer__brand { grid-column: span 2; }
     }
@@ -233,7 +213,18 @@
       .form-row { grid-template-columns: 1fr; }
       .nav__links { display: none; }
       .nav__cta { display: none; }
-      .nav__ham { display: flex; }
+      .nav__ham { display: flex; box-sizing: content-box; padding: 12px; margin: -12px; }
+      .nav__ham span { height: 2px; }
+      .nav { padding: 1.05rem 0; }
+      .nav__logo img { height: 38px; }
+      .nav__logo-text { font-size: 1.08rem; letter-spacing: -0.015em; }
+      .nav.scrolled {
+        padding: 0.8rem 0;
+        background: rgba(255,255,255,0.86);
+        box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+        backdrop-filter: saturate(180%) blur(20px);
+      }
       .footer__top { grid-template-columns: 1fr; }
       .footer__brand { grid-column: span 1; }
       .cookie-bar { flex-direction: column; align-items: flex-start; }
@@ -265,7 +256,6 @@
         <li><a href="/advertise" class="active">Advertise</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
       </ul>
-      <a href="/buy" class="nav__cta">Find In Store</a>
       <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -280,7 +270,6 @@
   <a href="/#insights">Market Data</a>
   <a href="/advertise">Advertise</a>
   <a href="/media-kit">Media Kit</a>
-  <a href="/buy">Find In Store</a>
 </div>
 
 
@@ -454,7 +443,7 @@
 </section>
 
 
-<!-- ═══ ENQUIRY FORM ═══ -->
+<!-- ═══ ENQUIRY / GET IN TOUCH ═══ -->
 <section class="form-section" id="enquire-form" aria-labelledby="form-h2">
   <div class="wrap">
     <div class="reveal">
@@ -462,86 +451,20 @@
       <h2 class="sec-h2" id="form-h2">Enquire About Advertising</h2>
     </div>
     <div class="form-section__inner">
-
-      <div class="reveal reveal-d1">
-        <h3 class="form-info__heading">Let's Talk</h3>
-        <p class="form-info__body">Fill in the form and we'll get back to you within one business day with full details and availability. No obligation — a conversation first.</p>
-        <div class="form-info__contact">
-          <strong>Christopher O'Neill</strong><br/>
-          Head of Marketing, FTBB<br/>
-          <a href="mailto:info@ftbb.ie">info@ftbb.ie</a><br/>
-          <a href="tel:+35318537360">01 853 7360</a><br/>
-          57 Clontarf Road, Dublin 3
-        </div>
-        <ul class="form-info__assurance">
-          <li>Response within one business day</li>
-          <li>Campaigns tailored to your budget</li>
-          <li>Your details are never shared</li>
-        </ul>
+      <h3 class="form-info__heading">Let's Talk</h3>
+      <p class="form-info__body">Get in touch and we'll get back to you within one business day with full details and availability. No obligation — a conversation first.</p>
+      <div class="form-info__contact">
+        <strong>Christopher O'Neill</strong><br/>
+        Head of Marketing, FTBB<br/>
+        <a href="mailto:info@ftbb.ie">info@ftbb.ie</a><br/>
+        <a href="tel:+35318537360">01 853 7360</a><br/>
+        57 Clontarf Road, Dublin 3
       </div>
-
-      <div class="reveal reveal-d2">
-        <div id="form-success" style="display:none;">
-          <div class="form-success">
-            <div class="form-success__icon" aria-hidden="true">✓</div>
-            <h3 class="form-success__title">Enquiry Received</h3>
-            <p class="form-success__body">Thank you. We'll be in touch within one business day with full details and availability.</p>
-          </div>
-        </div>
-
-        <form class="enquire-form" id="adv-enquire-form" novalidate aria-label="Advertising enquiry form" action="#" method="post">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="adv-name" class="form-label">Your Name <span>*</span></label>
-              <input type="text" id="adv-name" name="name" class="form-input" required autocomplete="name" placeholder="e.g. Aoife Murphy" />
-              <span class="field-error" id="err-name">Please enter your name.</span>
-            </div>
-            <div class="form-group">
-              <label for="adv-company" class="form-label">Company <span>*</span></label>
-              <input type="text" id="adv-company" name="company" class="form-input" required autocomplete="organization" placeholder="e.g. Murphy Solicitors" />
-              <span class="field-error" id="err-company">Please enter your company name.</span>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="adv-email" class="form-label">Email <span>*</span></label>
-              <input type="email" id="adv-email" name="email" class="form-input" required autocomplete="email" placeholder="you@company.ie" />
-              <span class="field-error" id="err-email">Please enter a valid email address.</span>
-            </div>
-            <div class="form-group">
-              <label for="adv-phone" class="form-label">Phone</label>
-              <input type="tel" id="adv-phone" name="phone" class="form-input" autocomplete="tel" placeholder="e.g. 087 123 4567" />
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="adv-type" class="form-label">Business Type <span>*</span></label>
-            <select id="adv-type" name="business_type" class="form-select" required>
-              <option value="" disabled selected>Select your business category</option>
-              <option value="estate-agent">Estate Agent / Property Agency</option>
-              <option value="mortgage-broker">Mortgage Broker / Financial Advisor</option>
-              <option value="solicitor">Solicitor / Conveyancing Practice</option>
-              <option value="surveyor">Property Surveyor / Engineer</option>
-              <option value="insurance">Insurance Broker / Life Assurance</option>
-              <option value="interior">Interior Design / Home Furnishing</option>
-              <option value="kitchen">Kitchen &amp; Bathroom Supplier</option>
-              <option value="flooring">Flooring &amp; Home Finishes</option>
-              <option value="developer">Property Developer</option>
-              <option value="bank">Bank or Credit Union</option>
-              <option value="energy">Energy &amp; Home Improvement</option>
-              <option value="removals">Removals &amp; Storage</option>
-              <option value="other">Other</option>
-            </select>
-            <span class="field-error" id="err-type">Please select a business category.</span>
-          </div>
-          <div class="form-group">
-            <label for="adv-message" class="form-label">Message</label>
-            <textarea id="adv-message" name="message" class="form-textarea" placeholder="Tell us a little about your business and what you'd like to achieve."></textarea>
-          </div>
-          <button type="submit" class="form-submit" id="adv-submit">Enquire About Advertising</button>
-          <p class="form-note">Your details are kept private. We respond within one business day.</p>
-        </form>
-      </div>
-
+      <ul class="form-info__assurance">
+        <li>Response within one business day</li>
+        <li>Campaigns tailored to your budget</li>
+        <li>Your details are never shared</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -565,7 +488,7 @@
           Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="text-decoration:underline;">info@ftbb.ie</a><br/>
           57 Clontarf Road, Dublin 3<br/>
           T: <a href="tel:+35318537360">01 8537360</a><br/>
-          <span style="display:block;margin-top:0.4rem;">Company No. 729638 &mdash; Registered in Ireland 2023</span>
+          <span style="display:block;margin-top:0.4rem;">Registered in Ireland since 2023</span>
         </address>
         <div class="footer__socials" aria-label="Social media links">
           <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
@@ -597,7 +520,6 @@
       <div class="footer__col">
         <h4>Quick Links</h4>
         <ul role="list">
-          <li><a href="/buy">Find In Store</a></li>
           <li><a href="/advertise">Advertise With FTBB</a></li>
           <li><a href="/media-kit">Media Kit</a></li>
           <li><a href="mailto:info@ftbb.ie">Contact FTBB</a></li>
@@ -607,7 +529,7 @@
       </div>
     </div>
     <div class="footer__bottom">
-      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved. Company No. 729638.</p>
+      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved.</p>
       <div class="footer__legal">
         <a href="/privacy-policy.html">Privacy Policy</a>
         <a href="/terms.html">Terms of Use</a>
@@ -660,58 +582,6 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
-
-  // ── FORM VALIDATION ──
-  const form = document.getElementById('adv-enquire-form');
-  const successEl = document.getElementById('form-success');
-
-  function showError(inputId, errId) {
-    document.getElementById(inputId).classList.add('error');
-    document.getElementById(errId).classList.add('visible');
-  }
-  function clearError(inputId, errId) {
-    document.getElementById(inputId).classList.remove('error');
-    document.getElementById(errId).classList.remove('visible');
-  }
-
-  ['adv-name', 'adv-company', 'adv-email', 'adv-type'].forEach(id => {
-    const el = document.getElementById(id);
-    el.addEventListener('input', () => {
-      el.classList.remove('error');
-      const errId = 'err-' + id.replace('adv-', '');
-      const errEl = document.getElementById(errId);
-      if (errEl) errEl.classList.remove('visible');
-    });
-  });
-
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      let valid = true;
-
-      const name = document.getElementById('adv-name');
-      const company = document.getElementById('adv-company');
-      const email = document.getElementById('adv-email');
-      const type = document.getElementById('adv-type');
-
-      if (!name.value.trim()) { showError('adv-name', 'err-name'); valid = false; } else { clearError('adv-name', 'err-name'); }
-      if (!company.value.trim()) { showError('adv-company', 'err-company'); valid = false; } else { clearError('adv-company', 'err-company'); }
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { showError('adv-email', 'err-email'); valid = false; } else { clearError('adv-email', 'err-email'); }
-      if (!type.value) { showError('adv-type', 'err-type'); valid = false; } else { clearError('adv-type', 'err-type'); }
-
-      if (!valid) return;
-
-      const btn = document.getElementById('adv-submit');
-      btn.disabled = true;
-      btn.textContent = 'Sending…';
-
-      setTimeout(() => {
-        form.style.display = 'none';
-        successEl.style.display = 'block';
-        window.scrollTo({ top: successEl.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
-      }, 600);
-    });
-  }
 
   // ── COOKIE ──
   (function() {
