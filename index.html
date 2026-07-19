@@ -568,10 +568,11 @@
       display: flex; align-items: center;
       animation: partners-scroll 60s linear infinite;
       width: max-content;
+      will-change: transform; backface-visibility: hidden;
     }
     @keyframes partners-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-50%,0,0); }
     }
     .partner-item {
       display: flex; align-items: center; justify-content: center;
@@ -598,6 +599,7 @@
     .partner-wordmark--sans { font-family: var(--sans); font-weight: 700; letter-spacing: 0.05em; }
     .partner-wordmark--sm { font-size: 0.78rem; }
     @media (prefers-reduced-motion: reduce) { .partners-track, .ticker__track { animation: none; } }
+    .partners__cta { text-align: center; margin-top: 2.5rem; }
 
     /* ── ADVERTISER CTA ── */
     .advert-cta { padding: 6.5rem 0; background: var(--black); }
@@ -824,7 +826,7 @@
         <li><a href="#news">News</a></li>
         <li><a href="#guide">Buyer Guide</a></li>
         <li><a href="#insights">Market Data</a></li>
-        <li><a href="#partners">Partners</a></li>
+        <li><a href="/partners">Partners</a></li>
         <li><a href="/advertise">Advertise</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -851,7 +853,7 @@
   <a href="#news">News</a>
   <a href="#guide">Buyer Guide</a>
   <a href="#insights">Market Data</a>
-  <a href="#partners">Partners</a>
+  <a href="/partners">Partners</a>
   <a href="/advertise">Advertise</a>
   <a href="/media-kit">Media Kit</a>
   <a href="#contact">Contact</a>
@@ -1232,186 +1234,219 @@
     <div class="partners-track">
 
       <!-- ── Set 1 ── -->
-      <div class="partner-item">
-        <img src="./logos/ptsb.svg" alt="PTSB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      <a href="https://www.ptsb.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/ptsb.svg" width="37" height="12" alt="PTSB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sans" style="display:none">PTSB</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/ebs.svg" alt="EBS" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.ebs.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/ebs.svg" width="159" height="51" alt="EBS" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark" style="display:none">EBS</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/aib.png" alt="AIB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.aib.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/aib.png" width="259" height="260" alt="AIB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sans" style="display:none">AIB</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/beatthebank.svg" alt="Beat The Bank" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://beatthebank.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/beatthebank.svg" width="479" height="88" alt="Beat The Bank" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Beat The Bank</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/imc.svg" alt="Irish Mortgage Corporation" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://irishmortgage.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/imc.svg" width="250" height="118" alt="Irish Mortgage Corporation" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Irish Mortgage Corporation</span>
-      </div>
-      <div class="partner-item">
+      </a>
+      <a href="https://www.avantmoney.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
         <span class="partner-wordmark partner-wordmark--sm">Avant Money</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/seai.svg" alt="SEAI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.seai.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/seai.svg" width="205" height="54" alt="SEAI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sans" style="display:none">SEAI</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/halpinmortgages.png" alt="Halpin Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://hwm.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/halpinmortgages.png" width="194" height="100" alt="Halpin Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Halpin Mortgages</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/gmc.jpg" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.gmcmortgages.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/gmc.jpg" width="300" height="237" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">GMC Mortgages</span>
-      </div>
-      <div class="partner-item partner-item--labeled">
-        <img src="./logos/bellewlaw.png" alt="Bellew Law" onerror="this.style.display='none'" />
+      </a>
+      <a href="https://bellewlaw.ie/" target="_blank" rel="noopener noreferrer" class="partner-item partner-item--labeled">
+        <img src="./logos/bellewlaw.png" width="411" height="250" alt="Bellew Law" onerror="this.style.display='none'" />
         <span class="partner-label">Bellew Law</span>
-      </div>
-      <div class="partner-item partner-item--labeled">
-        <img src="./logos/cggilmartin.png" alt="CG Gilmartin Solicitors" onerror="this.style.display='none'" />
+      </a>
+      <a href="https://cggilmartin.ie/" target="_blank" rel="noopener noreferrer" class="partner-item partner-item--labeled">
+        <img src="./logos/cggilmartin.png" width="1000" height="1000" alt="CG Gilmartin Solicitors" onerror="this.style.display='none'" />
         <span class="partner-label">CG Gilmartin Solicitors</span>
-      </div>
+      </a>
       <a href="https://www.greenwoodfurniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/greenwood.jpg" alt="Greenwood Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/greenwood.jpg" width="276" height="103" alt="Greenwood Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Greenwood Furniture</span>
       </a>
-      <div class="partner-item">
+      <a href="https://mcsflooring.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
         <span class="partner-wordmark partner-wordmark--sm">MCS Floors</span>
-      </div>
+      </a>
       <a href="https://modern-house.ie/en" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/modernhouse.png" alt="Modern House" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/modernhouse.png" width="252" height="328" alt="Modern House" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Modern House</span>
       </a>
       <a href="https://finsmart.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/finsmart.png" alt="Finsmart Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/finsmart.png" width="191" height="218" alt="Finsmart Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Finsmart Mortgages</span>
       </a>
       <a href="https://www.lucanfabrics.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/lucanfabrics.png" alt="Lucan Fabrics" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/lucanfabrics.png" width="1150" height="355" alt="Lucan Fabrics" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Lucan Fabrics</span>
       </a>
       <a href="https://www.ahinteriors.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/ahinteriors.png" alt="AH Interiors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/ahinteriors.png" width="340" height="217" alt="AH Interiors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">AH Interiors</span>
       </a>
       <a href="https://www.premierdoors.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/premierdoors.png" alt="Premier Doors" onerror="this.style.display='none'" />
+        <img src="./logos/premierdoors.png" width="1500" height="276" alt="Premier Doors" onerror="this.style.display='none'" />
       </a>
       <a href="https://www.annettebrockphotography.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/annettebrock.png" alt="Annette Brock Photography" onerror="this.style.display='none'" />
+        <img src="./logos/annettebrock.png" width="182" height="89" alt="Annette Brock Photography" onerror="this.style.display='none'" />
       </a>
       <a href="https://dampmaster.ie/" target="_blank" rel="noopener noreferrer" class="partner-item partner-item--labeled">
-        <img src="./logos/dampmaster.webp" alt="Damp Master" onerror="this.style.display='none'" />
+        <img src="./logos/dampmaster.webp" width="1200" height="296" alt="Damp Master" onerror="this.style.display='none'" />
         <span class="partner-label">Damp Master</span>
       </a>
       <a href="https://www.b4u.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/bathrooms4u.svg" alt="Bathrooms 4 U" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/bathrooms4u.svg" width="794" height="170" alt="Bathrooms 4 U" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Bathrooms 4 U</span>
       </a>
       <a href="https://www.solarsystemsireland.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/ssifull.jpeg" alt="Solar Systems Ireland" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/ssifull.jpeg" width="554" height="286" alt="Solar Systems Ireland" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Solar Systems Ireland</span>
       </a>
       <a href="https://nesta.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/nesta.svg" alt="Nesta Storage" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/nesta.svg" width="167" height="74" alt="Nesta Storage" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Nesta Storage</span>
+      </a>
+      <a href="https://www.noctor-furniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/noctorfurniture.png" width="303" height="154" alt="Noctor Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Noctor Furniture</span>
+      </a>
+      <a href="https://www.allessainteriors.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/allessainteriors.jpg" width="147" height="83" alt="Allessa Interiors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Allessa Interiors</span>
+      </a>
+      <a href="https://soulformfurniture.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/soulformfurniture.svg" width="1645" height="174" alt="Soul Form Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Soul Form Furniture</span>
+      </a>
+      <a href="https://www.mklivingdesigns.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Living Designs</span>
       </a>
 
       <!-- ── Set 2 (duplicate for seamless loop) ── -->
-      <div class="partner-item">
-        <img src="./logos/ptsb.svg" alt="PTSB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      <a href="https://www.ptsb.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/ptsb.svg" width="37" height="12" alt="PTSB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sans" style="display:none">PTSB</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/ebs.svg" alt="EBS" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.ebs.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/ebs.svg" width="159" height="51" alt="EBS" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark" style="display:none">EBS</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/aib.png" alt="AIB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.aib.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/aib.png" width="259" height="260" alt="AIB" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sans" style="display:none">AIB</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/beatthebank.svg" alt="Beat The Bank" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://beatthebank.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/beatthebank.svg" width="479" height="88" alt="Beat The Bank" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Beat The Bank</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/imc.svg" alt="Irish Mortgage Corporation" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://irishmortgage.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/imc.svg" width="250" height="118" alt="Irish Mortgage Corporation" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Irish Mortgage Corporation</span>
-      </div>
-      <div class="partner-item">
+      </a>
+      <a href="https://www.avantmoney.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
         <span class="partner-wordmark partner-wordmark--sm">Avant Money</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/seai.svg" alt="SEAI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.seai.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/seai.svg" width="205" height="54" alt="SEAI" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sans" style="display:none">SEAI</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/halpinmortgages.png" alt="Halpin Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://hwm.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/halpinmortgages.png" width="194" height="100" alt="Halpin Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Halpin Mortgages</span>
-      </div>
-      <div class="partner-item">
-        <img src="./logos/gmc.jpg" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+      </a>
+      <a href="https://www.gmcmortgages.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/gmc.jpg" width="300" height="237" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">GMC Mortgages</span>
-      </div>
-      <div class="partner-item partner-item--labeled">
-        <img src="./logos/bellewlaw.png" alt="Bellew Law" onerror="this.style.display='none'" />
+      </a>
+      <a href="https://bellewlaw.ie/" target="_blank" rel="noopener noreferrer" class="partner-item partner-item--labeled">
+        <img src="./logos/bellewlaw.png" width="411" height="250" alt="Bellew Law" onerror="this.style.display='none'" />
         <span class="partner-label">Bellew Law</span>
-      </div>
-      <div class="partner-item partner-item--labeled">
-        <img src="./logos/cggilmartin.png" alt="CG Gilmartin Solicitors" onerror="this.style.display='none'" />
+      </a>
+      <a href="https://cggilmartin.ie/" target="_blank" rel="noopener noreferrer" class="partner-item partner-item--labeled">
+        <img src="./logos/cggilmartin.png" width="1000" height="1000" alt="CG Gilmartin Solicitors" onerror="this.style.display='none'" />
         <span class="partner-label">CG Gilmartin Solicitors</span>
-      </div>
+      </a>
       <a href="https://www.greenwoodfurniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/greenwood.jpg" alt="Greenwood Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/greenwood.jpg" width="276" height="103" alt="Greenwood Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Greenwood Furniture</span>
       </a>
-      <div class="partner-item">
+      <a href="https://mcsflooring.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
         <span class="partner-wordmark partner-wordmark--sm">MCS Floors</span>
-      </div>
+      </a>
       <a href="https://modern-house.ie/en" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/modernhouse.png" alt="Modern House" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/modernhouse.png" width="252" height="328" alt="Modern House" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Modern House</span>
       </a>
       <a href="https://finsmart.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/finsmart.png" alt="Finsmart Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/finsmart.png" width="191" height="218" alt="Finsmart Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Finsmart Mortgages</span>
       </a>
       <a href="https://www.lucanfabrics.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/lucanfabrics.png" alt="Lucan Fabrics" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/lucanfabrics.png" width="1150" height="355" alt="Lucan Fabrics" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Lucan Fabrics</span>
       </a>
       <a href="https://www.ahinteriors.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/ahinteriors.png" alt="AH Interiors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/ahinteriors.png" width="340" height="217" alt="AH Interiors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">AH Interiors</span>
       </a>
       <a href="https://www.premierdoors.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/premierdoors.png" alt="Premier Doors" onerror="this.style.display='none'" />
+        <img src="./logos/premierdoors.png" width="1500" height="276" alt="Premier Doors" onerror="this.style.display='none'" />
       </a>
       <a href="https://www.annettebrockphotography.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/annettebrock.png" alt="Annette Brock Photography" onerror="this.style.display='none'" />
+        <img src="./logos/annettebrock.png" width="182" height="89" alt="Annette Brock Photography" onerror="this.style.display='none'" />
       </a>
       <a href="https://dampmaster.ie/" target="_blank" rel="noopener noreferrer" class="partner-item partner-item--labeled">
-        <img src="./logos/dampmaster.webp" alt="Damp Master" onerror="this.style.display='none'" />
+        <img src="./logos/dampmaster.webp" width="1200" height="296" alt="Damp Master" onerror="this.style.display='none'" />
         <span class="partner-label">Damp Master</span>
       </a>
       <a href="https://www.b4u.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/bathrooms4u.svg" alt="Bathrooms 4 U" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/bathrooms4u.svg" width="794" height="170" alt="Bathrooms 4 U" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Bathrooms 4 U</span>
       </a>
       <a href="https://www.solarsystemsireland.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/ssifull.jpeg" alt="Solar Systems Ireland" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/ssifull.jpeg" width="554" height="286" alt="Solar Systems Ireland" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Solar Systems Ireland</span>
       </a>
       <a href="https://nesta.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/nesta.svg" alt="Nesta Storage" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/nesta.svg" width="167" height="74" alt="Nesta Storage" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Nesta Storage</span>
+      </a>
+      <a href="https://www.noctor-furniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/noctorfurniture.png" width="303" height="154" alt="Noctor Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Noctor Furniture</span>
+      </a>
+      <a href="https://www.allessainteriors.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/allessainteriors.jpg" width="147" height="83" alt="Allessa Interiors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Allessa Interiors</span>
+      </a>
+      <a href="https://soulformfurniture.com/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/soulformfurniture.svg" width="1645" height="174" alt="Soul Form Furniture" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Soul Form Furniture</span>
+      </a>
+      <a href="https://www.mklivingdesigns.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Living Designs</span>
       </a>
 
     </div>
+  </div>
+  <div class="partners__cta">
+    <a href="/partners" class="btn-outline-dark">Find All Our Partners Here</a>
   </div>
 </section>
 

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Partners – FTBB | Trusted Businesses for Irish First-Time Buyers</title>
+  <meta name="description" content="Meet the mortgage brokers, solicitors, furniture and interiors specialists, and other trusted businesses partnered with FTBB to help Irish first-time buyers." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ftbb.ie/partners" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:      #0a0a0a;
+      --black-mid:  #111111;
+      --grey-dark:  #333333;
+      --grey:       #666666;
+      --grey-mid:   #999999;
+      --grey-light: #cccccc;
+      --grey-border:#e0e0e0;
+      --grey-bg:    #f4f4f4;
+      --white:      #ffffff;
+      --gold:       #c5892a;
+      --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:       cubic-bezier(0.22,1,0.36,1);
+      --cw:         1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease), transform 0.7s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav__logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+    .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); transition: filter 0.4s ease; }
+    .nav__logo-text { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; transition: color 0.4s ease; }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.22s ease; position: relative; }
+    .nav__links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.22s ease; }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__cta { display: inline-block; padding: 0.6rem 1.4rem; border: 1px solid rgba(255,255,255,0.5); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); transition: all 0.22s ease; white-space: nowrap; }
+    .nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .nav__mobile-actions { display: flex; align-items: center; gap: 0.6rem; }
+    .nav__icons { display: none; align-items: center; gap: 0.5rem; }
+    .nav__icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--white); opacity: 0.9; border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; transition: opacity 0.22s ease, color 0.4s ease, border-color 0.4s ease, background 0.22s ease; }
+    .nav__icon:hover { opacity: 1; background: rgba(255,255,255,0.07); }
+    .nav__icon svg { width: 21px; height: 21px; }
+    .nav__ham { display: none; flex-direction: column; gap: 5px; width: 26px; cursor: pointer; padding: 2px; }
+    .nav__ham span { display: block; width: 100%; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .nav__ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__ham.open span:nth-child(2) { opacity: 0; }
+    .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
+    .nav.scrolled .nav__logo img { filter: none; }
+    .nav.scrolled .nav__logo-text { color: var(--black); }
+    .nav.scrolled .nav__links a { color: var(--grey); }
+    .nav.scrolled .nav__links a:hover { color: var(--black); }
+    .nav.scrolled .nav__cta { border-color: var(--black); color: var(--black); }
+    .nav.scrolled .nav__cta:hover { background: var(--black); color: var(--white); }
+    .nav.scrolled .nav__ham span { background: var(--black); }
+    .nav.scrolled .nav__icon { color: var(--black); border-color: rgba(0,0,0,0.15); }
+    .nav.scrolled .nav__icon:hover { background: rgba(0,0,0,0.04); }
+    .nav__mobile { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; padding: 6rem 2.5rem 3rem; flex-direction: column; gap: 0; }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--white); display: block; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s ease; }
+    .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── BUTTONS ── */
+    .btn-white { display: inline-block; padding: 0.9rem 2.25rem; background: var(--white); color: var(--black); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-white:hover { background: var(--grey-bg); transform: translateY(-1px); }
+    .btn-dark { display: inline-block; padding: 0.9rem 2.25rem; background: var(--black); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-dark:hover { background: var(--grey-dark); transform: translateY(-1px); }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: #1e1e1e; padding: 8rem 0 4rem; }
+    .page-header__eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem; }
+    .page-header__eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .page-header__title { font-family: var(--serif); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 700; color: var(--white); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 1rem; }
+    .page-header__sub { font-size: 0.95rem; line-height: 1.8; color: rgba(255,255,255,0.5); max-width: 620px; }
+
+    /* ── PARTNER CATEGORY ── */
+    .partners-section { padding: 4rem 0; border-bottom: 1px solid var(--grey-border); }
+    .partners-section:last-of-type { border-bottom: none; }
+    .partners-cat__eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.6rem; }
+    .partners-cat__eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .partners-cat__title { font-family: var(--serif); font-size: clamp(1.4rem, 2.2vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 2rem; }
+
+    .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .partner-card { display: flex; flex-direction: column; gap: 1rem; background: var(--white); border: 1px solid var(--grey-border); padding: 1.75rem; transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease; }
+    .partner-card:hover { border-color: var(--grey-light); box-shadow: 0 8px 28px rgba(0,0,0,0.05); transform: translateY(-2px); }
+    .partner-card__logo { height: 52px; display: flex; align-items: center; }
+    .partner-card__logo img { max-height: 52px; max-width: 170px; width: auto; object-fit: contain; }
+    .partner-card__logo-text { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); }
+    .partner-card__name { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); line-height: 1.3; }
+    .partner-card__desc { font-size: 0.82rem; line-height: 1.65; color: var(--grey); flex: 1; }
+    .partner-card__link { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 0.35rem; transition: color 0.2s ease; }
+    .partner-card__link:hover { color: var(--black); }
+    .partner-card__link svg { width: 11px; height: 11px; }
+
+    /* ── CTA ── */
+    .partners-cta { background: var(--grey-bg); padding: 5rem 0; text-align: center; }
+    .partners-cta__title { font-family: var(--serif); font-size: clamp(1.5rem, 2.4vw, 2.1rem); font-weight: 700; color: var(--black); line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .partners-cta__body { font-size: 0.9rem; line-height: 1.8; color: var(--grey); max-width: 560px; margin: 0 auto 2rem; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--black); padding: 4.5rem 0 0; }
+    .footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer__logo { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+    .footer__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; }
+    .footer__logo-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .footer__logo-sub { font-size: 0.6rem; color: rgba(255,255,255,0.3); margin-top: 0.1rem; }
+    .footer__tagline { font-size: 0.8rem; line-height: 1.65; color: rgba(255,255,255,0.38); margin-bottom: 1.5rem; }
+    .footer__contact { font-style: normal; font-size: 0.78rem; line-height: 1.8; color: rgba(255,255,255,0.38); margin-bottom: 1.25rem; }
+    .footer__contact strong { color: rgba(255,255,255,0.72); display: block; margin-bottom: 0.1rem; }
+    .footer__contact a { transition: color 0.2s ease; }
+    .footer__contact a:hover { color: var(--white); }
+    .footer__socials { display: flex; gap: 0.5rem; }
+    .footer__soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: all 0.2s ease; }
+    .footer__soc:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .footer__soc svg { width: 13px; height: 13px; }
+    .footer__col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer__col a { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.2s ease; }
+    .footer__col a:hover { color: var(--white); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer__copy { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
+    .footer__legal { display: flex; gap: 1.5rem; }
+    .footer__legal a { font-size: 0.68rem; color: rgba(255,255,255,0.22); transition: color 0.2s ease; }
+    .footer__legal a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── COOKIE BAR ── */
+    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+    .cookie-bar.hidden { display: none; }
+    .cookie-bar a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-bar__accept { padding: 0.5rem 1.25rem; background: var(--white); color: var(--black); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s ease; }
+    .cookie-bar__accept:hover { background: var(--grey-bg); }
+    .cookie-bar__settings { padding: 0.5rem 1.25rem; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; background: none; transition: all 0.2s ease; }
+    .cookie-bar__settings:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .partner-grid { grid-template-columns: 1fr 1fr; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .footer__brand { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
+      .wrap { padding: 0 1.25rem; }
+      .partner-grid { grid-template-columns: 1fr; }
+      .nav__links { display: none; }
+      .nav__cta { display: none; }
+      .nav__icons { display: flex; }
+      .nav__ham { display: flex; box-sizing: content-box; padding: 12px; margin: -12px; }
+      .nav__ham span { height: 2px; }
+      .nav { padding: 0.5rem 0; }
+      .nav__logo img { height: 72px; }
+      .nav__logo-text { display: none; }
+      .nav.scrolled { padding: 0.4rem 0; background: rgba(255,255,255,0.86); box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__brand { grid-column: span 1; }
+      .cookie-bar { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 480px) {
+      .footer__bottom { flex-direction: column; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="FTBB — Home">
+        <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" />
+        <span class="nav__logo-text">FTBB</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/#news">News</a></li>
+        <li><a href="/#guide">Buyer Guide</a></li>
+        <li><a href="/#insights">Market Data</a></li>
+        <li><a href="/partners" class="active">Partners</a></li>
+        <li><a href="/advertise">Advertise</a></li>
+        <li><a href="/media-kit">Media Kit</a></li>
+      </ul>
+      <div class="nav__mobile-actions">
+        <div class="nav__icons">
+          <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="mailto:info@ftbb.ie" class="nav__icon" aria-label="Email FTBB">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+        </div>
+        <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+  <a href="/">Home</a>
+  <a href="/#news">News</a>
+  <a href="/#guide">Buyer Guide</a>
+  <a href="/#insights">Market Data</a>
+  <a href="/partners">Partners</a>
+  <a href="/advertise">Advertise</a>
+  <a href="/media-kit">Media Kit</a>
+</div>
+
+
+<!-- ═══ PAGE HEADER ═══ -->
+<section class="page-header" aria-label="Page header">
+  <div class="wrap">
+    <p class="page-header__eyebrow">Our Network</p>
+    <h1 class="page-header__title">Our Partners</h1>
+    <p class="page-header__sub">FTBB works with a trusted network of mortgage brokers, solicitors, energy advisors, and home &amp; interiors specialists — vetted businesses that support Irish first-time buyers at every stage of the journey.</p>
+  </div>
+</section>
+
+
+<!-- ═══ FINANCE & MORTGAGES ═══ -->
+<section class="partners-section" aria-labelledby="cat-finance">
+  <div class="wrap">
+    <p class="partners-cat__eyebrow">Finance</p>
+    <h2 class="partners-cat__title" id="cat-finance">Mortgages &amp; Financial Services</h2>
+    <div class="partner-grid">
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/ptsb.svg" width="37" height="12" alt="PTSB" /></div>
+        <h3 class="partner-card__name">PTSB</h3>
+        <p class="partner-card__desc">One of Ireland's largest retail banks, offering mortgages, savings and current accounts to first-time buyers nationwide.</p>
+        <a href="https://www.ptsb.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/ebs.svg" width="159" height="51" alt="EBS" /></div>
+        <h3 class="partner-card__name">EBS</h3>
+        <p class="partner-card__desc">A long-established Irish building society, part of AIB Group, specialising in mortgages, savings and insurance for home buyers.</p>
+        <a href="https://www.ebs.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/aib.png" width="259" height="260" alt="AIB" /></div>
+        <h3 class="partner-card__name">AIB</h3>
+        <p class="partner-card__desc">One of Ireland's largest banks, providing personal, business and mortgage banking services nationwide.</p>
+        <a href="https://www.aib.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/beatthebank.svg" width="479" height="88" alt="Beat The Bank" /></div>
+        <h3 class="partner-card__name">Beat The Bank</h3>
+        <p class="partner-card__desc">A Dublin-based broker offering fast, fully digital mortgage protection and life insurance quotes for new home buyers.</p>
+        <a href="https://beatthebank.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/imc.svg" width="250" height="118" alt="Irish Mortgage Corporation" /></div>
+        <h3 class="partner-card__name">Irish Mortgage Corporation</h3>
+        <p class="partner-card__desc">Ireland's largest and longest-established mortgage broker, guiding first-time buyers through the mortgage process free of charge.</p>
+        <a href="https://irishmortgage.com/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><span class="partner-card__logo-text">Avant Money</span></div>
+        <h3 class="partner-card__name">Avant Money</h3>
+        <p class="partner-card__desc">An Irish financial provider, part of Bankinter, offering competitive mortgages, personal loans and credit cards.</p>
+        <a href="https://www.avantmoney.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/halpinmortgages.png" width="194" height="100" alt="Halpin Mortgages" /></div>
+        <h3 class="partner-card__name">Halpin Mortgages</h3>
+        <p class="partner-card__desc">A Cork-based financial planning firm offering mortgage, savings and investment advice to home buyers.</p>
+        <a href="https://hwm.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/gmc.jpg" width="300" height="237" alt="GMC Mortgages" /></div>
+        <h3 class="partner-card__name">GMC Mortgages</h3>
+        <p class="partner-card__desc">Established in 1996, GMC is one of Ireland's largest independent mortgage brokers, also offering pension and life cover advice.</p>
+        <a href="https://www.gmcmortgages.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/finsmart.png" width="191" height="218" alt="Finsmart Mortgages" /></div>
+        <h3 class="partner-card__name">Finsmart Mortgages</h3>
+        <p class="partner-card__desc">A team of expert mortgage brokers helping Irish buyers compare rates and secure the right mortgage deal.</p>
+        <a href="https://finsmart.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ LEGAL ═══ -->
+<section class="partners-section" aria-labelledby="cat-legal">
+  <div class="wrap">
+    <p class="partners-cat__eyebrow">Legal</p>
+    <h2 class="partners-cat__title" id="cat-legal">Solicitors &amp; Conveyancing</h2>
+    <div class="partner-grid">
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/bellewlaw.png" width="411" height="250" alt="Bellew Law" /></div>
+        <h3 class="partner-card__name">Bellew Law</h3>
+        <p class="partner-card__desc">A Dundalk solicitors' practice providing conveyancing, wills and probate services for home buyers in Louth and beyond.</p>
+        <a href="https://bellewlaw.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/cggilmartin.png" width="1000" height="1000" alt="CG Gilmartin Solicitors" /></div>
+        <h3 class="partner-card__name">CG Gilmartin Solicitors</h3>
+        <p class="partner-card__desc">A general practice law firm based in Clontarf, Dublin, handling conveyancing and property transactions.</p>
+        <a href="https://cggilmartin.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ ENERGY & SUSTAINABILITY ═══ -->
+<section class="partners-section" aria-labelledby="cat-energy">
+  <div class="wrap">
+    <p class="partners-cat__eyebrow">Energy</p>
+    <h2 class="partners-cat__title" id="cat-energy">Energy &amp; Sustainability</h2>
+    <div class="partner-grid">
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/seai.svg" width="205" height="54" alt="SEAI" /></div>
+        <h3 class="partner-card__name">SEAI</h3>
+        <p class="partner-card__desc">Ireland's national sustainable energy authority, administering home energy grants and retrofit schemes for homeowners.</p>
+        <a href="https://www.seai.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/ssifull.jpeg" width="554" height="286" alt="Solar Systems Ireland" /></div>
+        <h3 class="partner-card__name">Solar Systems Ireland</h3>
+        <p class="partner-card__desc">A renewable energy company delivering solar PV installations, from consultation through design, installation and support.</p>
+        <a href="https://www.solarsystemsireland.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ HOME, INTERIORS & FURNITURE ═══ -->
+<section class="partners-section" aria-labelledby="cat-home">
+  <div class="wrap">
+    <p class="partners-cat__eyebrow">Home &amp; Living</p>
+    <h2 class="partners-cat__title" id="cat-home">Home, Interiors &amp; Furniture</h2>
+    <div class="partner-grid">
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/greenwood.jpg" width="276" height="103" alt="Greenwood Furniture" /></div>
+        <h3 class="partner-card__name">Greenwood Furniture</h3>
+        <p class="partner-card__desc">A family-run furniture retailer with showrooms in Waterford and Carlow, supplying affordable furniture nationwide.</p>
+        <a href="https://www.greenwoodfurniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><span class="partner-card__logo-text">MCS Floors</span></div>
+        <h3 class="partner-card__name">MCS Floors</h3>
+        <p class="partner-card__desc">A Swords-based flooring specialist supplying and fitting carpets, laminate and wood flooring across Dublin since 1990.</p>
+        <a href="https://mcsflooring.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/modernhouse.png" width="252" height="328" alt="Modern House" /></div>
+        <h3 class="partner-card__name">Modern House</h3>
+        <p class="partner-card__desc">An Offaly-based timber-frame home builder specialising in energy-efficient modular houses designed around each client's needs.</p>
+        <a href="https://modern-house.ie/en" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/lucanfabrics.png" width="1150" height="355" alt="Lucan Fabrics" /></div>
+        <h3 class="partner-card__name">Lucan Fabrics</h3>
+        <p class="partner-card__desc">A Dublin fabric supplier with over 150 years of heritage, offering curtains, upholstery fabrics and a made-to-measure curtain service.</p>
+        <a href="https://www.lucanfabrics.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/ahinteriors.png" width="340" height="217" alt="AH Interiors" /></div>
+        <h3 class="partner-card__name">AH Interiors</h3>
+        <p class="partner-card__desc">A family-run interiors showroom in Finglas, Dublin, offering furniture, flooring and a full interior design service.</p>
+        <a href="https://www.ahinteriors.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/premierdoors.png" width="1500" height="276" alt="Premier Doors" /></div>
+        <h3 class="partner-card__name">Premier Doors</h3>
+        <p class="partner-card__desc">A Swords-based supplier and fitter of internal doors, staircases and flooring for homes across Dublin.</p>
+        <a href="https://www.premierdoors.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/nesta.svg" width="167" height="74" alt="Nesta Storage" /></div>
+        <h3 class="partner-card__name">Nesta Storage</h3>
+        <p class="partner-card__desc">Ireland's largest and oldest self-storage provider, offering secure personal and business storage across six Dublin locations since 1989.</p>
+        <a href="https://nesta.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/noctorfurniture.png" width="303" height="154" alt="Noctor Furniture" /></div>
+        <h3 class="partner-card__name">Noctor Furniture</h3>
+        <p class="partner-card__desc">A Wicklow-based bespoke kitchen maker, handcrafting kitchens that combine traditional Irish carpentry with quality materials.</p>
+        <a href="https://www.noctor-furniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/allessainteriors.jpg" width="147" height="83" alt="Allessa Interiors" /></div>
+        <h3 class="partner-card__name">Allessa Interiors</h3>
+        <p class="partner-card__desc">A Dublin 8 interior design studio offering personalised home consultations covering layout, colour and furniture selection.</p>
+        <a href="https://www.allessainteriors.com/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/soulformfurniture.svg" width="1645" height="174" alt="Soul Form Furniture" /></div>
+        <h3 class="partner-card__name">Soul Form Furniture</h3>
+        <p class="partner-card__desc">A Tipperary furniture studio handcrafting bespoke pieces from sustainable and reclaimed timber.</p>
+        <a href="https://soulformfurniture.com/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><span class="partner-card__logo-text">Living Designs</span></div>
+        <h3 class="partner-card__name">Living Designs</h3>
+        <p class="partner-card__desc">A Dublin-based specialist in bespoke glazing, supplying structural glass, windows and doors for modern homes.</p>
+        <a href="https://www.mklivingdesigns.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ SERVICES ═══ -->
+<section class="partners-section" aria-labelledby="cat-services">
+  <div class="wrap">
+    <p class="partners-cat__eyebrow">Services</p>
+    <h2 class="partners-cat__title" id="cat-services">Property Services</h2>
+    <div class="partner-grid">
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/annettebrock.png" width="182" height="89" alt="Annette Brock Photography" /></div>
+        <h3 class="partner-card__name">Annette Brock Photography</h3>
+        <p class="partner-card__desc">A Dublin-based photographer specialising in architectural, interior and property photography.</p>
+        <a href="https://www.annettebrockphotography.com/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/dampmaster.webp" width="1200" height="296" alt="Damp Master" /></div>
+        <h3 class="partner-card__name">Damp Master</h3>
+        <p class="partner-card__desc">Irish damp-proofing specialists providing surveys and long-term solutions for rising damp, mould and water ingress nationwide.</p>
+        <a href="https://dampmaster.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+      <div class="partner-card">
+        <div class="partner-card__logo"><img src="./logos/bathrooms4u.svg" width="794" height="170" alt="Bathrooms 4 U" /></div>
+        <h3 class="partner-card__name">Bathrooms 4 U</h3>
+        <p class="partner-card__desc">A nationwide bathroom design and renovation company that designs, supplies and fits complete bathrooms in as little as five days.</p>
+        <a href="https://www.b4u.ie/" target="_blank" rel="noopener noreferrer" class="partner-card__link">Visit Website <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CTA ═══ -->
+<section class="partners-cta" aria-labelledby="partners-cta-h2">
+  <div class="wrap">
+    <h2 class="partners-cta__title" id="partners-cta-h2">Interested in Partnering With FTBB?</h2>
+    <p class="partners-cta__body">Join our network of trusted businesses and reach thousands of Irish first-time buyers actively researching mortgages, legal services, and home products.</p>
+    <a href="/advertise" class="btn-dark">Become a Partner</a>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="FTBB — Home">
+          <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" loading="lazy" />
+          <div>
+            <div class="footer__logo-name">First Time Buyer's Bible</div>
+            <div class="footer__logo-sub">Ireland's Buyer Resource Hub</div>
+          </div>
+        </a>
+        <p class="footer__tagline">Helping Irish first-time buyers navigate mortgages, grants, legal process and property purchase since 2024.</p>
+        <address class="footer__contact">
+          <strong>Christopher O'Neill</strong>
+          Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="text-decoration:underline;">info@ftbb.ie</a><br/>
+          57 Clontarf Road, Dublin 3<br/>
+          T: <a href="tel:+35318537360">01 8537360</a><br/>
+          <span style="display:block;margin-top:0.4rem;">Registered in Ireland since 2023</span>
+        </address>
+        <div class="footer__socials" aria-label="Social media links">
+          <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="mailto:info@ftbb.ie" class="footer__soc" aria-label="Email FTBB">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Mortgages</h4>
+        <ul role="list">
+          <li><a href="#">Complete Mortgage Guide</a></li>
+          <li><a href="#">Borrowing Capacity</a></li>
+          <li><a href="#">Approval in Principle</a></li>
+          <li><a href="#">Mortgage Brokers</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Grants &amp; Schemes</h4>
+        <ul role="list">
+          <li><a href="#">Help to Buy Scheme</a></li>
+          <li><a href="#">First Home Scheme</a></li>
+          <li><a href="#">SEAI Energy Grants</a></li>
+          <li><a href="#">Stamp Duty Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul role="list">
+          <li><a href="/partners">Our Partners</a></li>
+          <li><a href="/advertise">Advertise With FTBB</a></li>
+          <li><a href="/media-kit">Media Kit</a></li>
+          <li><a href="mailto:info@ftbb.ie">Contact FTBB</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/cookies.html">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- COOKIE CONSENT -->
+<div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience on FTBB. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="cookie-bar__actions">
+    <button class="cookie-bar__settings" id="cookie-settings" type="button">Cookie Settings</button>
+    <button class="cookie-bar__accept" id="cookie-accept" type="button">Accept All</button>
+  </div>
+</div>
+
+
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── MOBILE NAV ──
+  const ham = document.getElementById('nav-ham');
+  const mobileNav = document.getElementById('nav-mobile');
+  ham.addEventListener('click', () => {
+    const open = ham.classList.toggle('open');
+    mobileNav.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mobileNav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── SCROLL REVEAL ──
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── COOKIE ──
+  (function() {
+    const bar = document.getElementById('cookie-bar');
+    if (!bar) return;
+    if (localStorage.getItem('ftbb_cookies_ok') === '1') { bar.classList.add('hidden'); return; }
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('ftbb_cookies_ok', '1');
+      bar.classList.add('hidden');
+    });
+    document.getElementById('cookie-settings').addEventListener('click', () => {
+      window.location.href = '/cookies.html';
+    });
+  })();
+</script>
+
+</body>
+</html>
