@@ -334,7 +334,7 @@
       <button class="reader__nav" id="reader-next" aria-label="Next page">›</button>
     </div>
 
-    <p class="reader__indicator" id="reader-indicator">Free Preview — Page 1 of 3</p>
+    <p class="reader__indicator" id="reader-indicator">Page 1 of 4</p>
     <p class="reader__hint">Use the arrows, swipe, or the ← → keys to turn pages</p>
   </div>
 </section>
@@ -459,9 +459,7 @@
     pages.forEach((p, i) => p.classList.toggle('is-active', i === current));
     prevBtn.disabled = current === 0;
     nextBtn.disabled = current === total - 1;
-    indicator.textContent = current === total - 1
-      ? 'Preview Complete'
-      : `Free Preview — Page ${current + 1} of ${total - 1}`;
+    indicator.textContent = `Page ${current + 1} of ${total}`;
   }
 
   function goTo(next) {
