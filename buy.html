@@ -116,20 +116,12 @@
     .book__page img { width: 100%; height: 100%; object-fit: cover; }
     .book__page-num { position: absolute; bottom: 1.25rem; right: 1.5rem; font-family: var(--serif); font-size: 0.8rem; color: var(--grey-mid); }
 
-    /* Placeholder editorial layout for pages awaiting final content */
-    .placeholder-page { width: 100%; height: 100%; padding: 2.5rem 1.85rem 3rem; display: flex; flex-direction: column; position: relative; overflow: hidden; }
-    .placeholder-page__kicker { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
-    .placeholder-block { background: var(--grey-bg); border-radius: 2px; }
-    .placeholder-page__title { height: 1.9rem; width: 82%; margin-bottom: 0.6rem; }
-    .placeholder-page__title + .placeholder-block { height: 0.95rem; width: 52%; margin-bottom: 1.75rem; }
-    .placeholder-page__image { height: 34%; margin-bottom: 1.5rem; }
-    .placeholder-lines { display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
+    .placeholder-lines { display: flex; flex-direction: column; gap: 0.55rem; }
     .placeholder-lines span { display: block; height: 0.5rem; background: var(--grey-bg); border-radius: 2px; }
     .placeholder-lines span:nth-child(4n+1) { width: 100%; }
     .placeholder-lines span:nth-child(4n+2) { width: 94%; }
     .placeholder-lines span:nth-child(4n+3) { width: 70%; }
     .placeholder-lines span:nth-child(4n) { width: 88%; }
-    .placeholder-page__watermark { position: absolute; bottom: 1.5rem; left: 0; right: 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 0.68rem; color: var(--grey-light); }
 
     /* Paywall — blurred teaser behind a frosted card */
     .book__page--paywall { padding: 0; }
@@ -284,27 +276,10 @@
           </div>
 
           <div class="book__page" data-page="1">
-            <div class="placeholder-page" aria-hidden="true">
-              <p class="placeholder-page__kicker">FTBB — 2026 Edition</p>
-              <div class="placeholder-block placeholder-page__title"></div>
-              <div class="placeholder-block"></div>
-              <div class="placeholder-lines">
-                <span></span><span></span><span></span><span></span><span></span><span></span>
-              </div>
-              <p class="placeholder-page__watermark">Content coming soon</p>
-            </div>
             <span class="book__page-num">2</span>
           </div>
 
           <div class="book__page" data-page="2">
-            <div class="placeholder-page" aria-hidden="true">
-              <p class="placeholder-page__kicker">FTBB — 2026 Edition</p>
-              <div class="placeholder-block placeholder-page__image"></div>
-              <div class="placeholder-lines">
-                <span></span><span></span><span></span><span></span>
-              </div>
-              <p class="placeholder-page__watermark">Content coming soon</p>
-            </div>
             <span class="book__page-num">3</span>
           </div>
 
@@ -320,10 +295,10 @@
               <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
               <h2 class="paywall__title">You've Reached the End of the Free Preview</h2>
               <p class="paywall__body">Unlock the complete FTBB Guide — every chapter, checklist, and the latest 2026 rules for buying in Ireland.</p>
-              <p class="paywall__price">€XX<span>One-Time Purchase</span></p>
+              <p class="paywall__price">€7.95<span>One-Time Purchase</span></p>
               <button class="btn-dark" id="unlock-btn" type="button">Unlock Full Access</button>
               <div class="unlock-note" id="unlock-note" role="status">
-                <strong>Coming soon</strong> — full guide purchase launching shortly. Enter your email on the <a href="/">FTBB homepage</a> to be notified.
+                <strong>Coming soon</strong> — full guide purchase launching shortly. <a href="mailto:info@ftbb.ie?subject=Notify%20me%20when%20the%20FTBB%20Guide%20launches">Enter your email here</a> to be notified.
               </div>
             </div>
           </div>
