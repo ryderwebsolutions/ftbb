@@ -3,21 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The FTBB Guide – Available in All Newsagents Nationwide | Ireland's First-Time Buyer Guide</title>
-  <meta name="description" content="The complete Irish first-time buyer guide — mortgages, grants, legal process, common mistakes, and every step of your property purchase." />
-  <meta name="robots" content="noindex, nofollow" />
+  <title>Read the FTBB Guide – First Time Buyer's Bible Ireland</title>
+  <meta name="description" content="Read the first pages of the FTBB Guide — Ireland's complete first-time buyer guide to mortgages, grants and the legal process." />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://ftbb.ie/buy" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── TOKENS ── */
     :root {
       --black:      #0a0a0a;
       --black-mid:  #111111;
-      --black-soft: #1a1a1a;
       --grey-dark:  #333333;
       --grey:       #666666;
       --grey-mid:   #999999;
@@ -31,8 +29,6 @@
       --ease:       cubic-bezier(0.22,1,0.36,1);
       --cw:         1200px;
     }
-
-    /* ── RESET ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
@@ -42,20 +38,8 @@
     ul { list-style: none; }
     .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
 
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
-    .reveal.visible { opacity: 1; transform: none; }
-    .reveal-d1 { transition-delay: 0.1s; }
-    .reveal-d2 { transition-delay: 0.2s; }
-    .reveal-d3 { transition-delay: 0.3s; }
-    .reveal-d4 { transition-delay: 0.4s; }
-
     /* ── NAV ── */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0;
-      z-index: 100; padding: 1.4rem 0;
-      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease;
-    }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease; }
     .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .nav__logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
     .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); transition: filter 0.4s ease; }
@@ -65,8 +49,6 @@
     .nav__links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.22s ease; }
     .nav__links a:hover::after, .nav__links a.active::after { width: 100%; }
     .nav__links a:hover, .nav__links a.active { color: var(--white); }
-    .nav__cta { display: inline-block; padding: 0.6rem 1.4rem; border: 1px solid rgba(255,255,255,0.5); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); transition: all 0.22s ease; white-space: nowrap; }
-    .nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
     .nav__mobile-actions { display: flex; align-items: center; gap: 0.6rem; }
     .nav__icons { display: none; align-items: center; gap: 0.5rem; }
     .nav__icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--white); opacity: 0.9; border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; transition: opacity 0.22s ease, color 0.4s ease, border-color 0.4s ease, background 0.22s ease; }
@@ -77,142 +59,62 @@
     .nav__ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav__ham.open span:nth-child(2) { opacity: 0; }
     .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
     .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
     .nav.scrolled .nav__logo img { filter: none; }
     .nav.scrolled .nav__logo-text { color: var(--black); }
     .nav.scrolled .nav__links a { color: var(--grey); }
     .nav.scrolled .nav__links a:hover, .nav.scrolled .nav__links a.active { color: var(--black); }
-    .nav.scrolled .nav__cta { border-color: var(--black); color: var(--black); }
-    .nav.scrolled .nav__cta:hover { background: var(--black); color: var(--white); }
     .nav.scrolled .nav__ham span { background: var(--black); }
     .nav.scrolled .nav__icon { color: var(--black); border-color: rgba(0,0,0,0.15); }
     .nav.scrolled .nav__icon:hover { background: rgba(0,0,0,0.04); }
-
     .nav__mobile { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; padding: 6rem 2.5rem 3rem; flex-direction: column; gap: 0; }
     .nav__mobile.open { display: flex; }
     .nav__mobile a { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--white); display: block; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s ease; }
     .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
 
     /* ── BUTTONS ── */
-    .btn-white { display: inline-block; padding: 0.9rem 2.25rem; background: var(--white); color: var(--black); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
-    .btn-white:hover { background: var(--grey-bg); transform: translateY(-1px); }
-    .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
     .btn-dark { display: inline-block; padding: 0.9rem 2.25rem; background: var(--black); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
     .btn-dark:hover { background: var(--grey-dark); transform: translateY(-1px); }
+    .btn-dark:disabled { background: var(--grey-mid); cursor: default; transform: none; }
 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh; background: #1e1e1e;
-      display: flex; align-items: center;
-      padding: 9rem 0 5rem; position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 36px 36px; pointer-events: none;
-    }
-    .hero::after {
-      content: ''; position: absolute; top: 0; right: 0; width: 50%; height: 100%;
-      background: radial-gradient(ellipse at 80% 40%, rgba(197,137,42,0.06) 0%, transparent 65%);
-      pointer-events: none;
-    }
-    .hero__inner { display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; gap: 5rem; position: relative; z-index: 1; }
-    .hero__eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.75rem; display: flex; align-items: center; gap: 0.75rem; }
-    .hero__eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); }
-    .hero__headline { font-family: var(--serif); font-size: clamp(2.8rem, 4.5vw, 4.8rem); font-weight: 700; line-height: 1.08; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-    .hero__headline em { font-style: italic; color: rgba(255,255,255,0.6); }
-    .hero__sub { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.55); max-width: 480px; margin-bottom: 2.5rem; }
-    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.25rem; }
-    .hero__proof { font-size: 0.72rem; color: rgba(255,255,255,0.35); letter-spacing: 0.05em; }
-    .hero__proof strong { color: rgba(255,255,255,0.65); }
+    /* ── PAGE HEADER ── */
+    .page-header { background: #1e1e1e; padding: 7.5rem 0 3rem; text-align: center; }
+    .page-header__eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+    .page-header__eyebrow::before, .page-header__eyebrow::after { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .page-header__title { font-family: var(--serif); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.85rem; }
+    .page-header__sub { font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; }
 
-    /* Cover mockup */
-    .hero__visual { display: flex; justify-content: center; align-items: center; }
-    .cover-wrap { position: relative; }
-    .cover-frame {
-      width: 100%; max-width: 340px;
-      box-shadow: 24px 32px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.07);
-      position: relative; overflow: hidden;
-    }
-    .cover-frame img { width: 100%; height: auto; display: block; }
-    .cover-badge {
-      position: absolute; top: 1.25rem; right: -0.75rem;
-      background: var(--gold); color: var(--white);
-      padding: 0.5rem 1rem; font-size: 0.58rem; font-weight: 700;
-      letter-spacing: 0.15em; text-transform: uppercase;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-    }
+    /* ── READER ── */
+    .reader { padding: 4rem 0 6rem; background: var(--grey-bg); }
+    .reader__stage { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+    .reader__nav { width: 44px; height: 44px; min-width: 44px; border: 1px solid var(--grey-border); background: var(--white); font-size: 1.3rem; color: var(--black); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+    .reader__nav:hover:not(:disabled) { border-color: var(--black); }
+    .reader__nav:disabled { opacity: 0.3; cursor: default; }
 
-    /* ── SECTION LABEL ── */
-    .sec-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.6rem; }
-    .sec-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
-    .sec-h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 700; line-height: 1.15; color: var(--black); letter-spacing: -0.025em; margin-bottom: 1rem; }
-    .sec-h2--white { color: var(--white); }
-    .sec-intro { font-size: 0.95rem; line-height: 1.8; color: var(--grey); max-width: 600px; }
-
-    /* ── CONTENTS ── */
-    .contents { background: var(--white); padding: 6rem 0; }
-    .contents__inner { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
-    .contents__left { position: sticky; top: 6rem; }
-    .contents__intro { font-size: 0.9rem; line-height: 1.85; color: var(--grey); margin-bottom: 1.5rem; }
-    .contents__note { font-size: 0.78rem; line-height: 1.7; color: var(--grey-mid); padding: 1.25rem 1.5rem; border-left: 2px solid var(--gold); background: var(--grey-bg); }
-    .chapter-list { display: flex; flex-direction: column; gap: 0; }
-    .chapter { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid var(--grey-border); align-items: start; transition: all 0.22s ease; }
-    .chapter:first-child { border-top: 1px solid var(--grey-border); }
-    .chapter:hover { background: var(--grey-bg); padding-left: 0.75rem; padding-right: 0.75rem; margin: 0 -0.75rem; border-color: transparent; }
-    .chapter__num { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--gold); opacity: 0.6; line-height: 1; padding-top: 0.1rem; }
-    .chapter__title { font-size: 0.88rem; font-weight: 700; color: var(--black); margin-bottom: 0.4rem; letter-spacing: -0.01em; }
-    .chapter__desc { font-size: 0.8rem; line-height: 1.65; color: var(--grey); }
-
-    /* ── BENEFITS ── */
-    .benefits { background: var(--grey-bg); padding: 6rem 0; border-top: 1px solid var(--grey-border); border-bottom: 1px solid var(--grey-border); }
-    .benefits__header { margin-bottom: 3.5rem; }
-    .benefits__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--grey-border); }
-    .benefit { background: var(--grey-bg); padding: 2.5rem 2rem; }
-    .benefit__line { width: 24px; height: 2px; background: var(--gold); margin-bottom: 1.5rem; }
-    .benefit__title { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.85rem; line-height: 1.3; }
-    .benefit__body { font-size: 0.83rem; line-height: 1.75; color: var(--grey); }
-
-    /* ── WHO IT'S FOR ── */
-    .who { background: var(--white); padding: 6rem 0; }
-    .who__inner { display: grid; grid-template-columns: 1fr; max-width: 640px; margin: 0 auto; }
-    .who__list { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.85rem; }
-    .who__list li { display: flex; gap: 0.85rem; font-size: 0.85rem; line-height: 1.6; color: var(--grey-dark); align-items: flex-start; }
-    .who__list li::before { content: ''; display: block; width: 6px; height: 6px; min-width: 6px; border-radius: 50%; background: var(--gold); margin-top: 6px; }
-    /* ── BUY CTA ── */
-    .buy-cta { background: #1e1e1e; padding: 7rem 0; position: relative; overflow: hidden; }
-    .buy-cta::before {
-      content: ''; position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 36px 36px; pointer-events: none;
+    .book { position: relative; width: min(80vw, 380px); aspect-ratio: 3 / 4; perspective: 1800px; }
+    .book__page {
+      position: absolute; inset: 0; background: var(--white);
+      border: 1px solid var(--grey-border); box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+      display: flex; align-items: center; justify-content: center;
+      backface-visibility: hidden;
+      transition: transform 0.55s var(--ease), opacity 0.4s ease;
+      transform: rotateY(90deg); opacity: 0; pointer-events: none;
     }
-    .buy-cta__inner { position: relative; z-index: 1; text-align: center; max-width: 640px; margin: 0 auto; }
-    .buy-cta__eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: center; gap: 0.75rem; }
-    .buy-cta__eyebrow::before, .buy-cta__eyebrow::after { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
-    .buy-cta__h2 { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 0.85rem; }
-    .buy-cta__sub { font-size: 0.92rem; color: rgba(255,255,255,0.45); margin-bottom: 3rem; line-height: 1.7; }
-    .price-box { background: var(--white); padding: 3rem 2.5rem; max-width: 440px; margin: 0 auto; }
-    .price-box__label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 1.25rem; }
-    .price-box__price { font-family: var(--serif); font-size: 4rem; font-weight: 700; color: var(--black); line-height: 1; margin-bottom: 0.35rem; }
-    .price-box__price sup { font-size: 1.5rem; vertical-align: super; }
-    .price-box__note { font-size: 0.75rem; color: var(--grey); margin-bottom: 2rem; }
-    .price-box__includes { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 2rem; text-align: left; }
-    .price-box__includes li { display: flex; gap: 0.6rem; font-size: 0.82rem; color: var(--grey-dark); align-items: flex-start; }
-    .price-box__includes li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.72rem; flex-shrink: 0; padding-top: 2px; }
-    .buy-btn {
-      display: block; width: 100%; padding: 1.1rem; text-align: center;
-      background: var(--black); color: var(--white);
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-      transition: all 0.22s ease; cursor: pointer; border: none;
-    }
-    .buy-btn:hover { background: var(--grey-dark); transform: translateY(-1px); }
-    .buy-btn:disabled { background: var(--grey-mid); cursor: default; transform: none; }
-    .buy-coming-soon { display: none; margin-top: 1.25rem; font-size: 0.8rem; line-height: 1.65; color: var(--grey); text-align: left; padding: 1rem 1.25rem; background: var(--grey-bg); border-left: 2px solid var(--gold); }
-    .buy-coming-soon.visible { display: block; }
-    .buy-coming-soon a { color: var(--gold); text-decoration: underline; }
-    .buy-btn-note { font-size: 0.68rem; color: var(--grey-mid); margin-top: 1rem; text-align: center; }
+    .book__page.is-active { transform: rotateY(0deg); opacity: 1; pointer-events: auto; z-index: 2; }
+    .book__page img { width: 100%; height: 100%; object-fit: cover; }
+    .book__page-num { position: absolute; bottom: 1.5rem; font-family: var(--serif); font-size: 0.8rem; color: var(--grey-mid); }
+
+    .book__page--paywall { flex-direction: column; padding: 2.25rem 1.75rem; text-align: center; }
+    .paywall__icon { width: 34px; height: 34px; color: var(--gold); margin-bottom: 1.1rem; }
+    .paywall__title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.65rem; line-height: 1.3; }
+    .paywall__body { font-size: 0.8rem; color: var(--grey); line-height: 1.65; margin-bottom: 1.35rem; max-width: 260px; }
+    .paywall__price { font-family: var(--serif); font-size: 1.9rem; font-weight: 700; margin-bottom: 1.35rem; }
+    .paywall__price span { display: block; font-family: var(--sans); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-mid); margin-top: 0.3rem; }
+    .unlock-note { display: none; margin-top: 1rem; font-size: 0.72rem; color: var(--grey); line-height: 1.6; max-width: 260px; }
+    .unlock-note.visible { display: block; }
+    .unlock-note a { color: var(--gold); text-decoration: underline; }
+
+    .reader__indicator { text-align: center; margin-top: 2.25rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
 
     /* ── FOOTER ── */
     .footer { background: var(--black); padding: 4.5rem 0 0; }
@@ -241,13 +143,7 @@
     .footer__legal a:hover { color: rgba(255,255,255,0.5); }
 
     /* ── COOKIE BAR ── */
-    .cookie-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
-      background: var(--black); border-top: 1px solid rgba(255,255,255,0.08);
-      padding: 1rem 2rem; display: flex; align-items: center;
-      justify-content: space-between; gap: 1.5rem;
-      font-size: 0.78rem; color: rgba(255,255,255,0.55);
-    }
+    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
     .cookie-bar.hidden { display: none; }
     .cookie-bar a { color: rgba(255,255,255,0.75); text-decoration: underline; }
     .cookie-bar__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
@@ -258,42 +154,31 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .hero__inner { grid-template-columns: 1fr; gap: 3.5rem; }
-      .hero__visual { display: none; }
-      .contents__inner { grid-template-columns: 1fr; }
-      .contents__left { position: static; }
       .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .footer__brand { grid-column: span 2; }
     }
     @media (max-width: 768px) {
       .wrap { padding: 0 1.25rem; }
-      .benefits__grid { grid-template-columns: 1fr; }
       .nav__links { display: none; }
-      .nav__cta { display: none; }
       .nav__icons { display: flex; }
       .nav__ham { display: flex; box-sizing: content-box; padding: 12px; margin: -12px; }
       .nav__ham span { height: 2px; }
       .nav { padding: 0.5rem 0; }
       .nav__logo img { height: 72px; }
       .nav__logo-text { display: none; }
-      .nav.scrolled {
-        padding: 0.4rem 0;
-        background: rgba(255,255,255,0.86);
-        box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05);
-        -webkit-backdrop-filter: saturate(180%) blur(20px);
-        backdrop-filter: saturate(180%) blur(20px);
-      }
+      .nav.scrolled { padding: 0.4rem 0; background: rgba(255,255,255,0.86); box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
       .footer__top { grid-template-columns: 1fr; }
       .footer__brand { grid-column: span 1; }
       .cookie-bar { flex-direction: column; align-items: flex-start; }
+      .reader__stage { gap: 0.75rem; }
+      .reader__nav { width: 36px; height: 36px; min-width: 36px; font-size: 1.1rem; }
+      .book { width: min(72vw, 320px); }
     }
     @media (max-width: 480px) {
-      .hero__actions { flex-direction: column; }
-      .benefits__grid { grid-template-columns: 1fr; }
       .footer__bottom { flex-direction: column; text-align: center; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
+      .book__page { transition: opacity 0.3s ease; transform: none !important; }
     }
   </style>
 </head>
@@ -315,7 +200,6 @@
         <li><a href="/advertise">Advertise</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
       </ul>
-      <a href="#buy-section" class="nav__cta">Find In Store</a>
       <div class="nav__mobile-actions">
         <div class="nav__icons">
           <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="Instagram">
@@ -341,217 +225,56 @@
   <a href="/partners">Partners</a>
   <a href="/advertise">Advertise</a>
   <a href="/media-kit">Media Kit</a>
-  <a href="#buy-section">Find In Store</a>
 </div>
 
 
-<!-- ═══ HERO ═══ -->
-<section class="hero" aria-labelledby="buy-hero-h1">
+<!-- ═══ PAGE HEADER ═══ -->
+<section class="page-header" aria-label="Page header">
   <div class="wrap">
-    <div class="hero__inner">
-
-      <div class="hero__content">
-        <p class="hero__eyebrow reveal">The FTBB Guide · 2026 Edition</p>
-        <h1 class="hero__headline reveal reveal-d1" id="buy-hero-h1">
-          Buying Your<br/>First Home?<br/><em>Get Clear First.</em>
-        </h1>
-        <p class="hero__sub reveal reveal-d2">Ireland's complete first-time buyer guide — mortgages, grants, legal process, common mistakes, and every step of your property purchase. Written specifically for the Irish market.</p>
-        <div class="hero__actions reveal reveal-d3">
-          <a href="#buy-section" class="btn-white">Available In All Newsagents Nationwide</a>
-          <a href="#contents" class="btn-ghost">What's Inside</a>
-        </div>
-        <p class="hero__proof reveal reveal-d4">Trusted by over <strong>12,000</strong> Irish first-time buyers</p>
-      </div>
-
-      <div class="hero__visual reveal reveal-d2">
-        <div class="cover-wrap">
-          <div class="cover-frame">
-            <img src="./ftbbcover.jpeg" alt="First Time Buyer's Bible — Ireland's complete home-buying guide" width="640" height="800" loading="eager" />
-          </div>
-          <div class="cover-badge">2026 Edition</div>
-        </div>
-      </div>
-
-    </div>
+    <p class="page-header__eyebrow">2026 Edition</p>
+    <h1 class="page-header__title">Read the FTBB Guide</h1>
+    <p class="page-header__sub">Flip through a free preview of the complete Irish first-time buyer guide.</p>
   </div>
 </section>
 
 
-<!-- ═══ CONTENTS ═══ -->
-<section class="contents" id="contents" aria-labelledby="contents-h2">
+<!-- ═══ READER ═══ -->
+<section class="reader" aria-label="Magazine reader">
   <div class="wrap">
-    <div class="contents__inner">
+    <div class="reader__stage">
+      <button class="reader__nav" id="reader-prev" aria-label="Previous page" disabled>‹</button>
 
-      <div class="contents__left reveal">
-        <p class="sec-eyebrow">What's Inside</p>
-        <h2 class="sec-h2" id="contents-h2">Eight Chapters. Every Step Covered.</h2>
-        <p class="contents__intro">Built specifically for the Irish property market — not adapted from a British or American template. Every chapter covers the exact schemes, rules, legal processes, and pitfalls that apply when buying in Ireland.</p>
-        <p class="contents__intro">Whether you're just starting to think about buying or you're already in the process, the guide moves with you — giving you what you need at each stage.</p>
-        <div class="contents__note" style="margin-top:2rem;">
-          <strong style="display:block;margin-bottom:0.4rem;font-size:0.8rem;color:var(--black);">Practical checklists included</strong>
-          Each chapter includes a checklist so you know exactly what to do and what to have ready — from your first mortgage enquiry to the day you collect your keys.
+      <div class="book" id="book">
+
+        <div class="book__page is-active" data-page="0">
+          <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Ireland's complete home-buying guide" width="640" height="800" />
         </div>
+
+        <div class="book__page" data-page="1">
+          <span class="book__page-num">2</span>
+        </div>
+
+        <div class="book__page" data-page="2">
+          <span class="book__page-num">3</span>
+        </div>
+
+        <div class="book__page book__page--paywall" data-page="3">
+          <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          <h2 class="paywall__title">You've Reached the End of the Free Preview</h2>
+          <p class="paywall__body">Unlock the complete FTBB Guide — every chapter, checklist, and the latest 2026 rules for buying in Ireland.</p>
+          <p class="paywall__price">€XX<span>One-Time Purchase</span></p>
+          <button class="btn-dark" id="unlock-btn" type="button">Unlock Full Access</button>
+          <div class="unlock-note" id="unlock-note" role="status">
+            <strong>Coming soon</strong> — full guide purchase launching shortly. Enter your email on the <a href="/">FTBB homepage</a> to be notified.
+          </div>
+        </div>
+
       </div>
 
-      <div class="chapter-list reveal reveal-d1">
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">01</span>
-          <div>
-            <p class="chapter__title">Understanding Your Budget</p>
-            <p class="chapter__desc">Central Bank lending rules, income multiples, deposit requirements, and what you can actually borrow in 2026.</p>
-          </div>
-        </div>
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">02</span>
-          <div>
-            <p class="chapter__title">Mortgages — End to End</p>
-            <p class="chapter__desc">How mortgages work, how to compare lenders, the role of a broker, approval in principle, and what banks actually look at.</p>
-          </div>
-        </div>
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">03</span>
-          <div>
-            <p class="chapter__title">Help to Buy &amp; First Home Scheme</p>
-            <p class="chapter__desc">Who qualifies, how to apply, how much you can claim, and the critical differences between the two schemes.</p>
-          </div>
-        </div>
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">04</span>
-          <div>
-            <p class="chapter__title">Saving Your Deposit</p>
-            <p class="chapter__desc">Real strategies for saving a 10% deposit in Ireland — including timelines, accounts, and the savings history banks want to see.</p>
-          </div>
-        </div>
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">05</span>
-          <div>
-            <p class="chapter__title">Legal Process &amp; Conveyancing</p>
-            <p class="chapter__desc">What a solicitor does, what the contracts mean, what to watch for — and how to avoid the most common legal delays.</p>
-          </div>
-        </div>
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">06</span>
-          <div>
-            <p class="chapter__title">Surveys, Valuations &amp; Insurance</p>
-            <p class="chapter__desc">Why you need a survey, which type to get, how mortgage protection works, and what home insurance must cover.</p>
-          </div>
-        </div>
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">07</span>
-          <div>
-            <p class="chapter__title">Common Mistakes &amp; How to Avoid Them</p>
-            <p class="chapter__desc">Compiled from mortgage brokers and solicitors across Ireland — the errors that cost buyers time, money, and the home they wanted.</p>
-          </div>
-        </div>
-        <div class="chapter">
-          <span class="chapter__num" aria-hidden="true">08</span>
-          <div>
-            <p class="chapter__title">Moving In &amp; What Happens After</p>
-            <p class="chapter__desc">Drawdown day, stamp duty, moving costs, SEAI grants for your new home, and what to do in the first six months.</p>
-          </div>
-        </div>
-      </div>
-
+      <button class="reader__nav" id="reader-next" aria-label="Next page">›</button>
     </div>
-  </div>
-</section>
 
-
-<!-- ═══ BENEFITS ═══ -->
-<section class="benefits" aria-labelledby="benefits-h2">
-  <div class="wrap">
-    <div class="benefits__header reveal">
-      <p class="sec-eyebrow">Why the FTBB Guide</p>
-      <h2 class="sec-h2" id="benefits-h2">What Sets It Apart</h2>
-    </div>
-    <div class="benefits__grid reveal reveal-d1">
-      <div class="benefit">
-        <div class="benefit__line"></div>
-        <h3 class="benefit__title">Clear, Not Complicated</h3>
-        <p class="benefit__body">The Irish buying process is confusing by default. The FTBB guide cuts through the jargon and explains every step in plain English — so you know exactly what's happening and what to do next.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__line"></div>
-        <h3 class="benefit__title">Built for the Irish Market</h3>
-        <p class="benefit__body">Central Bank rules, Help to Buy, First Home Scheme, Revenue mortgage credit, solicitor costs, stamp duty — everything is specific to buying property in the Republic of Ireland, not imported from the UK or elsewhere.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__line"></div>
-        <h3 class="benefit__title">Avoid Costly Mistakes</h3>
-        <p class="benefit__body">First-time buyers lose time and money on preventable errors — poor solicitor choice, missed grants, weak mortgage applications. The guide covers the most common mistakes in detail so you don't repeat them.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__line"></div>
-        <h3 class="benefit__title">Used Alongside Your Advisors</h3>
-        <p class="benefit__body">The guide doesn't replace your mortgage broker or solicitor. It prepares you for every conversation — so you ask the right questions and understand the answers without relying on others to explain everything from scratch.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__line"></div>
-        <h3 class="benefit__title">Up to Date for 2026</h3>
-        <p class="benefit__body">Irish mortgage rules, grant scheme limits, and government support programmes change regularly. The FTBB guide reflects the current rules as of 2026, including the latest Central Bank lending limits and Help to Buy changes.</p>
-      </div>
-      <div class="benefit">
-        <div class="benefit__line"></div>
-        <h3 class="benefit__title">Checklists for Every Stage</h3>
-        <p class="benefit__body">Each chapter includes practical checklists so you know exactly what to do, what to have ready, and what to ask — from your first mortgage inquiry to the day you collect your keys.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ WHO IT'S FOR ═══ -->
-<section class="who" aria-labelledby="who-h2">
-  <div class="wrap">
-    <div class="who__inner">
-
-      <div class="reveal">
-        <p class="sec-eyebrow">Who It's For</p>
-        <h2 class="sec-h2" id="who-h2">Written for Anyone Serious About Buying Their First Home in Ireland</h2>
-        <p class="sec-intro">You don't need to be a financial expert or know the buying process already. The FTBB guide starts from the beginning — and brings you all the way through to moving in.</p>
-        <ul class="who__list" aria-label="Who benefits from the guide">
-          <li>You've decided to buy and want to understand the full process before you start</li>
-          <li>You're already saving and want to know exactly how much you need and when you'll be ready</li>
-          <li>You've been approved in principle but find the legal process confusing</li>
-          <li>You want to make sure you're not missing out on any grants or schemes</li>
-          <li>You've found a property and need to understand what happens next</li>
-          <li>You've had a setback and want to approach it differently this time</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ═══ BUY CTA ═══ -->
-<section class="buy-cta" id="buy-section" aria-labelledby="buy-cta-h2">
-  <div class="wrap">
-    <div class="buy-cta__inner reveal">
-      <p class="buy-cta__eyebrow">Find In Store</p>
-      <h2 class="buy-cta__h2" id="buy-cta-h2">The Complete Irish First-Time Buyer Guide</h2>
-      <p class="buy-cta__sub">One guide. Every step. Written specifically for buying a home in Ireland.</p>
-
-      <div class="price-box">
-        <p class="price-box__label">One-Time Purchase</p>
-        <p class="price-box__price"><sup>€</sup>XX</p>
-        <p class="price-box__note">Instant digital access · 2026 Edition</p>
-        <ul class="price-box__includes">
-          <li>Complete guide — all 8 chapters</li>
-          <li>Practical checklists for every stage</li>
-          <li>Mortgage, grant &amp; legal process explained</li>
-          <li>2026 Central Bank rules &amp; scheme limits</li>
-          <li>Common mistakes — and how to avoid them</li>
-          <li>Lifetime access to updated editions</li>
-        </ul>
-        <button class="buy-btn" id="buy-guide-btn" type="button">Find In Store</button>
-        <div class="buy-coming-soon" id="buy-coming-soon" role="status">
-          <strong>Coming soon — guide purchase launching shortly.</strong><br/>
-          Enter your email on the <a href="/">FTBB homepage</a> to be notified the moment it goes live.
-        </div>
-        <p class="buy-btn-note">Secure checkout &middot; No subscription &middot; One payment</p>
-      </div>
-    </div>
+    <p class="reader__indicator" id="reader-indicator">Free Preview — Page 1 of 3</p>
   </div>
 </section>
 
@@ -606,9 +329,9 @@
       <div class="footer__col">
         <h4>Quick Links</h4>
         <ul role="list">
+          <li><a href="/partners">Our Partners</a></li>
           <li><a href="/advertise">Advertise With FTBB</a></li>
           <li><a href="/media-kit">Media Kit</a></li>
-          <li><a href="mailto:info@ftbb.ie">Contact FTBB</a></li>
           <li><a href="/privacy-policy.html">Privacy Policy</a></li>
           <li><a href="/terms.html">Terms of Use</a></li>
         </ul>
@@ -661,27 +384,40 @@
     });
   });
 
-  // ── SCROLL REVEAL ──
-  const revealObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        revealObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+  // ── FLIPBOOK READER ──
+  const pages = Array.from(document.querySelectorAll('.book__page'));
+  const total = pages.length;
+  let current = 0;
+  const prevBtn = document.getElementById('reader-prev');
+  const nextBtn = document.getElementById('reader-next');
+  const indicator = document.getElementById('reader-indicator');
 
-  // ── BUY BUTTON (coming soon) ──
-  const buyBtn = document.getElementById('buy-guide-btn');
-  const buyMsg = document.getElementById('buy-coming-soon');
-  if (buyBtn) {
-    buyBtn.addEventListener('click', () => {
-      buyBtn.disabled = true;
-      buyBtn.textContent = 'Coming Soon';
-      buyMsg.classList.add('visible');
-    });
+  function render() {
+    pages.forEach((p, i) => p.classList.toggle('is-active', i === current));
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    indicator.textContent = current === total - 1
+      ? 'Preview Complete'
+      : `Free Preview — Page ${current + 1} of ${total - 1}`;
   }
+
+  prevBtn.addEventListener('click', () => {
+    if (current > 0) { current--; render(); }
+  });
+  nextBtn.addEventListener('click', () => {
+    if (current < total - 1) { current++; render(); }
+  });
+
+  render();
+
+  // ── UNLOCK BUTTON (coming soon) ──
+  const unlockBtn = document.getElementById('unlock-btn');
+  const unlockNote = document.getElementById('unlock-note');
+  unlockBtn.addEventListener('click', () => {
+    unlockBtn.disabled = true;
+    unlockBtn.textContent = 'Coming Soon';
+    unlockNote.classList.add('visible');
+  });
 
   // ── COOKIE ──
   (function() {
