@@ -86,31 +86,63 @@
 
     /* ── READER ── */
     .reader { padding: 4rem 0 6rem; background: var(--grey-bg); }
-    .reader__stage { display: flex; align-items: center; justify-content: center; gap: 1.5rem; }
+    .reader__stage { display: flex; align-items: center; justify-content: center; gap: 1.75rem; }
     .reader__nav { width: 44px; height: 44px; min-width: 44px; border: 1px solid var(--grey-border); background: var(--white); font-size: 1.3rem; color: var(--black); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
     .reader__nav:hover:not(:disabled) { border-color: var(--black); }
     .reader__nav:disabled { opacity: 0.3; cursor: default; }
+    .reader__nav:focus-visible, .btn-dark:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .reader__hint { text-align: center; margin-top: 1rem; font-size: 0.7rem; color: var(--grey-mid); }
 
-    .book { position: relative; width: min(80vw, 380px); aspect-ratio: 3 / 4; perspective: 1800px; }
+    /* Stacked-page depth cue behind the visible sheet */
+    .book-frame { position: relative; width: min(80vw, 380px); aspect-ratio: 3 / 4; }
+    .book-frame::before, .book-frame::after {
+      content: ''; position: absolute; inset: 0; background: var(--white); border: 1px solid var(--grey-border);
+    }
+    .book-frame::before { transform: translate(6px, 7px); z-index: 0; }
+    .book-frame::after { transform: translate(11px, 13px); z-index: -1; opacity: 0.85; }
+
+    .book { position: relative; z-index: 1; width: 100%; height: 100%; perspective: 1800px; touch-action: pan-y; cursor: grab; }
+    .book:active { cursor: grabbing; }
     .book__page {
       position: absolute; inset: 0; background: var(--white);
       border: 1px solid var(--grey-border); box-shadow: 0 20px 50px rgba(0,0,0,0.14);
       display: flex; align-items: center; justify-content: center;
       backface-visibility: hidden;
-      transition: transform 0.55s var(--ease), opacity 0.4s ease;
-      transform: rotateY(90deg); opacity: 0; pointer-events: none;
+      transition: transform 0.55s var(--ease), opacity 0.4s ease, box-shadow 0.55s ease;
+      transform: rotateY(90deg); opacity: 0; pointer-events: none; z-index: 1;
     }
     .book__page.is-active { transform: rotateY(0deg); opacity: 1; pointer-events: auto; z-index: 2; }
+    .book.is-flipping .book__page.is-active { box-shadow: 0 34px 70px rgba(0,0,0,0.24); }
     .book__page img { width: 100%; height: 100%; object-fit: cover; }
-    .book__page-num { position: absolute; bottom: 1.5rem; font-family: var(--serif); font-size: 0.8rem; color: var(--grey-mid); }
+    .book__page-num { position: absolute; bottom: 1.25rem; right: 1.5rem; font-family: var(--serif); font-size: 0.8rem; color: var(--grey-mid); }
 
-    .book__page--paywall { flex-direction: column; padding: 2.25rem 1.75rem; text-align: center; }
-    .paywall__icon { width: 34px; height: 34px; color: var(--gold); margin-bottom: 1.1rem; }
-    .paywall__title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; margin-bottom: 0.65rem; line-height: 1.3; }
-    .paywall__body { font-size: 0.8rem; color: var(--grey); line-height: 1.65; margin-bottom: 1.35rem; max-width: 260px; }
-    .paywall__price { font-family: var(--serif); font-size: 1.9rem; font-weight: 700; margin-bottom: 1.35rem; }
+    /* Placeholder editorial layout for pages awaiting final content */
+    .placeholder-page { width: 100%; height: 100%; padding: 2.5rem 1.85rem 3rem; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .placeholder-page__kicker { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+    .placeholder-block { background: var(--grey-bg); border-radius: 2px; }
+    .placeholder-page__title { height: 1.9rem; width: 82%; margin-bottom: 0.6rem; }
+    .placeholder-page__title + .placeholder-block { height: 0.95rem; width: 52%; margin-bottom: 1.75rem; }
+    .placeholder-page__image { height: 34%; margin-bottom: 1.5rem; }
+    .placeholder-lines { display: flex; flex-direction: column; gap: 0.55rem; margin-top: auto; }
+    .placeholder-lines span { display: block; height: 0.5rem; background: var(--grey-bg); border-radius: 2px; }
+    .placeholder-lines span:nth-child(4n+1) { width: 100%; }
+    .placeholder-lines span:nth-child(4n+2) { width: 94%; }
+    .placeholder-lines span:nth-child(4n+3) { width: 70%; }
+    .placeholder-lines span:nth-child(4n) { width: 88%; }
+    .placeholder-page__watermark { position: absolute; bottom: 1.5rem; left: 0; right: 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 0.68rem; color: var(--grey-light); }
+
+    /* Paywall — blurred teaser behind a frosted card */
+    .book__page--paywall { padding: 0; }
+    .paywall-teaser { position: absolute; inset: 0; padding: 2.5rem 1.85rem; filter: blur(4px); opacity: 0.55; pointer-events: none; }
+    .paywall-scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0.95) 58%); }
+    .paywall-card { position: relative; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2.25rem 1.75rem; text-align: center; }
+    .paywall__badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.32rem 0.75rem; background: rgba(197,137,42,0.1); color: var(--gold); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.1rem; }
+    .paywall__icon { width: 32px; height: 32px; color: var(--gold); margin-bottom: 1rem; }
+    .paywall__title { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; margin-bottom: 0.65rem; line-height: 1.3; }
+    .paywall__body { font-size: 0.79rem; color: var(--grey); line-height: 1.65; margin-bottom: 1.3rem; max-width: 250px; }
+    .paywall__price { font-family: var(--serif); font-size: 1.85rem; font-weight: 700; margin-bottom: 1.3rem; }
     .paywall__price span { display: block; font-family: var(--sans); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-mid); margin-top: 0.3rem; }
-    .unlock-note { display: none; margin-top: 1rem; font-size: 0.72rem; color: var(--grey); line-height: 1.6; max-width: 260px; }
+    .unlock-note { display: none; margin-top: 1rem; font-size: 0.72rem; color: var(--grey); line-height: 1.6; max-width: 250px; }
     .unlock-note.visible { display: block; }
     .unlock-note a { color: var(--gold); text-decoration: underline; }
 
@@ -170,9 +202,9 @@
       .footer__top { grid-template-columns: 1fr; }
       .footer__brand { grid-column: span 1; }
       .cookie-bar { flex-direction: column; align-items: flex-start; }
-      .reader__stage { gap: 0.75rem; }
+      .reader__stage { gap: 0.9rem; }
       .reader__nav { width: 36px; height: 36px; min-width: 36px; font-size: 1.1rem; }
-      .book { width: min(72vw, 320px); }
+      .book-frame { width: min(70vw, 320px); }
     }
     @media (max-width: 480px) {
       .footer__bottom { flex-direction: column; text-align: center; }
@@ -244,37 +276,66 @@
     <div class="reader__stage">
       <button class="reader__nav" id="reader-prev" aria-label="Previous page" disabled>‹</button>
 
-      <div class="book" id="book">
+      <div class="book-frame">
+        <div class="book" id="book">
 
-        <div class="book__page is-active" data-page="0">
-          <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Ireland's complete home-buying guide" width="640" height="800" />
-        </div>
-
-        <div class="book__page" data-page="1">
-          <span class="book__page-num">2</span>
-        </div>
-
-        <div class="book__page" data-page="2">
-          <span class="book__page-num">3</span>
-        </div>
-
-        <div class="book__page book__page--paywall" data-page="3">
-          <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-          <h2 class="paywall__title">You've Reached the End of the Free Preview</h2>
-          <p class="paywall__body">Unlock the complete FTBB Guide — every chapter, checklist, and the latest 2026 rules for buying in Ireland.</p>
-          <p class="paywall__price">€XX<span>One-Time Purchase</span></p>
-          <button class="btn-dark" id="unlock-btn" type="button">Unlock Full Access</button>
-          <div class="unlock-note" id="unlock-note" role="status">
-            <strong>Coming soon</strong> — full guide purchase launching shortly. Enter your email on the <a href="/">FTBB homepage</a> to be notified.
+          <div class="book__page is-active" data-page="0">
+            <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Ireland's complete home-buying guide" width="640" height="800" />
           </div>
-        </div>
 
+          <div class="book__page" data-page="1">
+            <div class="placeholder-page" aria-hidden="true">
+              <p class="placeholder-page__kicker">FTBB — 2026 Edition</p>
+              <div class="placeholder-block placeholder-page__title"></div>
+              <div class="placeholder-block"></div>
+              <div class="placeholder-lines">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <p class="placeholder-page__watermark">Content coming soon</p>
+            </div>
+            <span class="book__page-num">2</span>
+          </div>
+
+          <div class="book__page" data-page="2">
+            <div class="placeholder-page" aria-hidden="true">
+              <p class="placeholder-page__kicker">FTBB — 2026 Edition</p>
+              <div class="placeholder-block placeholder-page__image"></div>
+              <div class="placeholder-lines">
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <p class="placeholder-page__watermark">Content coming soon</p>
+            </div>
+            <span class="book__page-num">3</span>
+          </div>
+
+          <div class="book__page book__page--paywall" data-page="3">
+            <div class="paywall-teaser">
+              <div class="placeholder-lines">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="paywall-scrim"></div>
+            <div class="paywall-card">
+              <span class="paywall__badge">Free Preview Ended</span>
+              <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <h2 class="paywall__title">You've Reached the End of the Free Preview</h2>
+              <p class="paywall__body">Unlock the complete FTBB Guide — every chapter, checklist, and the latest 2026 rules for buying in Ireland.</p>
+              <p class="paywall__price">€XX<span>One-Time Purchase</span></p>
+              <button class="btn-dark" id="unlock-btn" type="button">Unlock Full Access</button>
+              <div class="unlock-note" id="unlock-note" role="status">
+                <strong>Coming soon</strong> — full guide purchase launching shortly. Enter your email on the <a href="/">FTBB homepage</a> to be notified.
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
 
       <button class="reader__nav" id="reader-next" aria-label="Next page">›</button>
     </div>
 
     <p class="reader__indicator" id="reader-indicator">Free Preview — Page 1 of 3</p>
+    <p class="reader__hint">Use the arrows, swipe, or the ← → keys to turn pages</p>
   </div>
 </section>
 
@@ -385,9 +446,11 @@
   });
 
   // ── FLIPBOOK READER ──
+  const bookEl = document.getElementById('book');
   const pages = Array.from(document.querySelectorAll('.book__page'));
   const total = pages.length;
   let current = 0;
+  let flipTimer = null;
   const prevBtn = document.getElementById('reader-prev');
   const nextBtn = document.getElementById('reader-next');
   const indicator = document.getElementById('reader-indicator');
@@ -401,12 +464,34 @@
       : `Free Preview — Page ${current + 1} of ${total - 1}`;
   }
 
-  prevBtn.addEventListener('click', () => {
-    if (current > 0) { current--; render(); }
+  function goTo(next) {
+    if (next < 0 || next > total - 1 || next === current) return;
+    current = next;
+    bookEl.classList.add('is-flipping');
+    render();
+    clearTimeout(flipTimer);
+    flipTimer = setTimeout(() => bookEl.classList.remove('is-flipping'), 600);
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft') goTo(current - 1);
   });
-  nextBtn.addEventListener('click', () => {
-    if (current < total - 1) { current++; render(); }
+
+  // Swipe / drag to flip
+  let dragStartX = null;
+  bookEl.addEventListener('pointerdown', (e) => { dragStartX = e.clientX; });
+  bookEl.addEventListener('pointerup', (e) => {
+    if (dragStartX === null) return;
+    const delta = e.clientX - dragStartX;
+    dragStartX = null;
+    if (Math.abs(delta) < 40) return;
+    if (delta < 0) goTo(current + 1); else goTo(current - 1);
   });
+  bookEl.addEventListener('pointercancel', () => { dragStartX = null; });
 
   render();
 
