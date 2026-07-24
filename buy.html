@@ -114,7 +114,6 @@
     .book__page.is-active { transform: rotateY(0deg); opacity: 1; pointer-events: auto; z-index: 2; }
     .book.is-flipping .book__page.is-active { box-shadow: 0 34px 70px rgba(0,0,0,0.24); }
     .book__page img { width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
-    .book__page-num { position: absolute; bottom: 1.25rem; right: 1.5rem; font-family: var(--serif); font-size: 0.8rem; color: var(--grey-mid); }
 
     .placeholder-lines { display: flex; flex-direction: column; gap: 0.55rem; }
     .placeholder-lines span { display: block; height: 0.5rem; background: var(--grey-bg); border-radius: 2px; }
@@ -282,14 +281,22 @@
           </div>
 
           <div class="book__page" data-page="1">
-            <span class="book__page-num">2</span>
+            <img src="./logos/mag-p02.jpg" alt="First Time Buyer's Bible — Contents, page 2" width="1541" height="2210" />
           </div>
 
           <div class="book__page" data-page="2">
-            <span class="book__page-num">3</span>
+            <img src="./logos/mag-p03.jpg" alt="First Time Buyer's Bible — Contents, page 3" width="1541" height="2210" />
           </div>
 
-          <div class="book__page book__page--paywall" data-page="3">
+          <div class="book__page" data-page="3">
+            <img src="./logos/mag-p04.jpg" alt="First Time Buyer's Bible — Contents, page 4" width="1541" height="2210" />
+          </div>
+
+          <div class="book__page" data-page="4">
+            <img src="./logos/mag-p05.jpg" alt="First Time Buyer's Bible — Contents, page 5" width="1541" height="2210" />
+          </div>
+
+          <div class="book__page book__page--paywall" data-page="5">
             <div class="paywall-teaser">
               <div class="placeholder-lines">
                 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -315,7 +322,7 @@
       <button class="reader__nav" id="reader-next" aria-label="Next page">›</button>
     </div>
 
-    <p class="reader__indicator" id="reader-indicator">Page 1 of 4</p>
+    <p class="reader__indicator" id="reader-indicator">Page 1 of 6</p>
     <p class="reader__hint">Use the arrows, swipe, or the ← → keys to turn pages</p>
   </div>
 </section>
