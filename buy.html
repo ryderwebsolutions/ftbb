@@ -75,7 +75,6 @@
     /* ── BUTTONS ── */
     .btn-dark { display: inline-block; padding: 0.9rem 2.25rem; background: var(--black); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
     .btn-dark:hover { background: var(--grey-dark); transform: translateY(-1px); }
-    .btn-dark:disabled { background: var(--grey-mid); cursor: default; transform: none; }
 
     /* ── PAGE HEADER ── */
     .page-header { background: #1e1e1e; padding: 7.5rem 0 3rem; text-align: center; }
@@ -309,10 +308,8 @@
               <h2 class="paywall__title">You've Reached the End of the Free Preview</h2>
               <p class="paywall__body">Unlock the complete FTBB Guide — every chapter, checklist, and the latest 2026 rules for buying in Ireland.</p>
               <p class="paywall__price">€7.95<span>One-Time Purchase</span></p>
-              <button class="btn-dark" id="unlock-btn" type="button">Unlock Full Access</button>
-              <div class="unlock-note" id="unlock-note" role="status">
-                <strong>Coming soon</strong> — full guide purchase launching shortly. <a href="mailto:info@ftbb.ie?subject=Notify%20me%20when%20the%20FTBB%20Guide%20launches">Enter your email here</a> to be notified.
-              </div>
+              <a class="btn-dark" href="https://buy.stripe.com/fZu8wO5UeeOFe2NeAl0x200">Unlock Full Access</a>
+              <p class="unlock-note visible">Secure checkout via Stripe · Instant download after payment</p>
             </div>
           </div>
 
@@ -491,15 +488,6 @@
   bookEl.addEventListener('pointercancel', () => { dragStartX = null; });
 
   render();
-
-  // ── UNLOCK BUTTON (coming soon) ──
-  const unlockBtn = document.getElementById('unlock-btn');
-  const unlockNote = document.getElementById('unlock-note');
-  unlockBtn.addEventListener('click', () => {
-    unlockBtn.disabled = true;
-    unlockBtn.textContent = 'Coming Soon';
-    unlockNote.classList.add('visible');
-  });
 
   // ── COOKIE ──
   (function() {
