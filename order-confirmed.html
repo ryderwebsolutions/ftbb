@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Guide Is Ready – First Time Buyer's Bible Ireland</title>
-  <meta name="description" content="Thank you for your purchase — download your copy of the FTBB Guide." />
+  <meta name="description" content="Thank you for your purchase — read your copy of the FTBB Guide online or download it as a PDF." />
   <meta name="robots" content="noindex, nofollow" />
   <link rel="canonical" href="https://ftbb.ie/order-confirmed" />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
@@ -24,6 +24,7 @@
       --gold:       #c5892a;
       --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
       --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:       cubic-bezier(0.22,1,0.36,1);
       --cw:         1200px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,6 +32,7 @@
     body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
     .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
 
     /* ── NAV ── */
@@ -40,27 +42,74 @@
     .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
     .nav__logo-text { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; }
 
+    /* ── BUTTONS ── */
+    .btn-dark { display: inline-block; padding: 0.9rem 2rem; background: var(--black); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-dark:hover { background: var(--grey-dark); transform: translateY(-1px); }
+    .btn-outline-dark { display: inline-block; padding: 0.9rem 2rem; border: 1px solid var(--black); color: var(--black); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-outline-dark:hover { background: var(--black); color: var(--white); }
+
     /* ── PAGE HEADER ── */
-    .page-header { background: #1e1e1e; padding: 8rem 0 4rem; text-align: center; }
+    .page-header { background: #1e1e1e; padding: 8rem 0 3rem; text-align: center; }
     .page-header__eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
     .page-header__eyebrow::before, .page-header__eyebrow::after { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
     .page-header__title { font-family: var(--serif); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.85rem; }
-    .page-header__sub { font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; }
+    .page-header__sub { font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto 1.75rem; }
 
-    /* ── DOWNLOAD ── */
-    .download { padding: 5rem 0 6rem; background: var(--grey-bg); }
-    .download__card { max-width: 460px; margin: 0 auto; background: var(--white); border: 1px solid var(--grey-border); padding: 3rem 2.5rem; text-align: center; }
-    .download__icon { width: 40px; height: 40px; color: var(--gold); margin: 0 auto 1.25rem; }
-    .download__title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; }
-    .download__body { font-size: 0.85rem; color: var(--grey); line-height: 1.7; margin-bottom: 2rem; }
-    .btn-dark { display: inline-block; width: 100%; padding: 1rem; background: var(--black); color: var(--white); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
-    .btn-dark:hover { background: var(--grey-dark); }
-    .download__note { font-size: 0.72rem; color: var(--grey-mid); margin-top: 1.25rem; line-height: 1.6; }
-    .download__note a { color: var(--gold); text-decoration: underline; }
+    /* ── READER ── */
+    .reader { padding: 3rem 0 4rem; background: var(--grey-bg); }
+    .reader__stage { display: flex; align-items: center; justify-content: center; gap: 1.75rem; }
+    .reader__nav { width: 44px; height: 44px; min-width: 44px; border: 1px solid var(--grey-border); background: var(--white); font-size: 1.3rem; color: var(--black); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+    .reader__nav:hover:not(:disabled) { border-color: var(--black); }
+    .reader__nav:disabled { opacity: 0.3; cursor: default; }
+    .reader__nav:focus-visible, .btn-dark:focus-visible, .btn-outline-dark:focus-visible, .jump__input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .reader__hint { text-align: center; margin-top: 1rem; font-size: 0.7rem; color: var(--grey-mid); }
 
-    @media (max-width: 480px) {
-      .download__card { padding: 2.25rem 1.5rem; margin: 0 1.25rem; }
+    /* Stacked-page depth cue behind the visible sheet */
+    .book-frame { position: relative; width: min(70vw, 340px); aspect-ratio: 3 / 4; }
+    .book-frame::before, .book-frame::after {
+      content: ''; position: absolute; inset: 0; background: var(--white); border: 1px solid var(--grey-border);
+    }
+    .book-frame::before { transform: translate(6px, 7px); z-index: 0; }
+    .book-frame::after { transform: translate(11px, 13px); z-index: -1; opacity: 0.85; }
+
+    .book { position: relative; z-index: 1; width: 100%; height: 100%; perspective: 1800px; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
+    .book:active { cursor: grabbing; }
+    .book__page {
+      position: absolute; inset: 0; background: var(--white);
+      border: 1px solid var(--grey-border); box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+      display: flex; align-items: center; justify-content: center;
+      backface-visibility: hidden;
+      transition: transform 0.55s var(--ease), opacity 0.4s ease, box-shadow 0.55s ease;
+      transform: rotateY(90deg); opacity: 0; pointer-events: none; z-index: 1;
+    }
+    .book__page.is-active { transform: rotateY(0deg); opacity: 1; pointer-events: auto; z-index: 2; }
+    .book.is-flipping .book__page.is-active { box-shadow: 0 34px 70px rgba(0,0,0,0.24); }
+    .book__page img { width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none; user-drag: none; pointer-events: none; background: var(--grey-bg); }
+
+    .reader__indicator { text-align: center; margin-top: 1.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
+
+    /* ── PAGE JUMP ── */
+    .jump { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1.5rem; }
+    .jump__label { font-size: 0.7rem; color: var(--grey-mid); }
+    .jump__input { width: 60px; padding: 0.5rem; border: 1px solid var(--grey-border); background: var(--white); font-size: 0.8rem; text-align: center; font-family: var(--sans); }
+    .jump__btn { padding: 0.5rem 1rem; border: 1px solid var(--black); background: var(--white); color: var(--black); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s ease; }
+    .jump__btn:hover { background: var(--black); color: var(--white); }
+
+    /* ── DOWNLOAD CTA ── */
+    .download-cta { padding: 3.5rem 0 5rem; background: var(--white); text-align: center; border-top: 1px solid var(--grey-border); }
+    .download-cta__title { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .download-cta__body { font-size: 0.85rem; color: var(--grey); line-height: 1.7; margin-bottom: 1.5rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .download-cta__note { font-size: 0.72rem; color: var(--grey-mid); margin-top: 1.25rem; line-height: 1.6; }
+    .download-cta__note a { color: var(--gold); text-decoration: underline; }
+
+    @media (max-width: 600px) {
       .wrap { padding: 0 1.25rem; }
+      .reader__stage { gap: 0.9rem; }
+      .reader__nav { width: 36px; height: 36px; min-width: 36px; font-size: 1.1rem; }
+      .book-frame { width: min(68vw, 300px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .book__page { transition: opacity 0.3s ease; transform: none !important; }
     }
   </style>
 </head>
@@ -81,21 +130,137 @@
   <div class="wrap">
     <p class="page-header__eyebrow">Order Confirmed</p>
     <h1 class="page-header__title">Thank You For Your Purchase</h1>
-    <p class="page-header__sub">Your copy of the FTBB Guide is ready to download below.</p>
+    <p class="page-header__sub">Read your copy of the FTBB Guide below, or download it as a PDF to keep.</p>
+    <a href="/FTBB_Guide_Digital.pdf" download class="btn-outline-dark" style="border-color:rgba(255,255,255,0.3);color:var(--white);">Download PDF</a>
   </div>
 </section>
 
-<section class="download" aria-label="Download your guide">
+<section class="reader" aria-label="Magazine reader">
   <div class="wrap">
-    <div class="download__card">
-      <svg class="download__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
-      <h2 class="download__title">Your Guide Is Ready</h2>
-      <p class="download__body">Ireland's complete first-time buyer guide — every chapter, checklist, and the latest 2026 rules for buying in Ireland.</p>
-      <a href="/FTBB_Guide_Digital.pdf" download class="btn-dark">Download Your Guide (PDF)</a>
-      <p class="download__note">Save this file somewhere safe — this download link isn't emailed automatically. Trouble downloading? Contact <a href="mailto:info@ftbb.ie">info@ftbb.ie</a>.</p>
+    <div class="reader__stage">
+      <button class="reader__nav" id="reader-prev" aria-label="Previous page" disabled>‹</button>
+
+      <div class="book-frame">
+        <div class="book" id="book"></div>
+      </div>
+
+      <button class="reader__nav" id="reader-next" aria-label="Next page">›</button>
+    </div>
+
+    <p class="reader__indicator" id="reader-indicator">Page 1 of 121</p>
+    <p class="reader__hint">Use the arrows, swipe, or the ← → keys to turn pages</p>
+
+    <div class="jump">
+      <label class="jump__label" for="page-jump-input">Go to page</label>
+      <input type="number" id="page-jump-input" class="jump__input" min="1" max="121" value="1" />
+      <button class="jump__btn" id="page-jump-btn" type="button">Go</button>
     </div>
   </div>
 </section>
+
+<section class="download-cta" aria-label="Download your guide">
+  <div class="wrap">
+    <h2 class="download-cta__title">Prefer a PDF?</h2>
+    <p class="download-cta__body">Download the complete guide to keep on your device, print, or read offline.</p>
+    <a href="/FTBB_Guide_Digital.pdf" download class="btn-dark">Download Your Guide (PDF)</a>
+    <p class="download-cta__note">Save this file somewhere safe — this link isn't emailed automatically. Trouble downloading? Contact <a href="mailto:info@ftbb.ie">info@ftbb.ie</a>.</p>
+  </div>
+</section>
+
+<script>
+  const TOTAL_PAGES = 121;
+  const PRELOAD_RADIUS = 1;
+
+  const bookEl = document.getElementById('book');
+  const frag = document.createDocumentFragment();
+  for (let i = 1; i <= TOTAL_PAGES; i++) {
+    const pageDiv = document.createElement('div');
+    pageDiv.className = 'book__page';
+    pageDiv.dataset.page = String(i - 1);
+    const img = document.createElement('img');
+    img.alt = "First Time Buyer's Bible — page " + i;
+    img.dataset.src = './guide-pages/page-' + String(i).padStart(3, '0') + '.jpg';
+    pageDiv.appendChild(img);
+    frag.appendChild(pageDiv);
+  }
+  bookEl.appendChild(frag);
+
+  const pages = Array.from(document.querySelectorAll('.book__page'));
+  let current = 0;
+  let flipTimer = null;
+  const prevBtn = document.getElementById('reader-prev');
+  const nextBtn = document.getElementById('reader-next');
+  const indicator = document.getElementById('reader-indicator');
+  const jumpInput = document.getElementById('page-jump-input');
+  const jumpBtn = document.getElementById('page-jump-btn');
+
+  function loadNearby(index) {
+    for (let i = Math.max(0, index - PRELOAD_RADIUS); i <= Math.min(pages.length - 1, index + PRELOAD_RADIUS); i++) {
+      const img = pages[i].querySelector('img');
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        delete img.dataset.src;
+      }
+    }
+  }
+
+  function render() {
+    pages.forEach((p, i) => p.classList.toggle('is-active', i === current));
+    loadNearby(current);
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === pages.length - 1;
+    indicator.textContent = `Page ${current + 1} of ${pages.length}`;
+    jumpInput.value = current + 1;
+  }
+
+  function goTo(next) {
+    if (next < 0 || next > pages.length - 1 || next === current) return;
+    current = next;
+    bookEl.classList.add('is-flipping');
+    render();
+    clearTimeout(flipTimer);
+    flipTimer = setTimeout(() => bookEl.classList.remove('is-flipping'), 600);
+  }
+
+  prevBtn.addEventListener('click', () => goTo(current - 1));
+  nextBtn.addEventListener('click', () => goTo(current + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft') goTo(current - 1);
+  });
+
+  function jumpToInput() {
+    const n = parseInt(jumpInput.value, 10);
+    if (!isNaN(n)) goTo(Math.min(Math.max(n - 1, 0), pages.length - 1));
+  }
+  jumpBtn.addEventListener('click', jumpToInput);
+  jumpInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') jumpToInput(); });
+
+  // Tap or drag/swipe to flip
+  let dragStartX = null;
+  bookEl.addEventListener('pointerdown', (e) => {
+    if (e.target.closest('button, a')) { dragStartX = null; return; }
+    dragStartX = e.clientX;
+  });
+  bookEl.addEventListener('pointerup', (e) => {
+    if (dragStartX === null) return;
+    const delta = e.clientX - dragStartX;
+    const startX = dragStartX;
+    dragStartX = null;
+
+    if (Math.abs(delta) >= 40) {
+      if (delta < 0) goTo(current + 1); else goTo(current - 1);
+      return;
+    }
+    const rect = bookEl.getBoundingClientRect();
+    const tapX = startX - rect.left;
+    if (tapX > rect.width / 2) goTo(current + 1); else goTo(current - 1);
+  });
+  bookEl.addEventListener('pointercancel', () => { dragStartX = null; });
+
+  render();
+</script>
 
 </body>
 </html>
