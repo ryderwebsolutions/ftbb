@@ -70,11 +70,37 @@
     .reveal-d4 { transition-delay: 0.4s; }
 
     /* ── NAV ── */
+    /* ── PROMO BAR ── */
+    :root { --promo-offset: 0px; }
+    .promo-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+      background: linear-gradient(90deg, #d89a3a, var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.7rem 3rem 0.7rem 1rem;
+      transform: translateY(-100%);
+      transition: transform 0.6s cubic-bezier(.16,1,.3,1);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    }
+    .promo-bar.is-visible { transform: translateY(0); }
+    .promo-bar.is-hidden { display: none; }
+    .promo-bar__link { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: center; text-align: center; }
+    .promo-bar__badge { background: var(--black); color: var(--gold); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.22rem 0.6rem; flex-shrink: 0; }
+    .promo-bar__text { font-size: 0.78rem; font-weight: 600; color: var(--black); }
+    .promo-bar__arrow { width: 15px; height: 15px; flex-shrink: 0; transition: transform 0.2s ease; }
+    .promo-bar__link:hover .promo-bar__arrow { transform: translateX(3px); }
+    .promo-bar__close { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--black); opacity: 0.65; transition: opacity 0.2s ease; }
+    .promo-bar__close:hover { opacity: 1; }
+    .promo-bar__close svg { width: 14px; height: 14px; }
+    @media (max-width: 640px) {
+      .promo-bar { padding: 0.6rem 2.5rem 0.6rem 0.8rem; }
+      .promo-bar__text { font-size: 0.7rem; }
+    }
+
     .nav {
-      position: fixed; top: 0; left: 0; right: 0;
+      position: fixed; top: var(--promo-offset, 0px); left: 0; right: 0;
       z-index: 100;
       padding: 1.4rem 0;
-      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease;
+      transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease, top 0.5s cubic-bezier(.16,1,.3,1);
     }
     .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .nav__logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
@@ -164,7 +190,8 @@
     .hero {
       min-height: 100vh; background: #1e1e1e;
       display: flex; align-items: center;
-      padding: 9rem 0 6rem;
+      padding: calc(9rem + var(--promo-offset, 0px)) 0 6rem;
+      transition: padding-top 0.5s cubic-bezier(.16,1,.3,1);
       position: relative; overflow: hidden;
     }
     .hero::before {
@@ -814,6 +841,18 @@
 </head>
 <body>
 
+<!-- ═══ PROMO BAR ═══ -->
+<div class="promo-bar" id="promo-bar" role="region" aria-label="Exclusive partner feature">
+  <a href="/gilmartin-exclusive" class="promo-bar__link">
+    <span class="promo-bar__badge">Exclusive</span>
+    <span class="promo-bar__text">C.G. Gilmartin &amp; Co Solicitors — read their exclusive feature</span>
+    <svg class="promo-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <button class="promo-bar__close" id="promo-bar-close" type="button" aria-label="Dismiss">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</div>
+
 <!-- ═══ NAV ═══ -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
   <div class="wrap">
@@ -1276,7 +1315,7 @@
         <span class="partner-label">Bellew Law</span>
       </a>
       <a href="https://cggilmartin.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/gilmartinsolicitors.png" width="960" height="398" alt="CG Gilmartin Solicitors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/gilmartinsolicitors.png" width="495" height="284" alt="CG Gilmartin Solicitors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">CG Gilmartin Solicitors</span>
       </a>
       <a href="https://www.greenwoodfurniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
@@ -1426,7 +1465,7 @@
         <span class="partner-label">Bellew Law</span>
       </a>
       <a href="https://cggilmartin.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
-        <img src="./logos/gilmartinsolicitors.png" width="960" height="398" alt="CG Gilmartin Solicitors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <img src="./logos/gilmartinsolicitors.png" width="495" height="284" alt="CG Gilmartin Solicitors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">CG Gilmartin Solicitors</span>
       </a>
       <a href="https://www.greenwoodfurniture.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
@@ -1787,6 +1826,23 @@
     });
     document.getElementById('cookie-settings').addEventListener('click', () => {
       window.location.href = '/cookies.html';
+    });
+  })();
+
+  // ── PROMO BAR ──
+  (function() {
+    const bar = document.getElementById('promo-bar');
+    if (!bar) return;
+    if (localStorage.getItem('ftbb_promo_gilmartin_dismissed') === '1') { bar.classList.add('is-hidden'); return; }
+    setTimeout(() => {
+      document.documentElement.style.setProperty('--promo-offset', bar.offsetHeight + 'px');
+      bar.classList.add('is-visible');
+    }, 600);
+    document.getElementById('promo-bar-close').addEventListener('click', () => {
+      bar.classList.remove('is-visible');
+      document.documentElement.style.setProperty('--promo-offset', '0px');
+      localStorage.setItem('ftbb_promo_gilmartin_dismissed', '1');
+      setTimeout(() => bar.classList.add('is-hidden'), 550);
     });
   })();
 

@@ -36,7 +36,33 @@
     .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
 
     /* ── NAV ── */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; }
+    /* ── PROMO BAR ── */
+    :root { --promo-offset: 0px; }
+    .promo-bar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 110;
+      background: linear-gradient(90deg, #d89a3a, var(--gold));
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.7rem 3rem 0.7rem 1rem;
+      transform: translateY(-100%);
+      transition: transform 0.6s cubic-bezier(.16,1,.3,1);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    }
+    .promo-bar.is-visible { transform: translateY(0); }
+    .promo-bar.is-hidden { display: none; }
+    .promo-bar__link { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; justify-content: center; text-align: center; }
+    .promo-bar__badge { background: var(--black); color: var(--gold); font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.22rem 0.6rem; flex-shrink: 0; }
+    .promo-bar__text { font-size: 0.78rem; font-weight: 600; color: var(--black); }
+    .promo-bar__arrow { width: 15px; height: 15px; flex-shrink: 0; transition: transform 0.2s ease; }
+    .promo-bar__link:hover .promo-bar__arrow { transform: translateX(3px); }
+    .promo-bar__close { position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--black); opacity: 0.65; transition: opacity 0.2s ease; }
+    .promo-bar__close:hover { opacity: 1; }
+    .promo-bar__close svg { width: 14px; height: 14px; }
+    @media (max-width: 640px) {
+      .promo-bar { padding: 0.6rem 2.5rem 0.6rem 0.8rem; }
+      .promo-bar__text { font-size: 0.7rem; }
+    }
+
+    .nav { position: fixed; top: var(--promo-offset, 0px); left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: top 0.5s cubic-bezier(.16,1,.3,1); }
     .nav__inner { display: flex; align-items: center; justify-content: center; }
     .nav__logo { display: flex; align-items: center; gap: 0.7rem; }
     .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
@@ -49,7 +75,7 @@
     .btn-outline-dark:hover { background: var(--black); color: var(--white); }
 
     /* ── PAGE HEADER ── */
-    .page-header { background: #1e1e1e; padding: 8rem 0 3rem; text-align: center; }
+    .page-header { background: #1e1e1e; padding: calc(8rem + var(--promo-offset, 0px)) 0 3rem; transition: padding-top 0.5s cubic-bezier(.16,1,.3,1); text-align: center; }
     .page-header__eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
     .page-header__eyebrow::before, .page-header__eyebrow::after { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
     .page-header__title { font-family: var(--serif); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.85rem; }
@@ -64,27 +90,41 @@
     .reader__nav:focus-visible, .btn-dark:focus-visible, .btn-outline-dark:focus-visible, .jump__input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
     .reader__hint { text-align: center; margin-top: 1rem; font-size: 0.7rem; color: var(--grey-mid); }
 
-    /* Stacked-page depth cue behind the visible sheet */
-    .book-frame { position: relative; width: min(70vw, 340px); aspect-ratio: 3 / 4; }
-    .book-frame::before, .book-frame::after {
+    /* Stacked-page depth cue behind the open book */
+    .spread-frame { position: relative; width: min(88vw, 760px); aspect-ratio: 1.4142; perspective: 2600px; }
+    .spread-frame::before, .spread-frame::after {
       content: ''; position: absolute; inset: 0; background: var(--white); border: 1px solid var(--grey-border);
     }
-    .book-frame::before { transform: translate(6px, 7px); z-index: 0; }
-    .book-frame::after { transform: translate(11px, 13px); z-index: -1; opacity: 0.85; }
+    .spread-frame::before { transform: translate(7px, 8px); z-index: -1; }
+    .spread-frame::after { transform: translate(13px, 15px); z-index: -2; opacity: 0.85; }
 
-    .book { position: relative; z-index: 1; width: 100%; height: 100%; perspective: 1800px; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none; }
-    .book:active { cursor: grabbing; }
-    .book__page {
-      position: absolute; inset: 0; background: var(--white);
-      border: 1px solid var(--grey-border); box-shadow: 0 20px 50px rgba(0,0,0,0.14);
-      display: flex; align-items: center; justify-content: center;
-      backface-visibility: hidden;
-      transition: transform 0.55s var(--ease), opacity 0.4s ease, box-shadow 0.55s ease;
-      transform: rotateY(90deg); opacity: 0; pointer-events: none; z-index: 1;
+    .spread {
+      position: relative; width: 100%; height: 100%; display: flex;
+      background: var(--white); border: 1px solid var(--grey-border); box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+      overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none;
     }
-    .book__page.is-active { transform: rotateY(0deg); opacity: 1; pointer-events: auto; z-index: 2; }
-    .book.is-flipping .book__page.is-active { box-shadow: 0 34px 70px rgba(0,0,0,0.24); }
-    .book__page img { width: 100%; height: 100%; object-fit: cover; -webkit-user-drag: none; user-drag: none; pointer-events: none; background: var(--grey-bg); }
+    .spread:active { cursor: grabbing; }
+    .page-slot { position: relative; width: 50%; height: 100%; background: var(--white); overflow: hidden; }
+    .page-slot img { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    .spine-shadow {
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 46px; margin-left: -23px;
+      pointer-events: none; z-index: 6;
+      background: linear-gradient(to right, rgba(0,0,0,0.12), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.12));
+    }
+
+    .flip-leaf {
+      position: absolute; top: 0; width: 50%; height: 100%;
+      transform-style: preserve-3d; z-index: 10; display: none;
+    }
+    .flip-leaf--right { left: 50%; transform-origin: left center; }
+    .flip-leaf--left { left: 0; transform-origin: right center; }
+    .flip-face { position: absolute; inset: 0; backface-visibility: hidden; background: var(--white); overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.18); }
+    .flip-face img { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    .flip-face--back { transform: rotateY(180deg); }
+    .flip-shadow { position: absolute; inset: 0; opacity: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0) 70%); }
+    .flip-leaf--left .flip-shadow { background: linear-gradient(270deg, rgba(0,0,0,0.4), rgba(0,0,0,0) 70%); }
+    .flip-leaf.is-animating .flip-shadow { animation: leaf-shadow-sweep 0.7s ease; }
+    @keyframes leaf-shadow-sweep { 0% { opacity: 0; } 45% { opacity: 0.5; } 100% { opacity: 0; } }
 
     .reader__indicator { text-align: center; margin-top: 1.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
 
@@ -104,16 +144,29 @@
 
     @media (max-width: 600px) {
       .wrap { padding: 0 1.25rem; }
-      .reader__stage { gap: 0.9rem; }
-      .reader__nav { width: 36px; height: 36px; min-width: 36px; font-size: 1.1rem; }
-      .book-frame { width: min(68vw, 300px); }
+      .reader__stage { gap: 0.6rem; }
+      .reader__nav { width: 34px; height: 34px; min-width: 34px; font-size: 1.05rem; }
+      .spread-frame { width: min(80vw, 340px); }
+      .spine-shadow { width: 24px; margin-left: -12px; }
     }
     @media (prefers-reduced-motion: reduce) {
-      .book__page { transition: opacity 0.3s ease; transform: none !important; }
+      .flip-leaf { transition: none !important; }
     }
   </style>
 </head>
 <body>
+
+<!-- ═══ PROMO BAR ═══ -->
+<div class="promo-bar" id="promo-bar" role="region" aria-label="Exclusive partner feature">
+  <a href="/gilmartin-exclusive" class="promo-bar__link">
+    <span class="promo-bar__badge">Exclusive</span>
+    <span class="promo-bar__text">C.G. Gilmartin &amp; Co Solicitors — read their exclusive feature</span>
+    <svg class="promo-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+  </a>
+  <button class="promo-bar__close" id="promo-bar-close" type="button" aria-label="Dismiss">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+</div>
 
 <nav class="nav" aria-label="Main navigation">
   <div class="wrap">
@@ -140,14 +193,29 @@
     <div class="reader__stage">
       <button class="reader__nav" id="reader-prev" aria-label="Previous page" disabled>‹</button>
 
-      <div class="book-frame">
-        <div class="book" id="book"></div>
+      <div class="spread-frame">
+        <div class="spread" id="spread">
+          <div class="page-slot page-slot--left"><img id="slot-left-img" alt="" /></div>
+          <div class="page-slot page-slot--right"><img id="slot-right-img" alt="" /></div>
+          <div class="spine-shadow" aria-hidden="true"></div>
+
+          <div class="flip-leaf flip-leaf--right" id="leaf-right" aria-hidden="true">
+            <div class="flip-face flip-face--front"><img id="leaf-right-front" alt="" /></div>
+            <div class="flip-face flip-face--back"><img id="leaf-right-back" alt="" /></div>
+            <div class="flip-shadow"></div>
+          </div>
+          <div class="flip-leaf flip-leaf--left" id="leaf-left" aria-hidden="true">
+            <div class="flip-face flip-face--front"><img id="leaf-left-front" alt="" /></div>
+            <div class="flip-face flip-face--back"><img id="leaf-left-back" alt="" /></div>
+            <div class="flip-shadow"></div>
+          </div>
+        </div>
       </div>
 
       <button class="reader__nav" id="reader-next" aria-label="Next page">›</button>
     </div>
 
-    <p class="reader__indicator" id="reader-indicator">Page 1 of 121</p>
+    <p class="reader__indicator" id="reader-indicator">Cover</p>
     <p class="reader__hint">Use the arrows, swipe, or the ← → keys to turn pages</p>
 
     <div class="jump">
@@ -169,97 +237,180 @@
 
 <script>
   const TOTAL_PAGES = 121;
-  const PRELOAD_RADIUS = 1;
+  const TOTAL_VIEWS = 60; // view 0 = cover, views 1..60 = spreads (2v, 2v+1)
+  const FLIP_MS = 700;
 
-  const bookEl = document.getElementById('book');
-  const frag = document.createDocumentFragment();
-  for (let i = 1; i <= TOTAL_PAGES; i++) {
-    const pageDiv = document.createElement('div');
-    pageDiv.className = 'book__page';
-    pageDiv.dataset.page = String(i - 1);
-    const img = document.createElement('img');
-    img.alt = "First Time Buyer's Bible — page " + i;
-    img.dataset.src = './guide-pages/page-' + String(i).padStart(3, '0') + '.jpg';
-    pageDiv.appendChild(img);
-    frag.appendChild(pageDiv);
-  }
-  bookEl.appendChild(frag);
+  let view = 0;
+  let animating = false;
 
-  const pages = Array.from(document.querySelectorAll('.book__page'));
-  let current = 0;
-  let flipTimer = null;
+  const spreadEl = document.getElementById('spread');
+  const slotLeftImg = document.getElementById('slot-left-img');
+  const slotRightImg = document.getElementById('slot-right-img');
+  const leafRight = document.getElementById('leaf-right');
+  const leafLeft = document.getElementById('leaf-left');
+  const leafRightFront = document.getElementById('leaf-right-front');
+  const leafRightBack = document.getElementById('leaf-right-back');
+  const leafLeftFront = document.getElementById('leaf-left-front');
+  const leafLeftBack = document.getElementById('leaf-left-back');
   const prevBtn = document.getElementById('reader-prev');
   const nextBtn = document.getElementById('reader-next');
   const indicator = document.getElementById('reader-indicator');
   const jumpInput = document.getElementById('page-jump-input');
   const jumpBtn = document.getElementById('page-jump-btn');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function loadNearby(index) {
-    for (let i = Math.max(0, index - PRELOAD_RADIUS); i <= Math.min(pages.length - 1, index + PRELOAD_RADIUS); i++) {
-      const img = pages[i].querySelector('img');
-      if (img.dataset.src) {
-        img.src = img.dataset.src;
-        delete img.dataset.src;
-      }
+  function pageSrc(n) { return './guide-pages/page-' + String(n).padStart(3, '0') + '.jpg'; }
+
+  function pagesForView(v) {
+    if (v === 0) return { left: null, right: 1 };
+    return { left: 2 * v, right: 2 * v + 1 };
+  }
+
+  function setImg(imgEl, pageNum) {
+    if (pageNum === null) { imgEl.removeAttribute('src'); imgEl.alt = ''; return; }
+    imgEl.src = pageSrc(pageNum);
+    imgEl.alt = "First Time Buyer's Bible — page " + pageNum;
+  }
+
+  function prefetch(v) {
+    if (v < 0 || v > TOTAL_VIEWS) return;
+    const p = pagesForView(v);
+    if (p.left) new Image().src = pageSrc(p.left);
+    if (p.right) new Image().src = pageSrc(p.right);
+  }
+
+  function updateChrome() {
+    const p = pagesForView(view);
+    prevBtn.disabled = animating || view === 0;
+    nextBtn.disabled = animating || view === TOTAL_VIEWS;
+    indicator.textContent = view === 0 ? 'Cover' : `Pages ${p.left}–${p.right} of ${TOTAL_PAGES}`;
+    jumpInput.value = p.left || 1;
+  }
+
+  function renderInitial() {
+    const p = pagesForView(view);
+    setImg(slotLeftImg, p.left);
+    setImg(slotRightImg, p.right);
+    updateChrome();
+    prefetch(view + 1);
+    prefetch(view - 1);
+  }
+
+  function animateLeaf(leaf, toDeg, onDone) {
+    leaf.style.display = 'block';
+    leaf.style.transition = 'none';
+    leaf.style.transform = 'rotateY(0deg)';
+    leaf.classList.add('is-animating');
+    void leaf.offsetWidth; // force reflow so the reset above takes effect before animating
+    if (reduceMotion) {
+      leaf.style.transform = `rotateY(${toDeg}deg)`;
+      onDone();
+      return;
+    }
+    leaf.style.transition = `transform ${FLIP_MS}ms cubic-bezier(.4,.1,.2,1)`;
+    requestAnimationFrame(() => { leaf.style.transform = `rotateY(${toDeg}deg)`; });
+    setTimeout(onDone, FLIP_MS + 20);
+  }
+
+  function goTo(newView) {
+    if (animating || newView < 0 || newView > TOTAL_VIEWS || newView === view) return;
+    const forward = newView > view;
+    const cur = pagesForView(view);
+    const nxt = pagesForView(newView);
+    animating = true;
+    updateChrome();
+
+    if (forward) {
+      // The new right page is already the top of the "remaining stack" —
+      // safe to set now since the leaf (at rotation 0) fully covers it.
+      setImg(slotRightImg, nxt.right);
+      setImg(leafRightFront, cur.right);
+      setImg(leafRightBack, nxt.left);
+      animateLeaf(leafRight, -180, () => {
+        setImg(slotLeftImg, nxt.left);
+        leafRight.classList.remove('is-animating');
+        leafRight.style.display = 'none';
+        view = newView;
+        animating = false;
+        updateChrome();
+        prefetch(view + 1);
+        prefetch(view - 1);
+      });
+    } else {
+      setImg(slotLeftImg, nxt.left);
+      setImg(leafLeftFront, cur.left);
+      setImg(leafLeftBack, nxt.right);
+      animateLeaf(leafLeft, 180, () => {
+        setImg(slotRightImg, nxt.right);
+        leafLeft.classList.remove('is-animating');
+        leafLeft.style.display = 'none';
+        view = newView;
+        animating = false;
+        updateChrome();
+        prefetch(view + 1);
+        prefetch(view - 1);
+      });
     }
   }
 
-  function render() {
-    pages.forEach((p, i) => p.classList.toggle('is-active', i === current));
-    loadNearby(current);
-    prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === pages.length - 1;
-    indicator.textContent = `Page ${current + 1} of ${pages.length}`;
-    jumpInput.value = current + 1;
-  }
-
-  function goTo(next) {
-    if (next < 0 || next > pages.length - 1 || next === current) return;
-    current = next;
-    bookEl.classList.add('is-flipping');
-    render();
-    clearTimeout(flipTimer);
-    flipTimer = setTimeout(() => bookEl.classList.remove('is-flipping'), 600);
-  }
-
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
+  prevBtn.addEventListener('click', () => goTo(view - 1));
+  nextBtn.addEventListener('click', () => goTo(view + 1));
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowRight') goTo(current + 1);
-    if (e.key === 'ArrowLeft') goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(view + 1);
+    if (e.key === 'ArrowLeft') goTo(view - 1);
   });
 
   function jumpToInput() {
     const n = parseInt(jumpInput.value, 10);
-    if (!isNaN(n)) goTo(Math.min(Math.max(n - 1, 0), pages.length - 1));
+    if (isNaN(n)) return;
+    const clamped = Math.min(Math.max(n, 1), TOTAL_PAGES);
+    const targetView = clamped === 1 ? 0 : Math.floor(clamped / 2);
+    goTo(targetView);
   }
   jumpBtn.addEventListener('click', jumpToInput);
   jumpInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') jumpToInput(); });
 
   // Tap or drag/swipe to flip
   let dragStartX = null;
-  bookEl.addEventListener('pointerdown', (e) => {
+  spreadEl.addEventListener('pointerdown', (e) => {
     if (e.target.closest('button, a')) { dragStartX = null; return; }
     dragStartX = e.clientX;
   });
-  bookEl.addEventListener('pointerup', (e) => {
+  spreadEl.addEventListener('pointerup', (e) => {
     if (dragStartX === null) return;
     const delta = e.clientX - dragStartX;
     const startX = dragStartX;
     dragStartX = null;
 
     if (Math.abs(delta) >= 40) {
-      if (delta < 0) goTo(current + 1); else goTo(current - 1);
+      if (delta < 0) goTo(view + 1); else goTo(view - 1);
       return;
     }
-    const rect = bookEl.getBoundingClientRect();
+    const rect = spreadEl.getBoundingClientRect();
     const tapX = startX - rect.left;
-    if (tapX > rect.width / 2) goTo(current + 1); else goTo(current - 1);
+    if (tapX > rect.width / 2) goTo(view + 1); else goTo(view - 1);
   });
-  bookEl.addEventListener('pointercancel', () => { dragStartX = null; });
+  spreadEl.addEventListener('pointercancel', () => { dragStartX = null; });
 
-  render();
+  renderInitial();
+
+  // ── PROMO BAR ──
+  (function() {
+    const bar = document.getElementById('promo-bar');
+    if (!bar) return;
+    if (localStorage.getItem('ftbb_promo_gilmartin_dismissed') === '1') { bar.classList.add('is-hidden'); return; }
+    setTimeout(() => {
+      document.documentElement.style.setProperty('--promo-offset', bar.offsetHeight + 'px');
+      bar.classList.add('is-visible');
+    }, 600);
+    document.getElementById('promo-bar-close').addEventListener('click', () => {
+      bar.classList.remove('is-visible');
+      document.documentElement.style.setProperty('--promo-offset', '0px');
+      localStorage.setItem('ftbb_promo_gilmartin_dismissed', '1');
+      setTimeout(() => bar.classList.add('is-hidden'), 550);
+    });
+  })();
 </script>
 
 </body>

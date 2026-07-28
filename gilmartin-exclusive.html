@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Case File: On Buying Your First Home – An FTBB Partner Edition with C.G. Gilmartin &amp; Co Solicitors</title>
+  <meta name="description" content="An FTBB Partner Edition produced with C.G. Gilmartin & Co Solicitors — a room-by-room walkthrough of the legal journey behind a property purchase in Ireland." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ftbb.ie/gilmartin-exclusive" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:      #0a0a0a;
+      --grey-dark:  #333333;
+      --grey:       #666666;
+      --grey-mid:   #999999;
+      --grey-light: #cccccc;
+      --grey-border:#e0e0e0;
+      --grey-bg:    #f4f4f4;
+      --white:      #ffffff;
+      --gold:       #c5892a;
+      --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --mono:       'JetBrains Mono', 'Courier New', monospace;
+      --ease:       cubic-bezier(0.22,1,0.36,1);
+      --cw:         1200px;
+
+      /* Partner Edition palette — this piece's own sub-identity */
+      --pe-green-dark: #0b3b2a;
+      --pe-green:      #14503a;
+      --pe-cream:      #f5f8f5;
+      --pe-rust-badge: #a8583a;
+      --pe-rust-panel: #f4e8de;
+      --pe-olive-badge:#8a6d1f;
+      --pe-tan-panel:  #f2ecdc;
+      --pe-mint:       #cfe3d5;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
+    .pe-wrap { max-width: 860px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── NAV (standard site nav) ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav__logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
+    .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); transition: filter 0.4s ease; }
+    .nav__logo-text { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; transition: color 0.4s ease; }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.22s ease; position: relative; }
+    .nav__links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.22s ease; }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__mobile-actions { display: flex; align-items: center; gap: 0.6rem; }
+    .nav__icons { display: none; align-items: center; gap: 0.5rem; }
+    .nav__icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--white); opacity: 0.9; border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; transition: opacity 0.22s ease, color 0.4s ease, border-color 0.4s ease, background 0.22s ease; }
+    .nav__icon:hover { opacity: 1; background: rgba(255,255,255,0.07); }
+    .nav__icon svg { width: 21px; height: 21px; }
+    .nav__ham { display: none; flex-direction: column; gap: 5px; width: 26px; cursor: pointer; padding: 2px; }
+    .nav__ham span { display: block; width: 100%; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .nav__ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__ham.open span:nth-child(2) { opacity: 0; }
+    .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
+    .nav.scrolled .nav__logo img { filter: none; }
+    .nav.scrolled .nav__logo-text { color: var(--black); }
+    .nav.scrolled .nav__links a { color: var(--grey); }
+    .nav.scrolled .nav__links a:hover { color: var(--black); }
+    .nav.scrolled .nav__ham span { background: var(--black); }
+    .nav.scrolled .nav__icon { color: var(--black); border-color: rgba(0,0,0,0.15); }
+    .nav.scrolled .nav__icon:hover { background: rgba(0,0,0,0.04); }
+    .nav__mobile { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; padding: 6rem 2.5rem 3rem; flex-direction: column; gap: 0; }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--white); display: block; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s ease; }
+    .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── PARTNER EDITION HERO ── */
+    .pe-hero { background: var(--pe-green-dark); position: relative; overflow: hidden; padding-top: 2.5rem; }
+    .pe-hero::after {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 900px 600px at 78% 15%, rgba(255,255,255,0.10), transparent 60%);
+      pointer-events: none;
+    }
+    .pe-hero__topbar { border-top: 1px solid var(--gold); padding: 0.85rem 0; display: flex; align-items: center; justify-content: space-between; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.55); position: relative; z-index: 1; }
+    .pe-hero__topbar span:first-child { color: var(--gold); }
+    .pe-hero__body { padding: 3.5rem 0 3rem; position: relative; z-index: 1; }
+    .pe-hero__by { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.5rem; }
+    .pe-hero__by-icon { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.35); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: rgba(255,255,255,0.8); }
+    .pe-hero__by-icon svg { width: 17px; height: 17px; }
+    .pe-hero__by-eyebrow { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 0.15rem; }
+    .pe-hero__by-name { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); }
+    .pe-hero__badge { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(255,255,255,0.3); padding: 0.4rem 0.9rem; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 1.75rem; }
+    .pe-hero__badge::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+    .pe-hero__title { font-family: var(--serif); font-size: clamp(2.2rem, 4.5vw, 3.4rem); font-weight: 700; color: var(--white); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+    .pe-hero__subtitle { font-family: var(--serif); font-style: italic; font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.65); margin-bottom: 1.5rem; }
+    .pe-hero__desc { font-size: 0.92rem; line-height: 1.8; color: rgba(255,255,255,0.68); max-width: 620px; margin-bottom: 2.5rem; }
+    .pe-hero__meta { display: flex; gap: 3rem; flex-wrap: wrap; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.15); }
+    .pe-hero__meta-label { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 0.4rem; }
+    .pe-hero__meta-val { font-size: 0.85rem; color: rgba(255,255,255,0.85); font-weight: 500; }
+
+    /* ── PARTNER INTRO BAR ── */
+    .pe-partner-bar { background: var(--white); border-bottom: 1px solid var(--grey-border); padding: 1.75rem 0; }
+    .pe-partner-bar__inner { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .pe-partner-bar__left { display: flex; align-items: center; gap: 1rem; }
+    .pe-partner-bar__icon { width: 44px; height: 44px; border: 1px solid var(--grey-border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--pe-green); }
+    .pe-partner-bar__icon svg { width: 21px; height: 21px; }
+    .pe-partner-bar__name { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.2rem; }
+    .pe-partner-bar__desc { font-size: 0.8rem; color: var(--grey); line-height: 1.55; max-width: 480px; }
+    .pe-partner-bar__btn { flex-shrink: 0; padding: 0.75rem 1.4rem; border: 1px solid var(--black); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; white-space: nowrap; transition: all 0.2s ease; }
+    .pe-partner-bar__btn:hover { background: var(--black); color: var(--white); }
+
+    /* ── PE CONTENT ── */
+    .pe-section { padding: 4rem 0; }
+    .pe-section--cream { background: var(--pe-cream); }
+    .pe-section--white { background: var(--white); }
+    .pe-intro-quote { font-family: var(--serif); font-style: italic; font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.7; color: var(--grey-dark); }
+    .pe-intro-quote .pe-dropcap { float: left; font-family: var(--serif); font-style: normal; font-weight: 700; font-size: 4.2rem; line-height: 0.8; color: var(--gold); margin: 0.1rem 0.6rem 0 0; }
+
+    .pe-sec-head { display: flex; align-items: flex-start; gap: 1.1rem; margin-bottom: 1rem; }
+    .pe-sec-num { font-family: var(--mono); font-size: 0.75rem; font-weight: 700; color: var(--pe-green); border: 1px solid var(--gold); padding: 0.25rem 0.6rem; flex-shrink: 0; margin-top: 0.35rem; }
+    .pe-sec-head h2 { font-family: var(--serif); font-size: clamp(1.4rem, 2.4vw, 1.9rem); font-weight: 700; color: var(--pe-green); letter-spacing: -0.01em; margin-bottom: 0.4rem; }
+    .pe-sec-head p { font-size: 0.85rem; color: var(--grey); line-height: 1.6; }
+    .pe-divider { border: none; border-top: 1px solid var(--grey-border); margin: 1.5rem 0 2rem; }
+    .pe-body p { font-size: 0.9rem; line-height: 1.85; color: var(--grey-dark); margin-bottom: 1.25rem; }
+    .pe-body p:last-child { margin-bottom: 0; }
+    .pe-body strong { color: var(--black); font-weight: 600; }
+    .pe-body h4 { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); margin: 2rem 0 0.85rem; }
+
+    .pe-callout { background: var(--white); border: 1px solid var(--grey-border); padding: 1.5rem 1.75rem; margin: 1.75rem 0; }
+    .pe-section--cream .pe-callout { background: var(--white); }
+    .pe-callout__label { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+    .pe-callout__list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .pe-callout__list li { display: flex; align-items: center; gap: 0.7rem; font-size: 0.85rem; color: var(--grey-dark); }
+    .pe-callout__list li svg { width: 16px; height: 16px; color: var(--pe-green); flex-shrink: 0; }
+
+    .pe-checklist { background: var(--white); border: 1px solid var(--grey-border); margin: 1.75rem 0; }
+    .pe-checklist__label { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); padding: 1.1rem 1.5rem; }
+    .pe-checklist__row { display: flex; align-items: center; gap: 1rem; padding: 0.85rem 1.5rem; border-top: 1px dashed var(--grey-border); font-size: 0.85rem; color: var(--grey-dark); }
+    .pe-checklist__num { font-family: var(--mono); font-size: 0.68rem; color: var(--grey-mid); flex-shrink: 0; width: 18px; }
+
+    .pe-scheme-cards { display: flex; flex-direction: column; gap: 0; margin-top: 1.5rem; }
+    .pe-scheme-card { border-top: 3px solid var(--gold); border-bottom: 1px solid var(--grey-border); padding: 1.5rem 0; }
+    .pe-scheme-card:first-child { border-top: 3px solid var(--gold); }
+    .pe-scheme-card__label { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .pe-scheme-card__title { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.5rem; }
+    .pe-scheme-card__desc { font-size: 0.85rem; color: var(--grey); line-height: 1.65; margin-bottom: 0.75rem; }
+    .pe-scheme-card__link { font-size: 0.8rem; color: var(--pe-green); text-decoration: underline; font-weight: 600; }
+
+    .pe-steps { display: flex; flex-direction: column; gap: 0; margin-top: 0.5rem; }
+    .pe-step { display: grid; grid-template-columns: 3rem 1fr; gap: 1.25rem; padding: 1.5rem 0; border-bottom: 1px solid var(--grey-border); }
+    .pe-step:first-child { border-top: 1px solid var(--grey-border); }
+    .pe-step__num { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .pe-step__title { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--black); margin-bottom: 0.4rem; }
+    .pe-step__desc { font-size: 0.85rem; color: var(--grey); line-height: 1.7; }
+
+    .pe-fork { text-align: center; padding: 2.5rem 0 1.5rem; }
+    .pe-fork__eyebrow { font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 0.75rem; }
+    .pe-fork__title { font-family: var(--serif); font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 700; color: var(--pe-green); margin-bottom: 1.75rem; }
+    .pe-fork__svg { margin: 0 auto; display: block; }
+    .pe-fork__labels { display: flex; justify-content: space-between; max-width: 260px; margin: 0.5rem auto 0; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-mid); }
+    .pe-fork__house { display: flex; justify-content: center; padding: 1.5rem 0; color: var(--gold); }
+    .pe-fork__house svg { width: 34px; height: 34px; }
+    .pe-fork--merge { padding-top: 1.5rem; }
+
+    .pe-panel { padding: 3rem 0; }
+    .pe-panel--rust { background: var(--pe-rust-panel); border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .pe-panel--tan { background: var(--pe-tan-panel); border-bottom: 1px solid rgba(0,0,0,0.06); }
+    .pe-panel__head { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.75rem; }
+    .pe-panel__badge { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--white); padding: 0.35rem 0.75rem; flex-shrink: 0; }
+    .pe-panel--rust .pe-panel__badge { background: var(--pe-rust-badge); }
+    .pe-panel--tan .pe-panel__badge { background: var(--pe-olive-badge); }
+    .pe-panel__head h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--black); }
+    .pe-panel__sub { font-family: var(--mono); font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dark); margin: 1.5rem 0 0.6rem; }
+    .pe-panel p { font-size: 0.87rem; line-height: 1.8; color: var(--grey-dark); margin-bottom: 1rem; }
+    .pe-panel p:last-child { margin-bottom: 0; }
+
+    .pe-closing-quote { font-style: italic; }
+
+    .pe-dark { background: var(--pe-green-dark); padding: 4rem 0; }
+    .pe-dark__quote { font-family: var(--serif); font-style: italic; font-size: clamp(1.15rem, 2.2vw, 1.5rem); line-height: 1.65; color: rgba(255,255,255,0.92); margin-bottom: 2rem; }
+    .pe-dark__row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; padding-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.15); }
+    .pe-dark__name { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--white); margin-bottom: 0.2rem; }
+    .pe-dark__meta { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.05em; color: rgba(255,255,255,0.45); }
+    .pe-dark__btn { flex-shrink: 0; padding: 0.85rem 1.6rem; background: var(--pe-mint); color: var(--pe-green-dark); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s ease; }
+    .pe-dark__btn:hover { background: var(--white); }
+
+    .pe-colophon { background: var(--black); padding: 1.25rem 0; text-align: center; }
+    .pe-colophon p { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+
+    /* ── FOOTER (standard) ── */
+    .footer { background: var(--black); padding: 4.5rem 0 0; }
+    .footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer__logo { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+    .footer__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); opacity: 0.7; }
+    .footer__logo-name { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--white); }
+    .footer__logo-sub { font-size: 0.6rem; color: rgba(255,255,255,0.3); margin-top: 0.1rem; }
+    .footer__tagline { font-size: 0.8rem; line-height: 1.65; color: rgba(255,255,255,0.38); margin-bottom: 1.5rem; }
+    .footer__contact { font-style: normal; font-size: 0.78rem; line-height: 1.8; color: rgba(255,255,255,0.38); margin-bottom: 1.25rem; }
+    .footer__contact strong { color: rgba(255,255,255,0.72); display: block; margin-bottom: 0.1rem; }
+    .footer__contact a { transition: color 0.2s ease; }
+    .footer__contact a:hover { color: var(--white); }
+    .footer__socials { display: flex; gap: 0.5rem; }
+    .footer__soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: all 0.2s ease; }
+    .footer__soc:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .footer__soc svg { width: 13px; height: 13px; }
+    .footer__col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer__col a { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.2s ease; }
+    .footer__col a:hover { color: var(--white); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer__copy { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
+    .footer__legal { display: flex; gap: 1.5rem; }
+    .footer__legal a { font-size: 0.68rem; color: rgba(255,255,255,0.22); transition: color 0.2s ease; }
+    .footer__legal a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── COOKIE BAR ── */
+    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+    .cookie-bar.hidden { display: none; }
+    .cookie-bar a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-bar__accept { padding: 0.5rem 1.25rem; background: var(--white); color: var(--black); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s ease; }
+    .cookie-bar__accept:hover { background: var(--grey-bg); }
+    .cookie-bar__settings { padding: 0.5rem 1.25rem; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; background: none; transition: all 0.2s ease; }
+    .cookie-bar__settings:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .footer__brand { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
+      .wrap, .pe-wrap { padding: 0 1.25rem; }
+      .nav__links { display: none; }
+      .nav__icons { display: flex; }
+      .nav__ham { display: flex; box-sizing: content-box; padding: 12px; margin: -12px; }
+      .nav__ham span { height: 2px; }
+      .nav { padding: 0.5rem 0; }
+      .nav__logo img { height: 72px; }
+      .nav__logo-text { display: none; }
+      .nav.scrolled { padding: 0.4rem 0; background: rgba(255,255,255,0.86); box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__brand { grid-column: span 1; }
+      .cookie-bar { flex-direction: column; align-items: flex-start; }
+      .pe-hero { padding-top: 5.5rem; }
+      .pe-step { grid-template-columns: 2.25rem 1fr; }
+      .pe-intro-quote .pe-dropcap { font-size: 3.2rem; }
+    }
+    @media (max-width: 480px) {
+      .footer__bottom { flex-direction: column; text-align: center; }
+      .pe-hero__meta { gap: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="FTBB — Home">
+        <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" />
+        <span class="nav__logo-text">FTBB</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="/#news">News</a></li>
+        <li><a href="/#guide">Buyer Guide</a></li>
+        <li><a href="/partners">Partners</a></li>
+        <li><a href="/advertise">Advertise</a></li>
+        <li><a href="/media-kit">Media Kit</a></li>
+      </ul>
+      <div class="nav__mobile-actions">
+        <div class="nav__icons">
+          <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="mailto:info@ftbb.ie" class="nav__icon" aria-label="Email FTBB">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+        </div>
+        <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+  <a href="/">Home</a>
+  <a href="/#news">News</a>
+  <a href="/#guide">Buyer Guide</a>
+  <a href="/partners">Partners</a>
+  <a href="/advertise">Advertise</a>
+  <a href="/media-kit">Media Kit</a>
+</div>
+
+
+<!-- ═══ PARTNER EDITION HERO ═══ -->
+<section class="pe-hero" aria-labelledby="pe-title">
+  <div class="pe-wrap">
+    <div class="pe-hero__topbar">
+      <span>FTBB · Partner Edition</span>
+      <span>File No. FTBB-CGG-01</span>
+    </div>
+    <div class="pe-hero__body">
+      <div class="pe-hero__by">
+        <div class="pe-hero__by-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 6L5 9M12 6l7 3M5 9l-2 5a3.5 3.5 0 007 0l-2-5M19 9l-2 5a3.5 3.5 0 007 0l-2-5M12 19h0M12 9v10"/></svg>
+        </div>
+        <div>
+          <p class="pe-hero__by-eyebrow">An FTBB Partner Edition with</p>
+          <p class="pe-hero__by-name">C.G. Gilmartin &amp; Co Solicitors</p>
+        </div>
+      </div>
+      <p class="pe-hero__badge">Standalone Issue</p>
+      <h1 class="pe-hero__title" id="pe-title">The Case File</h1>
+      <p class="pe-hero__subtitle">on buying your first home</p>
+      <p class="pe-hero__desc">A room-by-room walkthrough of the legal journey behind a property purchase — from your first mortgage document to the day the keys land in your hand. Produced in partnership with C.G. Gilmartin &amp; Co Solicitors.</p>
+      <div class="pe-hero__meta">
+        <div>
+          <p class="pe-hero__meta-label">Prepared With</p>
+          <p class="pe-hero__meta-val">C.G. Gilmartin &amp; Co</p>
+        </div>
+        <div>
+          <p class="pe-hero__meta-label">Practice Area</p>
+          <p class="pe-hero__meta-val">Residential Property</p>
+        </div>
+        <div>
+          <p class="pe-hero__meta-label">Reading Time</p>
+          <p class="pe-hero__meta-val">14 minutes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ PARTNER INTRO BAR ═══ -->
+<section class="pe-partner-bar" aria-label="About the partner">
+  <div class="pe-wrap">
+    <div class="pe-partner-bar__inner">
+      <div class="pe-partner-bar__left">
+        <div class="pe-partner-bar__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 6L5 9M12 6l7 3M5 9l-2 5a3.5 3.5 0 007 0l-2-5M19 9l-2 5a3.5 3.5 0 007 0l-2-5M12 19h0M12 9v10"/></svg>
+        </div>
+        <div>
+          <p class="pe-partner-bar__name">C.G. Gilmartin &amp; Co Solicitors</p>
+          <p class="pe-partner-bar__desc">A general practice law firm based in Clontarf, Dublin 3, providing legal services across Ireland — with a particular focus on residential property.</p>
+        </div>
+      </div>
+      <a href="https://cggilmartin.ie/" target="_blank" rel="noopener noreferrer" class="pe-partner-bar__btn">Visit cggilmartin.ie →</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ INTRO QUOTE ═══ -->
+<section class="pe-section pe-section--cream" aria-label="Introduction">
+  <div class="pe-wrap">
+    <p class="pe-intro-quote"><span class="pe-dropcap">W</span>hether you're considering a new build or a property on the second-hand market, buying your first home comes with a sequence of practicalities that rarely gets explained end to end. This is that sequence — the finance, the offer, the contracts, and everything after — set out step by step by the solicitors who handle it every day.</p>
+  </div>
+</section>
+
+
+<!-- ═══ 01 FINANCE ═══ -->
+<section class="pe-section pe-section--cream" aria-labelledby="pe-sec-01">
+  <div class="pe-wrap">
+    <div class="pe-sec-head">
+      <span class="pe-sec-num">01</span>
+      <div>
+        <h2 id="pe-sec-01">Finance</h2>
+        <p>The first decision is how you'll pay for the property — cash, or a residential mortgage. Most buyers take the mortgage route, so here's what that involves.</p>
+      </div>
+    </div>
+    <hr class="pe-divider" />
+    <div class="pe-body">
+      <p>If you're proceeding by mortgage, you'll engage a broker or approach a lender directly. Either way, you'll be asked for a standard set of documents — and if you already bank with the lender in question, the process is usually more streamlined, since they can pull your account history without you having to order fresh statements.</p>
+
+      <div class="pe-callout">
+        <p class="pe-callout__label">What Your Lender Will Ask For</p>
+        <ul class="pe-callout__list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 9h20"/></svg> ID — passport or driver's licence</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M8 2v4M16 2v4M3 10h18"/></svg> Bank statements, usually 6 months</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4.5 8-11.8A8 8 0 004 10.2C4 17.5 12 22 12 22z"/></svg> Proof of address</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg> Salary certs, usually 3 months</li>
+        </ul>
+      </div>
+
+      <p>As part of the application, you'll consent to an ICB check, allowing the bank to review your credit history with the Irish Credit Bureau. Once everything is submitted and assessed, your lender may issue an <strong>Approval in Principle (AIP)</strong> — an indicative figure that selling agents will often ask to see before you enter a bidding process.</p>
+
+      <h4>Government schemes worth exploring</h4>
+    </div>
+
+    <div class="pe-scheme-cards">
+      <div class="pe-scheme-card">
+        <p class="pe-scheme-card__label">Deposit Support</p>
+        <p class="pe-scheme-card__title">Help to Buy Scheme</p>
+        <p class="pe-scheme-card__desc">A tax rebate of up to 10% of the purchase price (max €30,000) toward your deposit on a new build or self-build, up to €500,000. Requires first-time buyer status, minimum 70% LTV, and 5 years as your primary residence.</p>
+        <a class="pe-scheme-card__link" href="https://revenue.ie" target="_blank" rel="noopener noreferrer">revenue.ie →</a>
+      </div>
+      <div class="pe-scheme-card">
+        <p class="pe-scheme-card__label">Shared Equity</p>
+        <p class="pe-scheme-card__title">First Home Scheme</p>
+        <p class="pe-scheme-card__desc">Bridges the gap between your deposit, mortgage and price on a new build. Government can contribute up to 30% of value (20% if combined with Help to Buy). No repayments on their share for 5 years.</p>
+        <a class="pe-scheme-card__link" href="https://firsthomescheme.ie" target="_blank" rel="noopener noreferrer">firsthomescheme.ie →</a>
+      </div>
+      <div class="pe-scheme-card">
+        <p class="pe-scheme-card__label">Local Authority</p>
+        <p class="pe-scheme-card__title">Local Authority Home Loan</p>
+        <p class="pe-scheme-card__desc">A government-backed mortgage available through local authorities, for new-build, second-hand, and self-build properties.</p>
+        <a class="pe-scheme-card__link" href="https://localauthorityhomeloan.ie" target="_blank" rel="noopener noreferrer">localauthorityhomeloan.ie →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 02 CHOOSE YOUR PROPERTY ═══ -->
+<section class="pe-section pe-section--white" aria-labelledby="pe-sec-02">
+  <div class="pe-wrap">
+    <div class="pe-sec-head">
+      <span class="pe-sec-num">02</span>
+      <div>
+        <h2 id="pe-sec-02">Choose Your Property</h2>
+        <p>Once you've identified the property, you'll liaise with the selling agent to place an offer — but in a competitive market, it pays to know your ceiling before you bid.</p>
+      </div>
+    </div>
+    <hr class="pe-divider" />
+    <div class="pe-body">
+      <p>It's easy to form an attachment to a property mid-bid. Before that happens, weigh up the full cost of purchase against the price on the listing:</p>
+    </div>
+
+    <div class="pe-checklist">
+      <p class="pe-checklist__label">Costs to Weigh Before You Set Your Ceiling</p>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">01</span> Purchase price</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">02</span> Surveyor fees</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">03</span> Property valuation fees (if mortgaged)</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">04</span> Searches</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">05</span> Local Property Tax</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">06</span> Service charges (if applicable)</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">07</span> Stamp duty</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">08</span> Registration fees</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">09</span> Solicitors fees</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">10</span> Renovation works</div>
+      <div class="pe-checklist__row"><span class="pe-checklist__num">11</span> Furniture and sundries</div>
+    </div>
+
+    <div class="pe-body">
+      <h4>If you're buying new</h4>
+      <p>Search portals like Daft.ie or MyHome.ie, and search "new developments [your area]" — many developers run dedicated sites for their schemes. Look into the developer's previous projects and any reviews, and register for email alerts on new phases or releases.</p>
+      <p><strong>Visit the show home</strong> to get a feel for layout and finish, and ask specifically what's included in the price versus what counts as an extra. Developers also release homes in <strong>phases</strong>, each with an estimated completion date that's frequently subject to revision — and if the home isn't built yet, you're buying "off plans," so request the site plans, floor plans and specifications, and treat marketing measurements as indicative rather than final.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 03 MAKING AN OFFER ═══ -->
+<section class="pe-section pe-section--cream" aria-labelledby="pe-sec-03">
+  <div class="pe-wrap">
+    <div class="pe-sec-head">
+      <span class="pe-sec-num">03</span>
+      <div>
+        <h2 id="pe-sec-03">Making an Offer &amp; Securing the Property</h2>
+        <p>From an accepted offer to a signed contract, four things need to happen in sequence.</p>
+      </div>
+    </div>
+    <hr class="pe-divider" />
+
+    <div class="pe-steps">
+      <div class="pe-step">
+        <span class="pe-step__num">01</span>
+        <div>
+          <p class="pe-step__title">Offer and booking deposit</p>
+          <p class="pe-step__desc">Once your offer is accepted, you'll typically pay a non-refundable booking deposit — up to €10,000 — to secure the property at the agreed price until contracts are signed. Once paid, the property is considered "sale agreed."</p>
+        </div>
+      </div>
+      <div class="pe-step">
+        <span class="pe-step__num">02</span>
+        <div>
+          <p class="pe-step__title">Appointing a solicitor</p>
+          <p class="pe-step__desc">The sales agent will request your solicitor's details in order to generate the Sales Advice Note, which the vendor's solicitor uses to issue contracts.</p>
+        </div>
+      </div>
+      <div class="pe-step">
+        <span class="pe-step__num">03</span>
+        <div>
+          <p class="pe-step__title">Loan approval (full offer)</p>
+          <p class="pe-step__desc">Your lender arranges a valuation of the property to confirm its value aligns with the mortgage amount — this report must be no more than four months old at drawdown. Once complete, a formal loan offer and loan pack issues to you and your solicitor.</p>
+        </div>
+      </div>
+      <div class="pe-step">
+        <span class="pe-step__num">04</span>
+        <div>
+          <p class="pe-step__title">Planning enquiries</p>
+          <p class="pe-step__desc">Your solicitor carries out planning searches, surfacing everything on the local authority's planning file for the property, future phases of its development, surrounding developments, and local authority works.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="pe-fork">
+      <p class="pe-fork__eyebrow">Where the Road Splits</p>
+      <h3 class="pe-fork__title">From here, the path depends on what you're buying</h3>
+      <svg class="pe-fork__svg" width="260" height="90" viewBox="0 0 260 90" fill="none" aria-hidden="true">
+        <circle cx="130" cy="6" r="4" fill="var(--pe-green)"/>
+        <path d="M130 10 Q130 45 40 45 Q15 45 15 78" stroke="var(--pe-rust-badge)" stroke-width="2" fill="none"/>
+        <path d="M130 10 Q130 45 220 45 Q245 45 245 78" stroke="var(--pe-olive-badge)" stroke-width="2" fill="none"/>
+        <circle cx="15" cy="80" r="4" fill="var(--pe-rust-badge)"/>
+        <circle cx="245" cy="80" r="4" fill="var(--pe-olive-badge)"/>
+      </svg>
+      <div class="pe-fork__labels">
+        <span>Second-Hand</span>
+        <span>New Build</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pe-fork__house"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/></svg></div>
+
+  <div class="pe-panel pe-panel--rust">
+    <div class="pe-wrap">
+      <div class="pe-panel__head">
+        <span class="pe-panel__badge">Second-Hand</span>
+        <h3>Buying an existing home</h3>
+      </div>
+      <p class="pe-panel__sub">Contract for Sale</p>
+      <p>Your solicitor examines the contracts and title deeds to confirm the vendor has good marketable title, and checks for unreasonable special conditions. They'll also negotiate in any conditions you need — for example, making the contract conditional on you securing mortgage approval.</p>
+      <p>Your surveyor should walk through the property to flag defects, from cosmetic issues to damp or water ingress, and pass that report to your solicitor early enough to raise queries — boundary lines, undisclosed works — before contracts are exchanged.</p>
+      <p>Once you're satisfied, you'll sign contracts and the mortgage documents, and your solicitor returns them with the balance deposit (usually 10% of the price, less the booking deposit already paid). Once the vendor countersigns and the deposit is accepted, you're in a binding agreement with an equitable interest in the property — worth insuring from this date.</p>
+      <p class="pe-panel__sub">Completion</p>
+      <p>The closing date in the contract is indicative rather than guaranteed. Your solicitor will send a completion statement setting out the balance funds needed — purchase price less mortgage, stamp duty, registration fees, third-party outlays and their own fees — all required before they can complete.</p>
+      <p>Loan drawdown is usually requested 2–3 days ahead of closing, and that drawdown date is what triggers your first mortgage repayment, depending on your lender's repayment mandate date.</p>
+    </div>
+  </div>
+
+  <div class="pe-panel pe-panel--tan">
+    <div class="pe-wrap">
+      <div class="pe-panel__head">
+        <span class="pe-panel__badge">New Build</span>
+        <h3>Buying off plans or newly built</h3>
+      </div>
+      <p class="pe-panel__sub">Contracts for Sale</p>
+      <p>New build conveyancing runs on tighter deadlines — typically 21–28 days from reservation to exchange. If you've agreed an extension with the developer, flag it to your solicitor early so everyone's aligned. The contract usually issues as a Combined Building Agreement / Contract for Sale, covering both the site and the construction of the house on it.</p>
+      <p>You'll usually pay the remaining balance of your 10% deposit on signing (the booking deposit counts toward this), and many developer-side solicitors are instructed to accept Help to Buy funds toward that deposit. Once exchanged, you're legally bound — unless your solicitor has built in a loan approval clause allowing you to walk away, deposit returned, if mortgage approval or lender conditions can't be met.</p>
+      <p class="pe-panel__sub">Construction, Snagging &amp; Completion</p>
+      <p>The developer provides an estimated completion date — material shortages and weather can shift it. Once notified the property is ready, you typically have 7–14 days for a professional snag list survey (the exact window is set in the Building Agreement).</p>
+      <p>Your surveyor's walkthrough should catch everything from scratched windows to damp or water ingress. Miss the window, and you're obliged to close regardless of any defects found later — so a thorough snag list matters more than the developer's obligation to fix issues after the fact.</p>
+      <p>As with second-hand purchases, your solicitor will issue a completion statement and coordinate loan drawdown 2–3 days ahead of the closing date.</p>
+    </div>
+  </div>
+
+  <div class="pe-fork pe-fork--merge">
+    <svg width="200" height="70" viewBox="0 0 200 70" fill="none" aria-hidden="true">
+      <path d="M15 5 Q15 40 100 40 Q100 40 100 40" stroke="var(--pe-rust-badge)" stroke-width="2" fill="none"/>
+      <path d="M185 5 Q185 40 100 40 Q100 40 100 40" stroke="var(--pe-olive-badge)" stroke-width="2" fill="none"/>
+      <circle cx="15" cy="4" r="4" fill="var(--pe-rust-badge)"/>
+      <circle cx="185" cy="4" r="4" fill="var(--pe-olive-badge)"/>
+      <circle cx="100" cy="42" r="4" fill="var(--pe-green)"/>
+    </svg>
+    <p class="pe-fork__eyebrow" style="margin-top:0.5rem;">Both Paths Meet Again Here</p>
+  </div>
+</section>
+
+
+<!-- ═══ 04 CLOSING ═══ -->
+<section class="pe-section pe-section--white" aria-labelledby="pe-sec-04">
+  <div class="pe-wrap">
+    <div class="pe-sec-head">
+      <span class="pe-sec-num">04</span>
+      <div>
+        <h2 id="pe-sec-04">Closing</h2>
+        <p>The final exchange — funds, documents, and keys.</p>
+      </div>
+    </div>
+    <hr class="pe-divider" />
+    <div class="pe-body">
+      <p>Once your solicitor has the loan monies and your balance completion funds, they'll transfer the purchase price — plus any LPT or service charge apportionments — to the vendor's solicitor in trust. In return, the completion documents move to your solicitor, pending completion.</p>
+      <p>A final inspection is usually arranged the day before or day of closing, confirming nothing's changed since your viewing and that the property is vacant and in good order. From there, your solicitor raises closing searches against the vendor, you, and the property itself — third-party checks confirming the vendor isn't bankrupt or insolvent, and that no judgments or undisclosed mortgages sit against the property. A further planning search may also run at this point.</p>
+      <p>Once those searches come back clear, your solicitor confirms the sale is complete, funds release to the vendor, and the vendor's solicitor confirms keys can be released to you.</p>
+      <p class="pe-closing-quote">Congratulations — you've just purchased a property.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ 05 POST-COMPLETION ═══ -->
+<section class="pe-section pe-section--cream" aria-labelledby="pe-sec-05">
+  <div class="pe-wrap">
+    <div class="pe-sec-head">
+      <span class="pe-sec-num">05</span>
+      <div>
+        <h2 id="pe-sec-05">Post-Completion</h2>
+        <p>The paperwork doesn't quite end at the keys. Three things still need to happen behind the scenes.</p>
+      </div>
+    </div>
+    <hr class="pe-divider" />
+
+    <div class="pe-checklist" style="margin-top:0;">
+      <div class="pe-checklist__row" style="border-top:none; flex-direction:column; align-items:flex-start; gap:0.4rem; padding-top:1.25rem;">
+        <span class="pe-callout__label" style="margin:0;">Tax</span>
+        <p style="font-family:var(--serif); font-weight:700; font-size:1rem; color:var(--black);">Stamp Duty</p>
+        <p style="color:var(--grey);">Currently 1% of the purchase price up to €1m, 2% between €1m–€1.5m, and 6% above that, on residential property under an acre. Revenue allows 44 days to file the return before interest and penalties apply — your solicitor pays it online and receives a stamp certificate confirming payment.</p>
+      </div>
+      <div class="pe-checklist__row" style="flex-direction:column; align-items:flex-start; gap:0.4rem; padding-top:1.25rem;">
+        <span class="pe-callout__label" style="margin:0;">Land Registry</span>
+        <p style="font-family:var(--serif); font-weight:700; font-size:1rem; color:var(--black);">Registration</p>
+        <p style="color:var(--grey);">Your solicitor registers your ownership, mortgage and any other charges, rights of way or easements with Tailte Éireann once your deed is stamped. Timelines vary depending on whether the property is already registered or subject to First Registration.</p>
+      </div>
+      <div class="pe-checklist__row" style="flex-direction:column; align-items:flex-start; gap:0.4rem; padding-top:1.25rem; padding-bottom:1.5rem;">
+        <span class="pe-callout__label" style="margin:0;">Safekeeping</span>
+        <p style="font-family:var(--serif); font-weight:700; font-size:1rem; color:var(--black);">Your Deeds</p>
+        <p style="color:var(--grey);">Cash purchasers arrange safekeeping directly. Mortgaged purchasers have their deeds and Certificate of Title held by the lender until the mortgage is repaid — or your solicitor can apply to take them up on Accountable Trust Receipt (typically €63–150 in lender admin fees).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ CLOSING QUOTE ═══ -->
+<section class="pe-dark" aria-label="From C.G. Gilmartin & Co Solicitors">
+  <div class="pe-wrap">
+    <p class="pe-dark__quote">"We know that purchasing a property is one of the largest single financial transactions you will ever be engaged in — and that this can be a stressful and emotional process. That's why we believe in clear, consistent communication with our clients throughout, keeping you appraised of your purchase at every stage."</p>
+    <div class="pe-dark__row">
+      <div>
+        <p class="pe-dark__name">C.G. Gilmartin &amp; Co Solicitors</p>
+        <p class="pe-dark__meta">Clontarf, Dublin 3 · Residential Property</p>
+      </div>
+      <a href="https://cggilmartin.ie/" target="_blank" rel="noopener noreferrer" class="pe-dark__btn">Get in Touch →</a>
+    </div>
+  </div>
+</section>
+
+<div class="pe-colophon">
+  <p>FTBB Partner Edition — Produced with C.G. Gilmartin &amp; Co Solicitors · cggilmartin.ie</p>
+</div>
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="FTBB — Home">
+          <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" loading="lazy" />
+          <div>
+            <div class="footer__logo-name">First Time Buyer's Bible</div>
+            <div class="footer__logo-sub">Ireland's Buyer Resource Hub</div>
+          </div>
+        </a>
+        <p class="footer__tagline">Helping Irish first-time buyers navigate mortgages, grants, legal process and property purchase since 2024.</p>
+        <address class="footer__contact">
+          <strong>Sarah Doyle O'Reilly</strong>
+          Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="text-decoration:underline;">info@ftbb.ie</a><br/>
+          57 Clontarf Road, Dublin 3<br/>
+          T: <a href="tel:+35318537360">01 8537360</a><br/>
+          <span style="display:block;margin-top:0.4rem;">Registered in Ireland since 2023</span>
+        </address>
+        <div class="footer__socials" aria-label="Social media links">
+          <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="mailto:info@ftbb.ie" class="footer__soc" aria-label="Email FTBB">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Mortgages</h4>
+        <ul role="list">
+          <li><a href="/#guide">Complete Mortgage Guide</a></li>
+          <li><a href="/#guide">Borrowing Capacity</a></li>
+          <li><a href="/#guide">Approval in Principle</a></li>
+          <li><a href="/#guide">Mortgage Brokers</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Grants &amp; Schemes</h4>
+        <ul role="list">
+          <li><a href="/#guide">Help to Buy Scheme</a></li>
+          <li><a href="/#guide">First Home Scheme</a></li>
+          <li><a href="/#insights">SEAI Energy Grants</a></li>
+          <li><a href="/#guide">Stamp Duty Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul role="list">
+          <li><a href="/buy">Read the FTBB Guide</a></li>
+          <li><a href="/partners">Our Partners</a></li>
+          <li><a href="/advertise">Advertise With FTBB</a></li>
+          <li><a href="/media-kit">Media Kit</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/cookies.html">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- COOKIE CONSENT -->
+<div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
+  <p>We use cookies to improve your experience on FTBB. By continuing, you agree to our <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="cookie-bar__actions">
+    <button class="cookie-bar__settings" id="cookie-settings" type="button">Cookie Settings</button>
+    <button class="cookie-bar__accept" id="cookie-accept" type="button">Accept All</button>
+  </div>
+</div>
+
+
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── MOBILE NAV ──
+  const ham = document.getElementById('nav-ham');
+  const mobileNav = document.getElementById('nav-mobile');
+  ham.addEventListener('click', () => {
+    const open = ham.classList.toggle('open');
+    mobileNav.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mobileNav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── COOKIE ──
+  (function() {
+    const bar = document.getElementById('cookie-bar');
+    if (!bar) return;
+    if (localStorage.getItem('ftbb_cookies_ok') === '1') { bar.classList.add('hidden'); return; }
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('ftbb_cookies_ok', '1');
+      bar.classList.add('hidden');
+    });
+    document.getElementById('cookie-settings').addEventListener('click', () => {
+      window.location.href = '/cookies.html';
+    });
+  })();
+</script>
+
+</body>
+</html>
