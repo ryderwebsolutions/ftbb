@@ -42,15 +42,18 @@
       width: min(87vw, 360px);
       transform: translateX(-140%);
       transition: transform 0.7s cubic-bezier(.16,1,.3,1);
+    }
+    .promo-bar.is-visible { transform: translateX(0); }
+    .promo-bar.is-hidden { display: none; }
+    .promo-bar__card {
+      position: relative;
       border-radius: 10px;
       padding: 1.5px;
       overflow: hidden;
       background: #0a0a0a;
       box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 2px 10px rgba(0,0,0,0.25);
     }
-    .promo-bar.is-visible { transform: translateX(0); }
-    .promo-bar.is-hidden { display: none; }
-    .promo-bar::before {
+    .promo-bar__card::before {
       content: ''; position: absolute; z-index: 0;
       width: 220%; height: 220%; top: 50%; left: 50%;
       background: conic-gradient(from 0deg, transparent 0%, transparent 84%, rgba(197,137,42,0.9) 90%, #fdf3e0 93%, rgba(197,137,42,0.9) 96%, transparent 100%);
@@ -191,17 +194,19 @@
 
 <!-- ═══ PROMO BAR ═══ -->
 <div class="promo-bar" id="promo-bar" role="region" aria-label="Exclusive partner feature">
-  <a href="/gilmartin-exclusive" class="promo-bar__link">
-    <span class="promo-bar__logo-chip">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 7h14M5 7L2 14a3 3 0 006 0L5 7z M19 7l-3 7a3 3 0 006 0l-3-7z M8 21h8"/></svg>
-    </span>
-    <span class="promo-bar__copy">
-      <span class="promo-bar__eyebrow">Exclusive</span>
-      <span class="promo-bar__title">C.G. Gilmartin &amp; Co Solicitors</span>
-      <span class="promo-bar__sub">Read their partner feature</span>
-    </span>
-    <svg class="promo-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-  </a>
+  <div class="promo-bar__card">
+    <a href="/gilmartin-exclusive" class="promo-bar__link">
+      <span class="promo-bar__logo-chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M5 7h14M5 7L2 14a3 3 0 006 0L5 7z M19 7l-3 7a3 3 0 006 0l-3-7z M8 21h8"/></svg>
+      </span>
+      <span class="promo-bar__copy">
+        <span class="promo-bar__eyebrow">Exclusive</span>
+        <span class="promo-bar__title">C.G. Gilmartin &amp; Co Solicitors</span>
+        <span class="promo-bar__sub">Read their partner feature</span>
+      </span>
+      <svg class="promo-bar__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
   <button class="promo-bar__close" id="promo-bar-close" type="button" aria-label="Dismiss">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
@@ -439,7 +444,7 @@
     const bar = document.getElementById('promo-bar');
     if (!bar) return;
     if (localStorage.getItem('ftbb_promo_gilmartin_dismissed') === '1') { bar.classList.add('is-hidden'); return; }
-    setTimeout(() => { bar.classList.add('is-visible'); }, 3000);
+    setTimeout(() => { bar.classList.add('is-visible'); }, 2000);
     document.getElementById('promo-bar-close').addEventListener('click', () => {
       bar.classList.remove('is-visible');
       localStorage.setItem('ftbb_promo_gilmartin_dismissed', '1');
