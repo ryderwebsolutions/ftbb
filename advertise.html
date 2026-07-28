@@ -669,11 +669,9 @@
   (function() {
     const bar = document.getElementById('promo-bar');
     if (!bar) return;
-    if (localStorage.getItem('ftbb_promo_gilmartin_dismissed') === '1') { bar.classList.add('is-hidden'); return; }
     setTimeout(() => { bar.classList.add('is-visible'); }, 2000);
     document.getElementById('promo-bar-close').addEventListener('click', () => {
       bar.classList.remove('is-visible');
-      localStorage.setItem('ftbb_promo_gilmartin_dismissed', '1');
       setTimeout(() => bar.classList.add('is-hidden'), 750);
     });
   })();
