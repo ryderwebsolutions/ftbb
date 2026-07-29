@@ -109,14 +109,35 @@
 
     .spread {
       position: relative; width: 100%; height: 100%; display: flex;
-      background: var(--white); border: 1px solid var(--grey-border); box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+      gap: clamp(8px, 1vw, 12px);
+      padding: clamp(8px, 1vw, 12px);
+      background: #f1f1f1;
+      border: 1px solid var(--grey-border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.14);
       overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none;
     }
     .spread:active { cursor: grabbing; }
-    .page-slot { position: relative; width: 50%; height: 100%; background: var(--white); overflow: hidden; }
-    .page-slot img { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    .page-slot {
+      position: relative;
+      flex: 1 1 0;
+      height: 100%;
+      background: var(--white);
+      border: 1px solid #ebebeb;
+      overflow: hidden;
+    }
+    .page-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      -webkit-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+      background: var(--white);
+    }
     .spine-shadow {
-      position: absolute; top: 0; bottom: 0; left: 50%; width: 46px; margin-left: -23px;
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 36px; margin-left: -18px;
       pointer-events: none; z-index: 6;
       background: linear-gradient(to right, rgba(0,0,0,0.12), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.12));
     }
@@ -205,7 +226,8 @@
       .reader__stage { gap: 0.6rem; }
       .reader__nav { width: 34px; height: 34px; min-width: 34px; font-size: 1.05rem; }
       .spread-frame { width: min(80vw, 340px); }
-      .spine-shadow { width: 24px; margin-left: -12px; }
+      .spread { gap: 6px; padding: 6px; }
+      .spine-shadow { width: 20px; margin-left: -10px; }
     }
     @media (max-width: 480px) {
       .footer__bottom { flex-direction: column; text-align: center; }
