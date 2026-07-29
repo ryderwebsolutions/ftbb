@@ -94,8 +94,8 @@
     /* ── READER (reused engine) ── */
     .reader { padding: 1.5rem 0 4rem; background: var(--grey-bg); }
     .reader__stage { display: flex; align-items: center; justify-content: center; gap: 1.75rem; }
-    .reader__nav { width: 44px; height: 44px; min-width: 44px; border: 1px solid var(--grey-border); background: var(--white); font-size: 1.3rem; color: var(--black); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
-    .reader__nav:hover:not(:disabled) { border-color: var(--black); }
+    .reader__nav { width: 44px; height: 44px; min-width: 44px; border: 1px solid rgba(0,0,0,0.25); background: transparent; font-size: 1.3rem; color: var(--black); text-shadow: 0 0 8px rgba(255,255,255,0.95), 0 0 2px rgba(255,255,255,0.95); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+    .reader__nav:hover:not(:disabled) { border-color: var(--black); background: rgba(255,255,255,0.12); }
     .reader__nav:disabled { opacity: 0.3; cursor: default; }
     .reader__nav:focus-visible, .jump__input:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
     .reader__hint { text-align: center; margin-top: 1rem; font-size: 0.7rem; color: var(--grey-mid); }
@@ -241,7 +241,7 @@
         height: 38px;
         min-width: 38px;
         font-size: 1.05rem;
-        background: rgba(255,255,255,0.95);
+        background: transparent;
       }
       #reader-prev { left: 4px; }
       #reader-next { right: 4px; }
