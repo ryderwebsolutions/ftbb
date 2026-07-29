@@ -161,6 +161,8 @@
       position: absolute; top: 0; right: 0; width: 50%; height: 100%; z-index: 7;
       display: none; cursor: pointer;
     }
+    .final-cta-overlay--left { left: 0; right: auto; }
+    .final-cta-overlay--right { right: 0; left: auto; }
     .final-cta-overlay:hover { background: rgba(207,227,213,0.08); }
 
     .reader__indicator { text-align: center; margin-top: 1.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
@@ -305,7 +307,7 @@
           <div class="page-slot page-slot--right"><img id="slot-right-img" alt="" /></div>
           <div class="spine-shadow" aria-hidden="true"></div>
 
-          <a href="/buy" class="final-cta-overlay" id="final-cta-overlay" aria-label="Continue to the Full FTBB Guide"></a>
+          <a href="https://ftbb.ie/buy" class="final-cta-overlay final-cta-overlay--right" id="final-cta-overlay" aria-label="Continue to the Full FTBB Guide"></a>
 
           <div class="flip-leaf flip-leaf--right" id="leaf-right" aria-hidden="true">
             <div class="flip-face flip-face--front"><img id="leaf-right-front" alt="" /></div>
@@ -452,8 +454,8 @@
   })();
 
   // ── READER ──
-  const TOTAL_PAGES = 19;
-  const TOTAL_VIEWS = 9; // view 0 = cover, views 1..9 = spreads (2v, 2v+1)
+  let TOTAL_PAGES = 19;
+  let TOTAL_VIEWS = 9; // view 0 = cover, views 1..n = spreads (2v, 2v+1)
   const FLIP_MS = 700;
 
   let view = 0;
@@ -478,9 +480,34 @@
 
   function pageSrc(n) { return './guide-pages-gilmartin/page-' + String(n).padStart(3, '0') + '.jpg'; }
 
+  function imageExists(src) {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => resolve(true);
+      img.onerror = () => resolve(false);
+      img.src = src;
+    });
+  }
+
+  async function detectTotalPages(maxPages = 200) {
+    let count = 0;
+    for (let n = 1; n <= maxPages; n += 1) {
+      // Split pages are expected to be contiguous from page-001 upward.
+      const exists = await imageExists(pageSrc(n));
+      if (!exists) break;
+      count = n;
+    }
+    return Math.max(1, count);
+  }
+
   function pagesForView(v) {
     if (v === 0) return { left: null, right: 1 };
-    return { left: 2 * v, right: 2 * v + 1 };
+    const left = 2 * v;
+    const right = 2 * v + 1;
+    return {
+      left: left <= TOTAL_PAGES ? left : null,
+      right: right <= TOTAL_PAGES ? right : null
+    };
   }
 
   function setImg(imgEl, pageNum) {
@@ -500,9 +527,19 @@
     const p = pagesForView(view);
     prevBtn.disabled = animating || view === 0;
     nextBtn.disabled = animating || view === TOTAL_VIEWS;
-    indicator.textContent = view === 0 ? 'Cover' : `Pages ${p.left}–${p.right} of ${TOTAL_PAGES}`;
+    if (view === 0) {
+      indicator.textContent = 'Cover';
+    } else if (p.left && p.right) {
+      indicator.textContent = `Pages ${p.left}-${p.right} of ${TOTAL_PAGES}`;
+    } else {
+      indicator.textContent = `Page ${p.left || p.right} of ${TOTAL_PAGES}`;
+    }
     jumpInput.value = p.left || 1;
-    finalCta.style.display = (!animating && view === TOTAL_VIEWS) ? 'block' : 'none';
+
+    const atEnd = !animating && view === TOTAL_VIEWS;
+    finalCta.style.display = atEnd ? 'block' : 'none';
+    finalCta.classList.toggle('final-cta-overlay--left', atEnd && p.left === TOTAL_PAGES);
+    finalCta.classList.toggle('final-cta-overlay--right', !atEnd || p.right === TOTAL_PAGES);
   }
 
   function renderInitial() {
@@ -608,7 +645,12 @@
   });
   spreadEl.addEventListener('pointercancel', () => { dragStartX = null; });
 
-  renderInitial();
+  (async function initReader() {
+    TOTAL_PAGES = await detectTotalPages();
+    TOTAL_VIEWS = Math.ceil((TOTAL_PAGES - 1) / 2);
+    jumpInput.max = String(TOTAL_PAGES);
+    renderInitial();
+  })();
 </script>
 
 </body>
