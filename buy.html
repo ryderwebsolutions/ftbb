@@ -275,7 +275,7 @@
 <body>
 
 <!-- ═══ PROMO BAR ═══ -->
-<div class="promo-bar" id="promo-bar" role="region" aria-label="Exclusive partner feature">
+<div class="promo-bar is-hidden" id="promo-bar" role="region" aria-label="Exclusive partner feature">
   <div class="promo-bar__glow">
     <a href="/gilmartin-exclusive" class="promo-bar__link" aria-label="The Buyer's Brief — an FTBB Partner Edition with C.G. Gilmartin &amp; Co Solicitors. Read here.">
       <img src="./logos/cgpromopanel-cropped.jpg" alt="The Buyer's Brief — FTBB Partner Edition with C.G. Gilmartin &amp; Co Solicitors" width="406" height="1821" />
@@ -584,11 +584,8 @@
   (function() {
     const bar = document.getElementById('promo-bar');
     if (!bar) return;
-    setTimeout(() => { bar.classList.add('is-visible'); }, 2000);
-    document.getElementById('promo-bar-close').addEventListener('click', () => {
-      bar.classList.remove('is-visible');
-      setTimeout(() => bar.classList.add('is-hidden'), 750);
-    });
+    bar.classList.remove('is-visible');
+    bar.classList.add('is-hidden');
   })();
 </script>
 
