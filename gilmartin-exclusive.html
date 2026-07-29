@@ -230,6 +230,7 @@
       .pe-header { padding-top: 5.5rem; }
     }
     @media (max-width: 600px) {
+      .reader { padding: 0.5rem 0 1.5rem; }
       .reader .wrap { padding: 0 0.25rem; }
       .reader__stage { position: relative; gap: 0; }
       .reader__nav {
@@ -245,7 +246,10 @@
       }
       #reader-prev { left: 4px; }
       #reader-next { right: 4px; }
-      .spread-frame { width: min(96vw, calc(96dvh / 1.4142)); }
+      .spread-frame {
+        width: min(100vw, calc(100dvh * 0.7071));
+        aspect-ratio: 0.7071;
+      }
       .spread-frame::before { transform: translate(4px, 5px); }
       .spread-frame::after { transform: translate(7px, 9px); }
       .spread { display: block; padding: 0; }
