@@ -230,10 +230,25 @@
       .pe-header { padding-top: 5.5rem; }
     }
     @media (max-width: 600px) {
-      .reader__stage { gap: 0.6rem; }
-      .reader__nav { width: 34px; height: 34px; min-width: 34px; font-size: 1.05rem; }
-      .spread-frame { width: min(98vw, calc(82vh * 1.4142)); }
-      .spread { gap: 6px; padding: 6px; }
+      .reader .wrap { padding: 0 0.25rem; }
+      .reader__stage { position: relative; gap: 0; }
+      .reader__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 30;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 1.05rem;
+        background: rgba(255,255,255,0.95);
+      }
+      #reader-prev { left: 4px; }
+      #reader-next { right: 4px; }
+      .spread-frame { width: min(99vw, calc(90dvh * 1.4142)); }
+      .spread-frame::before { transform: translate(4px, 5px); }
+      .spread-frame::after { transform: translate(7px, 9px); }
+      .spread { gap: 5px; padding: 5px; }
       .spine-shadow { width: 20px; margin-left: -10px; }
     }
     @media (max-width: 480px) {
