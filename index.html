@@ -619,7 +619,14 @@
       letter-spacing: 0.22em; text-transform: uppercase;
       color: var(--grey-mid);
     }
-    .partners-marquee { overflow: hidden; position: relative; }
+    .partners-marquee {
+      overflow-x: auto; overflow-y: hidden; position: relative;
+      -webkit-overflow-scrolling: touch; touch-action: pan-x;
+      scrollbar-width: none; -ms-overflow-style: none;
+      cursor: grab; user-select: none;
+    }
+    .partners-marquee::-webkit-scrollbar { display: none; }
+    .partners-marquee.is-dragging { cursor: grabbing; }
     .partners-marquee::before, .partners-marquee::after {
       content: ''; position: absolute; top: 0; bottom: 0;
       width: 100px; z-index: 2; pointer-events: none;
@@ -628,13 +635,7 @@
     .partners-marquee::after  { right: 0; background: linear-gradient(to left, var(--grey-bg), transparent); }
     .partners-track {
       display: flex; align-items: center;
-      animation: partners-scroll 60s linear infinite;
       width: max-content;
-      will-change: transform; backface-visibility: hidden;
-    }
-    @keyframes partners-scroll {
-      0% { transform: translate3d(0,0,0); }
-      100% { transform: translate3d(-50%,0,0); }
     }
     .partner-item {
       display: flex; align-items: center; justify-content: center;
@@ -642,7 +643,7 @@
       border-right: 1px solid var(--grey-border); flex-shrink: 0;
     }
     .partner-item img {
-      max-height: 48px; max-width: 140px; width: auto;
+      height: 48px; width: 140px;
       opacity: 1;
       transition: opacity 0.3s ease; object-fit: contain;
     }
@@ -660,7 +661,7 @@
     .partner-item:hover .partner-wordmark { color: var(--black); }
     .partner-wordmark--sans { font-family: var(--sans); font-weight: 700; letter-spacing: 0.05em; }
     .partner-wordmark--sm { font-size: 0.78rem; }
-    @media (prefers-reduced-motion: reduce) { .partners-track, .ticker__track { animation: none; } }
+    @media (prefers-reduced-motion: reduce) { .ticker__track { animation: none; } }
     .partners__cta { text-align: center; margin-top: 2.5rem; }
 
     /* ── ADVERTISER CTA ── */
@@ -906,6 +907,7 @@
         <li><a href="/partners">Partners</a></li>
         <li><a href="/advertise">Advertise</a></li>
         <li><a href="/media-kit">Media Kit</a></li>
+        <li><a href="/websites">Websites</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav__mobile-actions">
@@ -933,6 +935,7 @@
   <a href="/partners">Partners</a>
   <a href="/advertise">Advertise</a>
   <a href="/media-kit">Media Kit</a>
+  <a href="/websites">Websites</a>
   <a href="#contact">Contact</a>
 </div>
 
@@ -1309,7 +1312,7 @@
   <div class="partners__label">
     <p class="partners__label-text">Ireland's Trusted Partners for Home Buyers</p>
   </div>
-  <div class="partners-marquee" aria-hidden="true">
+  <div class="partners-marquee" id="partners-marquee" aria-hidden="true">
     <div class="partners-track">
 
       <!-- ── Set 1 ── -->
@@ -1461,6 +1464,51 @@
         <img src="./logos/pjfurphywindows.png" width="492" height="181" alt="PJ Furphy Windows &amp; Doors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">PJ Furphy Windows &amp; Doors</span>
       </a>
+      <a href="https://ecodry.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/ecodry-color.png" width="479" height="117" alt="EcoDry" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">EcoDry</span>
+      </a>
+      <a href="https://neatly.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Neatly</span>
+      </a>
+      <a href="https://brantonconstruction.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/brantonconstruction.png" width="280" height="104" alt="Branton Construction" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Branton Construction</span>
+      </a>
+      <a href="https://enerjourney.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/enerjourney.webp" width="500" height="500" alt="EnerJourney" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">EnerJourney</span>
+      </a>
+      <a href="https://snoozemattress.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/snoozemattress.png" width="600" height="250" alt="Snooze Mattress" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Snooze Mattress</span>
+      </a>
+      <a href="https://monarchelectrical.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/monarchelectrical.png" width="242" height="158" alt="Monarch Electrical" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Monarch Electrical</span>
+      </a>
+      <a href="https://energywiseireland.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/energywiseireland.svg" width="494" height="166" alt="Energywise Ireland" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Energywise Ireland</span>
+      </a>
+      <a href="https://conspect.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/conspect.png" width="2560" height="856" alt="Conspect" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Conspect</span>
+      </a>
+      <a href="https://dublinkitchenrespray.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/dublinkitchenrespray.webp" width="512" height="442" alt="Dublin Kitchen Respray" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Dublin Kitchen Respray</span>
+      </a>
+      <a href="https://studiogallagher.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Studio Gallagher</span>
+      </a>
+      <a href="https://sheds.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Sheds.ie</span>
+      </a>
+      <a href="https://fealesecurity.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/fealesecurity.jpg" width="2560" height="1761" alt="Feale Security" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Feale Security</span>
+      </a>
 
       <!-- ── Set 2 (duplicate for seamless loop) ── -->
       <a href="https://www.ptsb.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
@@ -1610,6 +1658,51 @@
       <a href="https://pjfurphywindows.energy/" target="_blank" rel="noopener noreferrer" class="partner-item">
         <img src="./logos/pjfurphywindows.png" width="492" height="181" alt="PJ Furphy Windows &amp; Doors" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">PJ Furphy Windows &amp; Doors</span>
+      </a>
+      <a href="https://ecodry.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/ecodry-color.png" width="479" height="117" alt="EcoDry" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">EcoDry</span>
+      </a>
+      <a href="https://neatly.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Neatly</span>
+      </a>
+      <a href="https://brantonconstruction.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/brantonconstruction.png" width="280" height="104" alt="Branton Construction" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Branton Construction</span>
+      </a>
+      <a href="https://enerjourney.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/enerjourney.webp" width="500" height="500" alt="EnerJourney" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">EnerJourney</span>
+      </a>
+      <a href="https://snoozemattress.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/snoozemattress.png" width="600" height="250" alt="Snooze Mattress" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Snooze Mattress</span>
+      </a>
+      <a href="https://monarchelectrical.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/monarchelectrical.png" width="242" height="158" alt="Monarch Electrical" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Monarch Electrical</span>
+      </a>
+      <a href="https://energywiseireland.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/energywiseireland.svg" width="494" height="166" alt="Energywise Ireland" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Energywise Ireland</span>
+      </a>
+      <a href="https://conspect.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/conspect.png" width="2560" height="856" alt="Conspect" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Conspect</span>
+      </a>
+      <a href="https://dublinkitchenrespray.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/dublinkitchenrespray.webp" width="512" height="442" alt="Dublin Kitchen Respray" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Dublin Kitchen Respray</span>
+      </a>
+      <a href="https://studiogallagher.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Studio Gallagher</span>
+      </a>
+      <a href="https://sheds.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <span class="partner-wordmark partner-wordmark--sm">Sheds.ie</span>
+      </a>
+      <a href="https://fealesecurity.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/fealesecurity.jpg" width="2560" height="1761" alt="Feale Security" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">Feale Security</span>
       </a>
 
     </div>
@@ -1764,6 +1857,91 @@
       document.body.style.overflow = '';
     });
   });
+
+  // ── PARTNERS CAROUSEL: DRAG + AUTO-SCROLL ──
+  (function () {
+    const marquee = document.getElementById('partners-marquee');
+    const track = document.querySelector('.partners-track');
+    if (!marquee || !track) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const LOOP_SECONDS = 60;
+    let halfWidth = 0;
+    function measure() { halfWidth = track.scrollWidth / 2; }
+    measure();
+    window.addEventListener('resize', measure, { passive: true });
+    window.addEventListener('load', measure);
+
+    let userActive = false;
+    let programmatic = false;
+    let resumeTimer = null;
+
+    function setScroll(x) {
+      programmatic = true;
+      marquee.scrollLeft = x;
+    }
+    function wrapIfNeeded() {
+      if (halfWidth <= 0) return;
+      if (marquee.scrollLeft <= 0) setScroll(marquee.scrollLeft + halfWidth);
+      else if (marquee.scrollLeft >= halfWidth) setScroll(marquee.scrollLeft - halfWidth);
+    }
+    function pause() {
+      userActive = true;
+      if (resumeTimer) clearTimeout(resumeTimer);
+    }
+    function scheduleResume(delay) {
+      if (resumeTimer) clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(() => { userActive = false; }, delay);
+    }
+
+    setScroll(1);
+
+    let lastTime = null;
+    function tick(now) {
+      if (lastTime == null) lastTime = now;
+      const dt = (now - lastTime) / 1000;
+      lastTime = now;
+      if (!userActive && !reduceMotion && halfWidth > 0) {
+        setScroll(marquee.scrollLeft + (halfWidth / LOOP_SECONDS) * dt);
+        wrapIfNeeded();
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+
+    marquee.addEventListener('scroll', () => {
+      if (programmatic) { programmatic = false; return; }
+      pause();
+      wrapIfNeeded();
+      scheduleResume(400);
+    }, { passive: true });
+
+    // Mouse drag-to-scroll (touch/trackpad scroll natively via overflow-x)
+    let isDown = false, startX = 0, startScroll = 0;
+    marquee.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'mouse') {
+        isDown = true;
+        marquee.classList.add('is-dragging');
+        startX = e.clientX;
+        startScroll = marquee.scrollLeft;
+      }
+      pause();
+    });
+    marquee.addEventListener('pointermove', e => {
+      if (!isDown) return;
+      marquee.scrollLeft = startScroll - (e.clientX - startX);
+    });
+    function endDrag() {
+      if (isDown) {
+        isDown = false;
+        marquee.classList.remove('is-dragging');
+      }
+      scheduleResume(300);
+    }
+    marquee.addEventListener('pointerup', endDrag);
+    marquee.addEventListener('pointercancel', endDrag);
+    marquee.addEventListener('mouseleave', () => { if (isDown) endDrag(); });
+  })();
 
   // ── 3D TILT ──
   const tiltWrap = document.querySelector('.tilt-wrap');
