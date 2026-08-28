@@ -11,7 +11,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/shared-header-footer.css" />
 
   <style>
     /* ── TOKENS ── */
@@ -860,33 +859,74 @@
 </section>
 
 
-<!-- original footer removed; using shared site-footer below -->
-
-<!-- ═══ SITE FOOTER ═══ -->
-<footer class="site-footer" role="contentinfo">
-  <div class="footer-inner wrap">
-    <div class="footer-brand">
-      <a href="/"><img src="./ftbblogo-removebg-preview.png" alt="FTBB" width="92" height="46"/></a>
-      <p>First-Time Buyer's Bible — practical guides for Irish first-time buyers.</p>
-      <p><a href="mailto:info@ftbb.ie">info@ftbb.ie</a></p>
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="/" class="footer__logo" aria-label="FTBB — Home">
+          <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" loading="lazy" />
+          <div>
+            <div class="footer__logo-name">First Time Buyer's Bible</div>
+            <div class="footer__logo-sub">Ireland's Buyer Resource Hub</div>
+          </div>
+        </a>
+        <p class="footer__tagline">Helping Irish first-time buyers navigate mortgages, grants, legal process and property purchase since 2024.</p>
+        <address class="footer__contact">
+          <strong>Sarah Doyle O’Reilly</strong>
+          Head of Marketing &mdash; <a href="mailto:info@ftbb.ie" style="text-decoration:underline;">info@ftbb.ie</a><br/>
+          57 Clontarf Road, Dublin 3<br/>
+          T: <a href="tel:+35318537360">01 8537360</a><br/>
+          <span style="display:block;margin-top:0.4rem;">Registered in Ireland since 2023</span>
+        </address>
+        <div class="footer__socials" aria-label="Social media links">
+          <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="mailto:info@ftbb.ie" class="footer__soc" aria-label="Email FTBB">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Mortgages</h4>
+        <ul role="list">
+          <li><a href="#">Complete Mortgage Guide</a></li>
+          <li><a href="#">Borrowing Capacity</a></li>
+          <li><a href="#">Approval in Principle</a></li>
+          <li><a href="#">Mortgage Brokers</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Grants &amp; Schemes</h4>
+        <ul role="list">
+          <li><a href="#">Help to Buy Scheme</a></li>
+          <li><a href="#">First Home Scheme</a></li>
+          <li><a href="#">SEAI Energy Grants</a></li>
+          <li><a href="#">Stamp Duty Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Quick Links</h4>
+        <ul role="list">
+          <li><a href="/buy">Read the FTBB Guide</a></li>
+          <li><a href="/advertise">Advertise With FTBB</a></li>
+          <li><a href="/media-kit">Media Kit</a></li>
+          <li><a href="mailto:info@ftbb.ie">Contact FTBB</a></li>
+          <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="/terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <ul>
-        <li><a href="/partners">Partners</a></li>
-        <li><a href="/media-kit">Media Kit</a></li>
-        <li><a href="/advertise">Advertise</a></li>
-        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
-        <li><a href="/terms.html">Terms</a></li>
-      </ul>
-    </div>
-    <div class="footer-social">
-      <h4>Follow</h4>
-      <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer">Instagram</a>
-      <a href="https://www.linkedin.com/company/ftbb" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 FTBB &mdash; First Time Buyer's Bible Ireland. All rights reserved.</p>
+      <div class="footer__legal">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/cookies.html">Cookie Policy</a>
+      </div>
     </div>
   </div>
-  <div class="copyright">© First Time Buyer's Bible — FTBB 2026. All rights reserved.</div>
 </footer>
 
 
