@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/shared-header-footer.css" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');</script>
@@ -892,14 +893,14 @@
   </button>
 </div>
 
-<!-- ═══ NAV ═══ -->
-<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
-  <div class="wrap">
-    <div class="nav__inner">
-      <a href="/" class="nav__logo" aria-label="FTBB — Home">
-        <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" />
-        <span class="nav__logo-text">FTBB</span>
-      </a>
+<!-- ═══ SITE HEADER ═══ -->
+<header class="site-header" id="nav">
+  <div class="header-inner wrap">
+    <a href="/" class="site-brand">
+      <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="92" height="46" />
+      <div class="brand-text"><span class="brand-title">FTBB</span><span class="brand-sub">First-Time Buyer's Bible</span></div>
+    </a>
+    <nav aria-label="Main navigation">
       <ul class="nav__links" role="list">
         <li><a href="#news">News</a></li>
         <li><a href="#guide">Buyer Guide</a></li>
@@ -910,22 +911,22 @@
         <li><a href="/websites">Websites</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <div class="nav__mobile-actions">
-        <div class="nav__icons">
-          <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </a>
-          <a href="mailto:info@ftbb.ie" class="nav__icon" aria-label="Email FTBB">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
-          </a>
-        </div>
-        <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+    </nav>
+    <div class="nav__mobile-actions">
+      <div class="nav__icons">
+        <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="mailto:info@ftbb.ie" class="nav__icon" aria-label="Email FTBB">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+        </a>
       </div>
+      <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
-</nav>
+</header>
 
 <!-- MOBILE NAV -->
 <div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
@@ -1351,7 +1352,7 @@
         <img src="./logos/gmc.jpg" width="300" height="237" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">GMC Mortgages</span>
       </a>
-      <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="partner-item">
+      <a href="/partners/graham-shiels-mortgages.html" class="partner-item">
         <img src="./logos/graham-shiels-mortgages.svg" width="220" height="62" alt="Graham Shiels Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Graham Shiels Mortgages</span>
       </a>
@@ -1555,7 +1556,7 @@
         <img src="./logos/gmc.jpg" width="300" height="237" alt="GMC Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">GMC Mortgages</span>
       </a>
-      <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="partner-item">
+      <a href="/partners/graham-shiels-mortgages.html" class="partner-item">
         <img src="./logos/graham-shiels-mortgages.svg" width="220" height="62" alt="Graham Shiels Mortgages" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Graham Shiels Mortgages</span>
       </a>

@@ -1,0 +1,22 @@
+/* Shared header & footer styles for FTBB */
+:root{--gold:#c5892a;--black:#0a0a0a;--grey:#666;--wrap:1200px}
+.site-header{background:#fff;border-bottom:1px solid #eee}
+.site-header .header-inner{display:flex;align-items:center;justify-content:space-between;max-width:var(--wrap);margin:0 auto;padding:1.1rem}
+.site-brand{display:flex;align-items:center;gap:0.8rem}
+.site-brand img{display:block}
+.brand-text{line-height:1}
+.brand-title{font-family:Playfair Display,Georgia,serif;font-size:1.05rem;font-weight:700;color:var(--black);display:block}
+.brand-sub{font-size:0.78rem;color:var(--grey);display:block}
+.nav__links{display:flex;gap:1.15rem;list-style:none}
+.nav__links a{font-weight:600;color:var(--black);text-decoration:none;padding:0.45rem 0}
+.site-footer{background:#f8f8f8;border-top:1px solid #e9e9e9;padding:2.25rem 0;margin-top:3rem}
+.site-footer .footer-inner{max-width:var(--wrap);margin:0 auto;display:flex;gap:2.5rem;align-items:flex-start}
+.footer-brand{flex:1;min-width:220px}
+.footer-links{flex:1}
+.footer-links h4,.footer-social h4{margin:0 0 0.5rem 0;font-size:0.95rem}
+.footer-links ul{list-style:none;padding:0;margin:0}
+.footer-links li{margin:0.35rem 0}
+.footer-links a{color:var(--black);text-decoration:none}
+.footer-social{flex:0 0 200px}
+.footer-social a{display:inline-block;margin-right:0.8rem;color:var(--black);text-decoration:none}
+.copyright{max-width:var(--wrap);margin:1.25rem auto 0;padding-top:1rem;border-top:1px solid #eee;color:#777;font-size:0.9rem}

@@ -18,14 +18,17 @@
       --black:      #0a0a0a;
       --black-mid:  #111111;
       --black-soft: #1a1a1a;
+      --ink:        #1e1e1e;
       --grey-dark:  #333333;
       --grey:       #666666;
       --grey-mid:   #999999;
       --grey-light: #cccccc;
       --grey-border:#e0e0e0;
       --grey-bg:    #f4f4f4;
+      --cream:      #f7f2ea;
       --white:      #ffffff;
       --gold:       #c5892a;
+      --gold-light: #e0ac52;
       --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
       --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --ease:       cubic-bezier(0.22,1,0.36,1);
@@ -37,10 +40,11 @@
     html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
     body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    img, svg { max-width: 100%; display: block; }
     button { cursor: pointer; font-family: inherit; border: none; background: none; }
     ul { list-style: none; }
     .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
+    ::selection { background: var(--gold); color: var(--white); }
 
     /* ── REVEAL ── */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
@@ -48,6 +52,9 @@
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── PROGRESS BAR ── */
+    .progress { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); z-index: 200; transition: width 0.1s linear; }
 
     /* ── NAV ── */
     .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease; }
@@ -73,7 +80,7 @@
     .nav__ham.open span:nth-child(2) { opacity: 0; }
     .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
+    .nav.scrolled { background: rgba(255,255,255,0.92); -webkit-backdrop-filter: saturate(180%) blur(16px); backdrop-filter: saturate(180%) blur(16px); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
     .nav.scrolled .nav__logo-name { color: var(--black); }
     .nav.scrolled .nav__links a { color: var(--grey); }
     .nav.scrolled .nav__links a:hover { color: var(--black); }
@@ -89,12 +96,13 @@
     .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
 
     /* ── BUTTONS ── */
-    .btn-white { display: inline-block; padding: 0.9rem 2.25rem; background: var(--white); color: var(--black); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
-    .btn-white:hover { background: var(--grey-bg); transform: translateY(-1px); }
-    .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
-    .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
-    .btn-dark { display: inline-block; padding: 0.9rem 2.25rem; background: var(--black); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
-    .btn-dark:hover { background: var(--grey-dark); transform: translateY(-1px); }
+    .btn-white, .btn-ghost, .btn-dark { position: relative; display: inline-block; padding: 0.9rem 2.25rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: transform 0.15s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease; }
+    .btn-white { background: var(--white); color: var(--black); }
+    .btn-white:hover { background: var(--grey-bg); }
+    .btn-ghost { border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); font-weight: 600; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); }
+    .btn-dark { background: var(--black); color: var(--white); }
+    .btn-dark:hover { background: var(--grey-dark); }
 
     /* ── SHARED TYPOGRAPHY ── */
     .sec-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.6rem; }
@@ -103,66 +111,141 @@
     .sec-h2--white { color: var(--white); }
     .sec-intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); }
 
+    /* ── GRAIN (dark sections) ── */
+    .grain { position: absolute; inset: 0; opacity: 0.5; mix-blend-mode: overlay; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E"); }
+
     /* ── HERO ── */
-    .hero { background: #1e1e1e; padding: 9.5rem 0 6rem; position: relative; overflow: hidden; }
+    .hero { background: var(--ink); padding: 9.5rem 0 5rem; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; }
-    .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: radial-gradient(ellipse at 75% 40%, rgba(197,137,42,0.09) 0%, transparent 65%); pointer-events: none; }
-    .hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center; }
-    .hero__eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 60%; height: 100%; background: radial-gradient(ellipse at 78% 45%, rgba(197,137,42,0.11) 0%, transparent 62%); pointer-events: none; }
+    .hero__glow { position: absolute; width: 420px; height: 420px; border-radius: 50%; background: radial-gradient(circle, rgba(197,137,42,0.16), transparent 70%); pointer-events: none; z-index: 0; transform: translate(-50%, -50%); left: 50%; top: 50%; transition: opacity 0.3s ease; opacity: 0; filter: blur(10px); }
+    .hero.has-glow .hero__glow { opacity: 1; }
+    .hero__particle { position: absolute; border-radius: 50%; background: var(--gold); pointer-events: none; opacity: 0.5; filter: blur(1px); animation: drift 14s ease-in-out infinite; }
+    @keyframes drift { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(14px, -22px); } }
+    .hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; }
+    .hero__eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; overflow: hidden; }
     .hero__eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); }
-    .hero__title { font-family: var(--serif); font-size: clamp(2.4rem, 4.2vw, 3.6rem); font-weight: 700; line-height: 1.12; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-    .hero__sub { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 2rem; max-width: 520px; }
+    .hero__title { font-family: var(--serif); font-size: clamp(2.3rem, 4vw, 3.5rem); font-weight: 700; line-height: 1.14; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .hero__title em { font-style: italic; color: var(--gold); }
+    .hero__title span { display: inline-block; opacity: 0; transform: translateY(0.5em); animation: rise 0.9s var(--ease) forwards; }
+    @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+    .hero__sub { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 2.1rem; max-width: 480px; }
     .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
     .hero__byline { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.76rem; color: rgba(255,255,255,0.5); }
     .hero__byline strong { color: var(--gold); font-weight: 600; }
 
-    .hero__card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); padding: 2.25rem; }
-    .hero__card-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.25rem; }
-    .hero__card-list { display: flex; flex-direction: column; gap: 1.1rem; }
-    .hero__card-list li { display: flex; gap: 0.8rem; align-items: flex-start; font-size: 0.86rem; line-height: 1.5; color: rgba(255,255,255,0.8); }
-    .hero__card-list svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold); margin-top: 1px; }
+    .hero__visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 420px; }
+    .door-svg { width: min(100%, 340px); height: auto; position: relative; z-index: 1; animation: doorfloat 7s ease-in-out infinite; }
+    @keyframes doorfloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+    .door-draw { stroke-dasharray: 1400; stroke-dashoffset: 1400; animation: doordraw 2.6s var(--ease) forwards; }
+    @keyframes doordraw { to { stroke-dashoffset: 0; } }
+    .door-knock { transform-origin: 253px 402px; animation: knock 3.4s ease-in-out 2.8s infinite; }
+    @keyframes knock { 0%, 82%, 100% { transform: rotate(0deg); } 86% { transform: rotate(-14deg); } 90% { transform: rotate(0deg); } }
+
+    .scrollcue { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.6rem; z-index: 1; opacity: 0.5; }
+    .scrollcue span { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
+    .scrollcue__line { width: 1px; height: 32px; background: rgba(255,255,255,0.25); position: relative; overflow: hidden; }
+    .scrollcue__line::after { content: ''; position: absolute; top: -100%; left: 0; width: 100%; height: 100%; background: var(--gold); animation: scrolldrop 1.8s ease-in-out infinite; }
+    @keyframes scrolldrop { to { top: 100%; } }
+
+    /* ── MARQUEE ── */
+    .marquee { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 1rem 0; overflow: hidden; }
+    .marquee__track { display: flex; width: max-content; gap: 0; animation: scroll-x 26s linear infinite; }
+    .marquee:hover .marquee__track { animation-play-state: paused; }
+    .marquee__item { display: flex; align-items: center; gap: 2.25rem; padding: 0 2.25rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.4); white-space: nowrap; }
+    .marquee__item::after { content: '◆'; color: var(--gold); font-size: 0.5rem; margin-left: 2.25rem; }
+    @keyframes scroll-x { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* ── SERVICES ── */
     .services { background: var(--white); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
     .services__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 640px; margin-bottom: 3rem; }
     .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--grey-border); border: 1px solid var(--grey-border); }
-    .svc-card { background: var(--white); padding: 2.25rem 2rem; transition: background 0.22s ease; }
-    .svc-card:hover { background: var(--grey-bg); }
-    .svc-card__icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--grey-border); margin-bottom: 1.25rem; }
+    .svc-card { position: relative; background: var(--white); padding: 2.25rem 2rem; overflow: hidden; transition: transform 0.15s ease; transform-style: preserve-3d; will-change: transform; }
+    .svc-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(197,137,42,0.1), transparent 60%); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+    .svc-card:hover::before { opacity: 1; }
+    .svc-card__num { position: absolute; top: 0.8rem; right: 1.1rem; font-family: var(--serif); font-size: 2.6rem; font-weight: 700; color: var(--grey-bg); z-index: 0; line-height: 1; }
+    .svc-card__icon { position: relative; z-index: 1; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--grey-border); margin-bottom: 1.25rem; background: var(--white); }
     .svc-card__icon svg { width: 18px; height: 18px; color: var(--gold); }
-    .svc-card__name { font-family: var(--serif); font-size: 1.08rem; font-weight: 700; color: var(--black); margin-bottom: 0.6rem; line-height: 1.3; }
-    .svc-card__desc { font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
+    .svc-card__icon svg path, .svc-card__icon svg circle, .svc-card__icon svg line { stroke-dasharray: 80; stroke-dashoffset: 80; transition: stroke-dashoffset 0.9s var(--ease); }
+    .svc-card.in-view .svc-card__icon svg path, .svc-card.in-view .svc-card__icon svg circle, .svc-card.in-view .svc-card__icon svg line { stroke-dashoffset: 0; }
+    .svc-card__name { position: relative; z-index: 1; font-family: var(--serif); font-size: 1.08rem; font-weight: 700; color: var(--black); margin-bottom: 0.6rem; line-height: 1.3; }
+    .svc-card__desc { position: relative; z-index: 1; font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
+
+    /* ── CALCULATOR ── */
+    .calc { background: var(--cream); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); position: relative; }
+    .calc__intro { max-width: 640px; margin-bottom: 3rem; }
+    .calc__intro p { font-size: 0.9rem; line-height: 1.82; color: var(--grey); }
+    .calc__panel { background: var(--white); border: 1px solid var(--grey-border); box-shadow: 0 30px 60px -20px rgba(10,10,10,0.12); padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .calc__inputs { display: flex; flex-direction: column; gap: 2.25rem; justify-content: center; }
+    .calc__field label { display: block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-dark); margin-bottom: 0.9rem; }
+    .calc__field-value { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--black); margin-top: 0.7rem; }
+    .calc__field input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 3px; background: var(--grey-border); border-radius: 2px; outline: none; }
+    .calc__field input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%; background: var(--gold); border: 3px solid var(--white); box-shadow: 0 0 0 1px var(--gold); cursor: pointer; transition: transform 0.15s ease; }
+    .calc__field input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+    .calc__field input[type="range"]::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: var(--gold); border: 3px solid var(--white); box-shadow: 0 0 0 1px var(--gold); cursor: pointer; }
+    .calc__results { display: flex; flex-direction: column; justify-content: center; padding-left: 3rem; border-left: 1px solid var(--grey-border); }
+    .calc__result { margin-bottom: 1.5rem; }
+    .calc__result-label { font-size: 0.66rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); margin-bottom: 0.4rem; }
+    .calc__result-value { font-family: var(--serif); font-size: 2.1rem; font-weight: 700; color: var(--black); line-height: 1; }
+    .calc__result-value--gold { color: var(--gold); }
+    .calc__bar { display: flex; height: 8px; border-radius: 4px; overflow: hidden; margin: 0.75rem 0 0.5rem; background: var(--grey-border); }
+    .calc__bar-loan { background: var(--black); transition: flex-grow 0.5s var(--ease); }
+    .calc__bar-deposit { background: var(--gold); transition: flex-grow 0.5s var(--ease); }
+    .calc__bar-legend { display: flex; gap: 1.25rem; font-size: 0.68rem; color: var(--grey-mid); }
+    .calc__bar-legend span::before { content: ''; display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 0.4rem; }
+    .calc__bar-legend .bl-loan::before { background: var(--black); }
+    .calc__bar-legend .bl-deposit::before { background: var(--gold); }
+    .calc__disclaimer { grid-column: 1 / -1; font-size: 0.74rem; line-height: 1.7; color: var(--grey-mid); border-top: 1px solid var(--grey-border); padding-top: 1.5rem; }
+    .calc__disclaimer a { color: var(--grey-dark); font-weight: 600; text-decoration: underline; }
+    .calc__disclaimer a:hover { color: var(--gold); }
 
     /* ── PROCESS ── */
-    .process { background: var(--grey-bg); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
-    .process__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 640px; margin-bottom: 3.5rem; }
+    .process { background: var(--white); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
+    .process__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 640px; margin-bottom: 2rem; }
+    .proc-line { display: block; width: 100%; height: 30px; margin-bottom: 1.5rem; overflow: visible; }
+    .proc-line path { fill: none; stroke: var(--grey-border); stroke-width: 1; }
+    .proc-line .proc-line__fill { stroke: var(--gold); stroke-dasharray: 100; stroke-dashoffset: 100; transition: stroke-dashoffset 1.6s var(--ease); vector-effect: non-scaling-stroke; }
+    .process.in-view .proc-line__fill { stroke-dashoffset: 0; }
+    .proc-line circle { fill: var(--white); stroke: var(--grey-border); stroke-width: 1.4; transform-box: fill-box; transform-origin: center; transform: scale(0); transition: transform 0.5s var(--ease); }
+    .process.in-view .proc-line circle { transform: scale(1); }
+    .proc-line circle:nth-of-type(1) { transition-delay: 0.1s; }
+    .proc-line circle:nth-of-type(2) { transition-delay: 0.5s; }
+    .proc-line circle:nth-of-type(3) { transition-delay: 0.9s; }
+    .proc-line circle:nth-of-type(4) { transition-delay: 1.3s; }
     .proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
     .proc-step__num { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; }
     .proc-step__name { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.6rem; line-height: 1.3; }
     .proc-step__desc { font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
-    .proc-step { position: relative; padding-top: 1.5rem; border-top: 2px solid var(--black); }
 
     /* ── WHY ── */
-    .why { background: var(--white); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
+    .why { background: var(--grey-bg); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
     .why__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 640px; margin-bottom: 3rem; }
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--grey-border); border: 1px solid var(--grey-border); }
-    .why-card { background: var(--white); padding: 2.5rem 2rem; }
-    .why-card__icon svg { width: 22px; height: 22px; color: var(--gold); margin-bottom: 1.25rem; }
-    .why-card__name { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.7rem; }
-    .why-card__desc { font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
+    .why-card { position: relative; background: var(--white); padding: 2.5rem 2rem; overflow: hidden; transition: transform 0.15s ease; }
+    .why-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(240px circle at var(--mx,50%) var(--my,50%), rgba(197,137,42,0.1), transparent 60%); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+    .why-card:hover::before { opacity: 1; }
+    .why-card__icon svg { position: relative; z-index: 1; width: 22px; height: 22px; color: var(--gold); margin-bottom: 1.25rem; }
+    .why-card__name { position: relative; z-index: 1; font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.7rem; }
+    .why-card__desc { position: relative; z-index: 1; font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
 
     /* ── FAQ ── */
-    .faq { background: #1e1e1e; padding: 6.5rem 0; position: relative; overflow: hidden; }
+    .faq { background: var(--ink); padding: 6.5rem 0; position: relative; overflow: hidden; }
     .faq::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; }
     .faq__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4rem; }
     .faq__header { max-width: 400px; }
     .faq__body { font-size: 0.9rem; line-height: 1.82; color: rgba(255,255,255,0.45); }
     .faq-list { display: flex; flex-direction: column; gap: 0.9rem; }
-    .faq-item { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
-    .faq-item summary { list-style: none; cursor: pointer; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.88rem; font-weight: 600; color: var(--white); }
-    .faq-item summary::-webkit-details-marker { display: none; }
-    .faq-item summary::after { content: '+'; font-size: 1.1rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s ease; }
-    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); transition: border-color 0.2s ease; }
+    .faq-item.open { border-color: rgba(197,137,42,0.4); }
+    .faq-item__summary { width: 100%; cursor: pointer; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.88rem; font-weight: 600; color: var(--white); text-align: left; }
+    .faq-item__plus { position: relative; width: 14px; height: 14px; flex-shrink: 0; }
+    .faq-item__plus::before, .faq-item__plus::after { content: ''; position: absolute; background: var(--gold); transition: transform 0.3s var(--ease); }
+    .faq-item__plus::before { top: 50%; left: 0; width: 100%; height: 1.5px; transform: translateY(-50%); }
+    .faq-item__plus::after { left: 50%; top: 0; height: 100%; width: 1.5px; transform: translateX(-50%); }
+    .faq-item.open .faq-item__plus::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+    .faq-item__wrap { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.35s var(--ease); }
+    .faq-item.open .faq-item__wrap { grid-template-rows: 1fr; }
+    .faq-item__inner { overflow: hidden; }
     .faq-item__body { padding: 0 1.5rem 1.4rem; font-size: 0.84rem; line-height: 1.7; color: rgba(255,255,255,0.55); }
 
     /* ── CTA ── */
@@ -177,16 +260,21 @@
     .cta__assurance { display: inline-flex; flex-direction: column; gap: 0.6rem; text-align: left; }
     .cta__assurance li { display: flex; gap: 0.7rem; font-size: 0.78rem; color: var(--grey); align-items: flex-start; }
     .cta__assurance li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.7rem; flex-shrink: 0; padding-top: 1px; }
+    .cta__photo { width: 100%; aspect-ratio: 16/10; object-fit: cover; border-radius: 2px; margin-bottom: 1.75rem; box-shadow: 0 30px 60px -25px rgba(10,10,10,0.35); }
+    .cta__social { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
+    .cta__soc { width: 40px; height: 40px; border: 1px solid var(--grey-border); display: flex; align-items: center; justify-content: center; color: var(--grey-dark); transition: all 0.2s ease; }
+    .cta__soc svg { width: 17px; height: 17px; }
+    .cta__soc:hover { border-color: var(--gold); color: var(--gold); background: var(--cream); }
 
     /* ── FOOTER ── */
-    .footer { background: var(--black); padding: 4.5rem 0 0; }
+    .footer { background: var(--black); padding: 4.5rem 0 0; position: relative; }
     .footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
     .footer__logo-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--white); }
     .footer__logo-sub { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 0.3rem 0 1.1rem; }
     .footer__tagline { font-size: 0.8rem; line-height: 1.65; color: rgba(255,255,255,0.38); margin-bottom: 1.5rem; max-width: 320px; }
     .footer__socials { display: flex; gap: 0.5rem; }
     .footer__soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: all 0.2s ease; }
-    .footer__soc:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .footer__soc:hover { border-color: var(--gold); color: var(--gold); box-shadow: 0 0 20px rgba(197,137,42,0.25); }
     .footer__soc svg { width: 13px; height: 13px; }
     .footer__col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem; }
     .footer__col ul { display: flex; flex-direction: column; gap: 0.6rem; }
@@ -201,6 +289,12 @@
     .footer__legal a { font-size: 0.68rem; color: rgba(255,255,255,0.22); transition: color 0.2s ease; }
     .footer__legal a:hover { color: rgba(255,255,255,0.5); }
 
+    /* ── BACK TO TOP ── */
+    .totop { position: fixed; right: 1.75rem; bottom: 1.75rem; width: 44px; height: 44px; border-radius: 50%; background: var(--gold); color: var(--black); display: flex; align-items: center; justify-content: center; z-index: 90; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; }
+    .totop.show { opacity: 1; visibility: visible; transform: translateY(0); }
+    .totop:hover { background: var(--gold-light); }
+    .totop svg { width: 18px; height: 18px; }
+
     /* ── COOKIE BAR ── */
     .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
     .cookie-bar.hidden { display: none; }
@@ -213,12 +307,19 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
-      .hero__inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero__card { max-width: 480px; }
+      .hero__inner { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .hero__sub { margin-left: auto; margin-right: auto; }
+      .hero__actions { justify-content: center; }
+      .hero__eyebrow, .hero__byline { justify-content: center; }
+      .hero__visual { min-height: 320px; order: -1; }
+      .door-svg { width: 240px; }
       .svc-grid { grid-template-columns: 1fr 1fr; }
       .proc-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .proc-line { display: none; }
       .why-grid { grid-template-columns: 1fr; }
       .faq__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .calc__panel { grid-template-columns: 1fr; gap: 2.5rem; }
+      .calc__results { padding-left: 0; border-left: none; border-top: 1px solid var(--grey-border); padding-top: 2rem; }
       .cta__inner { grid-template-columns: 1fr; gap: 3rem; }
       .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
       .footer__brand { grid-column: span 2; }
@@ -226,29 +327,35 @@
     @media (max-width: 768px) {
       .wrap { padding: 0 1.25rem; }
       .svc-grid { grid-template-columns: 1fr; }
-      .proc-grid { grid-template-columns: 1fr 1fr; }
       .nav__links { display: none; }
       .nav__cta { display: none; }
       .nav__icons { display: flex; }
       .nav__ham { display: flex; box-sizing: content-box; padding: 12px; margin: -12px; }
       .nav__ham span { height: 2px; }
       .nav { padding: 0.5rem 0; }
-      .nav.scrolled { padding: 0.4rem 0; background: rgba(255,255,255,0.86); box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+      .nav.scrolled { padding: 0.4rem 0; }
       .footer__top { grid-template-columns: 1fr; }
       .footer__brand { grid-column: span 1; }
       .cookie-bar { flex-direction: column; align-items: flex-start; }
+      .calc__panel { padding: 2rem 1.5rem; }
+      .totop { right: 1.1rem; bottom: 5.5rem; width: 40px; height: 40px; }
     }
     @media (max-width: 560px) {
       .proc-grid { grid-template-columns: 1fr; }
-      .hero__actions { flex-direction: column; align-items: flex-start; }
+      .hero__actions { flex-direction: column; align-items: center; }
       .footer__bottom { flex-direction: column; align-items: flex-start; }
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
+      .door-svg, .door-draw, .door-knock, .hero__particle, .marquee__track, .scrollcue__line::after { animation: none !important; }
+      .door-draw { stroke-dashoffset: 0; }
+      *, *::before, *::after { scroll-behavior: auto !important; }
     }
   </style>
 </head>
 <body>
+
+<div class="progress" id="progress"></div>
 
 <!-- ═══ NAV ═══ -->
 <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
@@ -261,15 +368,19 @@
       <ul class="nav__links" role="list">
         <li><a href="#top">Home</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#calculator">Calculator</a></li>
         <li><a href="#process">How It Works</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav__mobile-actions">
-        <a href="#contact" class="nav__cta">Get In Touch</a>
+        <a href="#contact" class="nav__cta magnetic">Get In Touch</a>
         <div class="nav__icons">
           <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/graham-shiels-qfa-rpa-sia-42638574/" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="7.3" y1="9.5" x2="7.3" y2="17"/><circle cx="7.3" cy="6.2" r="0.9" fill="currentColor" stroke="none"/><path d="M10.8 17v-4.6c0-1.6 1.1-2.7 2.7-2.7s2.7 1.1 2.7 2.7V17"/><line x1="10.8" y1="9.5" x2="10.8" y2="17"/></svg>
           </a>
         </div>
         <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
@@ -283,6 +394,7 @@
 <div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
   <a href="#top">Home</a>
   <a href="#services">Services</a>
+  <a href="#calculator">Calculator</a>
   <a href="#process">How It Works</a>
   <a href="#faq">FAQ</a>
   <a href="#contact">Contact</a>
@@ -290,28 +402,81 @@
 
 <!-- ═══ HERO ═══ -->
 <section class="hero" id="top" aria-labelledby="hero-h1">
+  <div class="hero__glow" id="hero-glow"></div>
+  <div class="hero__particle" style="width:5px;height:5px;top:18%;left:8%;animation-delay:0s;"></div>
+  <div class="hero__particle" style="width:3px;height:3px;top:30%;left:22%;animation-delay:2s;"></div>
+  <div class="hero__particle" style="width:4px;height:4px;top:65%;left:12%;animation-delay:4s;"></div>
+  <div class="hero__particle" style="width:6px;height:6px;top:75%;left:30%;animation-delay:1s;"></div>
+  <div class="hero__particle" style="width:3px;height:3px;top:12%;left:38%;animation-delay:3s;"></div>
   <div class="wrap hero__inner">
     <div>
       <p class="hero__eyebrow reveal">Independent Mortgage Broker &middot; Ireland</p>
-      <h1 class="hero__title reveal reveal-d1" id="hero-h1">Straightforward mortgage advice, built around first-time buyers.</h1>
+      <h1 class="hero__title" id="hero-h1"><span style="animation-delay:.05s">Straightforward</span> <span style="animation-delay:.15s">mortgage</span> <span style="animation-delay:.25s">advice,</span><br/><span style="animation-delay:.35s"><em>built</em></span> <span style="animation-delay:.42s">around</span> <span style="animation-delay:.49s">first-time</span> <span style="animation-delay:.56s">buyers.</span></h1>
       <p class="hero__sub reveal reveal-d2">Graham Shiels helps first-time buyers across Ireland get mortgage-ready — from your first conversation about budgets through to approval and picking up the keys. Independent, whole-of-market advice, explained in plain English.</p>
-      <div class="hero__actions reveal reveal-d3">
-        <a href="#contact" class="btn-white">Get In Touch</a>
-        <a href="#process" class="btn-ghost">See How It Works</a>
+      <div class="hero__actions reveal reveal-d2">
+        <a href="#contact" class="btn-white magnetic">Get In Touch</a>
+        <a href="#calculator" class="btn-ghost magnetic">Try the Calculator</a>
       </div>
       <p class="hero__byline reveal reveal-d3">Featured mortgage partner of <strong>First Time Buyer's Bible</strong></p>
     </div>
-    <div class="hero__card reveal reveal-d2">
-      <p class="hero__card-label">At a Glance</p>
-      <ul class="hero__card-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Independent &amp; regulated mortgage advice</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Whole-of-market lender comparison</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Support from your first call through to approval</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>First-time buyer specialist</li>
-      </ul>
+    <div class="hero__visual reveal reveal-d1">
+      <svg class="door-svg" viewBox="0 0 420 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Illustration of a Georgian Dublin front door">
+        <!-- steps -->
+        <line class="door-draw" x1="30" y1="580" x2="390" y2="580" stroke="rgba(255,255,255,0.3)" stroke-width="2" style="animation-delay:.1s"/>
+        <line class="door-draw" x1="50" y1="560" x2="370" y2="560" stroke="rgba(255,255,255,0.3)" stroke-width="2" style="animation-delay:.2s"/>
+        <line class="door-draw" x1="70" y1="540" x2="350" y2="540" stroke="rgba(255,255,255,0.3)" stroke-width="2" style="animation-delay:.3s"/>
+        <!-- pilasters -->
+        <rect class="door-draw" x="78" y="140" width="26" height="400" rx="2" stroke="rgba(255,255,255,0.35)" stroke-width="2" style="animation-delay:.35s"/>
+        <rect class="door-draw" x="316" y="140" width="26" height="400" rx="2" stroke="rgba(255,255,255,0.35)" stroke-width="2" style="animation-delay:.4s"/>
+        <line class="door-draw" x1="78" y1="180" x2="104" y2="180" stroke="rgba(255,255,255,0.35)" stroke-width="2" style="animation-delay:.5s"/>
+        <line class="door-draw" x1="316" y1="180" x2="342" y2="180" stroke="rgba(255,255,255,0.35)" stroke-width="2" style="animation-delay:.5s"/>
+        <!-- entablature + pediment -->
+        <rect class="door-draw" x="68" y="112" width="284" height="26" stroke="rgba(255,255,255,0.4)" stroke-width="2" style="animation-delay:.55s"/>
+        <path class="door-draw" d="M58 112 L210 44 L362 112" stroke="rgba(255,255,255,0.4)" stroke-width="2" style="animation-delay:.65s"/>
+        <circle class="door-draw" cx="210" cy="88" r="5" stroke="var(--gold)" stroke-width="2" style="animation-delay:.9s"/>
+        <!-- fanlight -->
+        <path class="door-draw" d="M132 250 A78 78 0 0 1 288 250" stroke="var(--gold)" stroke-width="2.2" style="animation-delay:.75s"/>
+        <line class="door-draw" x1="132" y1="250" x2="210" y2="250" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1s"/>
+        <line class="door-draw" x1="157" y1="197" x2="210" y2="250" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.05s"/>
+        <line class="door-draw" x1="210" y1="172" x2="210" y2="250" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.1s"/>
+        <line class="door-draw" x1="263" y1="197" x2="210" y2="250" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.15s"/>
+        <line class="door-draw" x1="288" y1="250" x2="210" y2="250" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.2s"/>
+        <!-- door frame -->
+        <rect class="door-draw" x="132" y="250" width="156" height="290" stroke="var(--gold)" stroke-width="2.2" style="animation-delay:1.3s"/>
+        <!-- panels -->
+        <rect class="door-draw" x="150" y="270" width="58" height="72" rx="3" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.5s"/>
+        <rect class="door-draw" x="212" y="270" width="58" height="72" rx="3" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.55s"/>
+        <rect class="door-draw" x="150" y="358" width="58" height="60" rx="3" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.6s"/>
+        <rect class="door-draw" x="212" y="358" width="58" height="60" rx="3" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.65s"/>
+        <rect class="door-draw" x="150" y="432" width="58" height="90" rx="3" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.7s"/>
+        <rect class="door-draw" x="212" y="432" width="58" height="90" rx="3" stroke="var(--gold)" stroke-width="1.4" style="animation-delay:1.75s"/>
+        <!-- knocker + handle -->
+        <g class="door-knock">
+          <circle class="door-draw" cx="241" cy="402" r="12" stroke="var(--gold-light)" stroke-width="2.2" style="animation-delay:2s"/>
+          <line class="door-draw" x1="241" y1="390" x2="241" y2="382" stroke="var(--gold-light)" stroke-width="2.2" style="animation-delay:2.05s"/>
+        </g>
+        <circle class="door-draw" cx="179" cy="402" r="3.5" fill="var(--gold-light)" stroke="var(--gold-light)" stroke-width="1" style="animation-delay:2.1s"/>
+      </svg>
     </div>
   </div>
+  <div class="scrollcue" aria-hidden="true"><span>Scroll</span><div class="scrollcue__line"></div></div>
 </section>
+
+<!-- ═══ MARQUEE ═══ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track" id="marquee-track">
+    <span class="marquee__item">Independent &amp; Regulated</span>
+    <span class="marquee__item">Whole-of-Market</span>
+    <span class="marquee__item">First-Time Buyer Specialist</span>
+    <span class="marquee__item">Featured FTBB Partner</span>
+    <span class="marquee__item">Plain-English Guidance</span>
+    <span class="marquee__item">Independent &amp; Regulated</span>
+    <span class="marquee__item">Whole-of-Market</span>
+    <span class="marquee__item">First-Time Buyer Specialist</span>
+    <span class="marquee__item">Featured FTBB Partner</span>
+    <span class="marquee__item">Plain-English Guidance</span>
+  </div>
+</div>
 
 <!-- ═══ SERVICES ═══ -->
 <section class="services" id="services" aria-labelledby="services-h2">
@@ -323,37 +488,43 @@
     </div>
     <div class="svc-grid reveal reveal-d1">
 
-      <div class="svc-card">
+      <div class="svc-card" data-tilt>
+        <span class="svc-card__num">01</span>
         <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
         <h3 class="svc-card__name">First-Time Buyer Mortgages</h3>
         <p class="svc-card__desc">Guidance on affordability, budgeting, and finding a mortgage suited to your situation as a first-time buyer.</p>
       </div>
 
-      <div class="svc-card">
+      <div class="svc-card" data-tilt>
+        <span class="svc-card__num">02</span>
         <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
         <h3 class="svc-card__name">Approval in Principle</h3>
         <p class="svc-card__desc">Get an Approval in Principle sorted early, so you can view and offer on properties with confidence.</p>
       </div>
 
-      <div class="svc-card">
+      <div class="svc-card" data-tilt>
+        <span class="svc-card__num">03</span>
         <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.1-4-4L3 15.5"/></svg></div>
         <h3 class="svc-card__name">Lender &amp; Rate Comparison</h3>
         <p class="svc-card__desc">A whole-of-market comparison across Irish lenders — not tied to any single bank.</p>
       </div>
 
-      <div class="svc-card">
+      <div class="svc-card" data-tilt>
+        <span class="svc-card__num">04</span>
         <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
         <h3 class="svc-card__name">Application &amp; Documentation</h3>
         <p class="svc-card__desc">Hands-on help preparing, checking, and submitting your mortgage application.</p>
       </div>
 
-      <div class="svc-card">
+      <div class="svc-card" data-tilt>
+        <span class="svc-card__num">05</span>
         <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>
         <h3 class="svc-card__name">Switching &amp; Remortgaging</h3>
         <p class="svc-card__desc">Advice for existing homeowners weighing up whether switching lenders could work in their favour.</p>
       </div>
 
-      <div class="svc-card">
+      <div class="svc-card" data-tilt>
+        <span class="svc-card__num">06</span>
         <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L21 21l-5-1-1 5-4.5-6.5"/><path d="M8.5 13.5L3 21l5-1 1 5 4.5-6.5"/></svg></div>
         <h3 class="svc-card__name">Government Schemes</h3>
         <p class="svc-card__desc">Guidance on schemes available to first-time buyers, including Help to Buy and the First Home Scheme.</p>
@@ -363,6 +534,47 @@
   </div>
 </section>
 
+<!-- ═══ CALCULATOR ═══ -->
+<section class="calc" id="calculator" aria-labelledby="calc-h2">
+  <div class="wrap">
+    <div class="calc__intro reveal">
+      <p class="sec-eyebrow">Try It Yourself</p>
+      <h2 class="sec-h2" id="calc-h2">What Could You Borrow?</h2>
+      <p>A quick, indicative estimate based on standard Irish first-time buyer lending guidelines. Move the sliders to match your own numbers.</p>
+    </div>
+    <div class="calc__panel reveal reveal-d1">
+      <div class="calc__inputs">
+        <div class="calc__field">
+          <label for="calc-income">Household Gross Annual Income</label>
+          <input type="range" id="calc-income" min="20000" max="180000" step="1000" value="60000" aria-describedby="calc-income-val" />
+          <div class="calc__field-value" id="calc-income-val">€60,000</div>
+        </div>
+        <div class="calc__field">
+          <label for="calc-deposit">Deposit Saved</label>
+          <input type="range" id="calc-deposit" min="5000" max="150000" step="1000" value="25000" aria-describedby="calc-deposit-val" />
+          <div class="calc__field-value" id="calc-deposit-val">€25,000</div>
+        </div>
+      </div>
+      <div class="calc__results">
+        <div class="calc__result">
+          <p class="calc__result-label">Estimated Borrowing Capacity</p>
+          <p class="calc__result-value" id="calc-borrow">€0</p>
+        </div>
+        <div class="calc__result">
+          <p class="calc__result-label">Estimated Max Property Price</p>
+          <p class="calc__result-value calc__result-value--gold" id="calc-price">€0</p>
+          <div class="calc__bar"><div class="calc__bar-loan" id="calc-bar-loan" style="flex-grow:9"></div><div class="calc__bar-deposit" id="calc-bar-deposit" style="flex-grow:1"></div></div>
+          <div class="calc__bar-legend"><span class="bl-loan">Loan</span><span class="bl-deposit">Deposit</span></div>
+        </div>
+      </div>
+      <p class="calc__disclaimer">Indicative only, based on Central Bank of Ireland first-time buyer lending guidelines (up to 4&times; gross income, minimum 10% deposit). Your actual borrowing capacity depends on your lender, credit history and outgoings — <a href="#contact">get in touch with Graham</a> to get a proper picture of your numbers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Photo via Unsplash (Unsplash License, free for commercial use):
+     keys-new-home.jpg — Vitaly Gariev (@silverkblack) -->
+
 <!-- ═══ PROCESS ═══ -->
 <section class="process" id="process" aria-labelledby="process-h2">
   <div class="wrap">
@@ -371,6 +583,14 @@
       <h2 class="sec-h2" id="process-h2">How It Works</h2>
       <p class="process__intro">A clear, four-step process from your first message to the keys in your hand.</p>
     </div>
+    <svg class="proc-line" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M12.5 5 L87.5 5" vector-effect="non-scaling-stroke"/>
+      <path class="proc-line__fill" d="M12.5 5 L87.5 5" vector-effect="non-scaling-stroke"/>
+      <circle cx="12.5" cy="5" r="2.2"/>
+      <circle cx="37.5" cy="5" r="2.2"/>
+      <circle cx="62.5" cy="5" r="2.2"/>
+      <circle cx="87.5" cy="5" r="2.2"/>
+    </svg>
     <div class="proc-grid reveal reveal-d1">
 
       <div class="proc-step">
@@ -411,19 +631,19 @@
     </div>
     <div class="why-grid reveal reveal-d1">
 
-      <div class="why-card">
+      <div class="why-card" data-tilt>
         <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
         <h3 class="why-card__name">Whole-of-Market</h3>
         <p class="why-card__desc">Not tied to any one lender, so the advice is about what suits you — not a sales target.</p>
       </div>
 
-      <div class="why-card">
+      <div class="why-card" data-tilt>
         <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
         <h3 class="why-card__name">Plain-English Guidance</h3>
         <p class="why-card__desc">Mortgages explained clearly, without the jargon, so you always know where you stand.</p>
       </div>
 
-      <div class="why-card">
+      <div class="why-card" data-tilt>
         <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 9l-5 4.6L17.4 21 12 17.3 6.6 21 8 13.6 3 9l6.6-.4z"/></svg></div>
         <h3 class="why-card__name">Featured FTBB Partner</h3>
         <p class="why-card__desc">Trusted mortgage partner of First Time Buyer's Bible, Ireland's resource hub for first-time buyers.</p>
@@ -435,6 +655,7 @@
 
 <!-- ═══ FAQ ═══ -->
 <section class="faq" id="faq" aria-labelledby="faq-h2">
+  <div class="grain" aria-hidden="true"></div>
   <div class="wrap faq__inner">
     <div class="faq__header reveal">
       <p class="sec-eyebrow">Common Questions</p>
@@ -443,30 +664,30 @@
     </div>
     <div class="faq-list reveal reveal-d1">
 
-      <details class="faq-item">
-        <summary>What is an Approval in Principle (AIP)?</summary>
-        <div class="faq-item__body">An AIP is a lender's initial confirmation of roughly how much you could borrow, based on your income and finances. It's not a guarantee, but it lets you view and offer on properties with confidence.</div>
-      </details>
+      <div class="faq-item">
+        <button class="faq-item__summary" aria-expanded="false">What is an Approval in Principle (AIP)?<span class="faq-item__plus"></span></button>
+        <div class="faq-item__wrap"><div class="faq-item__inner"><div class="faq-item__body">An AIP is a lender's initial confirmation of roughly how much you could borrow, based on your income and finances. It's not a guarantee, but it lets you view and offer on properties with confidence.</div></div></div>
+      </div>
 
-      <details class="faq-item">
-        <summary>How much can I borrow?</summary>
-        <div class="faq-item__body">Lenders in Ireland generally use a multiple of your gross income, alongside a review of your outgoings and savings history. Every situation is different — get in touch and we can talk through your numbers.</div>
-      </details>
+      <div class="faq-item">
+        <button class="faq-item__summary" aria-expanded="false">How much can I borrow?<span class="faq-item__plus"></span></button>
+        <div class="faq-item__wrap"><div class="faq-item__inner"><div class="faq-item__body">Lenders in Ireland generally use a multiple of your gross income, alongside a review of your outgoings and savings history. Every situation is different — try the calculator above, then get in touch to talk through your numbers.</div></div></div>
+      </div>
 
-      <details class="faq-item">
-        <summary>Do I need a large deposit?</summary>
-        <div class="faq-item__body">First-time buyers typically need a deposit of at least 10% of the purchase price, though schemes like Help to Buy and the First Home Scheme can help bridge the gap. We can talk through what applies to you.</div>
-      </details>
+      <div class="faq-item">
+        <button class="faq-item__summary" aria-expanded="false">Do I need a large deposit?<span class="faq-item__plus"></span></button>
+        <div class="faq-item__wrap"><div class="faq-item__inner"><div class="faq-item__body">First-time buyers typically need a deposit of at least 10% of the purchase price, though schemes like Help to Buy and the First Home Scheme can help bridge the gap. We can talk through what applies to you.</div></div></div>
+      </div>
 
-      <details class="faq-item">
-        <summary>Can you help if I'm self-employed?</summary>
-        <div class="faq-item__body">Yes — self-employed applicants have different documentation requirements, and it's an area we can help you prepare for properly.</div>
-      </details>
+      <div class="faq-item">
+        <button class="faq-item__summary" aria-expanded="false">Can you help if I'm self-employed?<span class="faq-item__plus"></span></button>
+        <div class="faq-item__wrap"><div class="faq-item__inner"><div class="faq-item__body">Yes — self-employed applicants have different documentation requirements, and it's an area we can help you prepare for properly.</div></div></div>
+      </div>
 
-      <details class="faq-item">
-        <summary>How long does the mortgage process take?</summary>
-        <div class="faq-item__body">Timelines vary by lender and how quickly documentation comes together, but you'll be kept updated at every stage.</div>
-      </details>
+      <div class="faq-item">
+        <button class="faq-item__summary" aria-expanded="false">How long does the mortgage process take?<span class="faq-item__plus"></span></button>
+        <div class="faq-item__wrap"><div class="faq-item__inner"><div class="faq-item__body">Timelines vary by lender and how quickly documentation comes together, but you'll be kept updated at every stage.</div></div></div>
+      </div>
 
     </div>
   </div>
@@ -484,16 +705,25 @@
       </div>
 
       <div>
+        <img class="cta__photo" src="/images/graham-shiels/keys-new-home.jpg" alt="A couple celebrating with the keys to their new home" loading="lazy" decoding="async" />
         <div class="cta__contact">
           <strong>Graham Shiels Mortgages</strong>
           <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer">@graham_shiels_mortgages</a> on Instagram
         </div>
-        <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="btn-dark" style="margin-bottom:1.75rem;">Message on Instagram</a>
+        <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="btn-dark magnetic" style="margin-bottom:1.75rem;">Message on Instagram</a>
         <ul class="cta__assurance">
           <li>Independent, whole-of-market advice</li>
           <li>First-time buyer specialist</li>
           <li>Featured mortgage partner of FTBB</li>
         </ul>
+        <div class="cta__social" aria-label="Social media links">
+          <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="cta__soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/graham-shiels-qfa-rpa-sia-42638574/" target="_blank" rel="noopener noreferrer" class="cta__soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="7.3" y1="9.5" x2="7.3" y2="17"/><circle cx="7.3" cy="6.2" r="0.9" fill="currentColor" stroke="none"/><path d="M10.8 17v-4.6c0-1.6 1.1-2.7 2.7-2.7s2.7 1.1 2.7 2.7V17"/><line x1="10.8" y1="9.5" x2="10.8" y2="17"/></svg>
+          </a>
+        </div>
       </div>
 
     </div>
@@ -512,15 +742,18 @@
           <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
           </a>
+          <a href="https://www.linkedin.com/in/graham-shiels-qfa-rpa-sia-42638574/" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="7.3" y1="9.5" x2="7.3" y2="17"/><circle cx="7.3" cy="6.2" r="0.9" fill="currentColor" stroke="none"/><path d="M10.8 17v-4.6c0-1.6 1.1-2.7 2.7-2.7s2.7 1.1 2.7 2.7V17"/><line x1="10.8" y1="9.5" x2="10.8" y2="17"/></svg>
+          </a>
         </div>
       </div>
       <div class="footer__col">
         <h4>Explore</h4>
         <ul role="list">
           <li><a href="#services">Services</a></li>
+          <li><a href="#calculator">Calculator</a></li>
           <li><a href="#process">How It Works</a></li>
           <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div class="footer__col">
@@ -544,6 +777,10 @@
   </div>
 </footer>
 
+<button class="totop" id="totop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
 <!-- COOKIE CONSENT -->
 <div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
   <p>This page uses cookies to improve your experience. By continuing, you agree to FTBB's <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
@@ -554,10 +791,24 @@
 </div>
 
 <script>
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  // ── PROGRESS BAR ──
+  const progress = document.getElementById('progress');
+  function updateProgress() {
+    const h = document.documentElement;
+    const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = (scrolled || 0) + '%';
+  }
+
   // ── NAV SCROLL ──
   const nav = document.getElementById('nav');
+  const totop = document.getElementById('totop');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
+    totop.classList.toggle('show', window.scrollY > 700);
+    updateProgress();
   }, { passive: true });
 
   // ── MOBILE NAV ──
@@ -578,6 +829,8 @@
     });
   });
 
+  totop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' }));
+
   // ── SCROLL REVEAL ──
   const revealObs = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -585,6 +838,149 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── SERVICE CARD ICON DRAW + PROCESS LINE ──
+  const cardObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in-view'); cardObs.unobserve(e.target); } });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('.svc-card').forEach(el => cardObs.observe(el));
+
+  const processEl = document.querySelector('.process');
+  const processObs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { processEl.classList.add('in-view'); processObs.unobserve(processEl); } });
+  }, { threshold: 0.35 });
+  if (processEl) processObs.observe(processEl);
+
+  // ── HERO CURSOR GLOW + PARALLAX ──
+  const heroEl = document.querySelector('.hero');
+  const heroGlow = document.getElementById('hero-glow');
+  const doorSvg = document.querySelector('.door-svg');
+  if (heroEl && canHover && !reduceMotion) {
+    heroEl.addEventListener('mouseenter', () => heroEl.classList.add('has-glow'));
+    heroEl.addEventListener('mouseleave', () => {
+      heroEl.classList.remove('has-glow');
+      if (doorSvg) doorSvg.style.transform = '';
+    });
+    heroEl.addEventListener('mousemove', (e) => {
+      const r = heroEl.getBoundingClientRect();
+      const x = e.clientX - r.left;
+      const y = e.clientY - r.top;
+      heroGlow.style.left = x + 'px';
+      heroGlow.style.top = y + 'px';
+      if (doorSvg) {
+        const dx = (x / r.width - 0.5) * 14;
+        const dy = (y / r.height - 0.5) * 10;
+        doorSvg.style.transform = `translate(${dx}px, ${dy}px)`;
+      }
+    });
+  }
+
+  // ── CARD TILT + SPOTLIGHT ──
+  if (canHover && !reduceMotion) {
+    document.querySelectorAll('[data-tilt]').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        card.style.setProperty('--mx', (px * 100) + '%');
+        card.style.setProperty('--my', (py * 100) + '%');
+        const rx = (0.5 - py) * 8;
+        const ry = (px - 0.5) * 8;
+        card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.transform = ''; });
+    });
+    document.querySelectorAll('.why-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    });
+  }
+
+  // ── MAGNETIC BUTTONS ──
+  if (canHover && !reduceMotion) {
+    document.querySelectorAll('.magnetic').forEach(btn => {
+      btn.addEventListener('mousemove', (e) => {
+        const r = btn.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width / 2) * 0.28;
+        const y = (e.clientY - r.top - r.height / 2) * 0.35;
+        btn.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+    });
+  }
+
+  // ── FAQ ACCORDION ──
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const btn = item.querySelector('.faq-item__summary');
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other => {
+        if (other !== item) { other.classList.remove('open'); other.querySelector('.faq-item__summary').setAttribute('aria-expanded', 'false'); }
+      });
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  // ── CALCULATOR ──
+  (function () {
+    const incomeEl = document.getElementById('calc-income');
+    const depositEl = document.getElementById('calc-deposit');
+    const incomeVal = document.getElementById('calc-income-val');
+    const depositVal = document.getElementById('calc-deposit-val');
+    const borrowOut = document.getElementById('calc-borrow');
+    const priceOut = document.getElementById('calc-price');
+    const barLoan = document.getElementById('calc-bar-loan');
+    const barDeposit = document.getElementById('calc-bar-deposit');
+    if (!incomeEl) return;
+
+    const fmt = n => '€' + Math.round(n).toLocaleString('en-IE');
+    let shownBorrow = 0, shownPrice = 0, raf = null;
+
+    function tween(fromB, toB, fromP, toP) {
+      const start = performance.now();
+      const dur = reduceMotion ? 0 : 450;
+      if (raf) cancelAnimationFrame(raf);
+      function step(now) {
+        const t = dur === 0 ? 1 : Math.min(1, (now - start) / dur);
+        const ease = 1 - Math.pow(1 - t, 3);
+        const b = fromB + (toB - fromB) * ease;
+        const p = fromP + (toP - fromP) * ease;
+        borrowOut.textContent = fmt(b);
+        priceOut.textContent = fmt(p);
+        if (t < 1) { raf = requestAnimationFrame(step); }
+        else { shownBorrow = toB; shownPrice = toP; }
+      }
+      raf = requestAnimationFrame(step);
+    }
+
+    function update() {
+      const income = +incomeEl.value;
+      const deposit = +depositEl.value;
+      incomeVal.textContent = fmt(income);
+      depositVal.textContent = fmt(deposit);
+
+      const maxByIncome = income * 4;
+      const maxPriceByDeposit = deposit / 0.10;
+      const maxPriceByIncome = maxByIncome + deposit;
+      const maxPrice = Math.min(maxPriceByDeposit, maxPriceByIncome);
+      const borrow = Math.max(0, Math.min(maxByIncome, maxPrice - deposit));
+
+      tween(shownBorrow, borrow, shownPrice, maxPrice);
+
+      const loanShare = maxPrice > 0 ? borrow / maxPrice : 0.9;
+      const depositShare = 1 - loanShare;
+      barLoan.style.flexGrow = Math.max(loanShare, 0.02);
+      barDeposit.style.flexGrow = Math.max(depositShare, 0.02);
+    }
+
+    incomeEl.addEventListener('input', update);
+    depositEl.addEventListener('input', update);
+    update();
+  })();
 
   // ── COOKIE ──
   (function() {

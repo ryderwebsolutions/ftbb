@@ -11,74 +11,33 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
-
-  <style>
-    :root {
-      --black:      #0a0a0a;
-      --grey-dark:  #333333;
-      --grey:       #666666;
-      --grey-mid:   #999999;
-      --grey-light: #cccccc;
-      --grey-border:#e0e0e0;
-      --grey-bg:    #f4f4f4;
-      --white:      #ffffff;
-      --gold:       #c5892a;
-      --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
-      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --mono:       'JetBrains Mono', 'Courier New', monospace;
-      --ease:       cubic-bezier(0.22,1,0.36,1);
-      --cw:         1200px;
-      --pe-green-dark: #0b3b2a;
-      --pe-green:      #14503a;
-      --pe-cream:      #f5f8f5;
-      --pe-mint:       #cfe3d5;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-    button { cursor: pointer; font-family: inherit; border: none; background: none; }
-    .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
-
-    /* ── NAV ── */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease; }
-    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-    .nav__logo { display: flex; align-items: center; gap: 0.7rem; flex-shrink: 0; }
-    .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); transition: filter 0.4s ease; }
-    .nav__logo-text { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; transition: color 0.4s ease; }
-    .nav__links { display: flex; align-items: center; gap: 2rem; }
-    .nav__links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.22s ease; position: relative; }
-    .nav__links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.22s ease; }
-    .nav__links a:hover::after { width: 100%; }
-    .nav__links a:hover { color: var(--white); }
-    .nav__mobile-actions { display: flex; align-items: center; gap: 0.6rem; }
-    .nav__icons { display: none; align-items: center; gap: 0.5rem; }
-    .nav__icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--white); opacity: 0.9; border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; transition: opacity 0.22s ease, color 0.4s ease, border-color 0.4s ease, background 0.22s ease; }
-    .nav__icon:hover { opacity: 1; background: rgba(255,255,255,0.07); }
-    .nav__icon svg { width: 21px; height: 21px; }
-    .nav__ham { display: none; flex-direction: column; gap: 5px; width: 26px; cursor: pointer; padding: 2px; }
-    .nav__ham span { display: block; width: 100%; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
-    .nav__ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav__ham.open span:nth-child(2) { opacity: 0; }
-    .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-    .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
-    .nav.scrolled .nav__logo img { filter: none; }
-    .nav.scrolled .nav__logo-text { color: var(--black); }
-    .nav.scrolled .nav__links a { color: var(--grey); }
-    .nav.scrolled .nav__links a:hover { color: var(--black); }
-    .nav.scrolled .nav__ham span { background: var(--black); }
-    .nav.scrolled .nav__icon { color: var(--black); border-color: rgba(0,0,0,0.15); }
-    .nav.scrolled .nav__icon:hover { background: rgba(0,0,0,0.04); }
-    .nav__mobile { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; padding: 6rem 2.5rem 3rem; flex-direction: column; gap: 0; }
-    .nav__mobile.open { display: flex; }
-    .nav__mobile a { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--white); display: block; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s ease; }
-    .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
-
-    /* ── PAGE HEADER (Partner Edition styling) ── */
-    .pe-header { background: var(--pe-green-dark); padding: 8rem 0 3rem; text-align: center; position: relative; overflow: hidden; }
-    .pe-header::after {
-      content: ''; position: absolute; inset: 0;
+  <link rel="stylesheet" href="/css/shared-header-footer.css" />
+<!-- ═══ SITE FOOTER ═══ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-inner wrap">
+    <div class="footer-brand">
+      <a href="/"><img src="./ftbblogo-removebg-preview.png" alt="FTBB" width="92" height="46"/></a>
+      <p>First-Time Buyer's Bible — practical guides for Irish first-time buyers.</p>
+      <p><a href="mailto:info@ftbb.ie">info@ftbb.ie</a></p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/partners">Partners</a></li>
+        <li><a href="/media-kit">Media Kit</a></li>
+        <li><a href="/advertise">Advertise</a></li>
+        <li><a href="/privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="/terms.html">Terms</a></li>
+      </ul>
+    </div>
+    <div class="footer-social">
+      <h4>Follow</h4>
+      <a href="https://www.instagram.com/first_timebuyerire/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.linkedin.com/company/ftbb" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </div>
+  <div class="copyright">© First Time Buyer's Bible — FTBB 2026. All rights reserved.</div>
+</footer>
       background: radial-gradient(ellipse 900px 500px at 50% 0%, rgba(255,255,255,0.08), transparent 60%);
       pointer-events: none;
     }
