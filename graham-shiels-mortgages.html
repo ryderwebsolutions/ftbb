@@ -137,9 +137,9 @@
     .hero__visual { position: relative; display: flex; align-items: center; justify-content: center; min-height: 420px; }
     .portrait { position: relative; width: min(85%, 340px); aspect-ratio: 1; animation: floaty 7s ease-in-out infinite; }
     @keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
-    .portrait__img { position: relative; z-index: 1; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6); }
-    .portrait__ring { position: absolute; inset: -13px; width: calc(100% + 26px); height: calc(100% + 26px); z-index: 2; pointer-events: none; overflow: visible; }
-    .portrait__ring-draw { stroke-dasharray: 1210; stroke-dashoffset: 1210; animation: ringdraw 1.8s var(--ease) 0.15s forwards; }
+    .portrait__img { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; box-shadow: 0 30px 70px -20px rgba(0,0,0,0.6); }
+    .portrait__ring { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; }
+    .portrait__ring-draw { stroke-dasharray: 320; stroke-dashoffset: 320; animation: ringdraw 1.8s var(--ease) 0.15s forwards; }
     @keyframes ringdraw { to { stroke-dashoffset: 0; } }
 
     .scrollcue { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.6rem; z-index: 1; opacity: 0.5; }
@@ -409,10 +409,10 @@
     </div>
     <div class="hero__visual reveal reveal-d1">
       <div class="portrait">
-        <svg class="portrait__ring" viewBox="0 0 400 400" aria-hidden="true">
-          <circle class="portrait__ring-draw" cx="200" cy="200" r="192" fill="none" stroke="var(--gold)" stroke-width="2"/>
-        </svg>
         <img class="portrait__img" src="/images/graham-shiels/graham-shiels-headshot.png" alt="Graham Shiels, independent mortgage broker" width="760" height="760" />
+        <svg class="portrait__ring" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <circle class="portrait__ring-draw" cx="50" cy="50" r="47" fill="none" stroke="var(--gold)" stroke-width="2.4" vector-effect="non-scaling-stroke"/>
+        </svg>
       </div>
     </div>
   </div>
