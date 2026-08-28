@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Graham Shiels Mortgages — Independent Mortgage Broker, Ireland</title>
+  <meta name="description" content="Graham Shiels Mortgages — independent, whole-of-market mortgage advice for first-time buyers across Ireland. Featured mortgage partner of First Time Buyer's Bible." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://ftbb.ie/graham-shiels-mortgages" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='22' font-family='Georgia,serif' font-size='15' font-weight='700' fill='%23c5892a' text-anchor='middle'>G</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --black:      #0a0a0a;
+      --black-mid:  #111111;
+      --black-soft: #1a1a1a;
+      --grey-dark:  #333333;
+      --grey:       #666666;
+      --grey-mid:   #999999;
+      --grey-light: #cccccc;
+      --grey-border:#e0e0e0;
+      --grey-bg:    #f4f4f4;
+      --white:      #ffffff;
+      --gold:       #c5892a;
+      --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:       cubic-bezier(0.22,1,0.36,1);
+      --cw:         1200px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    ul { list-style: none; }
+    .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.35s ease; }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+    .nav__logo { display: flex; flex-direction: column; line-height: 1; flex-shrink: 0; }
+    .nav__logo-name { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; transition: color 0.4s ease; }
+    .nav__logo-sub { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: 0.25rem; }
+    .nav__links { display: flex; align-items: center; gap: 2rem; }
+    .nav__links a { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); transition: color 0.22s ease; position: relative; }
+    .nav__links a::after { content: ''; position: absolute; bottom: -3px; left: 0; width: 0; height: 1px; background: currentColor; transition: width 0.22s ease; }
+    .nav__links a:hover::after { width: 100%; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__cta { display: inline-block; padding: 0.6rem 1.4rem; border: 1px solid rgba(255,255,255,0.5); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--white); transition: all 0.22s ease; white-space: nowrap; }
+    .nav__cta:hover { background: var(--white); color: var(--black); border-color: var(--white); }
+    .nav__mobile-actions { display: flex; align-items: center; gap: 0.6rem; }
+    .nav__icons { display: none; align-items: center; gap: 0.5rem; }
+    .nav__icon { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; color: var(--white); opacity: 0.9; border: 1px solid rgba(255,255,255,0.25); border-radius: 10px; transition: opacity 0.22s ease, color 0.4s ease, border-color 0.4s ease, background 0.22s ease; }
+    .nav__icon:hover { opacity: 1; background: rgba(255,255,255,0.07); }
+    .nav__icon svg { width: 21px; height: 21px; }
+    .nav__ham { display: none; flex-direction: column; gap: 5px; width: 26px; cursor: pointer; padding: 2px; }
+    .nav__ham span { display: block; width: 100%; height: 1.5px; background: var(--white); transition: all 0.3s ease; }
+    .nav__ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav__ham.open span:nth-child(2) { opacity: 0; }
+    .nav__ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    .nav.scrolled { background: var(--white); box-shadow: 0 1px 0 var(--grey-border); padding: 0.9rem 0; }
+    .nav.scrolled .nav__logo-name { color: var(--black); }
+    .nav.scrolled .nav__links a { color: var(--grey); }
+    .nav.scrolled .nav__links a:hover { color: var(--black); }
+    .nav.scrolled .nav__cta { border-color: var(--black); color: var(--black); }
+    .nav.scrolled .nav__cta:hover { background: var(--black); color: var(--white); }
+    .nav.scrolled .nav__ham span { background: var(--black); }
+    .nav.scrolled .nav__icon { color: var(--black); border-color: rgba(0,0,0,0.15); }
+    .nav.scrolled .nav__icon:hover { background: rgba(0,0,0,0.04); }
+
+    .nav__mobile { display: none; position: fixed; inset: 0; background: var(--black); z-index: 99; padding: 6rem 2.5rem 3rem; flex-direction: column; gap: 0; }
+    .nav__mobile.open { display: flex; }
+    .nav__mobile a { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--white); display: block; padding: 1.25rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); transition: color 0.2s ease; }
+    .nav__mobile a:hover { color: rgba(255,255,255,0.6); }
+
+    /* ── BUTTONS ── */
+    .btn-white { display: inline-block; padding: 0.9rem 2.25rem; background: var(--white); color: var(--black); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-white:hover { background: var(--grey-bg); transform: translateY(-1px); }
+    .btn-ghost { display: inline-block; padding: 0.9rem 2.25rem; border: 1px solid rgba(255,255,255,0.3); color: rgba(255,255,255,0.8); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
+    .btn-dark { display: inline-block; padding: 0.9rem 2.25rem; background: var(--black); color: var(--white); font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.22s ease; }
+    .btn-dark:hover { background: var(--grey-dark); transform: translateY(-1px); }
+
+    /* ── SHARED TYPOGRAPHY ── */
+    .sec-eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.6rem; }
+    .sec-eyebrow::before { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .sec-h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 1rem; }
+    .sec-h2--white { color: var(--white); }
+    .sec-intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); }
+
+    /* ── HERO ── */
+    .hero { background: #1e1e1e; padding: 9.5rem 0 6rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; }
+    .hero::after { content: ''; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background: radial-gradient(ellipse at 75% 40%, rgba(197,137,42,0.09) 0%, transparent 65%); pointer-events: none; }
+    .hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 4rem; align-items: center; }
+    .hero__eyebrow { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; }
+    .hero__eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--gold); }
+    .hero__title { font-family: var(--serif); font-size: clamp(2.4rem, 4.2vw, 3.6rem); font-weight: 700; line-height: 1.12; color: var(--white); letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+    .hero__sub { font-size: 1rem; font-weight: 300; line-height: 1.75; color: rgba(255,255,255,0.55); margin-bottom: 2rem; max-width: 520px; }
+    .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .hero__byline { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.76rem; color: rgba(255,255,255,0.5); }
+    .hero__byline strong { color: var(--gold); font-weight: 600; }
+
+    .hero__card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.09); padding: 2.25rem; }
+    .hero__card-label { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 1.25rem; }
+    .hero__card-list { display: flex; flex-direction: column; gap: 1.1rem; }
+    .hero__card-list li { display: flex; gap: 0.8rem; align-items: flex-start; font-size: 0.86rem; line-height: 1.5; color: rgba(255,255,255,0.8); }
+    .hero__card-list svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--gold); margin-top: 1px; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--white); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
+    .services__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 640px; margin-bottom: 3rem; }
+    .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--grey-border); border: 1px solid var(--grey-border); }
+    .svc-card { background: var(--white); padding: 2.25rem 2rem; transition: background 0.22s ease; }
+    .svc-card:hover { background: var(--grey-bg); }
+    .svc-card__icon { width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--grey-border); margin-bottom: 1.25rem; }
+    .svc-card__icon svg { width: 18px; height: 18px; color: var(--gold); }
+    .svc-card__name { font-family: var(--serif); font-size: 1.08rem; font-weight: 700; color: var(--black); margin-bottom: 0.6rem; line-height: 1.3; }
+    .svc-card__desc { font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
+
+    /* ── PROCESS ── */
+    .process { background: var(--grey-bg); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
+    .process__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 640px; margin-bottom: 3.5rem; }
+    .proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; }
+    .proc-step__num { font-family: var(--serif); font-size: 0.95rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem; }
+    .proc-step__name { font-family: var(--serif); font-size: 1.05rem; font-weight: 700; color: var(--black); margin-bottom: 0.6rem; line-height: 1.3; }
+    .proc-step__desc { font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
+    .proc-step { position: relative; padding-top: 1.5rem; border-top: 2px solid var(--black); }
+
+    /* ── WHY ── */
+    .why { background: var(--white); padding: 6.5rem 0; border-bottom: 1px solid var(--grey-border); }
+    .why__intro { font-size: 0.9rem; line-height: 1.82; color: var(--grey); max-width: 640px; margin-bottom: 3rem; }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--grey-border); border: 1px solid var(--grey-border); }
+    .why-card { background: var(--white); padding: 2.5rem 2rem; }
+    .why-card__icon svg { width: 22px; height: 22px; color: var(--gold); margin-bottom: 1.25rem; }
+    .why-card__name { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--black); margin-bottom: 0.7rem; }
+    .why-card__desc { font-size: 0.82rem; line-height: 1.7; color: var(--grey); }
+
+    /* ── FAQ ── */
+    .faq { background: #1e1e1e; padding: 6.5rem 0; position: relative; overflow: hidden; }
+    .faq::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 36px 36px; pointer-events: none; }
+    .faq__inner { position: relative; z-index: 1; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 4rem; }
+    .faq__header { max-width: 400px; }
+    .faq__body { font-size: 0.9rem; line-height: 1.82; color: rgba(255,255,255,0.45); }
+    .faq-list { display: flex; flex-direction: column; gap: 0.9rem; }
+    .faq-item { border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-size: 0.88rem; font-weight: 600; color: var(--white); }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '+'; font-size: 1.1rem; color: var(--gold); flex-shrink: 0; transition: transform 0.2s ease; }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item__body { padding: 0 1.5rem 1.4rem; font-size: 0.84rem; line-height: 1.7; color: rgba(255,255,255,0.55); }
+
+    /* ── CTA ── */
+    .cta { background: var(--white); padding: 6.5rem 0 7rem; }
+    .cta__inner { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .cta__h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.3rem); font-weight: 700; color: var(--black); line-height: 1.2; letter-spacing: -0.022em; margin-bottom: 1rem; }
+    .cta__body { font-size: 0.9rem; line-height: 1.82; color: var(--grey); margin-bottom: 1.75rem; }
+    .cta__contact { font-size: 0.85rem; line-height: 1.85; color: var(--grey-dark); margin-bottom: 1.5rem; }
+    .cta__contact strong { display: block; font-family: var(--serif); font-size: 1.05rem; color: var(--black); margin-bottom: 0.3rem; }
+    .cta__contact a { color: var(--black); font-weight: 600; text-decoration: underline; }
+    .cta__contact a:hover { color: var(--gold); }
+    .cta__assurance { display: inline-flex; flex-direction: column; gap: 0.6rem; text-align: left; }
+    .cta__assurance li { display: flex; gap: 0.7rem; font-size: 0.78rem; color: var(--grey); align-items: flex-start; }
+    .cta__assurance li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 0.7rem; flex-shrink: 0; padding-top: 1px; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--black); padding: 4.5rem 0 0; }
+    .footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer__logo-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--white); }
+    .footer__logo-sub { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin: 0.3rem 0 1.1rem; }
+    .footer__tagline { font-size: 0.8rem; line-height: 1.65; color: rgba(255,255,255,0.38); margin-bottom: 1.5rem; max-width: 320px; }
+    .footer__socials { display: flex; gap: 0.5rem; }
+    .footer__soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.38); transition: all 0.2s ease; }
+    .footer__soc:hover { border-color: rgba(255,255,255,0.4); color: var(--white); }
+    .footer__soc svg { width: 13px; height: 13px; }
+    .footer__col h4 { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 1.25rem; }
+    .footer__col ul { display: flex; flex-direction: column; gap: 0.6rem; }
+    .footer__col a { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.2s ease; }
+    .footer__col a:hover { color: var(--white); }
+    .footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.5rem 0; border-top: 1px solid rgba(255,255,255,0.05); flex-wrap: wrap; }
+    .footer__copy { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
+    .footer__credit { font-size: 0.7rem; color: rgba(255,255,255,0.22); }
+    .footer__credit a { color: rgba(255,255,255,0.4); text-decoration: underline; transition: color 0.2s ease; }
+    .footer__credit a:hover { color: var(--gold); }
+    .footer__legal { display: flex; gap: 1.5rem; }
+    .footer__legal a { font-size: 0.68rem; color: rgba(255,255,255,0.22); transition: color 0.2s ease; }
+    .footer__legal a:hover { color: rgba(255,255,255,0.5); }
+
+    /* ── COOKIE BAR ── */
+    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.55); }
+    .cookie-bar.hidden { display: none; }
+    .cookie-bar a { color: rgba(255,255,255,0.75); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-bar__accept { padding: 0.5rem 1.25rem; background: var(--white); color: var(--black); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; border: none; transition: background 0.2s ease; }
+    .cookie-bar__accept:hover { background: var(--grey-bg); }
+    .cookie-bar__settings { padding: 0.5rem 1.25rem; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.6); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; background: none; transition: all 0.2s ease; }
+    .cookie-bar__settings:hover { border-color: rgba(255,255,255,0.45); color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .hero__inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero__card { max-width: 480px; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .proc-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .why-grid { grid-template-columns: 1fr; }
+      .faq__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .cta__inner { grid-template-columns: 1fr; gap: 3rem; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+      .footer__brand { grid-column: span 2; }
+    }
+    @media (max-width: 768px) {
+      .wrap { padding: 0 1.25rem; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .proc-grid { grid-template-columns: 1fr 1fr; }
+      .nav__links { display: none; }
+      .nav__cta { display: none; }
+      .nav__icons { display: flex; }
+      .nav__ham { display: flex; box-sizing: content-box; padding: 12px; margin: -12px; }
+      .nav__ham span { height: 2px; }
+      .nav { padding: 0.5rem 0; }
+      .nav.scrolled { padding: 0.4rem 0; background: rgba(255,255,255,0.86); box-shadow: 0 1px 0 rgba(0,0,0,0.06), 0 10px 30px rgba(0,0,0,0.05); -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px); }
+      .footer__top { grid-template-columns: 1fr; }
+      .footer__brand { grid-column: span 1; }
+      .cookie-bar { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 560px) {
+      .proc-grid { grid-template-columns: 1fr; }
+      .hero__actions { flex-direction: column; align-items: flex-start; }
+      .footer__bottom { flex-direction: column; align-items: flex-start; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Graham Shiels Mortgages — Home">
+        <span class="nav__logo-name">Graham Shiels</span>
+        <span class="nav__logo-sub">Mortgages</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav__mobile-actions">
+        <a href="#contact" class="nav__cta">Get In Touch</a>
+        <div class="nav__icons">
+          <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="nav__icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+        <button class="nav__ham" id="nav-ham" aria-label="Open navigation menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="nav__mobile" id="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+  <a href="#top">Home</a>
+  <a href="#services">Services</a>
+  <a href="#process">How It Works</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="top" aria-labelledby="hero-h1">
+  <div class="wrap hero__inner">
+    <div>
+      <p class="hero__eyebrow reveal">Independent Mortgage Broker &middot; Ireland</p>
+      <h1 class="hero__title reveal reveal-d1" id="hero-h1">Straightforward mortgage advice, built around first-time buyers.</h1>
+      <p class="hero__sub reveal reveal-d2">Graham Shiels helps first-time buyers across Ireland get mortgage-ready — from your first conversation about budgets through to approval and picking up the keys. Independent, whole-of-market advice, explained in plain English.</p>
+      <div class="hero__actions reveal reveal-d3">
+        <a href="#contact" class="btn-white">Get In Touch</a>
+        <a href="#process" class="btn-ghost">See How It Works</a>
+      </div>
+      <p class="hero__byline reveal reveal-d3">Featured mortgage partner of <strong>First Time Buyer's Bible</strong></p>
+    </div>
+    <div class="hero__card reveal reveal-d2">
+      <p class="hero__card-label">At a Glance</p>
+      <ul class="hero__card-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Independent &amp; regulated mortgage advice</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Whole-of-market lender comparison</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Support from your first call through to approval</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>First-time buyer specialist</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="services" id="services" aria-labelledby="services-h2">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="sec-eyebrow">What Graham Helps With</p>
+      <h2 class="sec-h2" id="services-h2">Mortgage Services</h2>
+      <p class="services__intro">Whatever stage you're at — just starting to think about buying, or ready to apply — here's where Graham can help.</p>
+    </div>
+    <div class="svc-grid reveal reveal-d1">
+
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg></div>
+        <h3 class="svc-card__name">First-Time Buyer Mortgages</h3>
+        <p class="svc-card__desc">Guidance on affordability, budgeting, and finding a mortgage suited to your situation as a first-time buyer.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+        <h3 class="svc-card__name">Approval in Principle</h3>
+        <p class="svc-card__desc">Get an Approval in Principle sorted early, so you can view and offer on properties with confidence.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18.7 8l-5.1 5.1-4-4L3 15.5"/></svg></div>
+        <h3 class="svc-card__name">Lender &amp; Rate Comparison</h3>
+        <p class="svc-card__desc">A whole-of-market comparison across Irish lenders — not tied to any single bank.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg></div>
+        <h3 class="svc-card__name">Application &amp; Documentation</h3>
+        <p class="svc-card__desc">Hands-on help preparing, checking, and submitting your mortgage application.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 014-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>
+        <h3 class="svc-card__name">Switching &amp; Remortgaging</h3>
+        <p class="svc-card__desc">Advice for existing homeowners weighing up whether switching lenders could work in their favour.</p>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.5 13.5L21 21l-5-1-1 5-4.5-6.5"/><path d="M8.5 13.5L3 21l5-1 1 5 4.5-6.5"/></svg></div>
+        <h3 class="svc-card__name">Government Schemes</h3>
+        <p class="svc-card__desc">Guidance on schemes available to first-time buyers, including Help to Buy and the First Home Scheme.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROCESS ═══ -->
+<section class="process" id="process" aria-labelledby="process-h2">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="sec-eyebrow">The Process</p>
+      <h2 class="sec-h2" id="process-h2">How It Works</h2>
+      <p class="process__intro">A clear, four-step process from your first message to the keys in your hand.</p>
+    </div>
+    <div class="proc-grid reveal reveal-d1">
+
+      <div class="proc-step">
+        <p class="proc-step__num">01</p>
+        <h3 class="proc-step__name">Get in Touch</h3>
+        <p class="proc-step__desc">Reach out to arrange an initial conversation about your situation, goals, and timeline.</p>
+      </div>
+
+      <div class="proc-step">
+        <p class="proc-step__num">02</p>
+        <h3 class="proc-step__name">Know Your Numbers</h3>
+        <p class="proc-step__desc">Review your income, savings, and borrowing capacity to understand what's realistic.</p>
+      </div>
+
+      <div class="proc-step">
+        <p class="proc-step__num">03</p>
+        <h3 class="proc-step__name">Compare &amp; Apply</h3>
+        <p class="proc-step__desc">Explore suitable lenders and rates, then prepare your application together.</p>
+      </div>
+
+      <div class="proc-step">
+        <p class="proc-step__num">04</p>
+        <h3 class="proc-step__name">Approval &amp; Beyond</h3>
+        <p class="proc-step__desc">Support through Approval in Principle, full approval, and on to drawdown.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHY ═══ -->
+<section class="why" id="why" aria-labelledby="why-h2">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="sec-eyebrow">Why Work With Graham</p>
+      <h2 class="sec-h2" id="why-h2">Independent, By Design</h2>
+      <p class="why__intro">Not every broker works the same way. Here's what that means for you.</p>
+    </div>
+    <div class="why-grid reveal reveal-d1">
+
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+        <h3 class="why-card__name">Whole-of-Market</h3>
+        <p class="why-card__desc">Not tied to any one lender, so the advice is about what suits you — not a sales target.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h3 class="why-card__name">Plain-English Guidance</h3>
+        <p class="why-card__desc">Mortgages explained clearly, without the jargon, so you always know where you stand.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 6.6L21 9l-5 4.6L17.4 21 12 17.3 6.6 21 8 13.6 3 9l6.6-.4z"/></svg></div>
+        <h3 class="why-card__name">Featured FTBB Partner</h3>
+        <p class="why-card__desc">Trusted mortgage partner of First Time Buyer's Bible, Ireland's resource hub for first-time buyers.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="faq" id="faq" aria-labelledby="faq-h2">
+  <div class="wrap faq__inner">
+    <div class="faq__header reveal">
+      <p class="sec-eyebrow">Common Questions</p>
+      <h2 class="sec-h2 sec-h2--white" id="faq-h2">Frequently Asked Questions</h2>
+      <p class="faq__body">A few of the questions first-time buyers ask most often. Don't see yours? Get in touch.</p>
+    </div>
+    <div class="faq-list reveal reveal-d1">
+
+      <details class="faq-item">
+        <summary>What is an Approval in Principle (AIP)?</summary>
+        <div class="faq-item__body">An AIP is a lender's initial confirmation of roughly how much you could borrow, based on your income and finances. It's not a guarantee, but it lets you view and offer on properties with confidence.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How much can I borrow?</summary>
+        <div class="faq-item__body">Lenders in Ireland generally use a multiple of your gross income, alongside a review of your outgoings and savings history. Every situation is different — get in touch and we can talk through your numbers.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do I need a large deposit?</summary>
+        <div class="faq-item__body">First-time buyers typically need a deposit of at least 10% of the purchase price, though schemes like Help to Buy and the First Home Scheme can help bridge the gap. We can talk through what applies to you.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can you help if I'm self-employed?</summary>
+        <div class="faq-item__body">Yes — self-employed applicants have different documentation requirements, and it's an area we can help you prepare for properly.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How long does the mortgage process take?</summary>
+        <div class="faq-item__body">Timelines vary by lender and how quickly documentation comes together, but you'll be kept updated at every stage.</div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta" id="contact" aria-labelledby="cta-h2">
+  <div class="wrap">
+    <div class="cta__inner reveal">
+
+      <div>
+        <p class="sec-eyebrow">Ready When You Are</p>
+        <h2 class="cta__h2" id="cta-h2">Let's Talk About Your Mortgage</h2>
+        <p class="cta__body">Whether you're just starting to think about buying or ready to apply, get in touch and take it from there.</p>
+      </div>
+
+      <div>
+        <div class="cta__contact">
+          <strong>Graham Shiels Mortgages</strong>
+          <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer">@graham_shiels_mortgages</a> on Instagram
+        </div>
+        <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="btn-dark" style="margin-bottom:1.75rem;">Message on Instagram</a>
+        <ul class="cta__assurance">
+          <li>Independent, whole-of-market advice</li>
+          <li>First-time buyer specialist</li>
+          <li>Featured mortgage partner of FTBB</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer" role="contentinfo">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <div class="footer__logo-name">Graham Shiels</div>
+        <div class="footer__logo-sub">Mortgages</div>
+        <p class="footer__tagline">Independent mortgage advice for first-time buyers across Ireland.</p>
+        <div class="footer__socials" aria-label="Social media links">
+          <a href="https://www.instagram.com/graham_shiels_mortgages?igsi=Z2Fwc2UwZ3IzZThx" target="_blank" rel="noopener noreferrer" class="footer__soc" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Explore</h4>
+        <ul role="list">
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>First Time Buyer's Bible</h4>
+        <ul role="list">
+          <li><a href="/">FTBB Home</a></li>
+          <li><a href="/partners">FTBB Partners</a></li>
+          <li><a href="/buy">Buyer Guide</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2026 Graham Shiels Mortgages.</p>
+      <p class="footer__credit">Website concept crafted by <a href="/websites">FTBB</a> — First Time Buyer's Bible</p>
+      <div class="footer__legal">
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/terms.html">Terms of Use</a>
+        <a href="/cookies.html">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE CONSENT -->
+<div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
+  <p>This page uses cookies to improve your experience. By continuing, you agree to FTBB's <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
+  <div class="cookie-bar__actions">
+    <button class="cookie-bar__settings" id="cookie-settings" type="button">Cookie Settings</button>
+    <button class="cookie-bar__accept" id="cookie-accept" type="button">Accept All</button>
+  </div>
+</div>
+
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── MOBILE NAV ──
+  const ham = document.getElementById('nav-ham');
+  const mobileNav = document.getElementById('nav-mobile');
+  ham.addEventListener('click', () => {
+    const open = ham.classList.toggle('open');
+    mobileNav.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      ham.classList.remove('open');
+      mobileNav.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+
+  // ── SCROLL REVEAL ──
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // ── COOKIE ──
+  (function() {
+    const bar = document.getElementById('cookie-bar');
+    if (!bar) return;
+    if (localStorage.getItem('ftbb_cookies_ok') === '1') { bar.classList.add('hidden'); return; }
+    document.getElementById('cookie-accept').addEventListener('click', () => {
+      localStorage.setItem('ftbb_cookies_ok', '1');
+      bar.classList.add('hidden');
+    });
+    document.getElementById('cookie-settings').addEventListener('click', () => {
+      window.location.href = '/cookies.html';
+    });
+  })();
+</script>
+
+</body>
+</html>
