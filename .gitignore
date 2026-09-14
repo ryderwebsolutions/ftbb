@@ -1,4 +1,5 @@
 .vercel
 .env*.local
+node_modules/
 FTBB_Magazine_Print_Final.pdf
 .claude/settings.local.json
