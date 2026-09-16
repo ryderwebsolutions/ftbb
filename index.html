@@ -873,6 +873,76 @@
       .cookie-bar { flex-direction: column; align-items: flex-start; }
       .sec-header { flex-direction: column; align-items: flex-start; }
     }
+
+    /* ── SUBSCRIBE MODAL ── */
+    .sub-modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; }
+    .sub-modal[hidden] { display: none; }
+    .sub-modal__backdrop {
+      position: absolute; inset: 0; background: rgba(10,10,10,0.55);
+      opacity: 0; transition: opacity 0.45s var(--ease);
+    }
+    .sub-modal.is-open .sub-modal__backdrop { opacity: 1; }
+    .sub-modal__panel {
+      position: relative; z-index: 1; width: min(420px, calc(100vw - 2rem));
+      background: var(--white); padding: 2.75rem 2.25rem 2.25rem;
+      text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+      opacity: 0; transform: translateY(14px) scale(0.98);
+      transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+    }
+    .sub-modal.is-open .sub-modal__panel { opacity: 1; transform: none; }
+    .sub-modal__close {
+      position: absolute; top: 0.85rem; right: 0.85rem;
+      width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;
+      background: none; border: none; cursor: pointer; color: var(--grey-mid);
+      transition: color 0.2s ease;
+    }
+    .sub-modal__close:hover { color: var(--black); }
+    .sub-modal__close svg { width: 15px; height: 15px; }
+    .sub-modal__eyebrow {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem;
+    }
+    .sub-modal__title {
+      font-family: var(--serif); font-size: 1.9rem; font-weight: 700;
+      color: var(--black); line-height: 1.15; margin-bottom: 0.65rem;
+    }
+    .sub-modal__desc { font-size: 0.85rem; line-height: 1.6; color: var(--grey); margin-bottom: 1.4rem; }
+    .sub-modal__price { display: flex; align-items: baseline; justify-content: center; gap: 0.55rem; margin-bottom: 0.35rem; }
+    .sub-modal__price-now { font-family: var(--serif); font-size: 2.6rem; font-weight: 700; color: var(--black); line-height: 1; }
+    .sub-modal__price-was { font-size: 0.95rem; color: var(--grey-mid); text-decoration: line-through; }
+    .sub-modal__save {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1.5rem;
+    }
+    .sub-modal__list { list-style: none; text-align: left; margin: 0 0 1.75rem; padding: 0; display: grid; gap: 0.6rem; }
+    .sub-modal__list li { font-size: 0.8rem; color: var(--grey-dark); display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.5; }
+    .sub-modal__list svg { width: 13px; height: 13px; color: var(--gold); flex-shrink: 0; margin-top: 0.22rem; }
+    .sub-modal__cta {
+      display: block; width: 100%; padding: 0.95rem 1rem; background: var(--black); color: var(--white);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      text-decoration: none; transition: background 0.2s ease;
+    }
+    .sub-modal__cta:hover { background: var(--grey-dark); }
+    .sub-modal__dismiss {
+      margin-top: 0.9rem; background: none; border: none; cursor: pointer;
+      font-family: var(--sans); font-size: 0.72rem; color: var(--grey-mid);
+      text-decoration: underline; text-underline-offset: 3px; transition: color 0.2s ease;
+    }
+    .sub-modal__dismiss:hover { color: var(--grey-dark); }
+    /* Mobile: bottom sheet rather than a blocking centre modal */
+    @media (max-width: 600px) {
+      .sub-modal { align-items: flex-end; }
+      .sub-modal__panel {
+        width: 100%; padding: 2.25rem 1.5rem 1.75rem;
+        transform: translateY(100%); transition: transform 0.45s var(--ease), opacity 0.45s var(--ease);
+      }
+      .sub-modal.is-open .sub-modal__panel { transform: translateY(0); }
+      .sub-modal__title { font-size: 1.6rem; }
+      .sub-modal__price-now { font-size: 2.2rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sub-modal__backdrop, .sub-modal__panel { transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -1533,6 +1603,10 @@
         <img src="./logos/titaniumpropertymaintenance.jpg" width="1080" height="1080" alt="Titanium Property Maintenance" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Titanium Property Maintenance</span>
       </a>
+      <a href="https://www.instagram.com/jgps_propertyservices" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/jgps.png" width="1080" height="343" alt="JGPS Property Services" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">JGPS Property Services</span>
+      </a>
 
       <!-- ── Set 2 (duplicate for seamless loop) ── -->
       <a href="https://www.ptsb.ie/" target="_blank" rel="noopener noreferrer" class="partner-item">
@@ -1752,6 +1826,10 @@
         <img src="./logos/titaniumpropertymaintenance.jpg" width="1080" height="1080" alt="Titanium Property Maintenance" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
         <span class="partner-wordmark partner-wordmark--sm" style="display:none">Titanium Property Maintenance</span>
       </a>
+      <a href="https://www.instagram.com/jgps_propertyservices" target="_blank" rel="noopener noreferrer" class="partner-item">
+        <img src="./logos/jgps.png" width="1080" height="343" alt="JGPS Property Services" onerror="this.style.display='none';this.nextElementSibling.style.display='block'" />
+        <span class="partner-wordmark partner-wordmark--sm" style="display:none">JGPS Property Services</span>
+      </a>
 
     </div>
   </div>
@@ -1872,6 +1950,32 @@
 
 
 <!-- COOKIE CONSENT -->
+<!-- ═══ SUBSCRIBE MODAL ═══ -->
+<!-- TODO: swap href below for the real Stripe subscription payment link (6 issues, €32) -->
+<div class="sub-modal" id="sub-modal" role="dialog" aria-modal="true" aria-labelledby="sub-modal-title" hidden>
+  <div class="sub-modal__backdrop" id="sub-modal-backdrop"></div>
+  <div class="sub-modal__panel">
+    <button class="sub-modal__close" id="sub-modal-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <p class="sub-modal__eyebrow">Subscribe &amp; Save</p>
+    <h2 class="sub-modal__title" id="sub-modal-title">Six Issues of FTBB</h2>
+    <p class="sub-modal__desc">Ireland's guide for first-time buyers, delivered every issue — mortgages, grants, legal steps and market data.</p>
+    <div class="sub-modal__price">
+      <span class="sub-modal__price-now">&euro;32</span>
+      <span class="sub-modal__price-was">&euro;47.70</span>
+    </div>
+    <p class="sub-modal__save">Save &euro;15.70 &middot; Just &euro;5.33 an issue</p>
+    <ul class="sub-modal__list">
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Six full issues, delivered as they publish</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Every grant, scheme and rule change explained</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Written by Irish property experts</li>
+    </ul>
+    <a href="/buy" class="sub-modal__cta" id="sub-modal-cta">Subscribe Now</a>
+    <button class="sub-modal__dismiss" id="sub-modal-dismiss" type="button">No thanks, maybe later</button>
+  </div>
+</div>
+
 <div class="cookie-bar" id="cookie-bar" role="alertdialog" aria-live="polite" aria-label="Cookie consent">
   <p>We use cookies to improve your experience on FTBB. By continuing to browse, you agree to our <a href="/cookies.html">Cookie Policy</a> and <a href="/privacy-policy.html">Privacy Policy</a>.</p>
   <div class="cookie-bar__actions">
@@ -2101,6 +2205,61 @@
     document.getElementById('promo-bar-close').addEventListener('click', () => {
       bar.classList.remove('is-visible');
       setTimeout(() => bar.classList.add('is-hidden'), 750);
+    });
+  })();
+
+  // ── SUBSCRIBE MODAL ──
+  (function() {
+    const modal = document.getElementById('sub-modal');
+    if (!modal) return;
+
+    const SEEN_KEY = 'ftbb_sub_modal_seen';
+    const DELAY_MS = 6000;      // long enough to read something first
+    const SCROLL_TRIGGER = 0.35; // or once they're 35% down the page
+
+    let store = null;
+    try { store = window.localStorage; } catch (e) { /* private mode */ }
+    const seen = () => { try { return store && store.getItem(SEEN_KEY) === '1'; } catch (e) { return false; } };
+    const markSeen = () => { try { store && store.setItem(SEEN_KEY, '1'); } catch (e) {} };
+
+    if (seen()) return;
+
+    let opened = false, lastFocus = null;
+
+    function open() {
+      if (opened || seen()) return;
+      opened = true;
+      clearTimeout(timer);
+      window.removeEventListener('scroll', onScroll);
+      lastFocus = document.activeElement;
+      modal.hidden = false;
+      requestAnimationFrame(() => modal.classList.add('is-open'));
+      document.body.style.overflow = 'hidden';
+      document.getElementById('sub-modal-close').focus();
+    }
+
+    function close() {
+      markSeen();
+      modal.classList.remove('is-open');
+      document.body.style.overflow = '';
+      setTimeout(() => { modal.hidden = true; }, 450);
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    const timer = setTimeout(open, DELAY_MS);
+    function onScroll() {
+      const max = document.body.scrollHeight - window.innerHeight;
+      if (max > 0 && window.scrollY / max >= SCROLL_TRIGGER) open();
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    document.getElementById('sub-modal-close').addEventListener('click', close);
+    document.getElementById('sub-modal-dismiss').addEventListener('click', close);
+    document.getElementById('sub-modal-backdrop').addEventListener('click', close);
+    // Taking the offer counts as seen, so it never nags a subscriber again
+    document.getElementById('sub-modal-cta').addEventListener('click', markSeen);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && opened && !modal.hidden) close();
     });
   })();
 
