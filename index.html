@@ -2208,28 +2208,16 @@
   })();
 
   // ── SUBSCRIBE MODAL ──
+  // Shows instantly on every page load (no dismissal memory) — nags every visit.
   (function() {
     const modal = document.getElementById('sub-modal');
     if (!modal) return;
 
-    const SEEN_KEY = 'ftbb_sub_modal_seen';
-    const DELAY_MS = 6000;      // long enough to read something first
-    const SCROLL_TRIGGER = 0.35; // or once they're 35% down the page
-
-    let store = null;
-    try { store = window.localStorage; } catch (e) { /* private mode */ }
-    const seen = () => { try { return store && store.getItem(SEEN_KEY) === '1'; } catch (e) { return false; } };
-    const markSeen = () => { try { store && store.setItem(SEEN_KEY, '1'); } catch (e) {} };
-
-    if (seen()) return;
-
     let opened = false, lastFocus = null;
 
     function open() {
-      if (opened || seen()) return;
+      if (opened) return;
       opened = true;
-      clearTimeout(timer);
-      window.removeEventListener('scroll', onScroll);
       lastFocus = document.activeElement;
       modal.hidden = false;
       requestAnimationFrame(() => modal.classList.add('is-open'));
@@ -2238,28 +2226,21 @@
     }
 
     function close() {
-      markSeen();
+      opened = false;
       modal.classList.remove('is-open');
       document.body.style.overflow = '';
       setTimeout(() => { modal.hidden = true; }, 450);
       if (lastFocus && lastFocus.focus) lastFocus.focus();
     }
 
-    const timer = setTimeout(open, DELAY_MS);
-    function onScroll() {
-      const max = document.body.scrollHeight - window.innerHeight;
-      if (max > 0 && window.scrollY / max >= SCROLL_TRIGGER) open();
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-
     document.getElementById('sub-modal-close').addEventListener('click', close);
     document.getElementById('sub-modal-dismiss').addEventListener('click', close);
     document.getElementById('sub-modal-backdrop').addEventListener('click', close);
-    // Taking the offer counts as seen, so it never nags a subscriber again
-    document.getElementById('sub-modal-cta').addEventListener('click', markSeen);
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && opened && !modal.hidden) close();
+      if (e.key === 'Escape' && !modal.hidden) close();
     });
+
+    open(); // fire immediately on load
   })();
 
 </script>
