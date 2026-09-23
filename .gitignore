@@ -2,4 +2,6 @@
 .env*.local
 node_modules/
 FTBB_Magazine_Print_Final.pdf
+FTBB_Magazine_Sept_Print.pdf
+Cover_Final_Sept_print.pdf
 .claude/settings.local.json

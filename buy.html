@@ -200,6 +200,18 @@
 
     .reader__indicator { text-align: center; margin-top: 2.25rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
 
+    /* ── ISSUE SWITCHER ── */
+    .issue-tabs { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+    .issue-tab { display: flex; align-items: center; gap: 0.75rem; padding: 0.65rem 1.1rem 0.65rem 0.65rem; border: 1px solid var(--grey-border); background: var(--white); text-align: left; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .issue-tab:hover { border-color: var(--black); }
+    .issue-tab[aria-selected="true"] { border-color: var(--black); box-shadow: 0 8px 22px rgba(0,0,0,0.09); }
+    .issue-tab:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .issue-tab__thumb { width: 36px; height: 51px; object-fit: cover; border: 1px solid var(--grey-border); flex-shrink: 0; }
+    .issue-tab__name { display: block; font-size: 0.78rem; font-weight: 700; color: var(--black); line-height: 1.3; }
+    .issue-tab__sub { display: block; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--grey-mid); margin-top: 0.22rem; }
+    .issue-tab[aria-selected="true"] .issue-tab__sub { color: var(--gold); }
+    .book__page.is-off { display: none; }
+
     /* ── FOOTER ── */
     .footer { background: var(--black); padding: 4.5rem 0 0; }
     .footer__top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(255,255,255,0.07); }
@@ -324,9 +336,9 @@
 <!-- ═══ PAGE HEADER ═══ -->
 <section class="page-header" aria-label="Page header">
   <div class="wrap">
-    <p class="page-header__eyebrow">2026 Edition</p>
+    <p class="page-header__eyebrow">Issue 2 Out Now</p>
     <h1 class="page-header__title">Subscribe to the FTBB Magazine</h1>
-    <p class="page-header__sub">Flip through a free preview, then subscribe for all six issues — €32 for the year.</p>
+    <p class="page-header__sub">Read the contents of either issue free, then subscribe for all six — €32 for the year, just €5.33 an issue.</p>
   </div>
 </section>
 
@@ -334,33 +346,95 @@
 <!-- ═══ READER ═══ -->
 <section class="reader" aria-label="Magazine reader">
   <div class="wrap">
+
+    <div class="issue-tabs" role="tablist" aria-label="Choose an issue">
+      <button class="issue-tab" type="button" role="tab" id="tab-sept" data-issue="sept" aria-selected="true" aria-controls="book">
+        <img class="issue-tab__thumb" src="./logos/sept-cover.jpg" alt="" width="36" height="51" />
+        <span>
+          <span class="issue-tab__name">Issue 2 &middot; Sept/Oct 2026</span>
+          <span class="issue-tab__sub">Out Now</span>
+        </span>
+      </button>
+      <button class="issue-tab" type="button" role="tab" id="tab-first" data-issue="first" aria-selected="false" aria-controls="book">
+        <img class="issue-tab__thumb" src="./logos/ftbbcover.jpeg" alt="" width="36" height="51" />
+        <span>
+          <span class="issue-tab__name">Issue 1 &middot; The First Edition</span>
+          <span class="issue-tab__sub">Back Issue</span>
+        </span>
+      </button>
+    </div>
+
     <div class="reader__stage">
       <button class="reader__nav" id="reader-prev" aria-label="Previous page" disabled>‹</button>
 
       <div class="book-frame">
         <div class="book" id="book">
 
-          <div class="book__page is-active" data-page="0">
-            <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Ireland's complete home-buying guide" width="640" height="800" />
+          <!-- ── ISSUE 2 · SEPTEMBER/OCTOBER 2026 ── -->
+          <div class="book__page is-active" data-issue="sept" data-page="0">
+            <img src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026 cover" width="1131" height="1600" />
           </div>
 
-          <div class="book__page" data-page="1">
-            <img src="./logos/mag-p02.jpg" alt="First Time Buyer's Bible — Contents, page 2" width="1541" height="2210" />
+          <div class="book__page" data-issue="sept" data-page="1">
+            <img src="./logos/sept-p01.jpg" alt="First Time Buyer's Bible Issue 2 — page 1" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page" data-page="2">
-            <img src="./logos/mag-p03.jpg" alt="First Time Buyer's Bible — Contents, page 3" width="1541" height="2210" />
+          <div class="book__page" data-issue="sept" data-page="2">
+            <img src="./logos/sept-p02.jpg" alt="First Time Buyer's Bible Issue 2 — contents, page 2" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page" data-page="3">
-            <img src="./logos/mag-p04.jpg" alt="First Time Buyer's Bible — Contents, page 4" width="1541" height="2210" />
+          <div class="book__page" data-issue="sept" data-page="3">
+            <img src="./logos/sept-p03.jpg" alt="First Time Buyer's Bible Issue 2 — contents, page 3" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page" data-page="4">
-            <img src="./logos/mag-p05.jpg" alt="First Time Buyer's Bible — Contents, page 5" width="1541" height="2210" />
+          <div class="book__page" data-issue="sept" data-page="4">
+            <img src="./logos/sept-p04.jpg" alt="First Time Buyer's Bible Issue 2 — contents, page 4" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page book__page--paywall" data-page="5">
+          <div class="book__page" data-issue="sept" data-page="5">
+            <img src="./logos/sept-p05.jpg" alt="First Time Buyer's Bible Issue 2 — contents, page 5" width="1131" height="1600" loading="lazy" />
+          </div>
+
+          <div class="book__page book__page--paywall" data-issue="sept" data-page="6">
+            <div class="paywall-teaser">
+              <div class="placeholder-lines">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="paywall-scrim"></div>
+            <div class="paywall-card">
+              <span class="paywall__badge">Subscribe &amp; Save</span>
+              <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <h2 class="paywall__title">That's the Contents. Now Read It All.</h2>
+              <p class="paywall__body">Issue 2 runs to 120 pages. Subscribe and you get it in full, plus the next five issues as they publish — for less than €5.35 each.</p>
+              <p class="paywall__price">€32<span>6 Issues · Just €5.33 each</span></p>
+              <a class="btn-dark" href="https://buy.stripe.com/aFaeVc1DYgWNgaV63P0x201">Subscribe Now</a>
+              <p class="unlock-note visible">Secure checkout via Stripe · Six issues of the FTBB magazine</p>
+            </div>
+          </div>
+
+          <!-- ── ISSUE 1 · THE FIRST EDITION ── -->
+          <div class="book__page is-off" data-issue="first" data-page="0">
+            <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Issue 1, the first edition cover" width="1131" height="1600" loading="lazy" />
+          </div>
+
+          <div class="book__page is-off" data-issue="first" data-page="1">
+            <img src="./logos/mag-p02.jpg" alt="First Time Buyer's Bible Issue 1 — contents, page 2" width="1541" height="2210" loading="lazy" />
+          </div>
+
+          <div class="book__page is-off" data-issue="first" data-page="2">
+            <img src="./logos/mag-p03.jpg" alt="First Time Buyer's Bible Issue 1 — contents, page 3" width="1541" height="2210" loading="lazy" />
+          </div>
+
+          <div class="book__page is-off" data-issue="first" data-page="3">
+            <img src="./logos/mag-p04.jpg" alt="First Time Buyer's Bible Issue 1 — contents, page 4" width="1541" height="2210" loading="lazy" />
+          </div>
+
+          <div class="book__page is-off" data-issue="first" data-page="4">
+            <img src="./logos/mag-p05.jpg" alt="First Time Buyer's Bible Issue 1 — contents, page 5" width="1541" height="2210" loading="lazy" />
+          </div>
+
+          <div class="book__page book__page--paywall is-off" data-issue="first" data-page="5">
             <div class="paywall-teaser">
               <div class="placeholder-lines">
                 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -371,7 +445,7 @@
               <span class="paywall__badge">Subscribe &amp; Save</span>
               <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
               <h2 class="paywall__title">Subscribe to Read the Full Magazine</h2>
-              <p class="paywall__body">Get every issue of the First Time Buyer's Bible — all six editions, delivered as they publish, for less than €5.35 an issue.</p>
+              <p class="paywall__body">The first edition in full, Issue 2 out now, and four more to come — all six editions for less than €5.35 an issue.</p>
               <p class="paywall__price">€32<span>6 Issues · Just €5.33 each</span></p>
               <a class="btn-dark" href="https://buy.stripe.com/aFaeVc1DYgWNgaV63P0x201">Subscribe Now</a>
               <p class="unlock-note visible">Secure checkout via Stripe · Six issues of the FTBB magazine</p>
@@ -497,8 +571,10 @@
 
   // ── FLIPBOOK READER ──
   const bookEl = document.getElementById('book');
-  const pages = Array.from(document.querySelectorAll('.book__page'));
-  const total = pages.length;
+  const allPages = Array.from(document.querySelectorAll('.book__page'));
+  const tabs = Array.from(document.querySelectorAll('.issue-tab'));
+  let issue = 'sept';
+  let pages = allPages.filter((p) => p.dataset.issue === issue);
   let current = 0;
   let flipTimer = null;
   const prevBtn = document.getElementById('reader-prev');
@@ -506,20 +582,35 @@
   const indicator = document.getElementById('reader-indicator');
 
   function render() {
-    pages.forEach((p, i) => p.classList.toggle('is-active', i === current));
+    allPages.forEach((p) => {
+      const mine = p.dataset.issue === issue;
+      p.classList.toggle('is-off', !mine);
+      p.classList.toggle('is-active', mine && pages.indexOf(p) === current);
+    });
     prevBtn.disabled = current === 0;
-    nextBtn.disabled = current === total - 1;
-    indicator.textContent = `Page ${current + 1} of ${total}`;
+    nextBtn.disabled = current === pages.length - 1;
+    indicator.textContent = `Page ${current + 1} of ${pages.length}`;
   }
 
   function goTo(next) {
-    if (next < 0 || next > total - 1 || next === current) return;
+    if (next < 0 || next > pages.length - 1 || next === current) return;
     current = next;
     bookEl.classList.add('is-flipping');
     render();
     clearTimeout(flipTimer);
     flipTimer = setTimeout(() => bookEl.classList.remove('is-flipping'), 600);
   }
+
+  function selectIssue(next) {
+    if (next === issue) return;
+    issue = next;
+    pages = allPages.filter((p) => p.dataset.issue === issue);
+    current = 0;
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.issue === issue)));
+    render();
+  }
+
+  tabs.forEach((t) => t.addEventListener('click', () => selectIssue(t.dataset.issue)));
 
   prevBtn.addEventListener('click', () => goTo(current - 1));
   nextBtn.addEventListener('click', () => goTo(current + 1));

@@ -501,9 +501,28 @@
     .mag-feature__cover {
       display: flex; justify-content: center;
     }
-    .mag-feature__cover img {
-      max-width: 370px; width: 100%; height: auto;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.18);
+    .mag-covers {
+      position: relative; display: flex;
+      align-items: center; justify-content: center;
+      width: 100%; max-width: 440px;
+    }
+    .mag-covers img { height: auto; display: block; background: var(--white); }
+    .mag-covers__back {
+      width: 46%; z-index: 1;
+      transform: rotate(-5deg) translateX(22%);
+      box-shadow: 0 16px 44px rgba(0,0,0,0.15);
+    }
+    .mag-covers__lead { position: relative; z-index: 2; display: block; width: 62%; }
+    .mag-covers__front {
+      width: 100%;
+      box-shadow: 0 26px 70px rgba(0,0,0,0.24);
+    }
+    .mag-covers__flag {
+      position: absolute; top: -0.7rem; right: -0.7rem; z-index: 3;
+      background: var(--gold); color: var(--white);
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.42rem 0.8rem;
     }
     .mag-feature__eyebrow {
       font-size: 0.6rem; font-weight: 700;
@@ -841,7 +860,7 @@
       .articles__grid { grid-template-columns: 1fr; }
       .art-featured { border-right: none; border-bottom: 1px solid var(--grey-border); }
       .mag-feature__inner { grid-template-columns: 1fr; gap: 3rem; }
-      .mag-feature__cover img { max-width: 280px; height: auto; margin: 0 auto; }
+      .mag-covers { max-width: 330px; margin: 0 auto; }
       .guide__grid { grid-template-columns: 1fr; gap: 3rem; }
       .guide__sticky { position: static; }
       .nav__links, .nav__cta { display: none; }
@@ -1002,7 +1021,7 @@
     <div class="hero__inner">
 
       <div class="hero__content">
-        <p class="hero__eyebrow">Ireland's Premier First-Time Buyer Resource · Est. 2024</p>
+        <p class="hero__eyebrow">Issue 2 Out Now · September/October 2026</p>
         <h1 class="hero__headline">Buy Your<br/>First Home.<br/><em>Do It Right.</em></h1>
         <p class="hero__sub">Ireland's most trusted guide for first-time buyers — clear, expert information on mortgages, government grants, the legal process, and every step of your property purchase.</p>
         <div class="hero__actions">
@@ -1192,15 +1211,21 @@
   <div class="wrap">
     <div class="mag-feature__inner">
       <div class="mag-feature__cover reveal">
-        <img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — The Essential Guide" width="370" height="523" loading="lazy" />
+        <div class="mag-covers">
+          <img class="mag-covers__back" src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Issue 1, the first edition" width="1131" height="1600" loading="lazy" />
+          <span class="mag-covers__lead">
+            <img class="mag-covers__front" src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026" width="1131" height="1600" loading="lazy" />
+            <span class="mag-covers__flag">Issue 2 Out Now</span>
+          </span>
+        </div>
       </div>
       <div class="reveal reveal-d1">
-        <p class="mag-feature__eyebrow">Subscribe · 6 Issues €32</p>
-        <h2 class="mag-feature__title" id="feature-h2">Every Issue. Delivered.</h2>
-        <p class="mag-feature__desc">The First Time Buyer's Bible is Ireland's most comprehensive property buying guide — covering mortgages, government grants, legal process, surveys, stamp duty, and every practical step from deposit to keys. Subscribe for all six issues at just €5.33 each.</p>
+        <p class="mag-feature__eyebrow">Two Issues Out · 6 for €32</p>
+        <h2 class="mag-feature__title" id="feature-h2">Issue Two Is Here.</h2>
+        <p class="mag-feature__desc">The September/October edition is out now — 120 pages on mortgages, government grants, the legal process, surveys, stamp duty and every practical step from deposit to keys. Read the contents of both issues free, then subscribe for all six at just €5.33 each.</p>
         <div class="mag-feature__actions">
-          <a href="/buy" class="btn-dark">Subscribe Now</a>
-          <a href="#guide" class="btn-outline-dark">Preview Contents</a>
+          <a href="/buy" class="btn-dark">Subscribe &mdash; &euro;32</a>
+          <a href="/buy" class="btn-outline-dark">Read the Contents Free</a>
         </div>
       </div>
     </div>
@@ -1943,16 +1968,16 @@
     <button class="sub-modal__close" id="sub-modal-close" type="button" aria-label="Close">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
-    <p class="sub-modal__eyebrow">Subscribe &amp; Save</p>
+    <p class="sub-modal__eyebrow">Issue 2 Out Now</p>
     <h2 class="sub-modal__title" id="sub-modal-title">Six Issues of FTBB</h2>
-    <p class="sub-modal__desc">Ireland's guide for first-time buyers, delivered every issue — mortgages, grants, legal steps and market data.</p>
+    <p class="sub-modal__desc">The September/October edition has landed. Start with Issue 2 and get all six — mortgages, grants, legal steps and market data.</p>
     <div class="sub-modal__price">
       <span class="sub-modal__price-now">&euro;32</span>
       <span class="sub-modal__price-was">&euro;47.70</span>
     </div>
     <p class="sub-modal__save">Save &euro;15.70 &middot; Just &euro;5.33 an issue</p>
     <ul class="sub-modal__list">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Six full issues, delivered as they publish</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Starts with Issue 2 — out now, 120 pages</li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Every grant, scheme and rule change explained</li>
       <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Written by Irish property experts</li>
     </ul>
