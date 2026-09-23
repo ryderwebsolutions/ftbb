@@ -288,11 +288,22 @@
     .hero__visual { display: flex; justify-content: center; align-items: center; }
     .tilt-wrap { perspective: 1000px; cursor: default; }
     .tilt-cover {
-      width: 100%; max-width: 360px;
-      box-shadow: 20px 30px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07);
-      transition: transform 0.6s var(--ease), box-shadow 0.6s ease;
+      width: 100%; max-width: 430px;
+      transition: transform 0.6s var(--ease);
     }
-    .tilt-cover img { width: 100%; height: auto; display: block; }
+    .hero-covers { position: relative; display: flex; align-items: center; justify-content: center; }
+    .hero-covers img { height: auto; display: block; }
+    .hero-covers__back {
+      width: 46%; z-index: 1;
+      transform: rotate(-5deg) translateX(22%);
+      box-shadow: 10px 18px 46px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07);
+    }
+    .hero-covers__lead { position: relative; z-index: 2; display: block; width: 62%; }
+    .hero-covers__front {
+      width: 100%;
+      box-shadow: 20px 30px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07);
+      transition: box-shadow 0.6s ease;
+    }
     .hero__scroll {
       position: absolute; bottom: 2.5rem; left: 50%;
       transform: translateX(-50%);
@@ -856,7 +867,7 @@
       .hero__sub { max-width: 100%; }
       .hero__actions { justify-content: center; }
       .hero__visual { order: -1; }
-      .tilt-cover { max-width: 240px; margin: 0 auto; }
+      .tilt-cover { max-width: 320px; margin: 0 auto; }
       .articles__grid { grid-template-columns: 1fr; }
       .art-featured { border-right: none; border-bottom: 1px solid var(--grey-border); }
       .mag-feature__inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -1033,7 +1044,12 @@
       <div class="hero__visual">
         <div class="tilt-wrap">
           <div class="tilt-cover" id="tilt-cover">
-            <img src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026" width="1131" height="1600" fetchpriority="high" />
+            <div class="hero-covers">
+              <img class="hero-covers__back" src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Issue 1, the first edition" width="1131" height="1600" />
+              <span class="hero-covers__lead">
+                <img class="hero-covers__front" src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026" width="1131" height="1600" fetchpriority="high" />
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -2109,6 +2125,8 @@
   const tiltWrap = document.querySelector('.tilt-wrap');
   const tiltEl = document.getElementById('tilt-cover');
   if (tiltWrap && tiltEl) {
+    // The wrapper now holds a fanned pair, so the interactive shadow rides on the front cover.
+    const tiltShadowEl = tiltEl.querySelector('.hero-covers__front') || tiltEl;
     let isTouch = false;
     tiltWrap.addEventListener('touchstart', () => { isTouch = true; }, { passive: true });
     tiltWrap.addEventListener('mousemove', e => {
@@ -2116,14 +2134,16 @@
       const r = tiltWrap.getBoundingClientRect();
       const x = (e.clientX - r.left - r.width / 2) / (r.width / 2);
       const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-      tiltEl.style.transition = 'transform 0.08s ease, box-shadow 0.08s ease';
+      tiltEl.style.transition = 'transform 0.08s ease';
       tiltEl.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 9}deg) scale(1.04)`;
-      tiltEl.style.boxShadow = `${-x * 20}px ${y * 15}px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.09)`;
+      tiltShadowEl.style.transition = 'box-shadow 0.08s ease';
+      tiltShadowEl.style.boxShadow = `${-x * 20}px ${y * 15}px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.09)`;
     });
     tiltWrap.addEventListener('mouseleave', () => {
-      tiltEl.style.transition = 'transform 0.7s cubic-bezier(0.22,1,0.36,1), box-shadow 0.7s ease';
+      tiltEl.style.transition = 'transform 0.7s cubic-bezier(0.22,1,0.36,1)';
       tiltEl.style.transform = '';
-      tiltEl.style.boxShadow = '';
+      tiltShadowEl.style.transition = 'box-shadow 0.7s ease';
+      tiltShadowEl.style.boxShadow = '';
     });
   }
 
