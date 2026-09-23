@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First Edition Flipbook – First Time Buyer's Bible Ireland</title>
+  <meta name="description" content="Read the first edition of the First Time Buyer's Bible." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230a0a0a'/><text x='16' y='21' font-family='Georgia,serif' font-size='9' font-weight='700' fill='%23c5892a' text-anchor='middle'>FTBB</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:      #0a0a0a;
+      --grey-dark:  #333333;
+      --grey:       #666666;
+      --grey-mid:   #999999;
+      --grey-border:#e0e0e0;
+      --grey-bg:    #f4f4f4;
+      --white:      #ffffff;
+      --gold:       #c5892a;
+      --serif:      'Playfair Display', Georgia, 'Times New Roman', serif;
+      --sans:       'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:       cubic-bezier(0.22,1,0.36,1);
+      --cw:         1200px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body { font-family: var(--sans); background: var(--white); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { cursor: pointer; font-family: inherit; border: none; background: none; }
+    .wrap { max-width: var(--cw); margin: 0 auto; padding: 0 2rem; }
+
+    /* ── NAV ── */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.4rem 0; }
+    .nav__inner { display: flex; align-items: center; justify-content: center; }
+    .nav__logo { display: flex; align-items: center; gap: 0.7rem; }
+    .nav__logo img { height: 34px; width: auto; filter: brightness(0) invert(1); }
+    .nav__logo-text { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); letter-spacing: -0.01em; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: #1e1e1e; padding: 8rem 0 3rem; text-align: center; }
+    .page-header__eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
+    .page-header__eyebrow::before, .page-header__eyebrow::after { content: ''; display: inline-block; width: 20px; height: 1px; background: var(--gold); }
+    .page-header__title { font-family: var(--serif); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 700; color: var(--white); line-height: 1.1; letter-spacing: -0.025em; margin-bottom: 0.85rem; }
+    .page-header__sub { font-size: 0.9rem; line-height: 1.75; color: rgba(255,255,255,0.5); max-width: 480px; margin: 0 auto; }
+
+    /* ── READER ── */
+    .reader { padding: 3rem 0 4rem; background: var(--grey-bg); }
+    .reader__stage { display: flex; align-items: center; justify-content: center; gap: 1.75rem; }
+    .reader__nav { width: 44px; height: 44px; min-width: 44px; border: 1px solid var(--grey-border); background: var(--white); font-size: 1.3rem; color: var(--black); display: flex; align-items: center; justify-content: center; transition: all 0.2s ease; }
+    .reader__nav:hover:not(:disabled) { border-color: var(--black); }
+    .reader__nav:disabled { opacity: 0.3; cursor: default; }
+    .reader__nav:focus-visible, .jump__input:focus-visible, .jump__btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+    .reader__hint { text-align: center; margin-top: 1rem; font-size: 0.7rem; color: var(--grey-mid); }
+
+    /* Stacked-page depth cue behind the open book */
+    .spread-frame { position: relative; width: min(88vw, 760px); aspect-ratio: 1.4142; perspective: 2600px; }
+    .spread-frame::before, .spread-frame::after {
+      content: ''; position: absolute; inset: 0; background: var(--white); border: 1px solid var(--grey-border);
+    }
+    .spread-frame::before { transform: translate(7px, 8px); z-index: -1; }
+    .spread-frame::after { transform: translate(13px, 15px); z-index: -2; opacity: 0.85; }
+
+    .spread {
+      position: relative; width: 100%; height: 100%; display: flex;
+      background: var(--white); border: 1px solid var(--grey-border); box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+      overflow: hidden; touch-action: pan-y; cursor: grab; user-select: none; -webkit-user-select: none;
+    }
+    .spread:active { cursor: grabbing; }
+    .page-slot { position: relative; width: 50%; height: 100%; background: var(--white); overflow: hidden; }
+    .page-slot img { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    .spine-shadow {
+      position: absolute; top: 0; bottom: 0; left: 50%; width: 46px; margin-left: -23px;
+      pointer-events: none; z-index: 6;
+      background: linear-gradient(to right, rgba(0,0,0,0.12), rgba(0,0,0,0) 40%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.12));
+    }
+
+    .flip-leaf {
+      position: absolute; top: 0; width: 50%; height: 100%;
+      transform-style: preserve-3d; z-index: 10; display: none;
+    }
+    .flip-leaf--right { left: 50%; transform-origin: left center; }
+    .flip-leaf--left { left: 0; transform-origin: right center; }
+    .flip-face { position: absolute; inset: 0; backface-visibility: hidden; background: var(--white); overflow: hidden; box-shadow: 0 0 30px rgba(0,0,0,0.18); }
+    .flip-face img { width: 100%; height: 100%; object-fit: cover; display: block; -webkit-user-drag: none; user-drag: none; pointer-events: none; }
+    .flip-face--back { transform: rotateY(180deg); }
+    .flip-shadow { position: absolute; inset: 0; opacity: 0; pointer-events: none; background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0) 70%); }
+    .flip-leaf--left .flip-shadow { background: linear-gradient(270deg, rgba(0,0,0,0.4), rgba(0,0,0,0) 70%); }
+    .flip-leaf.is-animating .flip-shadow { animation: leaf-shadow-sweep 0.7s ease; }
+    @keyframes leaf-shadow-sweep { 0% { opacity: 0; } 45% { opacity: 0.5; } 100% { opacity: 0; } }
+
+    .reader__indicator { text-align: center; margin-top: 1.75rem; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-mid); }
+
+    /* ── PAGE JUMP ── */
+    .jump { display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-top: 1.5rem; }
+    .jump__label { font-size: 0.7rem; color: var(--grey-mid); }
+    .jump__input { width: 60px; padding: 0.5rem; border: 1px solid var(--grey-border); background: var(--white); font-size: 0.8rem; text-align: center; font-family: var(--sans); }
+    .jump__btn { padding: 0.5rem 1rem; border: 1px solid var(--black); background: var(--white); color: var(--black); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s ease; }
+    .jump__btn:hover { background: var(--black); color: var(--white); }
+
+    @media (max-width: 600px) {
+      .reader { padding: 0.5rem 0 1.5rem; }
+      .wrap { padding: 0 0.25rem; }
+      .reader__stage { position: relative; gap: 0; }
+      .reader__nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 30;
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        font-size: 1.05rem;
+        background: transparent;
+      }
+      #reader-prev { left: 4px; }
+      #reader-next { right: 4px; }
+      .spread-frame {
+        width: min(100vw, calc(100dvh * 0.7071));
+        aspect-ratio: 0.7071;
+      }
+      .spread-frame::before { transform: translate(4px, 5px); }
+      .spread-frame::after { transform: translate(7px, 9px); }
+      .spread { display: block; padding: 0; }
+      .page-slot--left,
+      .spine-shadow { display: none; }
+      .page-slot--right { width: 100%; }
+      .page-slot--right img { object-fit: contain; }
+      .flip-leaf,
+      .flip-leaf--right,
+      .flip-leaf--left { width: 100%; left: 0; transform-origin: center center; }
+      .flip-face img { object-fit: contain; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .flip-leaf { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+
+<nav class="nav" aria-label="Main navigation">
+  <div class="wrap">
+    <div class="nav__inner">
+      <a href="/" class="nav__logo" aria-label="FTBB — Home">
+        <img src="./ftbblogo-removebg-preview.png" alt="FTBB Ireland" width="68" height="34" />
+        <span class="nav__logo-text">FTBB</span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header" aria-label="Page header">
+  <div class="wrap">
+    <p class="page-header__eyebrow">First Edition</p>
+    <h1 class="page-header__title">First Time Buyer's Bible</h1>
+    <p class="page-header__sub">Flip through the complete first edition.</p>
+  </div>
+</section>
+
+<section class="reader" aria-label="Magazine reader">
+  <div class="wrap">
+    <div class="reader__stage">
+      <button class="reader__nav" id="reader-prev" aria-label="Previous page" disabled>‹</button>
+
+      <div class="spread-frame">
+        <div class="spread" id="spread">
+          <div class="page-slot page-slot--left"><img id="slot-left-img" alt="" /></div>
+          <div class="page-slot page-slot--right"><img id="slot-right-img" alt="" /></div>
+          <div class="spine-shadow" aria-hidden="true"></div>
+
+          <div class="flip-leaf flip-leaf--right" id="leaf-right" aria-hidden="true">
+            <div class="flip-face flip-face--front"><img id="leaf-right-front" alt="" /></div>
+            <div class="flip-face flip-face--back"><img id="leaf-right-back" alt="" /></div>
+            <div class="flip-shadow"></div>
+          </div>
+          <div class="flip-leaf flip-leaf--left" id="leaf-left" aria-hidden="true">
+            <div class="flip-face flip-face--front"><img id="leaf-left-front" alt="" /></div>
+            <div class="flip-face flip-face--back"><img id="leaf-left-back" alt="" /></div>
+            <div class="flip-shadow"></div>
+          </div>
+        </div>
+      </div>
+
+      <button class="reader__nav" id="reader-next" aria-label="Next page">›</button>
+    </div>
+
+    <p class="reader__indicator" id="reader-indicator">Cover</p>
+    <p class="reader__hint">Use the arrows, swipe, or the ← → keys to turn pages</p>
+
+    <div class="jump">
+      <label class="jump__label" for="page-jump-input">Go to page</label>
+      <input type="number" id="page-jump-input" class="jump__input" min="1" max="121" value="1" />
+      <button class="jump__btn" id="page-jump-btn" type="button">Go</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const TOTAL_PAGES = 121;
+  const mobileSinglePage = window.matchMedia('(max-width: 600px)').matches;
+  let TOTAL_VIEWS = mobileSinglePage ? (TOTAL_PAGES - 1) : 60; // mobile: one page per view
+  const FLIP_MS = 700;
+
+  let view = 0;
+  let animating = false;
+
+  const spreadEl = document.getElementById('spread');
+  const slotLeftImg = document.getElementById('slot-left-img');
+  const slotRightImg = document.getElementById('slot-right-img');
+  const leafRight = document.getElementById('leaf-right');
+  const leafLeft = document.getElementById('leaf-left');
+  const leafRightFront = document.getElementById('leaf-right-front');
+  const leafRightBack = document.getElementById('leaf-right-back');
+  const leafLeftFront = document.getElementById('leaf-left-front');
+  const leafLeftBack = document.getElementById('leaf-left-back');
+  const prevBtn = document.getElementById('reader-prev');
+  const nextBtn = document.getElementById('reader-next');
+  const indicator = document.getElementById('reader-indicator');
+  const jumpInput = document.getElementById('page-jump-input');
+  const jumpBtn = document.getElementById('page-jump-btn');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function pageSrc(n) { return './guide-pages/page-' + String(n).padStart(3, '0') + '.jpg'; }
+
+  function pagesForView(v) {
+    if (mobileSinglePage) {
+      const page = Math.min(Math.max(v + 1, 1), TOTAL_PAGES);
+      return { left: null, right: page };
+    }
+    if (v === 0) return { left: null, right: 1 };
+    return { left: 2 * v, right: 2 * v + 1 };
+  }
+
+  function setImg(imgEl, pageNum) {
+    if (pageNum === null) { imgEl.removeAttribute('src'); imgEl.alt = ''; return; }
+    imgEl.src = pageSrc(pageNum);
+    imgEl.alt = "First Time Buyer's Bible — page " + pageNum;
+  }
+
+  function prefetch(v) {
+    if (v < 0 || v > TOTAL_VIEWS) return;
+    const p = pagesForView(v);
+    if (p.left) new Image().src = pageSrc(p.left);
+    if (p.right) new Image().src = pageSrc(p.right);
+  }
+
+  function updateChrome() {
+    const p = pagesForView(view);
+    prevBtn.disabled = animating || view === 0;
+    nextBtn.disabled = animating || view === TOTAL_VIEWS;
+    indicator.textContent = mobileSinglePage ? `Page ${p.right} of ${TOTAL_PAGES}` : (view === 0 ? 'Cover' : `Pages ${p.left}-${p.right} of ${TOTAL_PAGES}`);
+    jumpInput.value = mobileSinglePage ? (p.right || 1) : (p.left || 1);
+  }
+
+  function renderInitial() {
+    const p = pagesForView(view);
+    setImg(slotLeftImg, p.left);
+    setImg(slotRightImg, p.right);
+    updateChrome();
+    prefetch(view + 1);
+    prefetch(view - 1);
+  }
+
+  function animateLeaf(leaf, toDeg, onDone) {
+    leaf.style.display = 'block';
+    leaf.style.transition = 'none';
+    leaf.style.transform = 'rotateY(0deg)';
+    leaf.classList.add('is-animating');
+    void leaf.offsetWidth; // force reflow so the reset above takes effect before animating
+    if (reduceMotion) {
+      leaf.style.transform = `rotateY(${toDeg}deg)`;
+      onDone();
+      return;
+    }
+    leaf.style.transition = `transform ${FLIP_MS}ms cubic-bezier(.4,.1,.2,1)`;
+    requestAnimationFrame(() => { leaf.style.transform = `rotateY(${toDeg}deg)`; });
+    setTimeout(onDone, FLIP_MS + 20);
+  }
+
+  function goTo(newView) {
+    if (animating || newView < 0 || newView > TOTAL_VIEWS || newView === view) return;
+    const forward = newView > view;
+    const cur = pagesForView(view);
+    const nxt = pagesForView(newView);
+    animating = true;
+    updateChrome();
+
+    if (forward) {
+      if (mobileSinglePage) {
+        setImg(slotRightImg, cur.right);
+        setImg(leafRightFront, cur.right);
+        setImg(leafRightBack, nxt.right);
+      } else {
+        // The new right page is already the top of the "remaining stack" —
+        // safe to set now since the leaf (at rotation 0) fully covers it.
+        setImg(slotRightImg, nxt.right);
+        setImg(leafRightFront, cur.right);
+        setImg(leafRightBack, nxt.left);
+      }
+      animateLeaf(leafRight, -180, () => {
+        if (mobileSinglePage) {
+          setImg(slotRightImg, nxt.right);
+        } else {
+          setImg(slotLeftImg, nxt.left);
+        }
+        leafRight.classList.remove('is-animating');
+        leafRight.style.display = 'none';
+        view = newView;
+        animating = false;
+        updateChrome();
+        prefetch(view + 1);
+        prefetch(view - 1);
+      });
+    } else {
+      if (mobileSinglePage) {
+        setImg(slotRightImg, cur.right);
+        setImg(leafLeftFront, cur.right);
+        setImg(leafLeftBack, nxt.right);
+      } else {
+        setImg(slotLeftImg, nxt.left);
+        setImg(leafLeftFront, cur.left);
+        setImg(leafLeftBack, nxt.right);
+      }
+      animateLeaf(leafLeft, 180, () => {
+        setImg(slotRightImg, nxt.right);
+        leafLeft.classList.remove('is-animating');
+        leafLeft.style.display = 'none';
+        view = newView;
+        animating = false;
+        updateChrome();
+        prefetch(view + 1);
+        prefetch(view - 1);
+      });
+    }
+  }
+
+  prevBtn.addEventListener('click', () => goTo(view - 1));
+  nextBtn.addEventListener('click', () => goTo(view + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') goTo(view + 1);
+    if (e.key === 'ArrowLeft') goTo(view - 1);
+  });
+
+  function jumpToInput() {
+    const n = parseInt(jumpInput.value, 10);
+    if (isNaN(n)) return;
+    const clamped = Math.min(Math.max(n, 1), TOTAL_PAGES);
+    const targetView = mobileSinglePage ? (clamped - 1) : (clamped === 1 ? 0 : Math.floor(clamped / 2));
+    goTo(targetView);
+  }
+  jumpBtn.addEventListener('click', jumpToInput);
+  jumpInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') jumpToInput(); });
+
+  // Tap or drag/swipe to flip
+  let dragStartX = null;
+  spreadEl.addEventListener('pointerdown', (e) => {
+    if (e.target.closest('button, a')) { dragStartX = null; return; }
+    dragStartX = e.clientX;
+  });
+  spreadEl.addEventListener('pointerup', (e) => {
+    if (dragStartX === null) return;
+    const delta = e.clientX - dragStartX;
+    const startX = dragStartX;
+    dragStartX = null;
+
+    if (Math.abs(delta) >= 40) {
+      if (delta < 0) goTo(view + 1); else goTo(view - 1);
+      return;
+    }
+    const rect = spreadEl.getBoundingClientRect();
+    const tapX = startX - rect.left;
+    if (tapX > rect.width / 2) goTo(view + 1); else goTo(view - 1);
+  });
+  spreadEl.addEventListener('pointercancel', () => { dragStartX = null; });
+
+  renderInitial();
+</script>
+
+</body>
+</html>
