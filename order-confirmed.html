@@ -174,14 +174,16 @@
     /* ── DOWNLOAD CTA ── */
     /* ── CURRENT ISSUE ── */
     .current-issue { padding: 3.5rem 0; background: var(--white); border-bottom: 1px solid var(--grey-border); }
-    .current-issue__inner { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 2.5rem; max-width: 760px; margin: 0 auto; }
-    .current-issue__cover { width: 160px; height: auto; box-shadow: 0 18px 46px rgba(0,0,0,0.18); }
+    .current-issue__head { text-align: center; max-width: 620px; margin: 0 auto 2.25rem; }
     .current-issue__eyebrow { font-size: 0.58rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.7rem; }
     .current-issue__title { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.65rem; }
-    .current-issue__body { font-size: 0.85rem; color: var(--grey); line-height: 1.7; margin-bottom: 1.4rem; }
-    @media (max-width: 640px) {
-      .current-issue__inner { grid-template-columns: 1fr; gap: 1.6rem; text-align: center; justify-items: center; }
-      .current-issue__cover { width: 130px; }
+    .current-issue__body { font-size: 0.85rem; color: var(--grey); line-height: 1.7; }
+    /* Heyzine renders the book with WebGL, so it needs a sized box rather than intrinsic height. */
+    .flip-embed { position: relative; width: 100%; aspect-ratio: 16 / 10; background: var(--grey-bg); border: 1px solid var(--grey-border); }
+    .flip-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+    .current-issue__note { text-align: center; font-size: 0.72rem; color: var(--grey-mid); margin-top: 1rem; }
+    @media (max-width: 760px) {
+      .flip-embed { aspect-ratio: 3 / 4; }
     }
 
     .download-cta { padding: 3.5rem 0 5rem; background: var(--white); text-align: center; border-top: 1px solid var(--grey-border); }
@@ -253,15 +255,20 @@
 
 <section class="current-issue" aria-labelledby="current-issue-h2">
   <div class="wrap">
-    <div class="current-issue__inner">
-      <img class="current-issue__cover" src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026" width="1131" height="1600" />
-      <div>
-        <p class="current-issue__eyebrow">Your Current Issue</p>
-        <h2 class="current-issue__title" id="current-issue-h2">Issue 2 &middot; September/October 2026</h2>
-        <p class="current-issue__body">All 120 pages of the new edition, ready to read in full. Issue 3 lands in your subscription as soon as it publishes.</p>
-        <a href="https://heyzine.com/flip-book/28da33bdea.html" target="_blank" rel="noopener noreferrer" class="btn-dark">Read Issue 2 Now</a>
-      </div>
+    <div class="current-issue__head">
+      <p class="current-issue__eyebrow">Your Current Issue</p>
+      <h2 class="current-issue__title" id="current-issue-h2">Issue 2 &middot; September/October 2026</h2>
+      <p class="current-issue__body">All 120 pages of the new edition, ready to read below. Issue 3 lands in your subscription as soon as it publishes.</p>
     </div>
+    <div class="flip-embed">
+      <iframe
+        src="https://heyzine.com/flip-book/28da33bdea.html"
+        title="First Time Buyer's Bible — Issue 2, September/October 2026"
+        allow="fullscreen"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+    <p class="current-issue__note">Drag a corner or use the arrows to turn the page &middot; the expand icon opens it full screen</p>
   </div>
 </section>
 

@@ -286,9 +286,9 @@
     }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
     .hero__visual { display: flex; justify-content: center; align-items: center; }
-    .tilt-wrap { perspective: 1000px; cursor: default; }
+    .tilt-wrap { perspective: 1000px; cursor: default; width: 100%; max-width: 520px; }
     .tilt-cover {
-      width: 100%; max-width: 430px;
+      width: 100%;
       transition: transform 0.6s var(--ease);
     }
     .hero-covers { position: relative; display: flex; align-items: center; justify-content: center; }
@@ -867,7 +867,7 @@
       .hero__sub { max-width: 100%; }
       .hero__actions { justify-content: center; }
       .hero__visual { order: -1; }
-      .tilt-cover { max-width: 320px; margin: 0 auto; }
+      .tilt-wrap { max-width: 340px; margin: 0 auto; }
       .articles__grid { grid-template-columns: 1fr; }
       .art-featured { border-right: none; border-bottom: 1px solid var(--grey-border); }
       .mag-feature__inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -1066,30 +1066,30 @@
 <!-- ═══ TICKER ═══ -->
 <div class="ticker" aria-hidden="true" role="marquee" aria-label="Latest Irish property news">
   <div class="ticker__track" id="ticker-track">
-    <span class="ticker__item"><strong>Record mortgage approvals in May 2026</strong> — First-time buyers drive historic surge in applications</span>
+    <span class="ticker__item"><strong>CSO: Property prices up 5.5% year-on-year</strong> — Slowest annual growth since January 2024</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>Bank of Ireland forecasts 4% price growth</strong> — Market entering more sedate phase after years of double-digit rises</span>
+    <span class="ticker__item"><strong>Mortgage approvals hit a 15-year high in July</strong> — 6,253 approvals worth more than €2 billion</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>Central Bank eases rules for those trading down</strong> — New mortgage lending exemptions take effect from April 2026</span>
+    <span class="ticker__item"><strong>First-time buyers borrowed €4.1bn in H1 2026</strong> — Strongest half-year since the BPFI series began in 2003</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>€3 billion in drawdowns in Q1 2026</strong> — BPFI reports strongest first quarter on record</span>
+    <span class="ticker__item"><strong>Median house price reaches €399,999</strong> — CSO Residential Property Price Index, July 2026</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>Is Ireland's housing market finally turning?</strong> — Irish Times analysis of supply, demand and affordability</span>
+    <span class="ticker__item"><strong>Average new mortgage rate at 3.48%</strong> — Fixed rates average 3.44%, Central Bank data for July</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>CSO: Property prices up 6.8% year-on-year</strong> — February 2026 Residential Property Price Index published</span>
+    <span class="ticker__item"><strong>House price growth falls to a two-year low</strong> — Irish Times reports a cooling market as Dublin lags</span>
     <span class="ticker__dot"></span>
     <!-- Duplicate for seamless loop -->
-    <span class="ticker__item"><strong>Record mortgage approvals in May 2026</strong> — First-time buyers drive historic surge in applications</span>
+    <span class="ticker__item"><strong>CSO: Property prices up 5.5% year-on-year</strong> — Slowest annual growth since January 2024</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>Bank of Ireland forecasts 4% price growth</strong> — Market entering more sedate phase after years of double-digit rises</span>
+    <span class="ticker__item"><strong>Mortgage approvals hit a 15-year high in July</strong> — 6,253 approvals worth more than €2 billion</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>Central Bank eases rules for those trading down</strong> — New mortgage lending exemptions take effect from April 2026</span>
+    <span class="ticker__item"><strong>First-time buyers borrowed €4.1bn in H1 2026</strong> — Strongest half-year since the BPFI series began in 2003</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>€3 billion in drawdowns in Q1 2026</strong> — BPFI reports strongest first quarter on record</span>
+    <span class="ticker__item"><strong>Median house price reaches €399,999</strong> — CSO Residential Property Price Index, July 2026</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>Is Ireland's housing market finally turning?</strong> — Irish Times analysis of supply, demand and affordability</span>
+    <span class="ticker__item"><strong>Average new mortgage rate at 3.48%</strong> — Fixed rates average 3.44%, Central Bank data for July</span>
     <span class="ticker__dot"></span>
-    <span class="ticker__item"><strong>CSO: Property prices up 6.8% year-on-year</strong> — February 2026 Residential Property Price Index published</span>
+    <span class="ticker__item"><strong>House price growth falls to a two-year low</strong> — Irish Times reports a cooling market as Dublin lags</span>
     <span class="ticker__dot"></span>
   </div>
 </div>
@@ -1108,77 +1108,77 @@
 
     <div class="articles__grid reveal">
       <!-- Featured -->
-      <a href="https://www.irishtimes.com/business/2026/06/26/mortgage-approvals-reach-record-in-may-driven-by-first-time-buyers/" target="_blank" rel="noopener noreferrer" class="art-featured" aria-label="Read: Mortgage approvals reach record in May">
+      <a href="https://www.rte.ie/news/business/2026/0916/1591758-cso-residential-property-figures/" target="_blank" rel="noopener noreferrer" class="art-featured" aria-label="Read: Annual house price growth slows to 5.5% in July">
         <div class="art-num">01</div>
         <div class="art-tags">
-          <span class="art-cat">Mortgage Market</span>
-          <span class="art-badge">Irish Times</span>
+          <span class="art-cat">House Prices</span>
+          <span class="art-badge">RTÉ News</span>
         </div>
-        <h3 class="art-headline">Mortgage approvals reach record in May, driven by first-time buyers</h3>
-        <p class="art-excerpt">A record number of mortgage approvals were logged in May 2026, with first-time buyers accounting for the majority of applications — driven by improving affordability and robust demand for new supply.</p>
+        <h3 class="art-headline">Annual house price growth slows to 5.5% in July</h3>
+        <p class="art-excerpt">The CSO's Residential Property Price Index rose 5.5% in the year to July — the slowest annual increase since January 2024. Households paid a median price of €399,999, with Dublin up 4.4% and prices outside Dublin up 6.4%.</p>
         <div class="art-meta-row">
-          <span>Irish Times</span>
+          <span>RTÉ News</span>
           <span class="art-meta-sep" aria-hidden="true"></span>
-          <span>26 June 2026</span>
+          <span>16 September 2026</span>
         </div>
         <span class="art-read">Read Article <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h8M6 2l4 4-4 4"/></svg></span>
       </a>
 
       <!-- Article list -->
       <div class="articles__list">
-        <a href="https://www.irishtimes.com/business/economy/2026/05/27/house-prices-to-increase-by-more-sedate-4-in-2026-says-bank-of-ireland/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: House prices to increase by 4% in 2026">
+        <a href="https://www.rte.ie/news/ireland/2026/0828/1589484-mortgage-approvals/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Mortgage approvals reached monthly 15-year high in July">
           <div class="art-item__top">
             <div style="display:flex;align-items:center;gap:0.6rem;">
               <span class="art-item__num">02</span>
-              <span class="art-badge">Irish Times</span>
+              <span class="art-badge">RTÉ News</span>
             </div>
-            <span class="art-item__meta">27 May 2026</span>
+            <span class="art-item__meta">28 August 2026</span>
           </div>
-          <h3 class="art-item__headline">House prices to increase by 'more sedate' 4% in 2026, says Bank of Ireland</h3>
+          <h3 class="art-item__headline">Mortgage approvals reached monthly 15-year high in July</h3>
         </a>
 
-        <a href="https://www.irishtimes.com/business/economy/2026/05/14/is-irelands-housing-market-finally-turning/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Is Ireland's housing market finally turning?">
+        <a href="https://www.thejournal.ie/your-stories-first-times-buyers-housing-7159397-Sep2026/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Readers on the reality of buying a home in 2026">
           <div class="art-item__top">
             <div style="display:flex;align-items:center;gap:0.6rem;">
               <span class="art-item__num">03</span>
-              <span class="art-badge">Irish Times</span>
+              <span class="art-badge">The Journal</span>
             </div>
-            <span class="art-item__meta">14 May 2026</span>
+            <span class="art-item__meta">13 September 2026</span>
           </div>
-          <h3 class="art-item__headline">Is Ireland's housing market finally turning?</h3>
+          <h3 class="art-item__headline">'Life is on hold just to chase an ever-moving market': Readers on the reality of buying a home in 2026</h3>
         </a>
 
-        <a href="https://www.rte.ie/news/business/2026/0408/1567169-central-bank-changes-rules-to-help-those-trading-down/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Central Bank changes rules to help those trading down">
+        <a href="https://www.irishtimes.com/business/2026/08/19/property-price-growth-hits-two-year-low-as-market-cools/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Irish house price growth falls to two-year low as market cools">
           <div class="art-item__top">
             <div style="display:flex;align-items:center;gap:0.6rem;">
               <span class="art-item__num">04</span>
-              <span class="art-badge">RTÉ News</span>
+              <span class="art-badge">Irish Times</span>
             </div>
-            <span class="art-item__meta">8 April 2026</span>
+            <span class="art-item__meta">19 August 2026</span>
           </div>
-          <h3 class="art-item__headline">Central Bank changes rules to help those trading down</h3>
+          <h3 class="art-item__headline">Irish house price growth falls to two-year low as market cools</h3>
         </a>
 
-        <a href="https://bpfi.ie/publications/mortgage-drawdowns-q1-2026-bpfi/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Mortgage drawdowns exceeded €3 billion in Q1 2026">
+        <a href="https://www.rte.ie/news/business/2026/0728/1585408-bpfi-mortgage-drawdowns-report/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: First-time buyer lending hits highest half-year on record">
           <div class="art-item__top">
             <div style="display:flex;align-items:center;gap:0.6rem;">
               <span class="art-item__num">05</span>
-              <span class="art-badge">BPFI</span>
+              <span class="art-badge">RTÉ News</span>
             </div>
-            <span class="art-item__meta">Q1 2026</span>
+            <span class="art-item__meta">28 July 2026</span>
           </div>
-          <h3 class="art-item__headline">Mortgage drawdowns exceeded €3 billion in Q1 2026</h3>
+          <h3 class="art-item__headline">First-time buyer lending hits €4.1bn — the highest half-year since records began</h3>
         </a>
 
-        <a href="https://www.cso.ie/en/releasesandpublications/ep/p-rppi/residentialpropertypriceindexfebruary2026/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Residential Property Price Index February 2026">
+        <a href="https://www.cso.ie/en/releasesandpublications/ep/p-rppi/residentialpropertypriceindexjuly2026/" target="_blank" rel="noopener noreferrer" class="art-item" aria-label="Read: Residential Property Price Index July 2026">
           <div class="art-item__top">
             <div style="display:flex;align-items:center;gap:0.6rem;">
               <span class="art-item__num">06</span>
               <span class="art-badge">CSO</span>
             </div>
-            <span class="art-item__meta">February 2026</span>
+            <span class="art-item__meta">July 2026</span>
           </div>
-          <h3 class="art-item__headline">Residential Property Price Index — February 2026</h3>
+          <h3 class="art-item__headline">Residential Property Price Index — July 2026</h3>
         </a>
       </div>
     </div>
@@ -1194,28 +1194,28 @@
         <p class="sec-eyebrow" style="color:rgba(255,255,255,0.3)">Live Market Data</p>
         <h2 class="sec-title sec-title--white" id="insights-h2">Irish Property<br/>Market — 2026</h2>
       </div>
-      <p class="insights__sub">Sources: CSO RPPI Feb 2026<br/>BPFI Drawdowns Q1 2026</p>
+      <p class="insights__sub">Sources: CSO RPPI July 2026<br/>BPFI &amp; Central Bank, July 2026</p>
     </div>
     <div class="insights__grid">
       <div class="insight-stat reveal">
-        <span class="insight-num" data-counter data-target="385" data-prefix="€" data-suffix="k">€0k</span>
+        <span class="insight-num" data-counter data-target="400" data-prefix="€" data-suffix="k">€0k</span>
         <p class="insight-label">Median House Price</p>
-        <p class="insight-source">CSO RPPI, Feb 2026</p>
+        <p class="insight-source">CSO RPPI, July 2026</p>
       </div>
       <div class="insight-stat reveal reveal-d1">
-        <span class="insight-num" data-counter data-target="6.8" data-prefix="+" data-suffix="%" data-float="true">+0%</span>
+        <span class="insight-num" data-counter data-target="5.5" data-prefix="+" data-suffix="%" data-float="true">+0%</span>
         <p class="insight-label">Annual Price Growth</p>
-        <p class="insight-source">CSO RPPI, Feb 2026</p>
+        <p class="insight-source">CSO RPPI, July 2026</p>
       </div>
       <div class="insight-stat reveal reveal-d2">
-        <span class="insight-num" data-counter data-target="3.53" data-prefix="" data-suffix="%" data-float="true">0%</span>
+        <span class="insight-num" data-counter data-target="3.44" data-prefix="" data-suffix="%" data-float="true">0%</span>
         <p class="insight-label">Average Fixed Rate</p>
-        <p class="insight-source">BPFI Rate Survey, Q1 2026</p>
+        <p class="insight-source">Central Bank, July 2026</p>
       </div>
       <div class="insight-stat reveal reveal-d3">
-        <span class="insight-num" data-counter data-target="5700" data-prefix="" data-suffix="">0</span>
+        <span class="insight-num" data-counter data-target="6253" data-prefix="" data-suffix="">0</span>
         <p class="insight-label">Monthly Approvals</p>
-        <p class="insight-source">BPFI, May 2026</p>
+        <p class="insight-source">BPFI, July 2026</p>
       </div>
     </div>
   </div>
@@ -1871,7 +1871,7 @@
   <div class="wrap">
     <div class="advert-cta__inner reveal">
       <p class="advert-cta__eyebrow">Advertise with FTBB</p>
-      <h2 class="advert-cta__title" id="advert-h2">Reach 12,000+ Irish First-Time Buyers Every Month</h2>
+      <h2 class="advert-cta__title" id="advert-h2">Reach Ireland's First-Time Buyers</h2>
       <p class="advert-cta__desc">FTBB is Ireland's fastest-growing digital resource for first-time buyers. Our audience is actively searching for mortgages, legal services, home furnishing, and everything in between — putting your brand in front of the most motivated property buyers in the country.</p>
       <div class="advert-cta__actions">
         <a href="/media-kit" class="btn-white-solid">View Media Kit</a>
@@ -1888,7 +1888,7 @@
     <div class="newsletter__inner reveal">
       <p class="newsletter__eyebrow">FTBB Monthly Briefing</p>
       <h2 class="newsletter__title" id="nl-h2">Stay Ahead of the Irish Property Market</h2>
-      <p class="newsletter__desc">Market updates, new guides, grant scheme changes and mortgage rate moves — delivered to over 12,000 Irish first-time buyers every month. Free.</p>
+      <p class="newsletter__desc">Market updates, new guides, grant scheme changes and mortgage rate moves — delivered to Irish first-time buyers every month. Free.</p>
       <a href="mailto:info@ftbb.ie?subject=Newsletter%20Signup" class="newsletter__submit" style="display:inline-block;text-decoration:none;margin-bottom:0.85rem;">Email Us to Subscribe</a>
       <p class="newsletter__note">No spam. Unsubscribe at any time. Your data is never shared.</p>
     </div>
@@ -2164,6 +2164,8 @@
     const prefix = el.dataset.prefix || '';
     const suffix = el.dataset.suffix || '';
     const isFloat = el.dataset.float === 'true';
+    // Match the target's own precision so 5.5 renders as "5.5%", not "5.50%".
+    const decimals = isFloat ? (el.dataset.target.split('.')[1] || '').length : 0;
     const duration = 1800;
     const start = performance.now();
     function tick(now) {
@@ -2173,7 +2175,7 @@
       const val = target * ease;
       let formatted;
       if (isFloat) {
-        formatted = val.toFixed(2);
+        formatted = val.toFixed(decimals);
       } else {
         formatted = Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
       }
