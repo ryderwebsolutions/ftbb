@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <circle cx="256" cy="256" r="250" fill="#FA6016" stroke="#033288" stroke-width="12"/>
+  <circle cx="256" cy="256" r="230" fill="#FFFFFF"/>
+  <text x="256" y="220" text-anchor="middle" font-family="'Manrope', system-ui, sans-serif" font-weight="800" font-size="95" fill="#033288">UrbanEdge</text>
+  <text x="256" y="310" text-anchor="middle" font-family="'Manrope', system-ui, sans-serif" font-weight="800" font-size="75" fill="#FA6016">REMOVALS</text>
+  <path d="M70 380 Q256 340 442 380 Q256 430 70 380Z" fill="#033288"/>
+  <path d="M90 365 Q256 330 422 365 Q256 395 90 365Z" fill="#FA6016"/>
+</svg>
