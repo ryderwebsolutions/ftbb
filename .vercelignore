@@ -1,0 +1,7 @@
+.git
+node_modules
+.env*.local
+.claude/settings.local.json
+Cover_Final_Sept_print.pdf
+FTBB_Magazine_Print_Final.pdf
+FTBB_Magazine_Sept_Print.pdf
