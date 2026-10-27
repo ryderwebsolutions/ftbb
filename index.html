@@ -226,7 +226,7 @@
     .hero {
       min-height: 100vh; background: #1e1e1e;
       display: flex; align-items: center;
-      padding: 9rem 0 6rem;
+      padding: 7rem 0 4rem;
       position: relative; overflow: hidden;
     }
     .hero::before {
@@ -243,8 +243,8 @@
     }
     .hero__inner {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      align-items: center; gap: 5rem;
+      grid-template-columns: 1fr 1fr;
+      align-items: center; gap: clamp(2rem, 4vw, 4rem);
       position: relative; z-index: 1;
     }
     .hero__eyebrow {
@@ -286,28 +286,39 @@
     }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.7); color: var(--white); transform: translateY(-1px); }
     .hero__visual { display: flex; justify-content: center; align-items: center; }
-    .tilt-wrap { perspective: 1000px; cursor: default; width: 100%; max-width: 520px; }
+    .tilt-wrap { perspective: 1000px; cursor: default; width: 100%; max-width: 600px; }
     .tilt-cover {
       width: 100%;
       transition: transform 0.6s var(--ease);
     }
-    .hero-covers { position: relative; width: 100%; aspect-ratio: 990 / 1400; }
-    .hero-covers img { position: absolute; display: block; height: auto; }
+    .hero-covers { position: relative; width: 100%; aspect-ratio: 1 / 1.14; }
+    .hero-covers a { position: absolute; display: block; transition: translate 0.35s var(--ease); }
+    .hero-covers img { display: block; width: 100%; height: auto; }
+    .hero-cover__motion { display: block; }
+    .hero-covers a:hover, .hero-covers a:focus-visible { translate: 0 -10px; }
     .hero-covers__back {
-      top: 7%; left: 3%; width: 56%; z-index: 1;
+      top: 7%; left: 0; width: 70%; z-index: 1;
       transform: rotate(-11deg);
       box-shadow: 10px 18px 46px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07);
     }
     .hero-covers__middle {
-      top: 3%; left: 19%; width: 58%; z-index: 2;
+      top: 3%; left: 10%; width: 75%; z-index: 2;
       transform: rotate(6deg);
       box-shadow: 14px 22px 56px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.07);
     }
-    .hero-covers__lead { position: absolute; top: 0; left: 35%; z-index: 3; display: block; width: 62%; }
+    .hero-covers__lead { top: 0; left: 20%; z-index: 3; width: 80%; }
     .hero-covers__front {
-      width: 100%;
       box-shadow: 20px 30px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07);
-      transition: box-shadow 0.6s ease;
+      transition: transform 0.35s var(--ease), box-shadow 0.6s ease;
+    }
+    .hero-covers__back .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 0.15s both; }
+    .hero-covers__middle .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 0.65s both; }
+    .hero-covers__lead .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 1.15s both; }
+    @keyframes hero-cover-rise { from { transform: translateY(14px); } to { transform: translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-covers .hero-cover__motion { animation: none; }
+      .hero-covers a { transition: none; }
+      .hero-covers a:hover, .hero-covers a:focus-visible { translate: none; }
     }
     .hero__scroll {
       position: absolute; bottom: 2.5rem; left: 50%;
@@ -868,12 +879,12 @@
       .footer__brand { grid-column: span 2; }
     }
     @media (max-width: 900px) {
-      .hero__inner { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+      .hero__inner { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
       .hero__eyebrow { justify-content: center; }
       .hero__sub { max-width: 100%; }
       .hero__actions { justify-content: center; }
       .hero__visual { order: -1; }
-      .tilt-wrap { max-width: 340px; margin: 0 auto; }
+      .tilt-wrap { max-width: 420px; margin: 0 auto; }
       .articles__grid { grid-template-columns: 1fr; }
       .art-featured { border-right: none; border-bottom: 1px solid var(--grey-border); }
       .mag-feature__inner { grid-template-columns: 1fr; gap: 3rem; }
@@ -897,7 +908,9 @@
     }
     @media (max-width: 600px) {
       .wrap { padding: 0 1.25rem; }
-      .hero { min-height: auto; padding-top: 7rem; }
+      .hero { min-height: auto; padding: 7rem 0 3rem; }
+      .hero__inner { gap: 1rem; }
+      .tilt-wrap { max-width: 270px; }
       .hero__actions { flex-direction: column; align-items: center; }
       .hero__actions a { width: 100%; text-align: center; }
       .insights__grid { grid-template-columns: 1fr 1fr; }
@@ -1051,11 +1064,17 @@
         <div class="tilt-wrap">
           <div class="tilt-cover" id="tilt-cover">
             <div class="hero-covers">
-              <img class="hero-covers__back" src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Issue 1, the first edition" width="1131" height="1600" />
-              <img class="hero-covers__middle" src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026" width="1131" height="1600" />
-              <span class="hero-covers__lead">
-                <img class="hero-covers__front" src="./logos/latest-cover.jpg" alt="First Time Buyer's Bible - Issue 3, the third edition" width="990" height="1400" fetchpriority="high" />
-              </span>
+              <a class="hero-covers__back" href="/buy" aria-label="View Issue 1, the first edition">
+                <span class="hero-cover__motion"><img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Issue 1, the first edition" width="1131" height="1600" /></span>
+              </a>
+              <a class="hero-covers__middle" href="/buy" aria-label="View Issue 2, the September/October 2026 edition">
+                <span class="hero-cover__motion"><img src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026" width="1131" height="1600" /></span>
+              </a>
+              <a class="hero-covers__lead" href="/buy" aria-label="View Issue 3, the third edition">
+                <span class="hero-cover__motion">
+                  <img class="hero-covers__front" src="./logos/latest-cover.jpg" alt="First Time Buyer's Bible - Issue 3, the third edition" width="990" height="1400" fetchpriority="high" />
+                </span>
+              </a>
             </div>
           </div>
         </div>

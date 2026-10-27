@@ -338,7 +338,7 @@
   <div class="wrap">
     <p class="page-header__eyebrow">Issue 3 - Third Edition Out Now</p>
     <h1 class="page-header__title">Subscribe to the FTBB Magazine</h1>
-    <p class="page-header__sub">Read the contents of either issue free, then subscribe for all six — €32 for the year, just €5.33 an issue.</p>
+    <p class="page-header__sub">Explore all three editions, then subscribe for all six — €32 for the year, just €5.33 an issue.</p>
   </div>
 </section>
 
@@ -348,11 +348,18 @@
   <div class="wrap">
 
     <div class="issue-tabs" role="tablist" aria-label="Choose an issue">
-      <button class="issue-tab" type="button" role="tab" id="tab-sept" data-issue="sept" aria-selected="true" aria-controls="book">
+      <button class="issue-tab" type="button" role="tab" id="tab-third" data-issue="third" aria-selected="true" aria-controls="book">
         <img class="issue-tab__thumb" src="./logos/latest-cover.jpg" alt="" width="36" height="51" />
         <span>
           <span class="issue-tab__name">Issue 3 &middot; Third Edition</span>
           <span class="issue-tab__sub">Out Now</span>
+        </span>
+      </button>
+      <button class="issue-tab" type="button" role="tab" id="tab-sept" data-issue="sept" aria-selected="false" aria-controls="book">
+        <img class="issue-tab__thumb" src="./logos/sept-cover.jpg" alt="" width="36" height="51" />
+        <span>
+          <span class="issue-tab__name">Issue 2 &middot; September/October 2026</span>
+          <span class="issue-tab__sub">Back Issue</span>
         </span>
       </button>
       <button class="issue-tab" type="button" role="tab" id="tab-first" data-issue="first" aria-selected="false" aria-controls="book">
@@ -370,32 +377,55 @@
       <div class="book-frame">
         <div class="book" id="book">
 
-          <!-- ── ISSUE 2 · SEPTEMBER/OCTOBER 2026 ── -->
-          <div class="book__page is-active" data-issue="sept" data-page="0">
+          <!-- ── ISSUE 3 · THIRD EDITION ── -->
+          <div class="book__page is-active" data-issue="third" data-page="0">
             <img src="./logos/latest-cover.jpg" alt="First Time Buyer's Bible - Issue 3, the third edition cover" width="990" height="1400" />
           </div>
 
-          <div class="book__page" data-issue="sept" data-page="1">
-            <img src="./logos/sept-p01.jpg" alt="First Time Buyer's Bible Latest Edition — page 1" width="1131" height="1600" loading="lazy" />
+          <div class="book__page book__page--paywall" data-issue="third" data-page="1">
+            <div class="paywall-teaser">
+              <div class="placeholder-lines">
+                <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="paywall-scrim"></div>
+            <div class="paywall-card">
+              <span class="paywall__badge">Issue 3 · Third Edition</span>
+              <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+              <h2 class="paywall__title">Read the Third Edition in Full</h2>
+              <p class="paywall__body">Issue 3, the third edition, runs to 134 pages. Subscribe to read it in full, plus the next three issues as they publish.</p>
+              <p class="paywall__price">€32<span>6 Issues · Just €5.33 each</span></p>
+              <a class="btn-dark" href="https://buy.stripe.com/aFaeVc1DYgWNgaV63P0x201">Subscribe Now</a>
+              <p class="unlock-note visible">Secure checkout via Stripe · Six issues of the FTBB magazine</p>
+            </div>
           </div>
 
-          <div class="book__page" data-issue="sept" data-page="2">
-            <img src="./logos/sept-p02.jpg" alt="First Time Buyer's Bible Latest Edition — contents, page 2" width="1131" height="1600" loading="lazy" />
+          <!-- ── ISSUE 2 · SEPTEMBER/OCTOBER 2026 ── -->
+          <div class="book__page is-off" data-issue="sept" data-page="0">
+            <img src="./logos/sept-cover.jpg" alt="First Time Buyer's Bible — Issue 2, September/October 2026 cover" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page" data-issue="sept" data-page="3">
-            <img src="./logos/sept-p03.jpg" alt="First Time Buyer's Bible Latest Edition — contents, page 3" width="1131" height="1600" loading="lazy" />
+          <div class="book__page is-off" data-issue="sept" data-page="1">
+            <img src="./logos/sept-p01.jpg" alt="First Time Buyer's Bible Issue 2 — page 1" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page" data-issue="sept" data-page="4">
-            <img src="./logos/sept-p04.jpg" alt="First Time Buyer's Bible Latest Edition — contents, page 4" width="1131" height="1600" loading="lazy" />
+          <div class="book__page is-off" data-issue="sept" data-page="2">
+            <img src="./logos/sept-p02.jpg" alt="First Time Buyer's Bible Issue 2 — page 2" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page" data-issue="sept" data-page="5">
-            <img src="./logos/sept-p05.jpg" alt="First Time Buyer's Bible Latest Edition — contents, page 5" width="1131" height="1600" loading="lazy" />
+          <div class="book__page is-off" data-issue="sept" data-page="3">
+            <img src="./logos/sept-p03.jpg" alt="First Time Buyer's Bible Issue 2 — page 3" width="1131" height="1600" loading="lazy" />
           </div>
 
-          <div class="book__page book__page--paywall" data-issue="sept" data-page="6">
+          <div class="book__page is-off" data-issue="sept" data-page="4">
+            <img src="./logos/sept-p04.jpg" alt="First Time Buyer's Bible Issue 2 — page 4" width="1131" height="1600" loading="lazy" />
+          </div>
+
+          <div class="book__page is-off" data-issue="sept" data-page="5">
+            <img src="./logos/sept-p05.jpg" alt="First Time Buyer's Bible Issue 2 — page 5" width="1131" height="1600" loading="lazy" />
+          </div>
+
+          <div class="book__page book__page--paywall is-off" data-issue="sept" data-page="6">
             <div class="paywall-teaser">
               <div class="placeholder-lines">
                 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
@@ -405,8 +435,8 @@
             <div class="paywall-card">
               <span class="paywall__badge">Subscribe &amp; Save</span>
               <svg class="paywall__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-              <h2 class="paywall__title">That's the Contents. Now Read It All.</h2>
-              <p class="paywall__body">Issue 3, the third edition, runs to 134 pages. Subscribe and get it in full, plus the next three issues as they publish.</p>
+              <h2 class="paywall__title">That's the Contents. Now Read Issue 2 in Full.</h2>
+              <p class="paywall__body">Subscribe to unlock the full September/October 2026 edition, along with Issue 3 and the next three issues as they publish.</p>
               <p class="paywall__price">€32<span>6 Issues · Just €5.33 each</span></p>
               <a class="btn-dark" href="https://buy.stripe.com/aFaeVc1DYgWNgaV63P0x201">Subscribe Now</a>
               <p class="unlock-note visible">Secure checkout via Stripe · Six issues of the FTBB magazine</p>
@@ -573,7 +603,7 @@
   const bookEl = document.getElementById('book');
   const allPages = Array.from(document.querySelectorAll('.book__page'));
   const tabs = Array.from(document.querySelectorAll('.issue-tab'));
-  let issue = 'sept';
+  let issue = 'third';
   let pages = allPages.filter((p) => p.dataset.issue === issue);
   let current = 0;
   let flipTimer = null;
