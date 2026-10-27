@@ -292,28 +292,28 @@
       transition: transform 0.6s var(--ease);
     }
     .hero-covers { position: relative; width: 100%; aspect-ratio: 1 / 1.14; }
-    .hero-covers a { position: absolute; display: block; transition: translate 0.35s var(--ease); }
+    .hero-covers a {
+      position: absolute; display: block;
+      transition: top 0.8s var(--ease), left 0.8s var(--ease), width 0.8s var(--ease), transform 0.8s var(--ease), translate 0.35s var(--ease);
+    }
     .hero-covers img { display: block; width: 100%; height: auto; }
     .hero-cover__motion { display: block; }
     .hero-covers a:hover, .hero-covers a:focus-visible { translate: 0 -10px; }
     .hero-covers__back {
       top: 7%; left: 0; width: 70%; z-index: 1;
       transform: rotate(-11deg);
-      box-shadow: 10px 18px 46px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07);
     }
+    .hero-covers__back img { box-shadow: 10px 18px 46px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.07); }
     .hero-covers__middle {
       top: 3%; left: 10%; width: 75%; z-index: 2;
       transform: rotate(6deg);
-      box-shadow: 14px 22px 56px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.07);
     }
+    .hero-covers__middle img { box-shadow: 14px 22px 56px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.07); }
     .hero-covers__lead { top: 0; left: 20%; z-index: 3; width: 80%; }
-    .hero-covers__front {
-      box-shadow: 20px 30px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07);
-      transition: transform 0.35s var(--ease), box-shadow 0.6s ease;
-    }
-    .hero-covers__back .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 0.15s both; }
-    .hero-covers__middle .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 0.65s both; }
-    .hero-covers__lead .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 1.15s both; }
+    .hero-covers__lead img { box-shadow: 20px 30px 80px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.07); }
+    .hero-covers.is-entering .hero-covers__back .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 0.15s both; }
+    .hero-covers.is-entering .hero-covers__middle .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 0.65s both; }
+    .hero-covers.is-entering .hero-covers__lead .hero-cover__motion { animation: hero-cover-rise 0.75s var(--ease) 1.15s both; }
     @keyframes hero-cover-rise { from { transform: translateY(14px); } to { transform: translateY(0); } }
     @media (prefers-reduced-motion: reduce) {
       .hero-covers .hero-cover__motion { animation: none; }
@@ -1063,7 +1063,7 @@
       <div class="hero__visual">
         <div class="tilt-wrap">
           <div class="tilt-cover" id="tilt-cover">
-            <div class="hero-covers">
+            <div class="hero-covers is-entering">
               <a class="hero-covers__back" href="/buy" aria-label="View Issue 1, the first edition">
                 <span class="hero-cover__motion"><img src="./logos/ftbbcover.jpeg" alt="First Time Buyer's Bible — Issue 1, the first edition" width="1131" height="1600" /></span>
               </a>
@@ -2251,12 +2251,33 @@
     marquee.addEventListener('mouseleave', () => { if (isDown) endDrag(); });
   })();
 
+  // ── HERO COVER ROTATION ──
+  const heroCovers = document.querySelector('.hero-covers');
+  if (heroCovers) {
+    const coverLinks = Array.from(heroCovers.querySelectorAll(':scope > a'));
+    const nextPosition = { back: 'middle', middle: 'lead', lead: 'back' };
+    window.setTimeout(() => heroCovers.classList.remove('is-entering'), 2000);
+
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      window.setInterval(() => {
+        coverLinks.forEach(link => {
+          const currentPosition = ['back', 'middle', 'lead'].find(position =>
+            link.classList.contains(`hero-covers__${position}`)
+          );
+          if (!currentPosition) return;
+          link.classList.remove(`hero-covers__${currentPosition}`);
+          link.classList.add(`hero-covers__${nextPosition[currentPosition]}`);
+          link.querySelector('img').style.boxShadow = '';
+        });
+      }, 3000);
+    }
+  }
+
   // ── 3D TILT ──
   const tiltWrap = document.querySelector('.tilt-wrap');
   const tiltEl = document.getElementById('tilt-cover');
   if (tiltWrap && tiltEl) {
-    // Keep the interactive shadow on the front cover of the three-cover stack.
-    const tiltShadowEl = tiltEl.querySelector('.hero-covers__front') || tiltEl;
+    const getTiltShadowEl = () => tiltEl.querySelector('.hero-covers__lead img') || tiltEl;
     let isTouch = false;
     tiltWrap.addEventListener('touchstart', () => { isTouch = true; }, { passive: true });
     tiltWrap.addEventListener('mousemove', e => {
@@ -2266,14 +2287,17 @@
       const y = (e.clientY - r.top - r.height / 2) / (r.height / 2);
       tiltEl.style.transition = 'transform 0.08s ease';
       tiltEl.style.transform = `rotateY(${x * 14}deg) rotateX(${-y * 9}deg) scale(1.04)`;
+      const tiltShadowEl = getTiltShadowEl();
       tiltShadowEl.style.transition = 'box-shadow 0.08s ease';
       tiltShadowEl.style.boxShadow = `${-x * 20}px ${y * 15}px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.09)`;
     });
     tiltWrap.addEventListener('mouseleave', () => {
       tiltEl.style.transition = 'transform 0.7s cubic-bezier(0.22,1,0.36,1)';
       tiltEl.style.transform = '';
-      tiltShadowEl.style.transition = 'box-shadow 0.7s ease';
-      tiltShadowEl.style.boxShadow = '';
+      tiltEl.querySelectorAll('.hero-covers img').forEach(img => {
+        img.style.transition = 'box-shadow 0.7s ease';
+        img.style.boxShadow = '';
+      });
     });
   }
 
